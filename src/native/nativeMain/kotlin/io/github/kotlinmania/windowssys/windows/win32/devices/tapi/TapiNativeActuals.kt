@@ -8,6 +8,258 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_getTnefStreamCodepage
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAccept
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAddProvider
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAddProviderA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAddProviderW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAddToConference
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAgentSpecific
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAnswer
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineBlindTransfer
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineBlindTransferA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineBlindTransferW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineClose
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCompleteCall
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCompleteTransfer
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialog
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogEdit
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogEditA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogEditW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigProvider
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCreateAgentA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCreateAgentW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDeallocateCall
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDevSpecific
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDevSpecificFeature
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDial
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDialA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDialW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDrop
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineForward
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineForwardA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineForwardW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGatherDigits
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGatherDigitsA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGatherDigitsW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGenerateDigits
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGenerateDigitsA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGenerateDigitsW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGenerateTone
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressCaps
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressCapsA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressCapsW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressID
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressIDA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressIDW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressStatus
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressStatusA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressStatusW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentActivityListA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentActivityListW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentCapsA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentCapsW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentInfo
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentSessionList
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentStatusA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentStatusW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAppPriority
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAppPriorityA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAppPriorityW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCallInfo
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCallInfoA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCallInfoW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCallStatus
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCountry
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCountryA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCountryW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevCaps
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevCapsA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevCapsW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevConfig
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevConfigA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevConfigW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetGroupListA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetGroupListW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetID
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIDA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIDW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIcon
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIconA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIconW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetLineDevStatus
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetMessage
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetNewCalls
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetNumRings
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetProviderList
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetProviderListA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetProviderListW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetProxyStatus
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetQueueInfo
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetQueueListA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetQueueListW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetRequest
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetRequestA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetRequestW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetStatusMessages
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetTranslateCaps
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineHandoff
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineHandoffA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineHandoffW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineHold
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineInitialize
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineInitializeExA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineInitializeExW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMakeCall
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMakeCallA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMakeCallW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMonitorDigits
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMonitorMedia
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMonitorTones
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineOpen
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineOpenA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineOpenW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePark
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineParkA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineParkW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePickup
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePickupA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePickupW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePrepareAddToConference
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineProxyMessage
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineProxyResponse
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRedirect
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRedirectA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRedirectW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRegisterRequestRecipient
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRemoveFromConference
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRemoveProvider
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSecureCall
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSendUserUserInfo
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentActivity
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentGroup
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentMeasurementPeriod
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentSessionState
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentState
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentStateEx
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAppPriority
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAppPriorityA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAppPriorityW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAppSpecific
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallData
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallParams
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallPrivilege
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallQualityOfService
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallTreatment
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCurrentLocation
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetDevConfig
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetDevConfigA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetDevConfigW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetLineDevStatus
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetMediaControl
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetMediaMode
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetNumRings
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetQueueMeasurementPeriod
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetStatusMessages
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetTerminal
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetTollList
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetTollListA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetTollListW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupConference
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupConferenceA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupConferenceW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupTransfer
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupTransferA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupTransferW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineShutdown
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSwapHold
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateAddress
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateAddressA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateAddressW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateDialog
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateDialogA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateDialogW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUncompleteCall
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUnhold
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUnpark
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUnparkA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUnparkW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_openTnefStream
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_openTnefStreamEx
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneClose
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneConfigDialog
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneConfigDialogA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneConfigDialogW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneDevSpecific
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetButtonInfo
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetData
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetDevCaps
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetDevCapsA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetDevCapsW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetDisplay
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetGain
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetHookSwitch
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetID
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIDA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIDW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIcon
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIconA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIconW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetLamp
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetMessage
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetRing
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetStatus
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetStatusA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetStatusMessages
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetStatusW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetVolume
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneInitialize
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneInitializeExA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneInitializeExW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersion
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersion
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneOpen
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetButtonInfo
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetData
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetDisplay
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetGain
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetHookSwitch
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetLamp
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetRing
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetStatusMessages
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetVolume
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneShutdown
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiGetLocationInfo
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestDrop
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMakeCall
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMediaCall
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA
+import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
@@ -15,757 +267,757 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun getTnefStreamCodepage(lpstream: COpaquePointer?, lpulcodepage: COpaquePointer?, lpulsubcodepage: COpaquePointer?): Hresult =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_getTnefStreamCodepage(lpstream?.value?.toCPointer<ByteVar>(), lpulcodepage?.value?.toCPointer<ByteVar>(), lpulsubcodepage?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_getTnefStreamCodepage(lpstream?.value?.toCPointer<ByteVar>(), lpulcodepage?.value?.toCPointer<ByteVar>(), lpulsubcodepage?.value?.toCPointer<ByteVar>())
 
 public actual fun openTnefStream(lpvsupport: COpaquePointer?, lpstream: COpaquePointer?, lpszstreamname: COpaquePointer?, ulflags: UInt, lpmessage: COpaquePointer?, wkeyval: UShort, lpptnef: COpaquePointer?): Hresult =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_openTnefStream(lpvsupport?.value?.toCPointer<ByteVar>(), lpstream?.value?.toCPointer<ByteVar>(), lpszstreamname?.value?.toCPointer<ByteVar>(), ulflags, lpmessage?.value?.toCPointer<ByteVar>(), wkeyval, lpptnef?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_openTnefStream(lpvsupport?.value?.toCPointer<ByteVar>(), lpstream?.value?.toCPointer<ByteVar>(), lpszstreamname?.value?.toCPointer<ByteVar>(), ulflags, lpmessage?.value?.toCPointer<ByteVar>(), wkeyval, lpptnef?.value?.toCPointer<ByteVar>())
 
 public actual fun openTnefStreamEx(lpvsupport: COpaquePointer?, lpstream: COpaquePointer?, lpszstreamname: COpaquePointer?, ulflags: UInt, lpmessage: COpaquePointer?, wkeyval: UShort, lpadressbook: COpaquePointer?, lpptnef: COpaquePointer?): Hresult =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_openTnefStreamEx(lpvsupport?.value?.toCPointer<ByteVar>(), lpstream?.value?.toCPointer<ByteVar>(), lpszstreamname?.value?.toCPointer<ByteVar>(), ulflags, lpmessage?.value?.toCPointer<ByteVar>(), wkeyval, lpadressbook?.value?.toCPointer<ByteVar>(), lpptnef?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_openTnefStreamEx(lpvsupport?.value?.toCPointer<ByteVar>(), lpstream?.value?.toCPointer<ByteVar>(), lpszstreamname?.value?.toCPointer<ByteVar>(), ulflags, lpmessage?.value?.toCPointer<ByteVar>(), wkeyval, lpadressbook?.value?.toCPointer<ByteVar>(), lpptnef?.value?.toCPointer<ByteVar>())
 
 public actual fun lineAccept(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAccept(hcall, lpsuseruserinfo?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineAccept(hcall, lpsuseruserinfo?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineAddProvider(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAddProvider(lpszproviderfilename?.value?.toCPointer<ByteVar>(), hwndowner?.value?.toCPointer<ByteVar>(), lpdwpermanentproviderid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineAddProvider(lpszproviderfilename?.value?.toCPointer<ByteVar>(), hwndowner?.value?.toCPointer<ByteVar>(), lpdwpermanentproviderid?.value?.toCPointer<ByteVar>())
 
 public actual fun lineAddProviderA(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAddProviderA(lpszproviderfilename?.value?.toCPointer<ByteVar>(), hwndowner?.value?.toCPointer<ByteVar>(), lpdwpermanentproviderid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineAddProviderA(lpszproviderfilename?.value?.toCPointer<ByteVar>(), hwndowner?.value?.toCPointer<ByteVar>(), lpdwpermanentproviderid?.value?.toCPointer<ByteVar>())
 
 public actual fun lineAddProviderW(lpszproviderfilename: Pcwstr, hwndowner: Hwnd, lpdwpermanentproviderid: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAddProviderW(lpszproviderfilename?.value?.toCPointer<ByteVar>(), hwndowner?.value?.toCPointer<ByteVar>(), lpdwpermanentproviderid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineAddProviderW(lpszproviderfilename?.value?.toCPointer<ByteVar>(), hwndowner?.value?.toCPointer<ByteVar>(), lpdwpermanentproviderid?.value?.toCPointer<ByteVar>())
 
 public actual fun lineAddToConference(hconfcall: UInt, hconsultcall: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAddToConference(hconfcall, hconsultcall)
+    windowssys_windows_win32_devices_tapi_lineAddToConference(hconfcall, hconsultcall)
 
 public actual fun lineAgentSpecific(hline: UInt, dwaddressid: UInt, dwagentextensionidindex: UInt, lpparams: COpaquePointer?, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAgentSpecific(hline, dwaddressid, dwagentextensionidindex, lpparams?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineAgentSpecific(hline, dwaddressid, dwagentextensionidindex, lpparams?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineAnswer(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineAnswer(hcall, lpsuseruserinfo?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineAnswer(hcall, lpsuseruserinfo?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineBlindTransfer(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineBlindTransfer(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
+    windowssys_windows_win32_devices_tapi_lineBlindTransfer(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
 
 public actual fun lineBlindTransferA(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineBlindTransferA(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
+    windowssys_windows_win32_devices_tapi_lineBlindTransferA(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
 
 public actual fun lineBlindTransferW(hcall: UInt, lpszdestaddressw: Pcwstr, dwcountrycode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineBlindTransferW(hcall, lpszdestaddressw?.value?.toCPointer<ByteVar>(), dwcountrycode)
+    windowssys_windows_win32_devices_tapi_lineBlindTransferW(hcall, lpszdestaddressw?.value?.toCPointer<ByteVar>(), dwcountrycode)
 
 public actual fun lineClose(hline: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineClose(hline)
+    windowssys_windows_win32_devices_tapi_lineClose(hline)
 
 public actual fun lineCompleteCall(hcall: UInt, lpdwcompletionid: COpaquePointer?, dwcompletionmode: UInt, dwmessageid: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCompleteCall(hcall, lpdwcompletionid?.value?.toCPointer<ByteVar>(), dwcompletionmode, dwmessageid)
+    windowssys_windows_win32_devices_tapi_lineCompleteCall(hcall, lpdwcompletionid?.value?.toCPointer<ByteVar>(), dwcompletionmode, dwmessageid)
 
 public actual fun lineCompleteTransfer(hcall: UInt, hconsultcall: UInt, lphconfcall: COpaquePointer?, dwtransfermode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCompleteTransfer(hcall, hconsultcall, lphconfcall?.value?.toCPointer<ByteVar>(), dwtransfermode)
+    windowssys_windows_win32_devices_tapi_lineCompleteTransfer(hcall, hconsultcall, lphconfcall?.value?.toCPointer<ByteVar>(), dwtransfermode)
 
 public actual fun lineConfigDialog(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialog(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineConfigDialog(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineConfigDialogA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogA(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineConfigDialogA(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineConfigDialogEdit(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: COpaquePointer?, dwsize: UInt, lpdeviceconfigout: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogEdit(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceconfigin?.value?.toCPointer<ByteVar>(), dwsize, lpdeviceconfigout?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineConfigDialogEdit(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceconfigin?.value?.toCPointer<ByteVar>(), dwsize, lpdeviceconfigout?.value?.toCPointer<ByteVar>())
 
 public actual fun lineConfigDialogEditA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: COpaquePointer?, dwsize: UInt, lpdeviceconfigout: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogEditA(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceconfigin?.value?.toCPointer<ByteVar>(), dwsize, lpdeviceconfigout?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineConfigDialogEditA(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceconfigin?.value?.toCPointer<ByteVar>(), dwsize, lpdeviceconfigout?.value?.toCPointer<ByteVar>())
 
 public actual fun lineConfigDialogEditW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr, lpdeviceconfigin: COpaquePointer?, dwsize: UInt, lpdeviceconfigout: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogEditW(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceconfigin?.value?.toCPointer<ByteVar>(), dwsize, lpdeviceconfigout?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineConfigDialogEditW(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceconfigin?.value?.toCPointer<ByteVar>(), dwsize, lpdeviceconfigout?.value?.toCPointer<ByteVar>())
 
 public actual fun lineConfigDialogW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigDialogW(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineConfigDialogW(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineConfigProvider(hwndowner: Hwnd, dwpermanentproviderid: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineConfigProvider(hwndowner?.value?.toCPointer<ByteVar>(), dwpermanentproviderid)
+    windowssys_windows_win32_devices_tapi_lineConfigProvider(hwndowner?.value?.toCPointer<ByteVar>(), dwpermanentproviderid)
 
 public actual fun lineCreateAgentA(hline: UInt, lpszagentid: Pcstr, lpszagentpin: Pcstr, lphagent: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCreateAgentA(hline, lpszagentid?.value?.toCPointer<ByteVar>(), lpszagentpin?.value?.toCPointer<ByteVar>(), lphagent?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineCreateAgentA(hline, lpszagentid?.value?.toCPointer<ByteVar>(), lpszagentpin?.value?.toCPointer<ByteVar>(), lphagent?.value?.toCPointer<ByteVar>())
 
 public actual fun lineCreateAgentSessionA(hline: UInt, hagent: UInt, lpszagentpin: Pcstr, dwworkingaddressid: UInt, lpgroupid: COpaquePointer?, lphagentsession: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA(hline, hagent, lpszagentpin?.value?.toCPointer<ByteVar>(), dwworkingaddressid, lpgroupid?.value?.toCPointer<ByteVar>(), lphagentsession?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA(hline, hagent, lpszagentpin?.value?.toCPointer<ByteVar>(), dwworkingaddressid, lpgroupid?.value?.toCPointer<ByteVar>(), lphagentsession?.value?.toCPointer<ByteVar>())
 
 public actual fun lineCreateAgentSessionW(hline: UInt, hagent: UInt, lpszagentpin: Pcwstr, dwworkingaddressid: UInt, lpgroupid: COpaquePointer?, lphagentsession: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW(hline, hagent, lpszagentpin?.value?.toCPointer<ByteVar>(), dwworkingaddressid, lpgroupid?.value?.toCPointer<ByteVar>(), lphagentsession?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW(hline, hagent, lpszagentpin?.value?.toCPointer<ByteVar>(), dwworkingaddressid, lpgroupid?.value?.toCPointer<ByteVar>(), lphagentsession?.value?.toCPointer<ByteVar>())
 
 public actual fun lineCreateAgentW(hline: UInt, lpszagentid: Pcwstr, lpszagentpin: Pcwstr, lphagent: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineCreateAgentW(hline, lpszagentid?.value?.toCPointer<ByteVar>(), lpszagentpin?.value?.toCPointer<ByteVar>(), lphagent?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineCreateAgentW(hline, lpszagentid?.value?.toCPointer<ByteVar>(), lpszagentpin?.value?.toCPointer<ByteVar>(), lphagent?.value?.toCPointer<ByteVar>())
 
 public actual fun lineDeallocateCall(hcall: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDeallocateCall(hcall)
+    windowssys_windows_win32_devices_tapi_lineDeallocateCall(hcall)
 
 public actual fun lineDevSpecific(hline: UInt, dwaddressid: UInt, hcall: UInt, lpparams: COpaquePointer?, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDevSpecific(hline, dwaddressid, hcall, lpparams?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineDevSpecific(hline, dwaddressid, hcall, lpparams?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineDevSpecificFeature(hline: UInt, dwfeature: UInt, lpparams: COpaquePointer?, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDevSpecificFeature(hline, dwfeature, lpparams?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineDevSpecificFeature(hline, dwfeature, lpparams?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineDial(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDial(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
+    windowssys_windows_win32_devices_tapi_lineDial(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
 
 public actual fun lineDialA(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDialA(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
+    windowssys_windows_win32_devices_tapi_lineDialA(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
 
 public actual fun lineDialW(hcall: UInt, lpszdestaddress: Pcwstr, dwcountrycode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDialW(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
+    windowssys_windows_win32_devices_tapi_lineDialW(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
 
 public actual fun lineDrop(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineDrop(hcall, lpsuseruserinfo?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineDrop(hcall, lpsuseruserinfo?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineForward(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: COpaquePointer?, dwnumringsnoanswer: UInt, lphconsultcall: COpaquePointer?, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineForward(hline, balladdresses, dwaddressid, lpforwardlist?.value?.toCPointer<ByteVar>(), dwnumringsnoanswer, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineForward(hline, balladdresses, dwaddressid, lpforwardlist?.value?.toCPointer<ByteVar>(), dwnumringsnoanswer, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineForwardA(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: COpaquePointer?, dwnumringsnoanswer: UInt, lphconsultcall: COpaquePointer?, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineForwardA(hline, balladdresses, dwaddressid, lpforwardlist?.value?.toCPointer<ByteVar>(), dwnumringsnoanswer, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineForwardA(hline, balladdresses, dwaddressid, lpforwardlist?.value?.toCPointer<ByteVar>(), dwnumringsnoanswer, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineForwardW(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: COpaquePointer?, dwnumringsnoanswer: UInt, lphconsultcall: COpaquePointer?, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineForwardW(hline, balladdresses, dwaddressid, lpforwardlist?.value?.toCPointer<ByteVar>(), dwnumringsnoanswer, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineForwardW(hline, balladdresses, dwaddressid, lpforwardlist?.value?.toCPointer<ByteVar>(), dwnumringsnoanswer, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGatherDigits(hcall: UInt, dwdigitmodes: UInt, lpsdigits: Pstr, dwnumdigits: UInt, lpszterminationdigits: Pcstr, dwfirstdigittimeout: UInt, dwinterdigittimeout: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGatherDigits(hcall, dwdigitmodes, lpsdigits?.value?.toCPointer<ByteVar>(), dwnumdigits, lpszterminationdigits?.value?.toCPointer<ByteVar>(), dwfirstdigittimeout, dwinterdigittimeout)
+    windowssys_windows_win32_devices_tapi_lineGatherDigits(hcall, dwdigitmodes, lpsdigits?.value?.toCPointer<ByteVar>(), dwnumdigits, lpszterminationdigits?.value?.toCPointer<ByteVar>(), dwfirstdigittimeout, dwinterdigittimeout)
 
 public actual fun lineGatherDigitsA(hcall: UInt, dwdigitmodes: UInt, lpsdigits: Pstr, dwnumdigits: UInt, lpszterminationdigits: Pcstr, dwfirstdigittimeout: UInt, dwinterdigittimeout: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGatherDigitsA(hcall, dwdigitmodes, lpsdigits?.value?.toCPointer<ByteVar>(), dwnumdigits, lpszterminationdigits?.value?.toCPointer<ByteVar>(), dwfirstdigittimeout, dwinterdigittimeout)
+    windowssys_windows_win32_devices_tapi_lineGatherDigitsA(hcall, dwdigitmodes, lpsdigits?.value?.toCPointer<ByteVar>(), dwnumdigits, lpszterminationdigits?.value?.toCPointer<ByteVar>(), dwfirstdigittimeout, dwinterdigittimeout)
 
 public actual fun lineGatherDigitsW(hcall: UInt, dwdigitmodes: UInt, lpsdigits: Pwstr, dwnumdigits: UInt, lpszterminationdigits: Pcwstr, dwfirstdigittimeout: UInt, dwinterdigittimeout: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGatherDigitsW(hcall, dwdigitmodes, lpsdigits?.value?.toCPointer<ByteVar>(), dwnumdigits, lpszterminationdigits?.value?.toCPointer<ByteVar>(), dwfirstdigittimeout, dwinterdigittimeout)
+    windowssys_windows_win32_devices_tapi_lineGatherDigitsW(hcall, dwdigitmodes, lpsdigits?.value?.toCPointer<ByteVar>(), dwnumdigits, lpszterminationdigits?.value?.toCPointer<ByteVar>(), dwfirstdigittimeout, dwinterdigittimeout)
 
 public actual fun lineGenerateDigits(hcall: UInt, dwdigitmode: UInt, lpszdigits: Pcstr, dwduration: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGenerateDigits(hcall, dwdigitmode, lpszdigits?.value?.toCPointer<ByteVar>(), dwduration)
+    windowssys_windows_win32_devices_tapi_lineGenerateDigits(hcall, dwdigitmode, lpszdigits?.value?.toCPointer<ByteVar>(), dwduration)
 
 public actual fun lineGenerateDigitsA(hcall: UInt, dwdigitmode: UInt, lpszdigits: Pcstr, dwduration: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGenerateDigitsA(hcall, dwdigitmode, lpszdigits?.value?.toCPointer<ByteVar>(), dwduration)
+    windowssys_windows_win32_devices_tapi_lineGenerateDigitsA(hcall, dwdigitmode, lpszdigits?.value?.toCPointer<ByteVar>(), dwduration)
 
 public actual fun lineGenerateDigitsW(hcall: UInt, dwdigitmode: UInt, lpszdigits: Pcwstr, dwduration: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGenerateDigitsW(hcall, dwdigitmode, lpszdigits?.value?.toCPointer<ByteVar>(), dwduration)
+    windowssys_windows_win32_devices_tapi_lineGenerateDigitsW(hcall, dwdigitmode, lpszdigits?.value?.toCPointer<ByteVar>(), dwduration)
 
 public actual fun lineGenerateTone(hcall: UInt, dwtonemode: UInt, dwduration: UInt, dwnumtones: UInt, lptones: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGenerateTone(hcall, dwtonemode, dwduration, dwnumtones, lptones?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGenerateTone(hcall, dwtonemode, dwduration, dwnumtones, lptones?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAddressCaps(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressCaps(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAddressCaps(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAddressCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressCapsA(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAddressCapsA(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAddressCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressCapsW(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAddressCapsW(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAddressID(hline: UInt, lpdwaddressid: COpaquePointer?, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressID(hline, lpdwaddressid?.value?.toCPointer<ByteVar>(), dwaddressmode, lpsaddress?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineGetAddressID(hline, lpdwaddressid?.value?.toCPointer<ByteVar>(), dwaddressmode, lpsaddress?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineGetAddressIDA(hline: UInt, lpdwaddressid: COpaquePointer?, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressIDA(hline, lpdwaddressid?.value?.toCPointer<ByteVar>(), dwaddressmode, lpsaddress?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineGetAddressIDA(hline, lpdwaddressid?.value?.toCPointer<ByteVar>(), dwaddressmode, lpsaddress?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineGetAddressIDW(hline: UInt, lpdwaddressid: COpaquePointer?, dwaddressmode: UInt, lpsaddress: Pcwstr, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressIDW(hline, lpdwaddressid?.value?.toCPointer<ByteVar>(), dwaddressmode, lpsaddress?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineGetAddressIDW(hline, lpdwaddressid?.value?.toCPointer<ByteVar>(), dwaddressmode, lpsaddress?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineGetAddressStatus(hline: UInt, dwaddressid: UInt, lpaddressstatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressStatus(hline, dwaddressid, lpaddressstatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAddressStatus(hline, dwaddressid, lpaddressstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAddressStatusA(hline: UInt, dwaddressid: UInt, lpaddressstatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressStatusA(hline, dwaddressid, lpaddressstatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAddressStatusA(hline, dwaddressid, lpaddressstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAddressStatusW(hline: UInt, dwaddressid: UInt, lpaddressstatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAddressStatusW(hline, dwaddressid, lpaddressstatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAddressStatusW(hline, dwaddressid, lpaddressstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentActivityListA(hline: UInt, dwaddressid: UInt, lpagentactivitylist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentActivityListA(hline, dwaddressid, lpagentactivitylist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentActivityListA(hline, dwaddressid, lpagentactivitylist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentActivityListW(hline: UInt, dwaddressid: UInt, lpagentactivitylist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentActivityListW(hline, dwaddressid, lpagentactivitylist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentActivityListW(hline, dwaddressid, lpagentactivitylist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentCapsA(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentCapsA(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentCapsW(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentCapsW(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentGroupListA(hline: UInt, dwaddressid: UInt, lpagentgrouplist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA(hline, dwaddressid, lpagentgrouplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA(hline, dwaddressid, lpagentgrouplist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentGroupListW(hline: UInt, dwaddressid: UInt, lpagentgrouplist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW(hline, dwaddressid, lpagentgrouplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW(hline, dwaddressid, lpagentgrouplist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentInfo(hline: UInt, hagent: UInt, lpagentinfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentInfo(hline, hagent, lpagentinfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentInfo(hline, hagent, lpagentinfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentSessionInfo(hline: UInt, hagentsession: UInt, lpagentsessioninfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo(hline, hagentsession, lpagentsessioninfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo(hline, hagentsession, lpagentsessioninfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentSessionList(hline: UInt, hagent: UInt, lpagentsessionlist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentSessionList(hline, hagent, lpagentsessionlist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentSessionList(hline, hagent, lpagentsessionlist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentStatusA(hline: UInt, dwaddressid: UInt, lpagentstatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentStatusA(hline, dwaddressid, lpagentstatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentStatusA(hline, dwaddressid, lpagentstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAgentStatusW(hline: UInt, dwaddressid: UInt, lpagentstatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAgentStatusW(hline, dwaddressid, lpagentstatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAgentStatusW(hline, dwaddressid, lpagentstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: COpaquePointer?, dwrequestmode: UInt, lpextensionname: COpaquePointer?, lpdwpriority: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAppPriority(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpextensionname?.value?.toCPointer<ByteVar>(), lpdwpriority?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAppPriority(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpextensionname?.value?.toCPointer<ByteVar>(), lpdwpriority?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: COpaquePointer?, dwrequestmode: UInt, lpextensionname: COpaquePointer?, lpdwpriority: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAppPriorityA(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpextensionname?.value?.toCPointer<ByteVar>(), lpdwpriority?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAppPriorityA(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpextensionname?.value?.toCPointer<ByteVar>(), lpdwpriority?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: COpaquePointer?, dwrequestmode: UInt, lpextensionname: COpaquePointer?, lpdwpriority: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetAppPriorityW(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpextensionname?.value?.toCPointer<ByteVar>(), lpdwpriority?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetAppPriorityW(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpextensionname?.value?.toCPointer<ByteVar>(), lpdwpriority?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetCallInfo(hcall: UInt, lpcallinfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCallInfo(hcall, lpcallinfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetCallInfo(hcall, lpcallinfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetCallInfoA(hcall: UInt, lpcallinfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCallInfoA(hcall, lpcallinfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetCallInfoA(hcall, lpcallinfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetCallInfoW(hcall: UInt, lpcallinfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCallInfoW(hcall, lpcallinfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetCallInfoW(hcall, lpcallinfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetCallStatus(hcall: UInt, lpcallstatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCallStatus(hcall, lpcallstatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetCallStatus(hcall, lpcallstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetConfRelatedCalls(hcall: UInt, lpcalllist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls(hcall, lpcalllist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls(hcall, lpcalllist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetCountry(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCountry(dwcountryid, dwapiversion, lplinecountrylist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetCountry(dwcountryid, dwapiversion, lplinecountrylist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetCountryA(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCountryA(dwcountryid, dwapiversion, lplinecountrylist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetCountryA(dwcountryid, dwapiversion, lplinecountrylist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetCountryW(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetCountryW(dwcountryid, dwapiversion, lplinecountrylist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetCountryW(dwcountryid, dwapiversion, lplinecountrylist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetDevCaps(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevCaps(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetDevCaps(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetDevCapsA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevCapsA(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetDevCapsA(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetDevCapsW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevCapsW(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetDevCapsW(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetDevConfig(dwdeviceid: UInt, lpdeviceconfig: COpaquePointer?, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevConfig(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetDevConfig(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: COpaquePointer?, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevConfigA(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetDevConfigA(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: COpaquePointer?, lpszdeviceclass: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetDevConfigW(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetDevConfigW(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetGroupListA(hline: UInt, lpgrouplist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetGroupListA(hline, lpgrouplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetGroupListA(hline, lpgrouplist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetGroupListW(hline: UInt, lpgrouplist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetGroupListW(hline, lpgrouplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetGroupListW(hline, lpgrouplist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetID(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: COpaquePointer?, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetID(hline, dwaddressid, hcall, dwselect, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetID(hline, dwaddressid, hcall, dwselect, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetIDA(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: COpaquePointer?, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIDA(hline, dwaddressid, hcall, dwselect, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetIDA(hline, dwaddressid, hcall, dwselect, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetIDW(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: COpaquePointer?, lpszdeviceclass: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIDW(hline, dwaddressid, hcall, dwselect, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetIDW(hline, dwaddressid, hcall, dwselect, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIcon(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetIcon(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIconA(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetIconA(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetIconW(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetIconW(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetLineDevStatus(hline: UInt, lplinedevstatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetLineDevStatus(hline, lplinedevstatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetLineDevStatus(hline, lplinedevstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetLineDevStatusA(hline: UInt, lplinedevstatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA(hline, lplinedevstatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA(hline, lplinedevstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetLineDevStatusW(hline: UInt, lplinedevstatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW(hline, lplinedevstatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW(hline, lplinedevstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetMessage(hlineapp: UInt, lpmessage: COpaquePointer?, dwtimeout: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetMessage(hlineapp, lpmessage?.value?.toCPointer<ByteVar>(), dwtimeout)
+    windowssys_windows_win32_devices_tapi_lineGetMessage(hlineapp, lpmessage?.value?.toCPointer<ByteVar>(), dwtimeout)
 
 public actual fun lineGetNewCalls(hline: UInt, dwaddressid: UInt, dwselect: UInt, lpcalllist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetNewCalls(hline, dwaddressid, dwselect, lpcalllist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetNewCalls(hline, dwaddressid, dwselect, lpcalllist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetNumRings(hline: UInt, dwaddressid: UInt, lpdwnumrings: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetNumRings(hline, dwaddressid, lpdwnumrings?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetNumRings(hline, dwaddressid, lpdwnumrings?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetProviderList(dwapiversion: UInt, lpproviderlist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetProviderList(dwapiversion, lpproviderlist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetProviderList(dwapiversion, lpproviderlist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetProviderListA(dwapiversion: UInt, lpproviderlist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetProviderListA(dwapiversion, lpproviderlist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetProviderListA(dwapiversion, lpproviderlist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetProviderListW(dwapiversion: UInt, lpproviderlist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetProviderListW(dwapiversion, lpproviderlist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetProviderListW(dwapiversion, lpproviderlist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetProxyStatus(hlineapp: UInt, dwdeviceid: UInt, dwappapiversion: UInt, lplineproxyreqestlist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetProxyStatus(hlineapp, dwdeviceid, dwappapiversion, lplineproxyreqestlist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetProxyStatus(hlineapp, dwdeviceid, dwappapiversion, lplineproxyreqestlist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetQueueInfo(hline: UInt, dwqueueid: UInt, lplinequeueinfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetQueueInfo(hline, dwqueueid, lplinequeueinfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetQueueInfo(hline, dwqueueid, lplinequeueinfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetQueueListA(hline: UInt, lpgroupid: COpaquePointer?, lpqueuelist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetQueueListA(hline, lpgroupid?.value?.toCPointer<ByteVar>(), lpqueuelist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetQueueListA(hline, lpgroupid?.value?.toCPointer<ByteVar>(), lpqueuelist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetQueueListW(hline: UInt, lpgroupid: COpaquePointer?, lpqueuelist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetQueueListW(hline, lpgroupid?.value?.toCPointer<ByteVar>(), lpqueuelist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetQueueListW(hline, lpgroupid?.value?.toCPointer<ByteVar>(), lpqueuelist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetRequest(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetRequest(hlineapp, dwrequestmode, lprequestbuffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetRequest(hlineapp, dwrequestmode, lprequestbuffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetRequestA(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetRequestA(hlineapp, dwrequestmode, lprequestbuffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetRequestA(hlineapp, dwrequestmode, lprequestbuffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetRequestW(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetRequestW(hlineapp, dwrequestmode, lprequestbuffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetRequestW(hlineapp, dwrequestmode, lprequestbuffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetStatusMessages(hline: UInt, lpdwlinestates: COpaquePointer?, lpdwaddressstates: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetStatusMessages(hline, lpdwlinestates?.value?.toCPointer<ByteVar>(), lpdwaddressstates?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetStatusMessages(hline, lpdwlinestates?.value?.toCPointer<ByteVar>(), lpdwaddressstates?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetTranslateCaps(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetTranslateCaps(hlineapp, dwapiversion, lptranslatecaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetTranslateCaps(hlineapp, dwapiversion, lptranslatecaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetTranslateCapsA(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA(hlineapp, dwapiversion, lptranslatecaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA(hlineapp, dwapiversion, lptranslatecaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineGetTranslateCapsW(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW(hlineapp, dwapiversion, lptranslatecaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW(hlineapp, dwapiversion, lptranslatecaps?.value?.toCPointer<ByteVar>())
 
 public actual fun lineHandoff(hcall: UInt, lpszfilename: Pcstr, dwmediamode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineHandoff(hcall, lpszfilename?.value?.toCPointer<ByteVar>(), dwmediamode)
+    windowssys_windows_win32_devices_tapi_lineHandoff(hcall, lpszfilename?.value?.toCPointer<ByteVar>(), dwmediamode)
 
 public actual fun lineHandoffA(hcall: UInt, lpszfilename: Pcstr, dwmediamode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineHandoffA(hcall, lpszfilename?.value?.toCPointer<ByteVar>(), dwmediamode)
+    windowssys_windows_win32_devices_tapi_lineHandoffA(hcall, lpszfilename?.value?.toCPointer<ByteVar>(), dwmediamode)
 
 public actual fun lineHandoffW(hcall: UInt, lpszfilename: Pcwstr, dwmediamode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineHandoffW(hcall, lpszfilename?.value?.toCPointer<ByteVar>(), dwmediamode)
+    windowssys_windows_win32_devices_tapi_lineHandoffW(hcall, lpszfilename?.value?.toCPointer<ByteVar>(), dwmediamode)
 
 public actual fun lineHold(hcall: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineHold(hcall)
+    windowssys_windows_win32_devices_tapi_lineHold(hcall)
 
 public actual fun lineInitialize(lphlineapp: COpaquePointer?, hinstance: Hinstance, lpfncallback: Linecallback, lpszappname: Pcstr, lpdwnumdevs: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineInitialize(lphlineapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineInitialize(lphlineapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>())
 
 public actual fun lineInitializeExA(lphlineapp: COpaquePointer?, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: COpaquePointer?, lpdwapiversion: COpaquePointer?, lplineinitializeexparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineInitializeExA(lphlineapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>(), lpdwapiversion?.value?.toCPointer<ByteVar>(), lplineinitializeexparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineInitializeExA(lphlineapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>(), lpdwapiversion?.value?.toCPointer<ByteVar>(), lplineinitializeexparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineInitializeExW(lphlineapp: COpaquePointer?, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: COpaquePointer?, lpdwapiversion: COpaquePointer?, lplineinitializeexparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineInitializeExW(lphlineapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>(), lpdwapiversion?.value?.toCPointer<ByteVar>(), lplineinitializeexparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineInitializeExW(lphlineapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>(), lpdwapiversion?.value?.toCPointer<ByteVar>(), lplineinitializeexparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineMakeCall(hline: UInt, lphcall: COpaquePointer?, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMakeCall(hline, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode, lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineMakeCall(hline, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode, lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineMakeCallA(hline: UInt, lphcall: COpaquePointer?, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMakeCallA(hline, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode, lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineMakeCallA(hline, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode, lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineMakeCallW(hline: UInt, lphcall: COpaquePointer?, lpszdestaddress: Pcwstr, dwcountrycode: UInt, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMakeCallW(hline, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode, lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineMakeCallW(hline, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode, lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineMonitorDigits(hcall: UInt, dwdigitmodes: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMonitorDigits(hcall, dwdigitmodes)
+    windowssys_windows_win32_devices_tapi_lineMonitorDigits(hcall, dwdigitmodes)
 
 public actual fun lineMonitorMedia(hcall: UInt, dwmediamodes: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMonitorMedia(hcall, dwmediamodes)
+    windowssys_windows_win32_devices_tapi_lineMonitorMedia(hcall, dwmediamodes)
 
 public actual fun lineMonitorTones(hcall: UInt, lptonelist: COpaquePointer?, dwnumentries: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineMonitorTones(hcall, lptonelist?.value?.toCPointer<ByteVar>(), dwnumentries)
+    windowssys_windows_win32_devices_tapi_lineMonitorTones(hcall, lptonelist?.value?.toCPointer<ByteVar>(), dwnumentries)
 
 public actual fun lineNegotiateAPIVersion(hlineapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: COpaquePointer?, lpextensionid: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion(hlineapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion?.value?.toCPointer<ByteVar>(), lpextensionid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion(hlineapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion?.value?.toCPointer<ByteVar>(), lpextensionid?.value?.toCPointer<ByteVar>())
 
 public actual fun lineNegotiateExtVersion(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion(hlineapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion(hlineapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion?.value?.toCPointer<ByteVar>())
 
 public actual fun lineOpen(hlineapp: UInt, dwdeviceid: UInt, lphline: COpaquePointer?, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineOpen(hlineapp, dwdeviceid, lphline?.value?.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineOpen(hlineapp, dwdeviceid, lphline?.value?.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineOpenA(hlineapp: UInt, dwdeviceid: UInt, lphline: COpaquePointer?, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineOpenA(hlineapp, dwdeviceid, lphline?.value?.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineOpenA(hlineapp, dwdeviceid, lphline?.value?.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineOpenW(hlineapp: UInt, dwdeviceid: UInt, lphline: COpaquePointer?, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineOpenW(hlineapp, dwdeviceid, lphline?.value?.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineOpenW(hlineapp, dwdeviceid, lphline?.value?.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun linePark(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePark(hcall, dwparkmode, lpszdiraddress?.value?.toCPointer<ByteVar>(), lpnondiraddress?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_linePark(hcall, dwparkmode, lpszdiraddress?.value?.toCPointer<ByteVar>(), lpnondiraddress?.value?.toCPointer<ByteVar>())
 
 public actual fun lineParkA(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineParkA(hcall, dwparkmode, lpszdiraddress?.value?.toCPointer<ByteVar>(), lpnondiraddress?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineParkA(hcall, dwparkmode, lpszdiraddress?.value?.toCPointer<ByteVar>(), lpnondiraddress?.value?.toCPointer<ByteVar>())
 
 public actual fun lineParkW(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcwstr, lpnondiraddress: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineParkW(hcall, dwparkmode, lpszdiraddress?.value?.toCPointer<ByteVar>(), lpnondiraddress?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineParkW(hcall, dwparkmode, lpszdiraddress?.value?.toCPointer<ByteVar>(), lpnondiraddress?.value?.toCPointer<ByteVar>())
 
 public actual fun linePickup(hline: UInt, dwaddressid: UInt, lphcall: COpaquePointer?, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePickup(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszgroupid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_linePickup(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszgroupid?.value?.toCPointer<ByteVar>())
 
 public actual fun linePickupA(hline: UInt, dwaddressid: UInt, lphcall: COpaquePointer?, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePickupA(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszgroupid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_linePickupA(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszgroupid?.value?.toCPointer<ByteVar>())
 
 public actual fun linePickupW(hline: UInt, dwaddressid: UInt, lphcall: COpaquePointer?, lpszdestaddress: Pcwstr, lpszgroupid: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePickupW(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszgroupid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_linePickupW(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszgroupid?.value?.toCPointer<ByteVar>())
 
 public actual fun linePrepareAddToConference(hconfcall: UInt, lphconsultcall: COpaquePointer?, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePrepareAddToConference(hconfcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_linePrepareAddToConference(hconfcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun linePrepareAddToConferenceA(hconfcall: UInt, lphconsultcall: COpaquePointer?, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceA(hconfcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceA(hconfcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun linePrepareAddToConferenceW(hconfcall: UInt, lphconsultcall: COpaquePointer?, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceW(hconfcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_linePrepareAddToConferenceW(hconfcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineProxyMessage(hline: UInt, hcall: UInt, dwmsg: UInt, dwparam1: UInt, dwparam2: UInt, dwparam3: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineProxyMessage(hline, hcall, dwmsg, dwparam1, dwparam2, dwparam3)
+    windowssys_windows_win32_devices_tapi_lineProxyMessage(hline, hcall, dwmsg, dwparam1, dwparam2, dwparam3)
 
 public actual fun lineProxyResponse(hline: UInt, lpproxyrequest: COpaquePointer?, dwresult: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineProxyResponse(hline, lpproxyrequest?.value?.toCPointer<ByteVar>(), dwresult)
+    windowssys_windows_win32_devices_tapi_lineProxyResponse(hline, lpproxyrequest?.value?.toCPointer<ByteVar>(), dwresult)
 
 public actual fun lineRedirect(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRedirect(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
+    windowssys_windows_win32_devices_tapi_lineRedirect(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
 
 public actual fun lineRedirectA(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRedirectA(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
+    windowssys_windows_win32_devices_tapi_lineRedirectA(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
 
 public actual fun lineRedirectW(hcall: UInt, lpszdestaddress: Pcwstr, dwcountrycode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRedirectW(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
+    windowssys_windows_win32_devices_tapi_lineRedirectW(hcall, lpszdestaddress?.value?.toCPointer<ByteVar>(), dwcountrycode)
 
 public actual fun lineRegisterRequestRecipient(hlineapp: UInt, dwregistrationinstance: UInt, dwrequestmode: UInt, benable: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRegisterRequestRecipient(hlineapp, dwregistrationinstance, dwrequestmode, benable)
+    windowssys_windows_win32_devices_tapi_lineRegisterRequestRecipient(hlineapp, dwregistrationinstance, dwrequestmode, benable)
 
 public actual fun lineReleaseUserUserInfo(hcall: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo(hcall)
+    windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo(hcall)
 
 public actual fun lineRemoveFromConference(hcall: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRemoveFromConference(hcall)
+    windowssys_windows_win32_devices_tapi_lineRemoveFromConference(hcall)
 
 public actual fun lineRemoveProvider(dwpermanentproviderid: UInt, hwndowner: Hwnd): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineRemoveProvider(dwpermanentproviderid, hwndowner?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineRemoveProvider(dwpermanentproviderid, hwndowner?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSecureCall(hcall: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSecureCall(hcall)
+    windowssys_windows_win32_devices_tapi_lineSecureCall(hcall)
 
 public actual fun lineSendUserUserInfo(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSendUserUserInfo(hcall, lpsuseruserinfo?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineSendUserUserInfo(hcall, lpsuseruserinfo?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineSetAgentActivity(hline: UInt, dwaddressid: UInt, dwactivityid: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentActivity(hline, dwaddressid, dwactivityid)
+    windowssys_windows_win32_devices_tapi_lineSetAgentActivity(hline, dwaddressid, dwactivityid)
 
 public actual fun lineSetAgentGroup(hline: UInt, dwaddressid: UInt, lpagentgrouplist: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentGroup(hline, dwaddressid, lpagentgrouplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetAgentGroup(hline, dwaddressid, lpagentgrouplist?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetAgentMeasurementPeriod(hline: UInt, hagent: UInt, dwmeasurementperiod: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentMeasurementPeriod(hline, hagent, dwmeasurementperiod)
+    windowssys_windows_win32_devices_tapi_lineSetAgentMeasurementPeriod(hline, hagent, dwmeasurementperiod)
 
 public actual fun lineSetAgentSessionState(hline: UInt, hagentsession: UInt, dwagentsessionstate: UInt, dwnextagentsessionstate: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentSessionState(hline, hagentsession, dwagentsessionstate, dwnextagentsessionstate)
+    windowssys_windows_win32_devices_tapi_lineSetAgentSessionState(hline, hagentsession, dwagentsessionstate, dwnextagentsessionstate)
 
 public actual fun lineSetAgentState(hline: UInt, dwaddressid: UInt, dwagentstate: UInt, dwnextagentstate: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentState(hline, dwaddressid, dwagentstate, dwnextagentstate)
+    windowssys_windows_win32_devices_tapi_lineSetAgentState(hline, dwaddressid, dwagentstate, dwnextagentstate)
 
 public actual fun lineSetAgentStateEx(hline: UInt, hagent: UInt, dwagentstate: UInt, dwnextagentstate: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAgentStateEx(hline, hagent, dwagentstate, dwnextagentstate)
+    windowssys_windows_win32_devices_tapi_lineSetAgentStateEx(hline, hagent, dwagentstate, dwnextagentstate)
 
 public actual fun lineSetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: COpaquePointer?, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAppPriority(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpszextensionname?.value?.toCPointer<ByteVar>(), dwpriority)
+    windowssys_windows_win32_devices_tapi_lineSetAppPriority(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpszextensionname?.value?.toCPointer<ByteVar>(), dwpriority)
 
 public actual fun lineSetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: COpaquePointer?, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAppPriorityA(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpszextensionname?.value?.toCPointer<ByteVar>(), dwpriority)
+    windowssys_windows_win32_devices_tapi_lineSetAppPriorityA(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpszextensionname?.value?.toCPointer<ByteVar>(), dwpriority)
 
 public actual fun lineSetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: COpaquePointer?, dwrequestmode: UInt, lpszextensionname: Pcwstr, dwpriority: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAppPriorityW(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpszextensionname?.value?.toCPointer<ByteVar>(), dwpriority)
+    windowssys_windows_win32_devices_tapi_lineSetAppPriorityW(lpszappfilename?.value?.toCPointer<ByteVar>(), dwmediamode, lpextensionid?.value?.toCPointer<ByteVar>(), dwrequestmode, lpszextensionname?.value?.toCPointer<ByteVar>(), dwpriority)
 
 public actual fun lineSetAppSpecific(hcall: UInt, dwappspecific: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetAppSpecific(hcall, dwappspecific)
+    windowssys_windows_win32_devices_tapi_lineSetAppSpecific(hcall, dwappspecific)
 
 public actual fun lineSetCallData(hcall: UInt, lpcalldata: COpaquePointer?, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallData(hcall, lpcalldata?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_lineSetCallData(hcall, lpcalldata?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineSetCallParams(hcall: UInt, dwbearermode: UInt, dwminrate: UInt, dwmaxrate: UInt, lpdialparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallParams(hcall, dwbearermode, dwminrate, dwmaxrate, lpdialparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetCallParams(hcall, dwbearermode, dwminrate, dwmaxrate, lpdialparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetCallPrivilege(hcall: UInt, dwcallprivilege: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallPrivilege(hcall, dwcallprivilege)
+    windowssys_windows_win32_devices_tapi_lineSetCallPrivilege(hcall, dwcallprivilege)
 
 public actual fun lineSetCallQualityOfService(hcall: UInt, lpsendingflowspec: COpaquePointer?, dwsendingflowspecsize: UInt, lpreceivingflowspec: COpaquePointer?, dwreceivingflowspecsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallQualityOfService(hcall, lpsendingflowspec?.value?.toCPointer<ByteVar>(), dwsendingflowspecsize, lpreceivingflowspec?.value?.toCPointer<ByteVar>(), dwreceivingflowspecsize)
+    windowssys_windows_win32_devices_tapi_lineSetCallQualityOfService(hcall, lpsendingflowspec?.value?.toCPointer<ByteVar>(), dwsendingflowspecsize, lpreceivingflowspec?.value?.toCPointer<ByteVar>(), dwreceivingflowspecsize)
 
 public actual fun lineSetCallTreatment(hcall: UInt, dwtreatment: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCallTreatment(hcall, dwtreatment)
+    windowssys_windows_win32_devices_tapi_lineSetCallTreatment(hcall, dwtreatment)
 
 public actual fun lineSetCurrentLocation(hlineapp: UInt, dwlocation: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetCurrentLocation(hlineapp, dwlocation)
+    windowssys_windows_win32_devices_tapi_lineSetCurrentLocation(hlineapp, dwlocation)
 
 public actual fun lineSetDevConfig(dwdeviceid: UInt, lpdeviceconfig: COpaquePointer?, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetDevConfig(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), dwsize, lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetDevConfig(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), dwsize, lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: COpaquePointer?, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetDevConfigA(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), dwsize, lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetDevConfigA(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), dwsize, lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: COpaquePointer?, dwsize: UInt, lpszdeviceclass: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetDevConfigW(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), dwsize, lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetDevConfigW(dwdeviceid, lpdeviceconfig?.value?.toCPointer<ByteVar>(), dwsize, lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetLineDevStatus(hline: UInt, dwstatustochange: UInt, fstatus: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetLineDevStatus(hline, dwstatustochange, fstatus)
+    windowssys_windows_win32_devices_tapi_lineSetLineDevStatus(hline, dwstatustochange, fstatus)
 
 public actual fun lineSetMediaControl(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdigitlist: COpaquePointer?, dwdigitnumentries: UInt, lpmedialist: COpaquePointer?, dwmedianumentries: UInt, lptonelist: COpaquePointer?, dwtonenumentries: UInt, lpcallstatelist: COpaquePointer?, dwcallstatenumentries: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetMediaControl(hline, dwaddressid, hcall, dwselect, lpdigitlist?.value?.toCPointer<ByteVar>(), dwdigitnumentries, lpmedialist?.value?.toCPointer<ByteVar>(), dwmedianumentries, lptonelist?.value?.toCPointer<ByteVar>(), dwtonenumentries, lpcallstatelist?.value?.toCPointer<ByteVar>(), dwcallstatenumentries)
+    windowssys_windows_win32_devices_tapi_lineSetMediaControl(hline, dwaddressid, hcall, dwselect, lpdigitlist?.value?.toCPointer<ByteVar>(), dwdigitnumentries, lpmedialist?.value?.toCPointer<ByteVar>(), dwmedianumentries, lptonelist?.value?.toCPointer<ByteVar>(), dwtonenumentries, lpcallstatelist?.value?.toCPointer<ByteVar>(), dwcallstatenumentries)
 
 public actual fun lineSetMediaMode(hcall: UInt, dwmediamodes: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetMediaMode(hcall, dwmediamodes)
+    windowssys_windows_win32_devices_tapi_lineSetMediaMode(hcall, dwmediamodes)
 
 public actual fun lineSetNumRings(hline: UInt, dwaddressid: UInt, dwnumrings: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetNumRings(hline, dwaddressid, dwnumrings)
+    windowssys_windows_win32_devices_tapi_lineSetNumRings(hline, dwaddressid, dwnumrings)
 
 public actual fun lineSetQueueMeasurementPeriod(hline: UInt, dwqueueid: UInt, dwmeasurementperiod: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetQueueMeasurementPeriod(hline, dwqueueid, dwmeasurementperiod)
+    windowssys_windows_win32_devices_tapi_lineSetQueueMeasurementPeriod(hline, dwqueueid, dwmeasurementperiod)
 
 public actual fun lineSetStatusMessages(hline: UInt, dwlinestates: UInt, dwaddressstates: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetStatusMessages(hline, dwlinestates, dwaddressstates)
+    windowssys_windows_win32_devices_tapi_lineSetStatusMessages(hline, dwlinestates, dwaddressstates)
 
 public actual fun lineSetTerminal(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, dwterminalmodes: UInt, dwterminalid: UInt, benable: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetTerminal(hline, dwaddressid, hcall, dwselect, dwterminalmodes, dwterminalid, benable)
+    windowssys_windows_win32_devices_tapi_lineSetTerminal(hline, dwaddressid, hcall, dwselect, dwterminalmodes, dwterminalid, benable)
 
 public actual fun lineSetTollList(hlineapp: UInt, dwdeviceid: UInt, lpszaddressin: Pcstr, dwtolllistoption: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetTollList(hlineapp, dwdeviceid, lpszaddressin?.value?.toCPointer<ByteVar>(), dwtolllistoption)
+    windowssys_windows_win32_devices_tapi_lineSetTollList(hlineapp, dwdeviceid, lpszaddressin?.value?.toCPointer<ByteVar>(), dwtolllistoption)
 
 public actual fun lineSetTollListA(hlineapp: UInt, dwdeviceid: UInt, lpszaddressin: Pcstr, dwtolllistoption: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetTollListA(hlineapp, dwdeviceid, lpszaddressin?.value?.toCPointer<ByteVar>(), dwtolllistoption)
+    windowssys_windows_win32_devices_tapi_lineSetTollListA(hlineapp, dwdeviceid, lpszaddressin?.value?.toCPointer<ByteVar>(), dwtolllistoption)
 
 public actual fun lineSetTollListW(hlineapp: UInt, dwdeviceid: UInt, lpszaddressinw: Pcwstr, dwtolllistoption: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetTollListW(hlineapp, dwdeviceid, lpszaddressinw?.value?.toCPointer<ByteVar>(), dwtolllistoption)
+    windowssys_windows_win32_devices_tapi_lineSetTollListW(hlineapp, dwdeviceid, lpszaddressinw?.value?.toCPointer<ByteVar>(), dwtolllistoption)
 
 public actual fun lineSetupConference(hcall: UInt, hline: UInt, lphconfcall: COpaquePointer?, lphconsultcall: COpaquePointer?, dwnumparties: UInt, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupConference(hcall, hline, lphconfcall?.value?.toCPointer<ByteVar>(), lphconsultcall?.value?.toCPointer<ByteVar>(), dwnumparties, lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetupConference(hcall, hline, lphconfcall?.value?.toCPointer<ByteVar>(), lphconsultcall?.value?.toCPointer<ByteVar>(), dwnumparties, lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetupConferenceA(hcall: UInt, hline: UInt, lphconfcall: COpaquePointer?, lphconsultcall: COpaquePointer?, dwnumparties: UInt, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupConferenceA(hcall, hline, lphconfcall?.value?.toCPointer<ByteVar>(), lphconsultcall?.value?.toCPointer<ByteVar>(), dwnumparties, lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetupConferenceA(hcall, hline, lphconfcall?.value?.toCPointer<ByteVar>(), lphconsultcall?.value?.toCPointer<ByteVar>(), dwnumparties, lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetupConferenceW(hcall: UInt, hline: UInt, lphconfcall: COpaquePointer?, lphconsultcall: COpaquePointer?, dwnumparties: UInt, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupConferenceW(hcall, hline, lphconfcall?.value?.toCPointer<ByteVar>(), lphconsultcall?.value?.toCPointer<ByteVar>(), dwnumparties, lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetupConferenceW(hcall, hline, lphconfcall?.value?.toCPointer<ByteVar>(), lphconsultcall?.value?.toCPointer<ByteVar>(), dwnumparties, lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetupTransfer(hcall: UInt, lphconsultcall: COpaquePointer?, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupTransfer(hcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetupTransfer(hcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetupTransferA(hcall: UInt, lphconsultcall: COpaquePointer?, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupTransferA(hcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetupTransferA(hcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineSetupTransferW(hcall: UInt, lphconsultcall: COpaquePointer?, lpcallparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSetupTransferW(hcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineSetupTransferW(hcall, lphconsultcall?.value?.toCPointer<ByteVar>(), lpcallparams?.value?.toCPointer<ByteVar>())
 
 public actual fun lineShutdown(hlineapp: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineShutdown(hlineapp)
+    windowssys_windows_win32_devices_tapi_lineShutdown(hlineapp)
 
 public actual fun lineSwapHold(hactivecall: UInt, hheldcall: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineSwapHold(hactivecall, hheldcall)
+    windowssys_windows_win32_devices_tapi_lineSwapHold(hactivecall, hheldcall)
 
 public actual fun lineTranslateAddress(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateAddress(hlineapp, dwdeviceid, dwapiversion, lpszaddressin?.value?.toCPointer<ByteVar>(), dwcard, dwtranslateoptions, lptranslateoutput?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineTranslateAddress(hlineapp, dwdeviceid, dwapiversion, lpszaddressin?.value?.toCPointer<ByteVar>(), dwcard, dwtranslateoptions, lptranslateoutput?.value?.toCPointer<ByteVar>())
 
 public actual fun lineTranslateAddressA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateAddressA(hlineapp, dwdeviceid, dwapiversion, lpszaddressin?.value?.toCPointer<ByteVar>(), dwcard, dwtranslateoptions, lptranslateoutput?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineTranslateAddressA(hlineapp, dwdeviceid, dwapiversion, lpszaddressin?.value?.toCPointer<ByteVar>(), dwcard, dwtranslateoptions, lptranslateoutput?.value?.toCPointer<ByteVar>())
 
 public actual fun lineTranslateAddressW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcwstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateAddressW(hlineapp, dwdeviceid, dwapiversion, lpszaddressin?.value?.toCPointer<ByteVar>(), dwcard, dwtranslateoptions, lptranslateoutput?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineTranslateAddressW(hlineapp, dwdeviceid, dwapiversion, lpszaddressin?.value?.toCPointer<ByteVar>(), dwcard, dwtranslateoptions, lptranslateoutput?.value?.toCPointer<ByteVar>())
 
 public actual fun lineTranslateDialog(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: Hwnd, lpszaddressin: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateDialog(hlineapp, dwdeviceid, dwapiversion, hwndowner?.value?.toCPointer<ByteVar>(), lpszaddressin?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineTranslateDialog(hlineapp, dwdeviceid, dwapiversion, hwndowner?.value?.toCPointer<ByteVar>(), lpszaddressin?.value?.toCPointer<ByteVar>())
 
 public actual fun lineTranslateDialogA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: Hwnd, lpszaddressin: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateDialogA(hlineapp, dwdeviceid, dwapiversion, hwndowner?.value?.toCPointer<ByteVar>(), lpszaddressin?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineTranslateDialogA(hlineapp, dwdeviceid, dwapiversion, hwndowner?.value?.toCPointer<ByteVar>(), lpszaddressin?.value?.toCPointer<ByteVar>())
 
 public actual fun lineTranslateDialogW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: Hwnd, lpszaddressin: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineTranslateDialogW(hlineapp, dwdeviceid, dwapiversion, hwndowner?.value?.toCPointer<ByteVar>(), lpszaddressin?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineTranslateDialogW(hlineapp, dwdeviceid, dwapiversion, hwndowner?.value?.toCPointer<ByteVar>(), lpszaddressin?.value?.toCPointer<ByteVar>())
 
 public actual fun lineUncompleteCall(hline: UInt, dwcompletionid: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUncompleteCall(hline, dwcompletionid)
+    windowssys_windows_win32_devices_tapi_lineUncompleteCall(hline, dwcompletionid)
 
 public actual fun lineUnhold(hcall: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUnhold(hcall)
+    windowssys_windows_win32_devices_tapi_lineUnhold(hcall)
 
 public actual fun lineUnpark(hline: UInt, dwaddressid: UInt, lphcall: COpaquePointer?, lpszdestaddress: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUnpark(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineUnpark(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>())
 
 public actual fun lineUnparkA(hline: UInt, dwaddressid: UInt, lphcall: COpaquePointer?, lpszdestaddress: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUnparkA(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineUnparkA(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>())
 
 public actual fun lineUnparkW(hline: UInt, dwaddressid: UInt, lphcall: COpaquePointer?, lpszdestaddress: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_lineUnparkW(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_lineUnparkW(hline, dwaddressid, lphcall?.value?.toCPointer<ByteVar>(), lpszdestaddress?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneClose(hphone: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneClose(hphone)
+    windowssys_windows_win32_devices_tapi_phoneClose(hphone)
 
 public actual fun phoneConfigDialog(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneConfigDialog(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneConfigDialog(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneConfigDialogA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneConfigDialogA(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneConfigDialogA(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneConfigDialogW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneConfigDialogW(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneConfigDialogW(dwdeviceid, hwndowner?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneDevSpecific(hphone: UInt, lpparams: COpaquePointer?, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneDevSpecific(hphone, lpparams?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_phoneDevSpecific(hphone, lpparams?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun phoneGetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetData(hphone: UInt, dwdataid: UInt, lpdata: COpaquePointer?, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetData(hphone, dwdataid, lpdata?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_phoneGetData(hphone, dwdataid, lpdata?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun phoneGetDevCaps(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetDevCaps(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetDevCaps(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetDevCapsA(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetDevCapsA(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetDevCapsA(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetDevCapsW(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetDevCapsW(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetDevCapsW(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetDisplay(hphone: UInt, lpdisplay: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetDisplay(hphone, lpdisplay?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetDisplay(hphone, lpdisplay?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetGain(hphone: UInt, dwhookswitchdev: UInt, lpdwgain: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetGain(hphone, dwhookswitchdev, lpdwgain?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetGain(hphone, dwhookswitchdev, lpdwgain?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetHookSwitch(hphone: UInt, lpdwhookswitchdevs: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetHookSwitch(hphone, lpdwhookswitchdevs?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetHookSwitch(hphone, lpdwhookswitchdevs?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetID(hphone: UInt, lpdeviceid: COpaquePointer?, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetID(hphone, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetID(hphone, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetIDA(hphone: UInt, lpdeviceid: COpaquePointer?, lpszdeviceclass: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIDA(hphone, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetIDA(hphone, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetIDW(hphone: UInt, lpdeviceid: COpaquePointer?, lpszdeviceclass: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIDW(hphone, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetIDW(hphone, lpdeviceid?.value?.toCPointer<ByteVar>(), lpszdeviceclass?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIcon(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetIcon(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIconA(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetIconA(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetIconW(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetIconW(dwdeviceid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lphicon?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetLamp(hphone: UInt, dwbuttonlampid: UInt, lpdwlampmode: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetLamp(hphone, dwbuttonlampid, lpdwlampmode?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetLamp(hphone, dwbuttonlampid, lpdwlampmode?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetMessage(hphoneapp: UInt, lpmessage: COpaquePointer?, dwtimeout: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetMessage(hphoneapp, lpmessage?.value?.toCPointer<ByteVar>(), dwtimeout)
+    windowssys_windows_win32_devices_tapi_phoneGetMessage(hphoneapp, lpmessage?.value?.toCPointer<ByteVar>(), dwtimeout)
 
 public actual fun phoneGetRing(hphone: UInt, lpdwringmode: COpaquePointer?, lpdwvolume: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetRing(hphone, lpdwringmode?.value?.toCPointer<ByteVar>(), lpdwvolume?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetRing(hphone, lpdwringmode?.value?.toCPointer<ByteVar>(), lpdwvolume?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetStatus(hphone: UInt, lpphonestatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetStatus(hphone, lpphonestatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetStatus(hphone, lpphonestatus?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetStatusA(hphone: UInt, lpphonestatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetStatusA(hphone, lpphonestatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetStatusA(hphone, lpphonestatus?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetStatusMessages(hphone: UInt, lpdwphonestates: COpaquePointer?, lpdwbuttonmodes: COpaquePointer?, lpdwbuttonstates: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetStatusMessages(hphone, lpdwphonestates?.value?.toCPointer<ByteVar>(), lpdwbuttonmodes?.value?.toCPointer<ByteVar>(), lpdwbuttonstates?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetStatusMessages(hphone, lpdwphonestates?.value?.toCPointer<ByteVar>(), lpdwbuttonmodes?.value?.toCPointer<ByteVar>(), lpdwbuttonstates?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetStatusW(hphone: UInt, lpphonestatus: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetStatusW(hphone, lpphonestatus?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetStatusW(hphone, lpphonestatus?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneGetVolume(hphone: UInt, dwhookswitchdev: UInt, lpdwvolume: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneGetVolume(hphone, dwhookswitchdev, lpdwvolume?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneGetVolume(hphone, dwhookswitchdev, lpdwvolume?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneInitialize(lphphoneapp: COpaquePointer?, hinstance: Hinstance, lpfncallback: Phonecallback, lpszappname: Pcstr, lpdwnumdevs: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneInitialize(lphphoneapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneInitialize(lphphoneapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneInitializeExA(lphphoneapp: COpaquePointer?, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: COpaquePointer?, lpdwapiversion: COpaquePointer?, lpphoneinitializeexparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneInitializeExA(lphphoneapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>(), lpdwapiversion?.value?.toCPointer<ByteVar>(), lpphoneinitializeexparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneInitializeExA(lphphoneapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>(), lpdwapiversion?.value?.toCPointer<ByteVar>(), lpphoneinitializeexparams?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneInitializeExW(lphphoneapp: COpaquePointer?, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: COpaquePointer?, lpdwapiversion: COpaquePointer?, lpphoneinitializeexparams: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneInitializeExW(lphphoneapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>(), lpdwapiversion?.value?.toCPointer<ByteVar>(), lpphoneinitializeexparams?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneInitializeExW(lphphoneapp?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname?.value?.toCPointer<ByteVar>(), lpdwnumdevs?.value?.toCPointer<ByteVar>(), lpdwapiversion?.value?.toCPointer<ByteVar>(), lpphoneinitializeexparams?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneNegotiateAPIVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: COpaquePointer?, lpextensionid: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersion(hphoneapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion?.value?.toCPointer<ByteVar>(), lpextensionid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersion(hphoneapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion?.value?.toCPointer<ByteVar>(), lpextensionid?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneNegotiateExtVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersion(hphoneapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersion(hphoneapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneOpen(hphoneapp: UInt, dwdeviceid: UInt, lphphone: COpaquePointer?, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivilege: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneOpen(hphoneapp, dwdeviceid, lphphone?.value?.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivilege)
+    windowssys_windows_win32_devices_tapi_phoneOpen(hphoneapp, dwdeviceid, lphphone?.value?.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivilege)
 
 public actual fun phoneSetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneSetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneSetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneSetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: COpaquePointer?): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW(hphone, dwbuttonlampid, lpbuttoninfo?.value?.toCPointer<ByteVar>())
 
 public actual fun phoneSetData(hphone: UInt, dwdataid: UInt, lpdata: COpaquePointer?, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetData(hphone, dwdataid, lpdata?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_phoneSetData(hphone, dwdataid, lpdata?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun phoneSetDisplay(hphone: UInt, dwrow: UInt, dwcolumn: UInt, lpsdisplay: Pcstr, dwsize: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetDisplay(hphone, dwrow, dwcolumn, lpsdisplay?.value?.toCPointer<ByteVar>(), dwsize)
+    windowssys_windows_win32_devices_tapi_phoneSetDisplay(hphone, dwrow, dwcolumn, lpsdisplay?.value?.toCPointer<ByteVar>(), dwsize)
 
 public actual fun phoneSetGain(hphone: UInt, dwhookswitchdev: UInt, dwgain: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetGain(hphone, dwhookswitchdev, dwgain)
+    windowssys_windows_win32_devices_tapi_phoneSetGain(hphone, dwhookswitchdev, dwgain)
 
 public actual fun phoneSetHookSwitch(hphone: UInt, dwhookswitchdevs: UInt, dwhookswitchmode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetHookSwitch(hphone, dwhookswitchdevs, dwhookswitchmode)
+    windowssys_windows_win32_devices_tapi_phoneSetHookSwitch(hphone, dwhookswitchdevs, dwhookswitchmode)
 
 public actual fun phoneSetLamp(hphone: UInt, dwbuttonlampid: UInt, dwlampmode: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetLamp(hphone, dwbuttonlampid, dwlampmode)
+    windowssys_windows_win32_devices_tapi_phoneSetLamp(hphone, dwbuttonlampid, dwlampmode)
 
 public actual fun phoneSetRing(hphone: UInt, dwringmode: UInt, dwvolume: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetRing(hphone, dwringmode, dwvolume)
+    windowssys_windows_win32_devices_tapi_phoneSetRing(hphone, dwringmode, dwvolume)
 
 public actual fun phoneSetStatusMessages(hphone: UInt, dwphonestates: UInt, dwbuttonmodes: UInt, dwbuttonstates: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetStatusMessages(hphone, dwphonestates, dwbuttonmodes, dwbuttonstates)
+    windowssys_windows_win32_devices_tapi_phoneSetStatusMessages(hphone, dwphonestates, dwbuttonmodes, dwbuttonstates)
 
 public actual fun phoneSetVolume(hphone: UInt, dwhookswitchdev: UInt, dwvolume: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneSetVolume(hphone, dwhookswitchdev, dwvolume)
+    windowssys_windows_win32_devices_tapi_phoneSetVolume(hphone, dwhookswitchdev, dwvolume)
 
 public actual fun phoneShutdown(hphoneapp: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_phoneShutdown(hphoneapp)
+    windowssys_windows_win32_devices_tapi_phoneShutdown(hphoneapp)
 
 public actual fun tapiGetLocationInfo(lpszcountrycode: Pstr, lpszcitycode: Pstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiGetLocationInfo(lpszcountrycode?.value?.toCPointer<ByteVar>(), lpszcitycode?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_tapiGetLocationInfo(lpszcountrycode?.value?.toCPointer<ByteVar>(), lpszcitycode?.value?.toCPointer<ByteVar>())
 
 public actual fun tapiGetLocationInfoA(lpszcountrycode: Pstr, lpszcitycode: Pstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA(lpszcountrycode?.value?.toCPointer<ByteVar>(), lpszcitycode?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA(lpszcountrycode?.value?.toCPointer<ByteVar>(), lpszcitycode?.value?.toCPointer<ByteVar>())
 
 public actual fun tapiGetLocationInfoW(lpszcountrycodew: Pwstr, lpszcitycodew: Pwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW(lpszcountrycodew?.value?.toCPointer<ByteVar>(), lpszcitycodew?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW(lpszcountrycodew?.value?.toCPointer<ByteVar>(), lpszcitycodew?.value?.toCPointer<ByteVar>())
 
 public actual fun tapiRequestDrop(hwnd: Hwnd, wrequestid: Wparam): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestDrop(hwnd?.value?.toCPointer<ByteVar>(), wrequestid)
+    windowssys_windows_win32_devices_tapi_tapiRequestDrop(hwnd?.value?.toCPointer<ByteVar>(), wrequestid)
 
 public actual fun tapiRequestMakeCall(lpszdestaddress: Pcstr, lpszappname: Pcstr, lpszcalledparty: Pcstr, lpszcomment: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMakeCall(lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_tapiRequestMakeCall(lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
 
 public actual fun tapiRequestMakeCallA(lpszdestaddress: Pcstr, lpszappname: Pcstr, lpszcalledparty: Pcstr, lpszcomment: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA(lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA(lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
 
 public actual fun tapiRequestMakeCallW(lpszdestaddress: Pcwstr, lpszappname: Pcwstr, lpszcalledparty: Pcwstr, lpszcomment: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW(lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW(lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
 
 public actual fun tapiRequestMediaCall(hwnd: Hwnd, wrequestid: Wparam, lpszdeviceclass: Pcstr, lpdeviceid: Pcstr, dwsize: UInt, dwsecure: UInt, lpszdestaddress: Pcstr, lpszappname: Pcstr, lpszcalledparty: Pcstr, lpszcomment: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMediaCall(hwnd?.value?.toCPointer<ByteVar>(), wrequestid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceid?.value?.toCPointer<ByteVar>(), dwsize, dwsecure, lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_tapiRequestMediaCall(hwnd?.value?.toCPointer<ByteVar>(), wrequestid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceid?.value?.toCPointer<ByteVar>(), dwsize, dwsecure, lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
 
 public actual fun tapiRequestMediaCallA(hwnd: Hwnd, wrequestid: Wparam, lpszdeviceclass: Pcstr, lpdeviceid: Pcstr, dwsize: UInt, dwsecure: UInt, lpszdestaddress: Pcstr, lpszappname: Pcstr, lpszcalledparty: Pcstr, lpszcomment: Pcstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA(hwnd?.value?.toCPointer<ByteVar>(), wrequestid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceid?.value?.toCPointer<ByteVar>(), dwsize, dwsecure, lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA(hwnd?.value?.toCPointer<ByteVar>(), wrequestid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceid?.value?.toCPointer<ByteVar>(), dwsize, dwsecure, lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
 
 public actual fun tapiRequestMediaCallW(hwnd: Hwnd, wrequestid: Wparam, lpszdeviceclass: Pcwstr, lpdeviceid: Pcwstr, dwsize: UInt, dwsecure: UInt, lpszdestaddress: Pcwstr, lpszappname: Pcwstr, lpszcalledparty: Pcwstr, lpszcomment: Pcwstr): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW(hwnd?.value?.toCPointer<ByteVar>(), wrequestid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceid?.value?.toCPointer<ByteVar>(), dwsize, dwsecure, lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW(hwnd?.value?.toCPointer<ByteVar>(), wrequestid, lpszdeviceclass?.value?.toCPointer<ByteVar>(), lpdeviceid?.value?.toCPointer<ByteVar>(), dwsize, dwsecure, lpszdestaddress?.value?.toCPointer<ByteVar>(), lpszappname?.value?.toCPointer<ByteVar>(), lpszcalledparty?.value?.toCPointer<ByteVar>(), lpszcomment?.value?.toCPointer<ByteVar>())
