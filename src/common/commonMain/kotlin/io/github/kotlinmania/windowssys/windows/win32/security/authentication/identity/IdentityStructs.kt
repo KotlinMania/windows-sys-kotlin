@@ -1442,7 +1442,7 @@ public data class PolicyAuditLogInfo(
 
 public data class PolicyAuditSidArray(
     public var usersCount: UInt = 0u,
-    public var userSidArray: Psid? = null,
+    public var userSidArray: Psid = null,
 )
 
 public data class PolicyAuditSubcategoriesInfo(

@@ -104,7 +104,7 @@ public class CryptProviderData(
     public var cdwTrustStepErrors: UInt = 0u,
     public var padwTrustStepErrors: UInt? = null,
     public var chStores: UInt = 0u,
-    public var pahStores: Hcertstore? = null,
+    public var pahStores: Hcertstore = null,
     public var dwEncoding: UInt = 0u,
     public var hMsg: COpaquePointer? = null,
     public var csSigners: UInt = 0u,
@@ -399,7 +399,7 @@ public data class SpcSpOpusInfo(
 
 public data class SpcStatementType(
     public var cKeyPurposeId: UInt = 0u,
-    public var rgpszKeyPurposeId: Pstr? = null,
+    public var rgpszKeyPurposeId: Pstr = null,
 )
 
 public data class WintrustBlobInfo(
@@ -430,7 +430,7 @@ public data class WintrustCertInfo(
     public var pcwszDisplayName: Pcwstr = null,
     public var psCertContext: CertContext? = null,
     public var chStores: UInt = 0u,
-    public var pahStores: Hcertstore? = null,
+    public var pahStores: Hcertstore = null,
     public var dwFlags: UInt = 0u,
     public var psftVerifyAsOf: Filetime? = null,
 )
@@ -471,7 +471,7 @@ public data class WintrustSgnrInfo(
     public var pcwszDisplayName: Pcwstr = null,
     public var psSignerInfo: CmsgSignerInfo? = null,
     public var chStores: UInt = 0u,
-    public var pahStores: Hcertstore? = null,
+    public var pahStores: Hcertstore = null,
 )
 
 public data class WintrustSignatureSettings(

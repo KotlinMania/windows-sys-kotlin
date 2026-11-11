@@ -588,9 +588,9 @@ public data class FwpmNetEventIkeextEmFailure1(
     public var localPrincipalNameForAuth: Pwstr = null,
     public var remotePrincipalNameForAuth: Pwstr = null,
     public var numLocalPrincipalGroupSids: UInt = 0u,
-    public var localPrincipalGroupSids: Pwstr? = null,
+    public var localPrincipalGroupSids: Pwstr = null,
     public var numRemotePrincipalGroupSids: UInt = 0u,
-    public var remotePrincipalGroupSids: Pwstr? = null,
+    public var remotePrincipalGroupSids: Pwstr = null,
     public var saTrafficType: IpsecTrafficType = 0,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -693,9 +693,9 @@ public data class FwpmNetEventIkeextMmFailure1(
     public var localPrincipalNameForAuth: Pwstr = null,
     public var remotePrincipalNameForAuth: Pwstr = null,
     public var numLocalPrincipalGroupSids: UInt = 0u,
-    public var localPrincipalGroupSids: Pwstr? = null,
+    public var localPrincipalGroupSids: Pwstr = null,
     public var numRemotePrincipalGroupSids: UInt = 0u,
-    public var remotePrincipalGroupSids: Pwstr? = null,
+    public var remotePrincipalGroupSids: Pwstr = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -754,9 +754,9 @@ public class FwpmNetEventIkeextMmFailure2(
     public var localPrincipalNameForAuth: Pwstr = null,
     public var remotePrincipalNameForAuth: Pwstr = null,
     public var numLocalPrincipalGroupSids: UInt = 0u,
-    public var localPrincipalGroupSids: Pwstr? = null,
+    public var localPrincipalGroupSids: Pwstr = null,
     public var numRemotePrincipalGroupSids: UInt = 0u,
-    public var remotePrincipalGroupSids: Pwstr? = null,
+    public var remotePrincipalGroupSids: Pwstr = null,
     public var providerContextKey: Guid? = null,
 )
 
@@ -1112,13 +1112,13 @@ public data class FwpmVswitchEvent00(
 
 public data class FwpmVswitchEvent000(
     public var numvSwitchFilterExtensions: UInt = 0u,
-    public var vSwitchFilterExtensions: Pwstr? = null,
+    public var vSwitchFilterExtensions: Pwstr = null,
 )
 
 public data class FwpmVswitchEvent001(
     public var inRequiredPosition: Bool = 0,
     public var numvSwitchFilterExtensions: UInt = 0u,
-    public var vSwitchFilterExtensions: Pwstr? = null,
+    public var vSwitchFilterExtensions: Pwstr = null,
 )
 
 public data class FwpmVswitchEventSubscription0(
@@ -1428,7 +1428,7 @@ public data class IkeextCertificateCriteria0(
 
 public data class IkeextCertEkus0(
     public var numEku: UInt = 0u,
-    public var eku: Pstr? = null,
+    public var eku: Pstr = null,
 )
 
 public data class IkeextCertName0(

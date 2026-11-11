@@ -314,7 +314,7 @@ public class Printdlgexa(
     public var lpPrintTemplateName: Pcstr = null,
     public var lpCallback: COpaquePointer? = null,
     public var nPropertyPages: UInt = 0u,
-    public var lphPropertyPages: Hpropsheetpage? = null,
+    public var lphPropertyPages: Hpropsheetpage = null,
     public var nStartPage: UInt = 0u,
     public var dwResultAction: UInt = 0u,
 )
@@ -338,7 +338,7 @@ public class Printdlgexw(
     public var lpPrintTemplateName: Pcwstr = null,
     public var lpCallback: COpaquePointer? = null,
     public var nPropertyPages: UInt = 0u,
-    public var lphPropertyPages: Hpropsheetpage? = null,
+    public var lphPropertyPages: Hpropsheetpage = null,
     public var nStartPage: UInt = 0u,
     public var dwResultAction: UInt = 0u,
 )

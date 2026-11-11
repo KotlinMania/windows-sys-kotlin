@@ -7,7 +7,7 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 
 public data class AppxEncryptedExemptions(
     public var count: UInt = 0u,
-    public var plainTextFiles: Pcwstr? = null,
+    public var plainTextFiles: Pcwstr = null,
 )
 
 public data class AppxEncryptedPackageSettings(

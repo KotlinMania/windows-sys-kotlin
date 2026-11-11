@@ -67,7 +67,7 @@ public data class DiagnosticDataRecord(
 )
 
 public data class DiagnosticDataSearchCriteria(
-    public var producerNames: Pcwstr? = null,
+    public var producerNames: Pcwstr = null,
     public var producerNameCount: UInt = 0u,
     public var textToMatch: Pcwstr = null,
     public var categoryIds: Int? = null,
@@ -86,7 +86,7 @@ public class DiagnosticReportData(
     public var cabId: Pwstr = null,
     public var reportStatus: UInt = 0u,
     public var reportIntegratorId: Guid = Guid(),
-    public var fileNames: Pwstr? = null,
+    public var fileNames: Pwstr = null,
     public var fileCount: UInt = 0u,
     public var friendlyEventName: Pwstr = null,
     public var applicationName: Pwstr = null,

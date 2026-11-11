@@ -28,7 +28,7 @@ public data class Cabool(
 
 public data class Cabstr(
     public var cElems: UInt = 0u,
-    public var pElems: Bstr? = null,
+    public var pElems: Bstr = null,
 )
 
 public data class Cabstrblob(
@@ -93,12 +93,12 @@ public data class Cal(
 
 public data class Calpstr(
     public var cElems: UInt = 0u,
-    public var pElems: Pstr? = null,
+    public var pElems: Pstr = null,
 )
 
 public data class Calpwstr(
     public var cElems: UInt = 0u,
-    public var pElems: Pwstr? = null,
+    public var pElems: Pwstr = null,
 )
 
 public data class Capropvariant(
@@ -319,7 +319,7 @@ public class Propvariant000 {
 
     public var pdate: Double? = null
 
-    public var pbstrVal: Bstr? = null
+    public var pbstrVal: Bstr = null
 
     public var ppunkVal: COpaquePointer? = null
 

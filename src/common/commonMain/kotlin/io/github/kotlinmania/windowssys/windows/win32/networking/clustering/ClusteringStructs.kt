@@ -1195,7 +1195,7 @@ public data class CreateClusterConfig(
     public var dwVersion: UInt = 0u,
     public var lpszClusterName: Pcwstr = null,
     public var cNodes: UInt = 0u,
-    public var ppszNodeNames: Pcwstr? = null,
+    public var ppszNodeNames: Pcwstr = null,
     public var cIpEntries: UInt = 0u,
     public var pIpEntries: ClusterIpEntry? = null,
     public var fEmptyCluster: Boolean = false,

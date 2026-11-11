@@ -934,7 +934,7 @@ public data class ImgErrorInfo(
     public var devDescription: Bstr = null,
     public var errorID: Guid = Guid(),
     public var cUserParameters: UInt = 0u,
-    public var aUserParameters: Bstr? = null,
+    public var aUserParameters: Bstr = null,
     public var userFallback: Bstr = null,
     public var exceptionID: UInt = 0u,
 )

@@ -245,7 +245,7 @@ public data class AuthzSecurityAttributeV1(
 public data class AuthzSecurityAttributeV10(
     public var pInt64: Long? = null,
     public var pUint64: ULong? = null,
-    public var ppString: Pwstr? = null,
+    public var ppString: Pwstr = null,
     public var pFqbn: AuthzSecurityAttributeFqbnValue? = null,
     public var pOctetString: AuthzSecurityAttributeOctetStringValue? = null,
 )

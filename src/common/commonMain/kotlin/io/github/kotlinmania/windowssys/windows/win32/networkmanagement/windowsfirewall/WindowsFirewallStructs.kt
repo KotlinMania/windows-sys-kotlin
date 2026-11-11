@@ -22,7 +22,7 @@ public data class FwDynamicKeywordAddressData0(
 
 public data class InetFirewallAcBinaries(
     public var count: UInt = 0u,
-    public var binaries: Pwstr? = null,
+    public var binaries: Pwstr = null,
 )
 
 public data class InetFirewallAcCapabilities(

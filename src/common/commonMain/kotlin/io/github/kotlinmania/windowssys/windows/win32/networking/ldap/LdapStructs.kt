@@ -121,7 +121,7 @@ public data class LDAPAPIInfoW(
     public var ldapaiInfoVersion: Int = 0,
     public var ldapaiApiVersion: Int = 0,
     public var ldapaiProtocolVersion: Int = 0,
-    public var ldapaiExtensions: Pwstr? = null,
+    public var ldapaiExtensions: Pwstr = null,
     public var ldapaiVendorName: Pwstr = null,
     public var ldapaiVendorVersion: Int = 0,
 )
@@ -161,7 +161,7 @@ public data class LDAPModA(
 )
 
 public data class LdapmodA0(
-    public var modvStrvals: Pstr? = null,
+    public var modvStrvals: Pstr = null,
     public var modvBvals: COpaquePointer? = null,
 )
 
@@ -172,7 +172,7 @@ public data class LDAPModW(
 )
 
 public data class LdapmodW0(
-    public var modvStrvals: Pwstr? = null,
+    public var modvStrvals: Pwstr = null,
     public var modvBvals: COpaquePointer? = null,
 )
 

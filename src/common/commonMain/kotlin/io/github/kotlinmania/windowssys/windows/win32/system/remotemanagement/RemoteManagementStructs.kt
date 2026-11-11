@@ -31,7 +31,7 @@ public data class WsmanCertificateDetails(
 
 public data class WsmanCommandArgSet(
     public var argsCount: UInt = 0u,
-    public var args: Pcwstr? = null,
+    public var args: Pcwstr = null,
 )
 
 public data class WsmanConnectData(
@@ -131,7 +131,7 @@ public data class WsmanOptionSetex(
     public var optionsCount: UInt = 0u,
     public var options: WsmanOption? = null,
     public var optionsMustUnderstand: Bool = 0,
-    public var optionTypes: Pcwstr? = null,
+    public var optionTypes: Pcwstr = null,
 )
 
 public data class WsmanPluginRequest(
@@ -199,7 +199,7 @@ public data class WsmanShellStartupInfoV11(
 
 public data class WsmanStreamIdSet(
     public var streamIDsCount: UInt = 0u,
-    public var streamIDs: Pcwstr? = null,
+    public var streamIDs: Pcwstr = null,
 )
 
 public data class WsmanUsernamePasswordCreds(

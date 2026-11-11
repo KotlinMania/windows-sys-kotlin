@@ -120,7 +120,7 @@ public data class DnsConnectionPolicyEntry(
     public var cbAppSid: UInt = 0u,
     public var pbAppSid: COpaquePointer? = null,
     public var nConnections: UInt = 0u,
-    public var ppwszConnections: Pcwstr? = null,
+    public var ppwszConnections: Pcwstr = null,
     public var dwPolicyEntryFlags: UInt = 0u,
 )
 
@@ -886,8 +886,8 @@ public data class DnsServiceInstance(
     public var wPriority: UShort = 0u,
     public var wWeight: UShort = 0u,
     public var dwPropertyCount: UInt = 0u,
-    public var keys: Pwstr? = null,
-    public var values: Pwstr? = null,
+    public var keys: Pwstr = null,
+    public var values: Pwstr = null,
     public var dwInterfaceIndex: UInt = 0u,
 )
 

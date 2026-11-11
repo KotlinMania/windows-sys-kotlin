@@ -452,7 +452,7 @@ public data class SGuidArray(
 
 public data class SLPSTRArray(
     public var cValues: UInt = 0u,
-    public var lppszA: Pstr? = null,
+    public var lppszA: Pstr = null,
 )
 
 public data class SLargeIntegerArray(
@@ -589,7 +589,7 @@ public data class StatusObjectNotification(
 
 public data class SWStringArray(
     public var cValues: UInt = 0u,
-    public var lppszW: Pwstr? = null,
+    public var lppszW: Pwstr = null,
 )
 
 public data class TableNotification(

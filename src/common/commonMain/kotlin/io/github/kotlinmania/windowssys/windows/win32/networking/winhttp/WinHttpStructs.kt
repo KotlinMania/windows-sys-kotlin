@@ -204,7 +204,7 @@ public data class WinhttpProxySettingsEx(
     public var pcwszProxy: Pcwstr = null,
     public var pcwszSecureProxy: Pcwstr = null,
     public var cProxyBypasses: UInt = 0u,
-    public var rgpcwszProxyBypasses: Pcwstr? = null,
+    public var rgpcwszProxyBypasses: Pcwstr = null,
     public var dwInterfaceIndex: UInt = 0u,
     public var pcwszConnectionName: Pcwstr = null,
 )

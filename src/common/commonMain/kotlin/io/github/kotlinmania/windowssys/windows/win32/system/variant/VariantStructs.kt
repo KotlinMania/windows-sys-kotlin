@@ -52,7 +52,7 @@ public class Variant000(
     public var pscode: Int? = null,
     public var pcyVal: CY? = null,
     public var pdate: Double? = null,
-    public var pbstrVal: Bstr? = null,
+    public var pbstrVal: Bstr = null,
     public var ppunkVal: COpaquePointer? = null,
     public var ppdispVal: COpaquePointer? = null,
     public var pparray: COpaquePointer? = null,

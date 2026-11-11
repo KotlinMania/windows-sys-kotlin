@@ -193,7 +193,7 @@ public data class ReasonContext00(
     public var localizedReasonModule: Hmodule = null,
     public var localizedReasonId: UInt = 0u,
     public var reasonStringCount: UInt = 0u,
-    public var reasonStrings: Pwstr? = null,
+    public var reasonStrings: Pwstr = null,
 )
 
 public data class RtlUserProcessParameters(

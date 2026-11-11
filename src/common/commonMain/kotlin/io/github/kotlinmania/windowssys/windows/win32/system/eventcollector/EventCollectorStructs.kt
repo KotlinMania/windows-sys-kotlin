@@ -19,6 +19,6 @@ public data class EcVariant0(
     public var binaryVal: COpaquePointer? = null,
     public var booleanArr: Bool? = null,
     public var int32Arr: Int? = null,
-    public var stringArr: Pwstr? = null,
+    public var stringArr: Pwstr = null,
     public var propertyHandleVal: Int = 0,
 )

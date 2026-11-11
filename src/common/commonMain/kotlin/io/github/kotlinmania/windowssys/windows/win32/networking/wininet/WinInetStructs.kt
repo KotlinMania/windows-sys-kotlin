@@ -641,7 +641,7 @@ public data class InternetDiagnosticSocketInfo(
 
 public data class InternetDownloadModeHandle(
     public var pcwszFileName: Pcwstr = null,
-    public var phFile: Handle? = null,
+    public var phFile: Handle = null,
 )
 
 public data class InternetEndBrowserSessionData(

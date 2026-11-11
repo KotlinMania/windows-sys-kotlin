@@ -58,7 +58,7 @@ public data class CryptContentInfoSequenceOfAny(
 
 public data class CryptContexts(
     public var cContexts: UInt = 0u,
-    public var rgpszContexts: Pwstr? = null,
+    public var rgpszContexts: Pwstr = null,
 )
 
 public data class CryptContextConfig(
@@ -68,7 +68,7 @@ public data class CryptContextConfig(
 
 public data class CryptContextFunctions(
     public var cFunctions: UInt = 0u,
-    public var rgpszFunctions: Pwstr? = null,
+    public var rgpszFunctions: Pwstr = null,
 )
 
 public data class CryptContextFunctionConfig(
@@ -78,7 +78,7 @@ public data class CryptContextFunctionConfig(
 
 public data class CryptContextFunctionProviders(
     public var cProviders: UInt = 0u,
-    public var rgpszProviders: Pwstr? = null,
+    public var rgpszProviders: Pwstr = null,
 )
 
 public data class CryptCredentials(
@@ -108,7 +108,7 @@ public data class CryptDecryptMessagePara(
 
 public data class CryptDefaultContextMultiOidPara(
     public var cOID: UInt = 0u,
-    public var rgpszOID: Pstr? = null,
+    public var rgpszOID: Pstr = null,
 )
 
 public data class CryptDesKeyState(
@@ -231,7 +231,7 @@ public data class CryptInterfaceReg(
     public var dwInterface: BcryptInterface = 0u,
     public var dwFlags: BcryptTable = 0u,
     public var cFunctions: UInt = 0u,
-    public var rgpszFunctions: Pwstr? = null,
+    public var rgpszFunctions: Pwstr = null,
 )
 
 public data class CryptKeyProvInfo(
@@ -359,7 +359,7 @@ public data class CryptPropertyRef(
 
 public data class CryptProviders(
     public var cProviders: UInt = 0u,
-    public var rgpszProviders: Pwstr? = null,
+    public var rgpszProviders: Pwstr = null,
 )
 
 public data class CryptProviderRef(
@@ -379,7 +379,7 @@ public data class CryptProviderRefs(
 
 public data class CryptProviderReg(
     public var cAliases: UInt = 0u,
-    public var rgpszAliases: Pwstr? = null,
+    public var rgpszAliases: Pwstr = null,
     public var pUM: CryptImageReg? = null,
     public var pKM: CryptImageReg? = null,
 )
@@ -447,7 +447,7 @@ public data class CryptRetrieveAuxInfo(
     public var pftCacheResync: Filetime? = null,
     public var fProxyCacheRetrieval: Bool = 0,
     public var dwHttpStatusCode: UInt = 0u,
-    public var ppwszErrorResponseHeaders: Pwstr? = null,
+    public var ppwszErrorResponseHeaders: Pwstr = null,
     public var ppErrorContentBlob: COpaquePointer? = null,
 )
 
@@ -565,7 +565,7 @@ public data class CryptTimestampRequest(
 public data class CryptTimestampResponse(
     public var dwStatus: CryptTimestampResponseStatus = 0u,
     public var cFreeText: UInt = 0u,
-    public var rgFreeText: Pwstr? = null,
+    public var rgFreeText: Pwstr = null,
     public var failureInfo: CryptBitBlob = CryptBitBlob(),
     public var contentInfo: CryptIntegerBlob = CryptIntegerBlob(),
 )
@@ -580,7 +580,7 @@ public data class CryptTimeStampRequestInfo(
 
 public data class CryptUrlArray(
     public var cUrl: UInt = 0u,
-    public var rgwszUrl: Pwstr? = null,
+    public var rgwszUrl: Pwstr = null,
 )
 
 public data class CryptUrlInfo(
@@ -597,7 +597,7 @@ public data class CryptVerifyCertSignStrongPropertiesInfo(
 
 public data class CryptVerifyCertSignWeakHashInfo(
     public var cCNGHashAlgid: UInt = 0u,
-    public var rgpwszCNGHashAlgid: Pcwstr? = null,
+    public var rgpwszCNGHashAlgid: Pcwstr = null,
     public var dwWeakIndex: UInt = 0u,
 )
 
@@ -907,7 +907,7 @@ public data class CtlInfo(
 
 public data class CtlUsage(
     public var cUsageIdentifier: UInt = 0u,
-    public var rgpszUsageIdentifier: Pstr? = null,
+    public var rgpszUsageIdentifier: Pstr = null,
 )
 
 public data class CtlUsageMatch(

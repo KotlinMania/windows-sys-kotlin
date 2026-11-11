@@ -57,7 +57,7 @@ public data class Cadword(
 
 public data class Calpolestr(
     public var cElems: UInt = 0u,
-    public var pElems: Pwstr? = null,
+    public var pElems: Pwstr = null,
 )
 
 public data class Cauuid(
@@ -218,7 +218,7 @@ public data class Oleuibusya(
     public var lpszTemplate: Pcstr = null,
     public var hResource: Hrsrc = null,
     public var hTask: Htask = null,
-    public var lphWndDialog: Hwnd? = null,
+    public var lphWndDialog: Hwnd = null,
 )
 
 public data class Oleuibusyw(
@@ -232,7 +232,7 @@ public data class Oleuibusyw(
     public var lpszTemplate: Pcwstr = null,
     public var hResource: Hrsrc = null,
     public var hTask: Htask = null,
-    public var lphWndDialog: Hwnd? = null,
+    public var lphWndDialog: Hwnd = null,
 )
 
 public data class Oleuichangeicona(

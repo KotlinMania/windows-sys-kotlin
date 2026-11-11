@@ -495,7 +495,7 @@ public data class BthRadioInRange(
 
 public data class BthSetService(
     public var pSdpVersion: UInt? = null,
-    public var pRecordHandle: Handle? = null,
+    public var pRecordHandle: Handle = null,
     public var fCodService: UInt = 0u,
     public var reserved: UIntArray = UIntArray(5),
     public var ulRecordLength: UInt = 0u,

@@ -440,7 +440,7 @@ public data class Defcontextmenu(
     public var apidl: COpaquePointer? = null,
     public var punkAssociationInfo: COpaquePointer? = null,
     public var cKeys: UInt = 0u,
-    public var aKeys: Hkey? = null,
+    public var aKeys: Hkey = null,
 )
 
 public data class Delegateitemid(

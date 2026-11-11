@@ -104,7 +104,7 @@ public data class AdsCaseignoreList(
 public data class AdsClassDef(
     public var pszClassName: Pwstr = null,
     public var dwMandatoryAttrs: UInt = 0u,
-    public var ppszMandatoryAttrs: Pwstr? = null,
+    public var ppszMandatoryAttrs: Pwstr = null,
     public var optionalAttrs: UInt = 0u,
     public var ppszOptionalAttrs: COpaquePointer? = null,
     public var dwNamingAttrs: UInt = 0u,
@@ -471,7 +471,7 @@ public data class DsopInitInfo(
     public var aDsScopeInfos: DsopScopeInitInfo? = null,
     public var flOptions: UInt = 0u,
     public var cAttributesToFetch: UInt = 0u,
-    public var apwzAttributeNames: Pcwstr? = null,
+    public var apwzAttributeNames: Pcwstr = null,
 )
 
 public data class DsopScopeInitInfo(

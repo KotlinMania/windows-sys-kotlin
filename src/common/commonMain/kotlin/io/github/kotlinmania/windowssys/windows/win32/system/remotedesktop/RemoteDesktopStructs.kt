@@ -269,7 +269,7 @@ public data class VmNotifyInfo(
 
 public data class VmPatchInfo(
     public var dwNumEntries: UInt = 0u,
-    public var pVmNames: Pwstr? = null,
+    public var pVmNames: Pwstr = null,
 )
 
 public data class WrdsConnectionSetting(

@@ -243,7 +243,7 @@ public data class BcryptEcckeyBlob(
 
 public data class BcryptEccCurveNames(
     public var dwEccCurveNames: UInt = 0u,
-    public var pEccCurveNames: Pwstr? = null,
+    public var pEccCurveNames: Pwstr = null,
 )
 
 public data class BcryptEccParameterHeader(
@@ -1142,7 +1142,7 @@ public data class CertPolicyConstraintsInfo(
 
 public data class CertPolicyId(
     public var cCertPolicyElementId: UInt = 0u,
-    public var rgpszCertPolicyElementId: Pstr? = null,
+    public var rgpszCertPolicyElementId: Pstr = null,
 )
 
 public data class CertPolicyInfo(
@@ -1423,7 +1423,7 @@ public data class CertX942DhValidationParams(
 
 public data class Claimlist(
     public var count: UInt = 0u,
-    public var claims: Pcwstr? = null,
+    public var claims: Pcwstr = null,
 )
 
 public data class ClmdPivCertData(

@@ -129,7 +129,7 @@ public data class UIAutomationMethodInfo(
     public var cInParameters: UInt = 0u,
     public var cOutParameters: UInt = 0u,
     public var pParameterTypes: Int? = null,
-    public var pParameterNames: Pcwstr? = null,
+    public var pParameterNames: Pcwstr = null,
 )
 
 public data class UIAutomationParameter(

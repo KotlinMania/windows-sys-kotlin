@@ -177,7 +177,7 @@ public data class ClaimSecurityAttributeV1(
 public data class ClaimSecurityAttributeV10(
     public var pInt64: Long? = null,
     public var pUint64: ULong? = null,
-    public var ppString: Pwstr? = null,
+    public var ppString: Pwstr = null,
     public var pFqbn: ClaimSecurityAttributeFqbnValue? = null,
     public var pOctetString: ClaimSecurityAttributeOctetStringValue? = null,
 )

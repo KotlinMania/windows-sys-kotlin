@@ -422,7 +422,7 @@ public class PeerInvitationInfo(
     public var cRoles: UInt = 0u,
     public var pRoles: Guid? = null,
     public var cClassifiers: UInt = 0u,
-    public var ppwzClassifiers: Pwstr? = null,
+    public var ppwzClassifiers: Pwstr = null,
     public var pSubjectPublicKey: CertPublicKeyInfo? = null,
     public var authScheme: PeerGroupAuthenticationScheme = 0,
 )

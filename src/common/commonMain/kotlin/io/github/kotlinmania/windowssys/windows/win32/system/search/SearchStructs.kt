@@ -439,7 +439,7 @@ public data class Mdaxisinfo(
     public var cDimensions: Int = 0,
     public var cCoordinates: Int = 0,
     public var rgcColumns: Int? = null,
-    public var rgpwszDimensionNames: Pwstr? = null,
+    public var rgpwszDimensionNames: Pwstr = null,
 )
 
 public data class Natlanguagerestriction(
@@ -518,7 +518,7 @@ public data class Rmtpack(
     public var pISeqStream: COpaquePointer? = null,
     public var cbData: UInt = 0u,
     public var cBSTR: UInt = 0u,
-    public var rgBSTR: Bstr? = null,
+    public var rgBSTR: Bstr = null,
     public var cVARIANT: UInt = 0u,
     public var rgVARIANT: Variant? = null,
     public var cIDISPATCH: UInt = 0u,

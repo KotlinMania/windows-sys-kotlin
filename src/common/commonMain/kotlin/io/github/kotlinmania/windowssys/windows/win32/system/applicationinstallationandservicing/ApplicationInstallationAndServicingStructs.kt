@@ -277,7 +277,7 @@ public data class PatchOptionData(
     public var sizeOfThisStruct: UInt = 0u,
     public var symbolOptionFlags: UInt = 0u,
     public var newFileSymbolPath: Pcstr = null,
-    public var oldFileSymbolPathArray: Pcstr? = null,
+    public var oldFileSymbolPathArray: Pcstr = null,
     public var extendedOptionFlags: UInt = 0u,
     public var symLoadCallback: PpatchSymloadCallback = null,
     public var symLoadContext: COpaquePointer? = null,
