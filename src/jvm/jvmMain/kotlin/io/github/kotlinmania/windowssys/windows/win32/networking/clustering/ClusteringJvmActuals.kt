@@ -239,7 +239,7 @@ private object WindowsWin32NetworkingClusteringJniBridge {
     external fun windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(hgroupsetenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(hcluster: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(hcluster: Long): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume(lpszpathname: Long): Int
@@ -257,7 +257,7 @@ private object WindowsWin32NetworkingClusteringJniBridge {
     external fun windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(hnetinterfaceenum: Long, dwindex: Int, lpszname: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(hcluster: Long, lpsznodename: Long, lpsznetworkname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(hcluster: Long, lpsznodename: Long, lpsznetworkname: Long): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum(hnetworkenum: Long): Int
@@ -1432,7 +1432,7 @@ public actual fun clusterGroupOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcw
     WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupOpenEnumEx(hcluster, (lpszproperties?.value ?: 0L), cbproperties.toInt(), (lpszroproperties?.value ?: 0L), cbroproperties.toInt(), dwflags.toInt())
 
 public actual fun clusterGroupSetCloseEnum(hgroupsetenum: Hgroupsetenum): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum(hgroupsetenum.toLong()).toUInt()
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum(hgroupsetenum).toUInt()
 
 public actual fun clusterGroupSetControl(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetControl(hgroupset, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
@@ -1441,10 +1441,10 @@ public actual fun clusterGroupSetControlEx(hgroupset: Hgroupset, hhostnode: Hnod
     WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx(hgroupset, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
 public actual fun clusterGroupSetEnum(hgroupsetenum: Hgroupsetenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetEnum(hgroupsetenum.toLong(), dwindex.toInt(), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetEnum(hgroupsetenum, dwindex.toInt(), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
 public actual fun clusterGroupSetGetEnumCount(hgroupsetenum: Hgroupsetenum): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(hgroupsetenum.toLong()).toUInt()
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(hgroupsetenum).toUInt()
 
 public actual fun clusterGroupSetOpenEnum(hcluster: Hcluster): Hgroupsetenum =
     WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(hcluster)
@@ -1453,7 +1453,7 @@ public actual fun clusterIsPathOnSharedVolume(lpszpathname: Pcwstr): Bool =
     WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume((lpszpathname?.value ?: 0L))
 
 public actual fun clusterNetInterfaceCloseEnum(hnetinterfaceenum: Hnetinterfaceenum): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum(hnetinterfaceenum.toLong()).toUInt()
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum(hnetinterfaceenum).toUInt()
 
 public actual fun clusterNetInterfaceControl(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl(hnetinterface, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
@@ -1462,7 +1462,7 @@ public actual fun clusterNetInterfaceControlEx(hnetinterface: Hnetinterface, hho
     WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx(hnetinterface, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
 public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(hnetinterfaceenum.toLong(), dwindex.toInt(), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(hnetinterfaceenum, dwindex.toInt(), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
 public actual fun clusterNetInterfaceOpenEnum(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr): Hnetinterfaceenum =
     WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(hcluster, (lpsznodename?.value ?: 0L), (lpsznetworkname?.value ?: 0L))

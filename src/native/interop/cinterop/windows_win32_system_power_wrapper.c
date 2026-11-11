@@ -2042,9 +2042,9 @@ bool windowssys_windows_win32_system_power_readPwrScheme(uint32_t uiid, void* pp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_registerPowerSettingNotification(void* hrecipient, void* powersettingguid, uint32_t flags) {
+int64_t windowssys_windows_win32_system_power_registerPowerSettingNotification(void* hrecipient, void* powersettingguid, uint32_t flags) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
@@ -2066,9 +2066,9 @@ int32_t windowssys_windows_win32_system_power_registerPowerSettingNotification(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_power_registerSuspendResumeNotification(void* hrecipient, uint32_t flags) {
+int64_t windowssys_windows_win32_system_power_registerSuspendResumeNotification(void* hrecipient, uint32_t flags) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("user32.dll");

@@ -452,8 +452,8 @@ public data class Enhmetaheader3(
     public var nDescription: UInt = 0u,
     public var offDescription: UInt = 0u,
     public var nPalEntries: UInt = 0u,
-    public var szlDevice: io.github.kotlinmania.windowssys.windows.win32.foundation.Size = Size(),
-    public var szlMillimeters: io.github.kotlinmania.windowssys.windows.win32.foundation.Size = Size(),
+    public var szlDevice: io.github.kotlinmania.windowssys.windows.win32.foundation.Size = io.github.kotlinmania.windowssys.windows.win32.foundation.Size(),
+    public var szlMillimeters: io.github.kotlinmania.windowssys.windows.win32.foundation.Size = io.github.kotlinmania.windowssys.windows.win32.foundation.Size(),
 )
 
 public data class Effect(

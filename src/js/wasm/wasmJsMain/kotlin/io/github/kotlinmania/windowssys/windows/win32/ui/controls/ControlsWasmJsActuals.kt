@@ -96,13 +96,13 @@ private external fun _wasm_windowssys_windows_win32_ui_controls_createToolbarEx(
 private external fun _wasm_windowssys_windows_win32_ui_controls_createUpDownControl(p0: Int, p1: Int, p2: Int, p3: Int, p4: Int, p5: String, p6: Int, p7: String, p8: String, p9: Int, p10: Int, p11: Int): String
 
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_dpaClone(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_dpaClone(p0: String, p1: String): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_dpaClone(p0: String, p1: String): String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_dpaCreate(p0)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_dpaCreate(p0: Int): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_dpaCreate(p0: Int): String
 
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_dpaCreateEx(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_dpaCreateEx(p0: Int, p1: String): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_dpaCreateEx(p0: Int, p1: String): String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs(p0)")
 private external fun _wasm_windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs(p0: String): Int
@@ -153,10 +153,10 @@ private external fun _wasm_windowssys_windows_win32_ui_controls_dpaSetPtr(p0: St
 private external fun _wasm_windowssys_windows_win32_ui_controls_dpaSort(p0: String, p1: String, p2: String): Int
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_dsaClone(p0)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_dsaClone(p0: String): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_dsaClone(p0: String): String
 
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_dsaCreate(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_dsaCreate(p0: Int, p1: Int): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_dsaCreate(p0: Int, p1: Int): String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_dsaDeleteAllItems(p0)")
 private external fun _wasm_windowssys_windows_win32_ui_controls_dsaDeleteAllItems(p0: String): Int
@@ -444,7 +444,7 @@ private external fun _wasm_windowssys_windows_win32_ui_controls_getThemeTransiti
 private external fun _wasm_windowssys_windows_win32_ui_controls_getWindowFeedbackSetting(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_getWindowTheme(p0)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_getWindowTheme(p0: String): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_getWindowTheme(p0: String): String
 
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_himagelistQueryInterface(p0, p1, p2)")
 private external fun _wasm_windowssys_windows_win32_ui_controls_himagelistQueryInterface(p0: String, p1: String, p2: String): Int
@@ -465,7 +465,7 @@ private external fun _wasm_windowssys_windows_win32_ui_controls_imageListCoCreat
 private external fun _wasm_windowssys_windows_win32_ui_controls_imageListCopy(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
 
 @JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListCreate(p0, p1, p2, p3, p4)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_imageListCreate(p0: Int, p1: Int, p2: Int, p3: Int, p4: Int): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_imageListCreate(p0: Int, p1: Int, p2: Int, p3: Int, p4: Int): String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListDestroy(p0)")
 private external fun _wasm_windowssys_windows_win32_ui_controls_imageListDestroy(p0: String): Int
@@ -492,7 +492,7 @@ private external fun _wasm_windowssys_windows_win32_ui_controls_imageListDrawEx(
 private external fun _wasm_windowssys_windows_win32_ui_controls_imageListDrawIndirect(p0: String): Int
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListDuplicate(p0)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_imageListDuplicate(p0: String): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_imageListDuplicate(p0: String): String
 
 @JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListEndDrag()")
 private external fun _wasm_windowssys_windows_win32_ui_controls_imageListEndDrag()
@@ -501,7 +501,7 @@ private external fun _wasm_windowssys_windows_win32_ui_controls_imageListEndDrag
 private external fun _wasm_windowssys_windows_win32_ui_controls_imageListGetBkColor(p0: String): Int
 
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListGetDragImage(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_imageListGetDragImage(p0: String, p1: String): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_imageListGetDragImage(p0: String, p1: String): String
 
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListGetIcon(p0, p1, p2)")
 private external fun _wasm_windowssys_windows_win32_ui_controls_imageListGetIcon(p0: String, p1: Int, p2: Int): String
@@ -516,16 +516,16 @@ private external fun _wasm_windowssys_windows_win32_ui_controls_imageListGetImag
 private external fun _wasm_windowssys_windows_win32_ui_controls_imageListGetImageInfo(p0: String, p1: Int, p2: String): Int
 
 @JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListLoadImageA(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_imageListLoadImageA(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_imageListLoadImageA(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int): String
 
 @JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListLoadImageW(p0, p1, p2, p3, p4, p5, p6)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_imageListLoadImageW(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_imageListLoadImageW(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int): String
 
 @JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListMerge(p0, p1, p2, p3, p4, p5)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_imageListMerge(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: Int): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_imageListMerge(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: Int): String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListRead(p0)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_imageListRead(p0: String): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_imageListRead(p0: String): String
 
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_imageListReadEx(p0, p1, p2, p3)")
 private external fun _wasm_windowssys_windows_win32_ui_controls_imageListReadEx(p0: Int, p1: String, p2: String, p3: String): Int
@@ -609,10 +609,10 @@ private external fun _wasm_windowssys_windows_win32_ui_controls_makeDragList(p0:
 private external fun _wasm_windowssys_windows_win32_ui_controls_menuHelp(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String)
 
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_openThemeData(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_openThemeData(p0: String, p1: String): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_openThemeData(p0: String, p1: String): String
 
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_openThemeDataEx(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_ui_controls_openThemeDataEx(p0: String, p1: String, p2: Int): Int
+private external fun _wasm_windowssys_windows_win32_ui_controls_openThemeDataEx(p0: String, p1: String, p2: Int): String
 
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation(p0, p1)")
 private external fun _wasm_windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation(p0: String, p1: String): String
@@ -732,13 +732,13 @@ public actual fun createUpDownControl(dwstyle: UInt, x: Int, y: Int, cx: Int, cy
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_createUpDownControl(dwstyle.toInt(), x, y, cx, cy, (hparent?.value ?: 0L).toString(), nid, (hinst?.value ?: 0L).toString(), (hbuddy?.value ?: 0L).toString(), nupper, nlower, npos).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dpaClone(hdpa: Hdpa, hdpanew: Hdpa): Hdpa =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dpaClone(hdpa.toString(), hdpanew.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dpaClone(hdpa.toString(), hdpanew.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dpaCreate(citemgrow: Int): Hdpa =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dpaCreate(citemgrow) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dpaCreate(citemgrow).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dpaCreateEx(cpgrow: Int, hheap: Handle): Hdpa =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dpaCreateEx(cpgrow, (hheap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dpaCreateEx(cpgrow, (hheap?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dpaDeleteAllPtrs(hdpa: Hdpa): Bool =
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs(hdpa.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -799,10 +799,10 @@ public actual fun dpaSort(hdpa: Hdpa, pfncompare: Pfndacompare, lparam: Lparam):
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dpaSort(hdpa.toString(), 0L.toString(), lparam.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dsaClone(hdsa: Hdsa): Hdsa =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dsaClone(hdsa.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dsaClone(hdsa.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dsaCreate(cbitem: Int, citemgrow: Int): Hdsa =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dsaCreate(cbitem, citemgrow) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dsaCreate(cbitem, citemgrow).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dsaDeleteAllItems(hdsa: Hdsa): Bool =
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_dsaDeleteAllItems(hdsa.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -1125,7 +1125,7 @@ public actual fun getWindowFeedbackSetting(hwnd: Hwnd, feedback: FeedbackType, d
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_getWindowFeedbackSetting((hwnd?.value ?: 0L).toString(), feedback, dwflags.toInt(), (psize?.value ?: 0L).toString(), (config?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getWindowTheme(hwnd: Hwnd): Htheme =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_getWindowTheme((hwnd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_getWindowTheme((hwnd?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun himagelistQueryInterface(himl: Himagelist, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_himagelistQueryInterface(himl.toString(), (riid?.value ?: 0L).toString(), (ppv?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -1149,7 +1149,7 @@ public actual fun imageListCopy(himldst: Himagelist, idst: Int, himlsrc: Himagel
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListCopy(himldst.toString(), idst, himlsrc.toString(), isrc, uflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListCreate(cx: Int, cy: Int, flags: ImagelistCreationFlags, cinitial: Int, cgrow: Int): Himagelist =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListCreate(cx, cy, flags.toInt(), cinitial, cgrow) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListCreate(cx, cy, flags.toInt(), cinitial, cgrow).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListDestroy(himl: Himagelist): Bool =
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListDestroy(himl.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -1176,7 +1176,7 @@ public actual fun imageListDrawIndirect(pimldp: COpaquePointer?): Bool =
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListDrawIndirect((pimldp?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListDuplicate(himl: Himagelist): Himagelist =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListDuplicate(himl.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListDuplicate(himl.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListEndDrag() {
     if (_windowsWin32UiControlsNapiAvailable) {
@@ -1190,7 +1190,7 @@ public actual fun imageListGetBkColor(himl: Himagelist): Colorref =
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListGetBkColor(himl.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListGetDragImage(ppt: COpaquePointer?, ppthotspot: COpaquePointer?): Himagelist =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListGetDragImage((ppt?.value ?: 0L).toString(), (ppthotspot?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListGetDragImage((ppt?.value ?: 0L).toString(), (ppthotspot?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListGetIcon(himl: Himagelist, i: Int, flags: ImageListDrawStyle): Hicon =
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListGetIcon(himl.toString(), i, flags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -1205,16 +1205,16 @@ public actual fun imageListGetImageInfo(himl: Himagelist, i: Int, pimageinfo: CO
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListGetImageInfo(himl.toString(), i, (pimageinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListLoadImageA(hi: Hinstance, lpbmp: Pcstr, cx: Int, cgrow: Int, crmask: Colorref, utype: UInt, uflags: ImageFlags): Himagelist =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListLoadImageA((hi?.value ?: 0L).toString(), (lpbmp?.value ?: 0L).toString(), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListLoadImageA((hi?.value ?: 0L).toString(), (lpbmp?.value ?: 0L).toString(), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListLoadImageW(hi: Hinstance, lpbmp: Pcwstr, cx: Int, cgrow: Int, crmask: Colorref, utype: UInt, uflags: ImageFlags): Himagelist =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListLoadImageW((hi?.value ?: 0L).toString(), (lpbmp?.value ?: 0L).toString(), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListLoadImageW((hi?.value ?: 0L).toString(), (lpbmp?.value ?: 0L).toString(), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListMerge(himl1: Himagelist, i1: Int, himl2: Himagelist, i2: Int, dx: Int, dy: Int): Himagelist =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListMerge(himl1.toString(), i1, himl2.toString(), i2, dx, dy) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListMerge(himl1.toString(), i1, himl2.toString(), i2, dx, dy).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListRead(pstm: COpaquePointer?): Himagelist =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListRead((pstm?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListRead((pstm?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListReadEx(dwflags: UInt, pstm: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_imageListReadEx(dwflags.toInt(), (pstm?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), (ppv?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -1316,10 +1316,10 @@ public actual fun menuHelp(umsg: UInt, wparam: Wparam, lparam: Lparam, hmainmenu
 }
 
 public actual fun openThemeData(hwnd: Hwnd, pszclasslist: Pcwstr): Htheme =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_openThemeData((hwnd?.value ?: 0L).toString(), (pszclasslist?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_openThemeData((hwnd?.value ?: 0L).toString(), (pszclasslist?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openThemeDataEx(hwnd: Hwnd, pszclasslist: Pcwstr, dwflags: OpenThemeDataFlags): Htheme =
-    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_openThemeDataEx((hwnd?.value ?: 0L).toString(), (pszclasslist?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_openThemeDataEx((hwnd?.value ?: 0L).toString(), (pszclasslist?.value ?: 0L).toString(), dwflags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun packTouchHitTestingProximityEvaluation(phittestinginput: COpaquePointer?, pproximityeval: COpaquePointer?): Lresult =
     if (_windowsWin32UiControlsNapiAvailable) _wasm_windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation((phittestinginput?.value ?: 0L).toString(), (pproximityeval?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")

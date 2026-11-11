@@ -4089,11 +4089,11 @@ public actual fun unloadUserProfile(htoken: Handle, hprofile: Handle): Bool =
     WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_unloadUserProfile((htoken?.value ?: 0L), (hprofile?.value ?: 0L))
 
 public actual fun unregisterAppConstrainedChangeNotification(registration: PappconstrainRegistration) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification(registration.toLong())
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification(registration)
 }
 
 public actual fun unregisterAppStateChangeNotification(registration: PappstateRegistration) {
-    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification(registration.toLong())
+    WindowsWin32UiShellJniBridge.windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification(registration)
 }
 
 public actual fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult =

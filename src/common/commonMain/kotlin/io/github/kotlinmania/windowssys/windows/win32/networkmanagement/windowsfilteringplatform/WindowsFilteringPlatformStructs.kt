@@ -1096,7 +1096,7 @@ public data class FwpmSystemPorts0(
 public data class FwpmSystemPortsByType0(
     public var type: FwpmSystemPortType = 0,
     public var numPorts: UInt = 0u,
-    public var ports: UShort? = null,
+    public var ports: COpaquePointer? = null,
 )
 
 public data class FwpmVswitchEvent0(

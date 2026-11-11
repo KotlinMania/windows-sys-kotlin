@@ -209,10 +209,10 @@ private object WindowsWin32SystemThreadingJniBridge {
     external fun windowssys_windows_win32_system_threading_createThread(lpthreadattributes: Long, dwstacksize: Long, lpstartaddress: Long, lpparameter: Long, dwcreationflags: Int, lpthreadid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_createThreadpool(reserved: Long): Int
+    external fun windowssys_windows_win32_system_threading_createThreadpool(reserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(): Int
+    external fun windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_system_threading_createThreadpoolIo(fl: Long, pfnio: Long, pv: Long, pcbe: Long): Long
@@ -1098,15 +1098,15 @@ public actual fun closePrivateNamespace(handle: Handle, flags: UInt): Boolean =
     WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closePrivateNamespace((handle?.value ?: 0L), flags.toInt())
 
 public actual fun closeThreadpool(ptpp: PtpPool) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpool(ptpp.toLong())
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpool(ptpp)
 }
 
 public actual fun closeThreadpoolCleanupGroup(ptpcg: PtpCleanupGroup) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(ptpcg.toLong())
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(ptpcg)
 }
 
 public actual fun closeThreadpoolCleanupGroupMembers(ptpcg: PtpCleanupGroup, fcancelpendingcallbacks: Bool, pvcleanupcontext: COpaquePointer?) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(ptpcg.toLong(), fcancelpendingcallbacks, (pvcleanupcontext?.value ?: 0L))
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(ptpcg, fcancelpendingcallbacks, (pvcleanupcontext?.value ?: 0L))
 }
 
 public actual fun closeThreadpoolIo(pio: PtpIo) {
@@ -1668,7 +1668,7 @@ public actual fun queryProtectedPolicy(policyguid: COpaquePointer?, policyvalue:
     WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryProtectedPolicy((policyguid?.value ?: 0L), (policyvalue?.value ?: 0L))
 
 public actual fun queryThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(ptpp.toLong(), (ptpsi?.value ?: 0L))
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(ptpp, (ptpsi?.value ?: 0L))
 
 public actual fun queryUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt, returnlength: COpaquePointer?): Bool =
     WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_queryUmsThreadInformation((umsthread?.value ?: 0L), umsthreadinfoclass, (umsthreadinformation?.value ?: 0L), umsthreadinformationlength.toInt(), (returnlength?.value ?: 0L))
@@ -1904,14 +1904,14 @@ public actual fun setThreadToken(thread: COpaquePointer?, token: Handle): Bool =
     WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadToken((thread?.value ?: 0L), (token?.value ?: 0L))
 
 public actual fun setThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolStackInformation(ptpp.toLong(), (ptpsi?.value ?: 0L))
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolStackInformation(ptpp, (ptpsi?.value ?: 0L))
 
 public actual fun setThreadpoolThreadMaximum(ptpp: PtpPool, cthrdmost: UInt) {
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(ptpp.toLong(), cthrdmost.toInt())
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(ptpp, cthrdmost.toInt())
 }
 
 public actual fun setThreadpoolThreadMinimum(ptpp: PtpPool, cthrdmic: UInt): Bool =
-    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(ptpp.toLong(), cthrdmic.toInt())
+    WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(ptpp, cthrdmic.toInt())
 
 public actual fun setThreadpoolTimer(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt) {
     WindowsWin32SystemThreadingJniBridge.windowssys_windows_win32_system_threading_setThreadpoolTimer(pti, (pftduetime?.value ?: 0L), msperiod.toInt(), mswindowlength.toInt())

@@ -37,7 +37,6 @@ import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.FsBpioOperati
 import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.QueryBadRangesInputRange
 import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.StorageReserveId
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.String
 
 public data class AceHeader(
     public var aceType: UByte = 0u,
@@ -203,10 +202,10 @@ public data class Cptableinfo(
     public var transUniDefaultChar: UShort = 0u,
     public var dBCSCodePage: UShort = 0u,
     public var leadByte: UByteArray = UByteArray(12),
-    public var multiByteTable: UShort? = null,
+    public var multiByteTable: COpaquePointer? = null,
     public var wideCharTable: COpaquePointer? = null,
-    public var dBCSRanges: UShort? = null,
-    public var dBCSOffsets: UShort? = null,
+    public var dBCSRanges: COpaquePointer? = null,
+    public var dBCSOffsets: COpaquePointer? = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2250,8 +2249,8 @@ public data class Msv10GetchallenrespRequestV1(
 
 public data class Msv10GetchallenrespResponse(
     public var messageType: Msv10ProtocolMessageType = 0,
-    public var caseSensitiveChallengeResponse: String = String(),
-    public var caseInsensitiveChallengeResponse: String = String(),
+    public var caseSensitiveChallengeResponse: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String = io.github.kotlinmania.windowssys.windows.win32.system.kernel.String(),
+    public var caseInsensitiveChallengeResponse: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String = io.github.kotlinmania.windowssys.windows.win32.system.kernel.String(),
     public var userName: UnicodeString = UnicodeString(),
     public var logonDomainName: UnicodeString = UnicodeString(),
     public var userSessionKey: UByteArray = UByteArray(16),
@@ -2384,8 +2383,8 @@ public data class NfsOpenEcpContext(
 public data class Nlstableinfo(
     public var oemTableInfo: Cptableinfo = Cptableinfo(),
     public var ansiTableInfo: Cptableinfo = Cptableinfo(),
-    public var upperCaseTable: UShort? = null,
-    public var lowerCaseTable: UShort? = null,
+    public var upperCaseTable: COpaquePointer? = null,
+    public var lowerCaseTable: COpaquePointer? = null,
 )
 
 public data class OpenReparseList(
@@ -2453,7 +2452,7 @@ public data class PrefixTableEntry(
     public var nameLength: Short = 0,
     public var nextPrefixTree: PrefixTableEntry? = null,
     public var links: RtlSplayLinks = RtlSplayLinks(),
-    public var prefix: String? = null,
+    public var prefix: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String? = null,
 )
 
 public data class PublicBcb(
@@ -3108,13 +3107,13 @@ public data class RtlHeapParameters(
 public data class RtlNlsState(
     public var defaultAcpTableInfo: Cptableinfo = Cptableinfo(),
     public var defaultOemTableInfo: Cptableinfo = Cptableinfo(),
-    public var activeCodePageData: UShort? = null,
-    public var oemCodePageData: UShort? = null,
-    public var leadByteInfo: UShort? = null,
-    public var oemLeadByteInfo: UShort? = null,
-    public var caseMappingData: UShort? = null,
-    public var unicodeUpcaseTable844: UShort? = null,
-    public var unicodeLowercaseTable844: UShort? = null,
+    public var activeCodePageData: COpaquePointer? = null,
+    public var oemCodePageData: COpaquePointer? = null,
+    public var leadByteInfo: COpaquePointer? = null,
+    public var oemLeadByteInfo: COpaquePointer? = null,
+    public var caseMappingData: COpaquePointer? = null,
+    public var unicodeUpcaseTable844: COpaquePointer? = null,
+    public var unicodeLowercaseTable844: COpaquePointer? = null,
 )
 
 public data class RtlSegmentHeapMemorySource(

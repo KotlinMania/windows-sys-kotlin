@@ -242,7 +242,7 @@ public actual fun unlockServiceDatabase(sclock: COpaquePointer?): Bool =
     windowssys_windows_win32_system_services_unlockServiceDatabase(sclock?.value?.toCPointer<ByteVar>())
 
 public actual fun unsubscribeServiceChangeNotifications(psubscription: PscNotificationRegistration) {
-    windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications(psubscription.toLong())
+    windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications(psubscription)
 }
 
 public actual fun waitServiceState(hservice: ScHandle, dwnotify: UInt, dwtimeout: UInt, hcancelevent: Handle): UInt =

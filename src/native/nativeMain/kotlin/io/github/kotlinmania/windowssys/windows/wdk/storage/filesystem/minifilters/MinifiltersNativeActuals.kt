@@ -295,7 +295,7 @@ import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
 public actual fun fltAcknowledgeEcp(filter: PfltFilter, ecpcontext: COpaquePointer?) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltAcknowledgeEcp(filter.toLong(), ecpcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltAcknowledgeEcp(filter, ecpcontext?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun fltAcquirePushLockExclusive(pushlock: COpaquePointer?) {
@@ -323,7 +323,7 @@ public actual fun fltAcquireResourceShared(resource: COpaquePointer?) {
 }
 
 public actual fun fltAddOpenReparseEntry(filter: PfltFilter, data: COpaquePointer?, openreparseentry: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltAddOpenReparseEntry(filter.toLong(), data?.value?.toCPointer<ByteVar>(), openreparseentry?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltAddOpenReparseEntry(filter, data?.value?.toCPointer<ByteVar>(), openreparseentry?.value?.toCPointer<ByteVar>())
 
 public actual fun fltAdjustDeviceStackSizeForIoRedirection(sourceinstance: PfltInstance, targetinstance: PfltInstance, sourcedevicestacksizemodified: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltAdjustDeviceStackSizeForIoRedirection(sourceinstance, targetinstance, sourcedevicestacksizemodified?.value?.toCPointer<ByteVar>())
@@ -335,19 +335,19 @@ public actual fun fltAllocateCallbackDataEx(instance: PfltInstance, fileobject: 
     windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateCallbackDataEx(instance, fileobject?.value?.toCPointer<ByteVar>(), flags, retnewcallbackdata?.value?.toCPointer<ByteVar>())
 
 public actual fun fltAllocateContext(filter: PfltFilter, contexttype: UShort, contextsize: ULong, pooltype: PoolType, returnedcontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateContext(filter.toLong(), contexttype, contextsize, pooltype, returnedcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateContext(filter, contexttype, contextsize, pooltype, returnedcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltAllocateDeferredIoWorkItem(): PfltDeferredIoWorkitem =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateDeferredIoWorkItem()
 
 public actual fun fltAllocateExtraCreateParameter(filter: PfltFilter, ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameter(filter.toLong(), ecptype?.value?.toCPointer<ByteVar>(), sizeofcontext, flags, 0L.toCPointer<ByteVar>(), pooltag, ecpcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameter(filter, ecptype?.value?.toCPointer<ByteVar>(), sizeofcontext, flags, 0L.toCPointer<ByteVar>(), pooltag, ecpcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltAllocateExtraCreateParameterFromLookasideList(filter: PfltFilter, ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterFromLookasideList(filter.toLong(), ecptype?.value?.toCPointer<ByteVar>(), sizeofcontext, flags, 0L.toCPointer<ByteVar>(), lookasidelist?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterFromLookasideList(filter, ecptype?.value?.toCPointer<ByteVar>(), sizeofcontext, flags, 0L.toCPointer<ByteVar>(), lookasidelist?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltAllocateExtraCreateParameterList(filter: PfltFilter, flags: UInt, ecplist: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterList(filter.toLong(), flags, ecplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterList(filter, flags, ecplist?.value?.toCPointer<ByteVar>())
 
 public actual fun fltAllocateFileLock(completelockcallbackdataroutine: PfltCompleteLockCallbackDataRoutine, unlockroutine: PunlockRoutine): COpaquePointer? =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateFileLock(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
@@ -362,10 +362,10 @@ public actual fun fltApplyPriorityInfoThread(inputpriorityinfo: COpaquePointer?,
     windowssys_windows_wdk_storage_filesystem_minifilters_fltApplyPriorityInfoThread(inputpriorityinfo?.value?.toCPointer<ByteVar>(), outputpriorityinfo?.value?.toCPointer<ByteVar>(), thread)
 
 public actual fun fltAttachVolume(filter: PfltFilter, volume: PfltVolume, instancename: COpaquePointer?, retinstance: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolume(filter.toLong(), volume.toLong(), instancename?.value?.toCPointer<ByteVar>(), retinstance?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolume(filter, volume, instancename?.value?.toCPointer<ByteVar>(), retinstance?.value?.toCPointer<ByteVar>())
 
 public actual fun fltAttachVolumeAtAltitude(filter: PfltFilter, volume: PfltVolume, altitude: COpaquePointer?, instancename: COpaquePointer?, retinstance: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolumeAtAltitude(filter.toLong(), volume.toLong(), altitude?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), retinstance?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolumeAtAltitude(filter, volume, altitude?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), retinstance?.value?.toCPointer<ByteVar>())
 
 public actual fun fltBuildDefaultSecurityDescriptor(securitydescriptor: COpaquePointer?, desiredaccess: UInt): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltBuildDefaultSecurityDescriptor(securitydescriptor?.value?.toCPointer<ByteVar>(), desiredaccess)
@@ -429,7 +429,7 @@ public actual fun fltClose(filehandle: Handle): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltClose(filehandle?.value?.toCPointer<ByteVar>())
 
 public actual fun fltCloseClientPort(filter: PfltFilter, clientport: COpaquePointer?) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseClientPort(filter.toLong(), clientport?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseClientPort(filter, clientport?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun fltCloseCommunicationPort(serverport: PfltPort) {
@@ -457,25 +457,25 @@ public actual fun fltCompletePendedPreOperation(callbackdata: COpaquePointer?, c
 }
 
 public actual fun fltCopyOpenReparseList(filter: PfltFilter, data: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltCopyOpenReparseList(filter.toLong(), data?.value?.toCPointer<ByteVar>(), ecplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltCopyOpenReparseList(filter, data?.value?.toCPointer<ByteVar>(), ecplist?.value?.toCPointer<ByteVar>())
 
 public actual fun fltCreateCommunicationPort(filter: PfltFilter, serverport: COpaquePointer?, objectattributes: COpaquePointer?, serverportcookie: COpaquePointer?, connectnotifycallback: PfltConnectNotify, disconnectnotifycallback: PfltDisconnectNotify, messagenotifycallback: PfltMessageNotify, maxconnections: Int): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateCommunicationPort(filter.toLong(), serverport?.value?.toCPointer<ByteVar>(), objectattributes?.value?.toCPointer<ByteVar>(), serverportcookie?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), maxconnections)
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateCommunicationPort(filter, serverport?.value?.toCPointer<ByteVar>(), objectattributes?.value?.toCPointer<ByteVar>(), serverportcookie?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), maxconnections)
 
 public actual fun fltCreateFile(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, allocationsize: COpaquePointer?, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: COpaquePointer?, ealength: UInt, flags: UInt): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFile(filter.toLong(), instance, filehandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), allocationsize?.value?.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer?.value?.toCPointer<ByteVar>(), ealength, flags)
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFile(filter, instance, filehandle?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), allocationsize?.value?.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer?.value?.toCPointer<ByteVar>(), ealength, flags)
 
 public actual fun fltCreateFileEx(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, allocationsize: COpaquePointer?, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: COpaquePointer?, ealength: UInt, flags: UInt): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx(filter.toLong(), instance, filehandle?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), allocationsize?.value?.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer?.value?.toCPointer<ByteVar>(), ealength, flags)
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx(filter, instance, filehandle?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), allocationsize?.value?.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer?.value?.toCPointer<ByteVar>(), ealength, flags)
 
 public actual fun fltCreateFileEx2(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, allocationsize: COpaquePointer?, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: COpaquePointer?, ealength: UInt, flags: UInt, drivercontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx2(filter.toLong(), instance, filehandle?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), allocationsize?.value?.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer?.value?.toCPointer<ByteVar>(), ealength, flags, drivercontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx2(filter, instance, filehandle?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), allocationsize?.value?.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer?.value?.toCPointer<ByteVar>(), ealength, flags, drivercontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltCreateMailslotFile(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, createoptions: UInt, mailslotquota: UInt, maximummessagesize: UInt, readtimeout: COpaquePointer?, drivercontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateMailslotFile(filter.toLong(), instance, filehandle?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), createoptions, mailslotquota, maximummessagesize, readtimeout?.value?.toCPointer<ByteVar>(), drivercontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateMailslotFile(filter, instance, filehandle?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), createoptions, mailslotquota, maximummessagesize, readtimeout?.value?.toCPointer<ByteVar>(), drivercontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltCreateNamedPipeFile(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, namedpipetype: UInt, readmode: UInt, completionmode: UInt, maximuminstances: UInt, inboundquota: UInt, outboundquota: UInt, defaulttimeout: COpaquePointer?, drivercontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateNamedPipeFile(filter.toLong(), instance, filehandle?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), shareaccess, createdisposition, createoptions, namedpipetype, readmode, completionmode, maximuminstances, inboundquota, outboundquota, defaulttimeout?.value?.toCPointer<ByteVar>(), drivercontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateNamedPipeFile(filter, instance, filehandle?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), shareaccess, createdisposition, createoptions, namedpipetype, readmode, completionmode, maximuminstances, inboundquota, outboundquota, defaulttimeout?.value?.toCPointer<ByteVar>(), drivercontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltCreateSectionForDataScan(instance: PfltInstance, fileobject: COpaquePointer?, sectioncontext: PfltContext, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt, sectionhandle: COpaquePointer?, sectionobject: COpaquePointer?, sectionfilesize: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateSectionForDataScan(instance, fileobject?.value?.toCPointer<ByteVar>(), sectioncontext?.value?.toCPointer<ByteVar>(), desiredaccess, objectattributes?.value?.toCPointer<ByteVar>(), maximumsize?.value?.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, flags, sectionhandle?.value?.toCPointer<ByteVar>(), sectionobject?.value?.toCPointer<ByteVar>(), sectionfilesize?.value?.toCPointer<ByteVar>())
@@ -500,7 +500,7 @@ public actual fun fltDeleteContext(context: PfltContext) {
 }
 
 public actual fun fltDeleteExtraCreateParameterLookasideList(filter: PfltFilter, lookaside: COpaquePointer?, flags: UInt) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteExtraCreateParameterLookasideList(filter.toLong(), lookaside?.value?.toCPointer<ByteVar>(), flags)
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteExtraCreateParameterLookasideList(filter, lookaside?.value?.toCPointer<ByteVar>(), flags)
 }
 
 public actual fun fltDeleteFileContext(instance: PfltInstance, fileobject: COpaquePointer?, oldcontext: COpaquePointer?): Ntstatus =
@@ -523,10 +523,10 @@ public actual fun fltDeleteTransactionContext(instance: PfltInstance, transactio
     windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteTransactionContext(instance, transaction?.value?.toCPointer<ByteVar>(), oldcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltDeleteVolumeContext(filter: PfltFilter, volume: PfltVolume, oldcontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteVolumeContext(filter.toLong(), volume.toLong(), oldcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteVolumeContext(filter, volume, oldcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltDetachVolume(filter: PfltFilter, volume: PfltVolume, instancename: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltDetachVolume(filter.toLong(), volume.toLong(), instancename?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltDetachVolume(filter, volume, instancename?.value?.toCPointer<ByteVar>())
 
 public actual fun fltDeviceIoControlFile(instance: PfltInstance, fileobject: COpaquePointer?, iocontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, lengthreturned: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltDeviceIoControlFile(instance, fileobject?.value?.toCPointer<ByteVar>(), iocontrolcode, inputbuffer?.value?.toCPointer<ByteVar>(), inputbufferlength, outputbuffer?.value?.toCPointer<ByteVar>(), outputbufferlength, lengthreturned?.value?.toCPointer<ByteVar>())
@@ -547,22 +547,22 @@ public actual fun fltEnumerateInstanceInformationByDeviceObject(deviceobject: CO
     windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByDeviceObject(deviceobject?.value?.toCPointer<ByteVar>(), index, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltEnumerateInstanceInformationByFilter(filter: PfltFilter, index: UInt, informationclass: InstanceInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByFilter(filter.toLong(), index, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByFilter(filter, index, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltEnumerateInstanceInformationByVolume(volume: PfltVolume, index: UInt, informationclass: InstanceInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByVolume(volume.toLong(), index, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByVolume(volume, index, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltEnumerateInstanceInformationByVolumeName(volumename: COpaquePointer?, index: UInt, informationclass: InstanceInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByVolumeName(volumename?.value?.toCPointer<ByteVar>(), index, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltEnumerateInstances(volume: PfltVolume, filter: PfltFilter, instancelist: COpaquePointer?, instancelistsize: UInt, numberinstancesreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstances(volume.toLong(), filter.toLong(), instancelist?.value?.toCPointer<ByteVar>(), instancelistsize, numberinstancesreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstances(volume, filter, instancelist?.value?.toCPointer<ByteVar>(), instancelistsize, numberinstancesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltEnumerateVolumeInformation(filter: PfltFilter, index: UInt, informationclass: FilterVolumeInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumeInformation(filter.toLong(), index, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumeInformation(filter, index, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltEnumerateVolumes(filter: PfltFilter, volumelist: COpaquePointer?, volumelistsize: UInt, numbervolumesreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumes(filter.toLong(), volumelist?.value?.toCPointer<ByteVar>(), volumelistsize, numbervolumesreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumes(filter, volumelist?.value?.toCPointer<ByteVar>(), volumelistsize, numbervolumesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltFastIoMdlRead(initiatinginstance: PfltInstance, fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?): Boolean =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoMdlRead(initiatinginstance, fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, lockkey, mdlchain?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
@@ -577,7 +577,7 @@ public actual fun fltFastIoPrepareMdlWrite(initiatinginstance: PfltInstance, fil
     windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoPrepareMdlWrite(initiatinginstance, fileobject?.value?.toCPointer<ByteVar>(), fileoffset?.value?.toCPointer<ByteVar>(), length, lockkey, mdlchain?.value?.toCPointer<ByteVar>(), iostatus?.value?.toCPointer<ByteVar>())
 
 public actual fun fltFindExtraCreateParameter(filter: PfltFilter, ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltFindExtraCreateParameter(filter.toLong(), ecplist?.value?.toCPointer<ByteVar>(), ecptype?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>(), ecpcontextsize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltFindExtraCreateParameter(filter, ecplist?.value?.toCPointer<ByteVar>(), ecptype?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>(), ecpcontextsize?.value?.toCPointer<ByteVar>())
 
 public actual fun fltFlushBuffers(instance: PfltInstance, fileobject: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltFlushBuffers(instance, fileobject?.value?.toCPointer<ByteVar>())
@@ -594,11 +594,11 @@ public actual fun fltFreeDeferredIoWorkItem(fltworkitem: PfltDeferredIoWorkitem)
 }
 
 public actual fun fltFreeExtraCreateParameter(filter: PfltFilter, ecpcontext: COpaquePointer?) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameter(filter.toLong(), ecpcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameter(filter, ecpcontext?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun fltFreeExtraCreateParameterList(filter: PfltFilter, ecplist: COpaquePointer?) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameterList(filter.toLong(), ecplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameterList(filter, ecplist?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun fltFreeFileLock(filelock: COpaquePointer?) {
@@ -610,7 +610,7 @@ public actual fun fltFreeGenericWorkItem(fltworkitem: PfltGenericWorkitem) {
 }
 
 public actual fun fltFreeOpenReparseList(filter: PfltFilter, ecplist: COpaquePointer?) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeOpenReparseList(filter.toLong(), ecplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeOpenReparseList(filter, ecplist?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun fltFreePoolAlignedWithTag(instance: PfltInstance, buffer: COpaquePointer?, tag: UInt) {
@@ -628,7 +628,7 @@ public actual fun fltGetActivityIdCallbackData(callbackdata: COpaquePointer?, gu
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetActivityIdCallbackData(callbackdata?.value?.toCPointer<ByteVar>(), guid?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetBottomInstance(volume: PfltVolume, instance: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetBottomInstance(volume.toLong(), instance?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetBottomInstance(volume, instance?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetContexts(fltobjects: COpaquePointer?, desiredcontexts: UShort, contexts: COpaquePointer?) {
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetContexts(fltobjects?.value?.toCPointer<ByteVar>(), desiredcontexts, contexts?.value?.toCPointer<ByteVar>())
@@ -641,13 +641,13 @@ public actual fun fltGetDestinationFileNameInformation(instance: PfltInstance, f
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDestinationFileNameInformation(instance, fileobject?.value?.toCPointer<ByteVar>(), rootdirectory?.value?.toCPointer<ByteVar>(), filename?.value?.toCPointer<ByteVar>(), filenamelength, nameoptions, retfilenameinformation?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetDeviceObject(volume: PfltVolume, deviceobject: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDeviceObject(volume.toLong(), deviceobject?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDeviceObject(volume, deviceobject?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetDiskDeviceObject(volume: PfltVolume, diskdeviceobject: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDiskDeviceObject(volume.toLong(), diskdeviceobject?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDiskDeviceObject(volume, diskdeviceobject?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetEcpListFromCallbackData(filter: PfltFilter, callbackdata: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetEcpListFromCallbackData(filter.toLong(), callbackdata?.value?.toCPointer<ByteVar>(), ecplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetEcpListFromCallbackData(filter, callbackdata?.value?.toCPointer<ByteVar>(), ecplist?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetFileContext(instance: PfltInstance, fileobject: COpaquePointer?, context: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileContext(instance, fileobject?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
@@ -668,7 +668,7 @@ public actual fun fltGetFilterFromName(filtername: COpaquePointer?, retfilter: C
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterFromName(filtername?.value?.toCPointer<ByteVar>(), retfilter?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetFilterInformation(filter: PfltFilter, informationclass: FilterInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterInformation(filter.toLong(), informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterInformation(filter, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetFsZeroingOffset(data: COpaquePointer?, zeroingoffset: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFsZeroingOffset(data?.value?.toCPointer<ByteVar>(), zeroingoffset?.value?.toCPointer<ByteVar>())
@@ -704,7 +704,7 @@ public actual fun fltGetNewSystemBufferAddress(callbackdata: COpaquePointer?): C
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNewSystemBufferAddress(callbackdata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
 public actual fun fltGetNextExtraCreateParameter(filter: PfltFilter, ecplist: COpaquePointer?, currentecpcontext: COpaquePointer?, nextecptype: COpaquePointer?, nextecpcontext: COpaquePointer?, nextecpcontextsize: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNextExtraCreateParameter(filter.toLong(), ecplist?.value?.toCPointer<ByteVar>(), currentecpcontext?.value?.toCPointer<ByteVar>(), nextecptype?.value?.toCPointer<ByteVar>(), nextecpcontext?.value?.toCPointer<ByteVar>(), nextecpcontextsize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNextExtraCreateParameter(filter, ecplist?.value?.toCPointer<ByteVar>(), currentecpcontext?.value?.toCPointer<ByteVar>(), nextecptype?.value?.toCPointer<ByteVar>(), nextecpcontext?.value?.toCPointer<ByteVar>(), nextecpcontextsize?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetRequestorProcess(callbackdata: COpaquePointer?): Peprocess =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorProcess(callbackdata?.value?.toCPointer<ByteVar>())
@@ -734,7 +734,7 @@ public actual fun fltGetSwappedBufferMdlAddress(callbackdata: COpaquePointer?): 
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetSwappedBufferMdlAddress(callbackdata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
 public actual fun fltGetTopInstance(volume: PfltVolume, instance: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTopInstance(volume.toLong(), instance?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTopInstance(volume, instance?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetTransactionContext(instance: PfltInstance, transaction: COpaquePointer?, context: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTransactionContext(instance, transaction?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
@@ -746,37 +746,37 @@ public actual fun fltGetUpperInstance(currentinstance: PfltInstance, upperinstan
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetUpperInstance(currentinstance, upperinstance?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeContext(filter: PfltFilter, volume: PfltVolume, context: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeContext(filter.toLong(), volume.toLong(), context?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeContext(filter, volume, context?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeFromDeviceObject(filter: PfltFilter, deviceobject: COpaquePointer?, retvolume: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromDeviceObject(filter.toLong(), deviceobject?.value?.toCPointer<ByteVar>(), retvolume?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromDeviceObject(filter, deviceobject?.value?.toCPointer<ByteVar>(), retvolume?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeFromFileObject(filter: PfltFilter, fileobject: COpaquePointer?, retvolume: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromFileObject(filter.toLong(), fileobject?.value?.toCPointer<ByteVar>(), retvolume?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromFileObject(filter, fileobject?.value?.toCPointer<ByteVar>(), retvolume?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeFromInstance(instance: PfltInstance, retvolume: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromInstance(instance, retvolume?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeFromName(filter: PfltFilter, volumename: COpaquePointer?, retvolume: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromName(filter.toLong(), volumename?.value?.toCPointer<ByteVar>(), retvolume?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromName(filter, volumename?.value?.toCPointer<ByteVar>(), retvolume?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeGuidName(volume: PfltVolume, volumeguidname: COpaquePointer?, buffersizeneeded: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeGuidName(volume.toLong(), volumeguidname?.value?.toCPointer<ByteVar>(), buffersizeneeded?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeGuidName(volume, volumeguidname?.value?.toCPointer<ByteVar>(), buffersizeneeded?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeInformation(volume: PfltVolume, informationclass: FilterVolumeInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInformation(volume.toLong(), informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInformation(volume, informationclass, buffer?.value?.toCPointer<ByteVar>(), buffersize, bytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeInstanceFromName(filter: PfltFilter, volume: PfltVolume, instancename: COpaquePointer?, retinstance: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInstanceFromName(filter.toLong(), volume.toLong(), instancename?.value?.toCPointer<ByteVar>(), retinstance?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInstanceFromName(filter, volume, instancename?.value?.toCPointer<ByteVar>(), retinstance?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeName(volume: PfltVolume, volumename: COpaquePointer?, buffersizeneeded: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeName(volume.toLong(), volumename?.value?.toCPointer<ByteVar>(), buffersizeneeded?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeName(volume, volumename?.value?.toCPointer<ByteVar>(), buffersizeneeded?.value?.toCPointer<ByteVar>())
 
 public actual fun fltGetVolumeProperties(volume: PfltVolume, volumeproperties: COpaquePointer?, volumepropertieslength: UInt, lengthreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeProperties(volume.toLong(), volumeproperties?.value?.toCPointer<ByteVar>(), volumepropertieslength, lengthreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeProperties(volume, volumeproperties?.value?.toCPointer<ByteVar>(), volumepropertieslength, lengthreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltInitExtraCreateParameterLookasideList(filter: PfltFilter, lookaside: COpaquePointer?, flags: UInt, size: ULong, tag: UInt) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltInitExtraCreateParameterLookasideList(filter.toLong(), lookaside?.value?.toCPointer<ByteVar>(), flags, size, tag)
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltInitExtraCreateParameterLookasideList(filter, lookaside?.value?.toCPointer<ByteVar>(), flags, size, tag)
 }
 
 public actual fun fltInitializeFileLock(filelock: COpaquePointer?) {
@@ -792,7 +792,7 @@ public actual fun fltInitializePushLock(pushlock: COpaquePointer?) {
 }
 
 public actual fun fltInsertExtraCreateParameter(filter: PfltFilter, ecplist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltInsertExtraCreateParameter(filter.toLong(), ecplist?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltInsertExtraCreateParameter(filter, ecplist?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltIs32bitProcess(callbackdata: COpaquePointer?): Boolean =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltIs32bitProcess(callbackdata?.value?.toCPointer<ByteVar>())
@@ -804,10 +804,10 @@ public actual fun fltIsDirectory(fileobject: COpaquePointer?, instance: PfltInst
     windowssys_windows_wdk_storage_filesystem_minifilters_fltIsDirectory(fileobject?.value?.toCPointer<ByteVar>(), instance, isdirectory?.value?.toCPointer<ByteVar>())
 
 public actual fun fltIsEcpAcknowledged(filter: PfltFilter, ecpcontext: COpaquePointer?): Boolean =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpAcknowledged(filter.toLong(), ecpcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpAcknowledged(filter, ecpcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltIsEcpFromUserMode(filter: PfltFilter, ecpcontext: COpaquePointer?): Boolean =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpFromUserMode(filter.toLong(), ecpcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpFromUserMode(filter, ecpcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltIsFltMgrVolumeDeviceObject(deviceobject: COpaquePointer?): Boolean =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltIsFltMgrVolumeDeviceObject(deviceobject?.value?.toCPointer<ByteVar>())
@@ -893,7 +893,7 @@ public actual fun fltPrepareComplete(instance: PfltInstance, transaction: COpaqu
     windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareComplete(instance, transaction?.value?.toCPointer<ByteVar>(), transactioncontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltPrepareToReuseEcp(filter: PfltFilter, ecpcontext: COpaquePointer?) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareToReuseEcp(filter.toLong(), ecpcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareToReuseEcp(filter, ecpcontext?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun fltProcessFileLock(filelock: COpaquePointer?, callbackdata: COpaquePointer?, context: COpaquePointer?): FltPreopCallbackStatus =
@@ -918,7 +918,7 @@ public actual fun fltQueryEaFile(instance: PfltInstance, fileobject: COpaquePoin
     windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryEaFile(instance, fileobject?.value?.toCPointer<ByteVar>(), returnedeadata?.value?.toCPointer<ByteVar>(), length, returnsingleentry, ealist?.value?.toCPointer<ByteVar>(), ealistlength, eaindex?.value?.toCPointer<ByteVar>(), restartscan, lengthreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun fltQueryInformationByName(filter: PfltFilter, instance: PfltInstance, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, drivercontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformationByName(filter.toLong(), instance, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass, drivercontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformationByName(filter, instance, objectattributes?.value?.toCPointer<ByteVar>(), iostatusblock?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass, drivercontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltQueryInformationFile(instance: PfltInstance, fileobject: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, lengthreturned: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformationFile(instance, fileobject?.value?.toCPointer<ByteVar>(), fileinformation?.value?.toCPointer<ByteVar>(), length, fileinformationclass, lengthreturned?.value?.toCPointer<ByteVar>())
@@ -994,14 +994,14 @@ public actual fun fltReleaseResource(resource: COpaquePointer?) {
 }
 
 public actual fun fltRemoveExtraCreateParameter(filter: PfltFilter, ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveExtraCreateParameter(filter.toLong(), ecplist?.value?.toCPointer<ByteVar>(), ecptype?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>(), ecpcontextsize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveExtraCreateParameter(filter, ecplist?.value?.toCPointer<ByteVar>(), ecptype?.value?.toCPointer<ByteVar>(), ecpcontext?.value?.toCPointer<ByteVar>(), ecpcontextsize?.value?.toCPointer<ByteVar>())
 
 public actual fun fltRemoveOpenReparseEntry(filter: PfltFilter, data: COpaquePointer?, openreparseentry: COpaquePointer?) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveOpenReparseEntry(filter.toLong(), data?.value?.toCPointer<ByteVar>(), openreparseentry?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveOpenReparseEntry(filter, data?.value?.toCPointer<ByteVar>(), openreparseentry?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun fltRequestFileInfoOnCreateCompletion(filter: PfltFilter, data: COpaquePointer?, infoclassflags: UInt): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestFileInfoOnCreateCompletion(filter.toLong(), data?.value?.toCPointer<ByteVar>(), infoclassflags)
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestFileInfoOnCreateCompletion(filter, data?.value?.toCPointer<ByteVar>(), infoclassflags)
 
 public actual fun fltRequestOperationStatusCallback(data: COpaquePointer?, callbackroutine: PfltGetOperationStatusCallback, requestercontext: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestOperationStatusCallback(data?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), requestercontext?.value?.toCPointer<ByteVar>())
@@ -1011,10 +1011,10 @@ public actual fun fltRetainSwappedBufferMdlAddress(callbackdata: COpaquePointer?
 }
 
 public actual fun fltRetrieveFileInfoOnCreateCompletion(filter: PfltFilter, data: COpaquePointer?, infoclass: UInt, size: COpaquePointer?): COpaquePointer? =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletion(filter.toLong(), data?.value?.toCPointer<ByteVar>(), infoclass, size?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletion(filter, data?.value?.toCPointer<ByteVar>(), infoclass, size?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
 public actual fun fltRetrieveFileInfoOnCreateCompletionEx(filter: PfltFilter, data: COpaquePointer?, infoclass: UInt, retinfosize: COpaquePointer?, retinfobuffer: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletionEx(filter.toLong(), data?.value?.toCPointer<ByteVar>(), infoclass, retinfosize?.value?.toCPointer<ByteVar>(), retinfobuffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletionEx(filter, data?.value?.toCPointer<ByteVar>(), infoclass, retinfosize?.value?.toCPointer<ByteVar>(), retinfobuffer?.value?.toCPointer<ByteVar>())
 
 public actual fun fltRetrieveIoPriorityInfo(data: COpaquePointer?, fileobject: COpaquePointer?, thread: Pethread, priorityinfo: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveIoPriorityInfo(data?.value?.toCPointer<ByteVar>(), fileobject?.value?.toCPointer<ByteVar>(), thread, priorityinfo?.value?.toCPointer<ByteVar>())
@@ -1030,7 +1030,7 @@ public actual fun fltRollbackEnlistment(instance: PfltInstance, transaction: COp
     windowssys_windows_wdk_storage_filesystem_minifilters_fltRollbackEnlistment(instance, transaction?.value?.toCPointer<ByteVar>(), transactioncontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltSendMessage(filter: PfltFilter, clientport: COpaquePointer?, senderbuffer: COpaquePointer?, senderbufferlength: UInt, replybuffer: COpaquePointer?, replylength: COpaquePointer?, timeout: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltSendMessage(filter.toLong(), clientport?.value?.toCPointer<ByteVar>(), senderbuffer?.value?.toCPointer<ByteVar>(), senderbufferlength, replybuffer?.value?.toCPointer<ByteVar>(), replylength?.value?.toCPointer<ByteVar>(), timeout?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltSendMessage(filter, clientport?.value?.toCPointer<ByteVar>(), senderbuffer?.value?.toCPointer<ByteVar>(), senderbufferlength, replybuffer?.value?.toCPointer<ByteVar>(), replylength?.value?.toCPointer<ByteVar>(), timeout?.value?.toCPointer<ByteVar>())
 
 public actual fun fltSetActivityIdCallbackData(callbackdata: COpaquePointer?, guid: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltSetActivityIdCallbackData(callbackdata?.value?.toCPointer<ByteVar>(), guid?.value?.toCPointer<ByteVar>())
@@ -1046,7 +1046,7 @@ public actual fun fltSetEaFile(instance: PfltInstance, fileobject: COpaquePointe
     windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEaFile(instance, fileobject?.value?.toCPointer<ByteVar>(), eabuffer?.value?.toCPointer<ByteVar>(), length)
 
 public actual fun fltSetEcpListIntoCallbackData(filter: PfltFilter, callbackdata: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEcpListIntoCallbackData(filter.toLong(), callbackdata?.value?.toCPointer<ByteVar>(), ecplist?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEcpListIntoCallbackData(filter, callbackdata?.value?.toCPointer<ByteVar>(), ecplist?.value?.toCPointer<ByteVar>())
 
 public actual fun fltSetFileContext(instance: PfltInstance, fileobject: COpaquePointer?, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltSetFileContext(instance, fileobject?.value?.toCPointer<ByteVar>(), operation, newcontext?.value?.toCPointer<ByteVar>(), oldcontext?.value?.toCPointer<ByteVar>())
@@ -1088,13 +1088,13 @@ public actual fun fltSetTransactionContext(instance: PfltInstance, transaction: 
     windowssys_windows_wdk_storage_filesystem_minifilters_fltSetTransactionContext(instance, transaction?.value?.toCPointer<ByteVar>(), operation, newcontext?.value?.toCPointer<ByteVar>(), oldcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltSetVolumeContext(volume: PfltVolume, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: COpaquePointer?): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeContext(volume.toLong(), operation, newcontext?.value?.toCPointer<ByteVar>(), oldcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeContext(volume, operation, newcontext?.value?.toCPointer<ByteVar>(), oldcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun fltSetVolumeInformation(instance: PfltInstance, iosb: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeInformation(instance, iosb?.value?.toCPointer<ByteVar>(), fsinformation?.value?.toCPointer<ByteVar>(), length, fsinformationclass)
 
 public actual fun fltStartFiltering(filter: PfltFilter): Ntstatus =
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltStartFiltering(filter.toLong())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltStartFiltering(filter)
 
 public actual fun fltSupportsFileContexts(fileobject: COpaquePointer?): Boolean =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsFileContexts(fileobject?.value?.toCPointer<ByteVar>())
@@ -1126,7 +1126,7 @@ public actual fun fltUnloadFilter(filtername: COpaquePointer?): Ntstatus =
     windowssys_windows_wdk_storage_filesystem_minifilters_fltUnloadFilter(filtername?.value?.toCPointer<ByteVar>())
 
 public actual fun fltUnregisterFilter(filter: PfltFilter) {
-    windowssys_windows_wdk_storage_filesystem_minifilters_fltUnregisterFilter(filter.toLong())
+    windowssys_windows_wdk_storage_filesystem_minifilters_fltUnregisterFilter(filter)
 }
 
 public actual fun fltUntagFile(initiatinginstance: PfltInstance, fileobject: COpaquePointer?, filetag: UInt, guid: COpaquePointer?): Ntstatus =

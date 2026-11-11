@@ -10,25 +10,25 @@ private external fun _initWindowsWin32SystemKernelNapiAddon(): Boolean
 private val _windowsWin32SystemKernelNapiAvailable: Boolean = _initWindowsWin32SystemKernelNapiAddon()
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_kernel_rtlFirstEntrySList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_kernel_rtlFirstEntrySList(p0: String): String
+private external fun _wasm_windowssys_windows_win32_system_kernel_rtlFirstEntrySList(p0: kotlin.String): kotlin.String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_kernel_rtlInitializeSListHead(p0)")
-private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInitializeSListHead(p0: String)
+private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInitializeSListHead(p0: kotlin.String)
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList(p0: String): String
+private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList(p0: kotlin.String): kotlin.String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList(p0: String): String
+private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList(p0: kotlin.String): kotlin.String
 
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList(p0: String, p1: String): String
+private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList(p0: kotlin.String, p1: kotlin.String): kotlin.String
 
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx(p0: String, p1: String, p2: String, p3: Int): String
+private external fun _wasm_windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx(p0: kotlin.String, p1: kotlin.String, p2: kotlin.String, p3: Int): kotlin.String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_kernel_rtlQueryDepthSList(p0)")
-private external fun _wasm_windowssys_windows_win32_system_kernel_rtlQueryDepthSList(p0: String): Int
+private external fun _wasm_windowssys_windows_win32_system_kernel_rtlQueryDepthSList(p0: kotlin.String): Int
 
 public actual fun rtlFirstEntrySList(listhead: COpaquePointer?): COpaquePointer? =
     if (_windowsWin32SystemKernelNapiAvailable) _wasm_windowssys_windows_win32_system_kernel_rtlFirstEntrySList((listhead?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -257,10 +257,10 @@ public actual fun createThread(lpthreadattributes: COpaquePointer?, dwstacksize:
     if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThread((lpthreadattributes?.value ?: 0L).toString(), dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpthreadid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createThreadpool(reserved: COpaquePointer?): PtpPool =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpool((reserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpool((reserved?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createThreadpoolCleanupGroup(): PtpCleanupGroup =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup() as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createThreadpoolIo(fl: Handle, pfnio: PtpWin32IoCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpIo =
     if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpoolIo((fl?.value ?: 0L).toString(), 0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")

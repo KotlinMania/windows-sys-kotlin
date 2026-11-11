@@ -16,7 +16,7 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
 public actual fun closeIMsgSession(lpmsgsess: Lpmsgsess) {
-    windowssys_windows_win32_storage_imapi_closeIMsgSession(lpmsgsess.toLong())
+    windowssys_windows_win32_storage_imapi_closeIMsgSession(lpmsgsess)
 }
 
 public actual fun getAttribIMsgOnIStg(lpobject: COpaquePointer?, lpproptagarray: COpaquePointer?, lpppropattrarray: COpaquePointer?): Hresult =

@@ -2179,13 +2179,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
     Napi::Env km_env = km_info.Env();
     int64_t hcluster = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupSetOpenEnum")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(hcluster);
     } else {
@@ -2195,9 +2195,9 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
 #else
     (void)hcluster;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume_napi(const Napi::CallbackInfo& km_info) {
@@ -2367,13 +2367,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
     void* lpsznodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     void* lpsznetworkname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetInterfaceOpenEnum")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(hcluster, lpsznodename, lpsznetworkname);
     } else {
@@ -2385,9 +2385,9 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
     (void)lpsznodename;
     (void)lpsznetworkname;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum_napi(const Napi::CallbackInfo& km_info) {

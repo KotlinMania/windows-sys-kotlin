@@ -508,9 +508,9 @@ void* windowssys_windows_win32_ui_controls_createUpDownControl(uint32_t dwstyle,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dpaClone(int64_t hdpa, int64_t hdpanew) {
+int64_t windowssys_windows_win32_ui_controls_dpaClone(int64_t hdpa, int64_t hdpanew) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -531,9 +531,9 @@ int32_t windowssys_windows_win32_ui_controls_dpaClone(int64_t hdpa, int64_t hdpa
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dpaCreate(int32_t citemgrow) {
+int64_t windowssys_windows_win32_ui_controls_dpaCreate(int32_t citemgrow) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -553,9 +553,9 @@ int32_t windowssys_windows_win32_ui_controls_dpaCreate(int32_t citemgrow) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dpaCreateEx(int32_t cpgrow, void* hheap) {
+int64_t windowssys_windows_win32_ui_controls_dpaCreateEx(int32_t cpgrow, void* hheap) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -956,9 +956,9 @@ int32_t windowssys_windows_win32_ui_controls_dpaSort(int64_t hdpa, void* pfncomp
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dsaClone(int64_t hdsa) {
+int64_t windowssys_windows_win32_ui_controls_dsaClone(int64_t hdsa) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -978,9 +978,9 @@ int32_t windowssys_windows_win32_ui_controls_dsaClone(int64_t hdsa) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_dsaCreate(int32_t cbitem, int32_t citemgrow) {
+int64_t windowssys_windows_win32_ui_controls_dsaCreate(int32_t cbitem, int32_t citemgrow) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3372,9 +3372,9 @@ int32_t windowssys_windows_win32_ui_controls_getWindowFeedbackSetting(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_getWindowTheme(void* hwnd) {
+int64_t windowssys_windows_win32_ui_controls_getWindowTheme(void* hwnd) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
@@ -3542,9 +3542,9 @@ int32_t windowssys_windows_win32_ui_controls_imageListCopy(int64_t himldst, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_imageListCreate(int32_t cx, int32_t cy, uint32_t flags, int32_t cinitial, int32_t cgrow) {
+int64_t windowssys_windows_win32_ui_controls_imageListCreate(int32_t cx, int32_t cy, uint32_t flags, int32_t cinitial, int32_t cgrow) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3761,9 +3761,9 @@ int32_t windowssys_windows_win32_ui_controls_imageListDrawIndirect(void* pimldp)
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_imageListDuplicate(int64_t himl) {
+int64_t windowssys_windows_win32_ui_controls_imageListDuplicate(int64_t himl) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3825,9 +3825,9 @@ uint32_t windowssys_windows_win32_ui_controls_imageListGetBkColor(int64_t himl) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_imageListGetDragImage(void* ppt, void* ppthotspot) {
+int64_t windowssys_windows_win32_ui_controls_imageListGetDragImage(void* ppt, void* ppthotspot) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3942,9 +3942,9 @@ int32_t windowssys_windows_win32_ui_controls_imageListGetImageInfo(int64_t himl,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_imageListLoadImageA(void* hi, void* lpbmp, int32_t cx, int32_t cgrow, uint32_t crmask, uint32_t utype, uint32_t uflags) {
+int64_t windowssys_windows_win32_ui_controls_imageListLoadImageA(void* hi, void* lpbmp, int32_t cx, int32_t cgrow, uint32_t crmask, uint32_t utype, uint32_t uflags) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3970,9 +3970,9 @@ int32_t windowssys_windows_win32_ui_controls_imageListLoadImageA(void* hi, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_imageListLoadImageW(void* hi, void* lpbmp, int32_t cx, int32_t cgrow, uint32_t crmask, uint32_t utype, uint32_t uflags) {
+int64_t windowssys_windows_win32_ui_controls_imageListLoadImageW(void* hi, void* lpbmp, int32_t cx, int32_t cgrow, uint32_t crmask, uint32_t utype, uint32_t uflags) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -3998,9 +3998,9 @@ int32_t windowssys_windows_win32_ui_controls_imageListLoadImageW(void* hi, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_imageListMerge(int64_t himl1, int32_t i1, int64_t himl2, int32_t i2, int32_t dx, int32_t dy) {
+int64_t windowssys_windows_win32_ui_controls_imageListMerge(int64_t himl1, int32_t i1, int64_t himl2, int32_t i2, int32_t dx, int32_t dy) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -4025,9 +4025,9 @@ int32_t windowssys_windows_win32_ui_controls_imageListMerge(int64_t himl1, int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_imageListRead(void* pstm) {
+int64_t windowssys_windows_win32_ui_controls_imageListRead(void* pstm) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
@@ -4673,9 +4673,9 @@ void windowssys_windows_win32_ui_controls_menuHelp(uint32_t umsg, uint64_t wpara
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_openThemeData(void* hwnd, void* pszclasslist) {
+int64_t windowssys_windows_win32_ui_controls_openThemeData(void* hwnd, void* pszclasslist) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
@@ -4696,9 +4696,9 @@ int32_t windowssys_windows_win32_ui_controls_openThemeData(void* hwnd, void* psz
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_controls_openThemeDataEx(void* hwnd, void* pszclasslist, uint32_t dwflags) {
+int64_t windowssys_windows_win32_ui_controls_openThemeDataEx(void* hwnd, void* pszclasslist, uint32_t dwflags) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");

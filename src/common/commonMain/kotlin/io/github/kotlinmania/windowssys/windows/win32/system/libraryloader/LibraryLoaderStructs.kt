@@ -6,7 +6,7 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 public data class Enumuilang(
     public var numOfEnumUILang: UInt = 0u,
     public var sizeOfEnumUIBuffer: UInt = 0u,
-    public var pEnumUIBuffer: UShort? = null,
+    public var pEnumUIBuffer: COpaquePointer? = null,
 )
 
 public data class RedirectionDescriptor(

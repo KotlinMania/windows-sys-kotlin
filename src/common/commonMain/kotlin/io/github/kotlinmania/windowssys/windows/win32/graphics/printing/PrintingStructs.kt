@@ -1970,7 +1970,7 @@ public data class PrinterNotifyOptionsType(
     public var reserved1: UInt = 0u,
     public var reserved2: UInt = 0u,
     public var count: UInt = 0u,
-    public var pFields: UShort? = null,
+    public var pFields: COpaquePointer? = null,
 )
 
 public data class PrinterOptionsa(

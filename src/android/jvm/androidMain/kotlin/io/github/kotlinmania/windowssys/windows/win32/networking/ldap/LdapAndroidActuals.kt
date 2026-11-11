@@ -640,13 +640,13 @@ private object WindowsWin32NetworkingLdapJniBridge {
     external fun windowssys_windows_win32_networking_ldap_ldapSearchExtSW(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, servercontrols: Long, clientcontrols: Long, timeout: Long, sizelimit: Int, res: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchInitPage(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Int
+    external fun windowssys_windows_win32_networking_ldap_ldapSearchInitPage(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchInitPageA(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Int
+    external fun windowssys_windows_win32_networking_ldap_ldapSearchInitPageA(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_ldap_ldapSearchInitPageW(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Int
+    external fun windowssys_windows_win32_networking_ldap_ldapSearchInitPageW(externalhandle: Long, distinguishedname: Long, scopeofsearch: Int, searchfilter: Long, attributelist: Long, attributesonly: Int, servercontrols: Long, clientcontrols: Long, pagetimelimit: Int, totalsizelimit: Int, sortkeys: Long): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_networking_ldap_ldapSearchS(ld: Long, base: Long, scope: Int, filter: Long, attrs: Long, attrsonly: Int, res: Long): Int
@@ -1106,10 +1106,10 @@ public actual fun ldapGetDnW(ld: COpaquePointer?, entry: COpaquePointer?): Pwstr
     WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetDnW((ld?.value ?: 0L), (entry?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun ldapGetNextPage(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetNextPage((externalhandle?.value ?: 0L), searchhandle.toLong(), pagesize.toInt(), (messagenumber?.value ?: 0L)).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetNextPage((externalhandle?.value ?: 0L), searchhandle, pagesize.toInt(), (messagenumber?.value ?: 0L)).toUInt()
 
 public actual fun ldapGetNextPageS(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, timeout: COpaquePointer?, pagesize: UInt, totalcount: COpaquePointer?, results: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetNextPageS((externalhandle?.value ?: 0L), searchhandle.toLong(), (timeout?.value ?: 0L), pagesize.toInt(), (totalcount?.value ?: 0L), (results?.value ?: 0L)).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetNextPageS((externalhandle?.value ?: 0L), searchhandle, (timeout?.value ?: 0L), pagesize.toInt(), (totalcount?.value ?: 0L), (results?.value ?: 0L)).toUInt()
 
 public actual fun ldapGetOption(ld: COpaquePointer?, option: Int, outvalue: COpaquePointer?): UInt =
     WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetOption((ld?.value ?: 0L), option, (outvalue?.value ?: 0L)).toUInt()
@@ -1118,7 +1118,7 @@ public actual fun ldapGetOptionW(ld: COpaquePointer?, option: Int, outvalue: COp
     WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetOptionW((ld?.value ?: 0L), option, (outvalue?.value ?: 0L)).toUInt()
 
 public actual fun ldapGetPagedCount(externalhandle: COpaquePointer?, searchblock: PLDAPSearch, totalcount: COpaquePointer?, results: COpaquePointer?): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetPagedCount((externalhandle?.value ?: 0L), searchblock.toLong(), (totalcount?.value ?: 0L), (results?.value ?: 0L)).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetPagedCount((externalhandle?.value ?: 0L), searchblock, (totalcount?.value ?: 0L), (results?.value ?: 0L)).toUInt()
 
 public actual fun ldapGetValues(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcstr): COpaquePointer? =
     WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapGetValues((ld?.value ?: 0L), (entry?.value ?: 0L), (attr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
@@ -1356,7 +1356,7 @@ public actual fun ldapSearchW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, fi
     WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchW((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt()).toUInt()
 
 public actual fun ldapSearchAbandonPage(externalhandle: COpaquePointer?, searchblock: PLDAPSearch): UInt =
-    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage((externalhandle?.value ?: 0L), searchblock.toLong()).toUInt()
+    WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage((externalhandle?.value ?: 0L), searchblock).toUInt()
 
 public actual fun ldapSearchExt(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt =
     WindowsWin32NetworkingLdapJniBridge.windowssys_windows_win32_networking_ldap_ldapSearchExt((ld?.value ?: 0L), (base?.value ?: 0L), scope.toInt(), (filter?.value ?: 0L), (attrs?.value ?: 0L), attrsonly.toInt(), (servercontrols?.value ?: 0L), (clientcontrols?.value ?: 0L), timelimit.toInt(), sizelimit.toInt(), (messagenumber?.value ?: 0L)).toUInt()

@@ -103,7 +103,7 @@ public actual fun attachConsole(dwprocessid: UInt): Bool =
     windowssys_windows_win32_system_console_attachConsole(dwprocessid)
 
 public actual fun closePseudoConsole(hpc: Hpcon) {
-    windowssys_windows_win32_system_console_closePseudoConsole(hpc.toLong())
+    windowssys_windows_win32_system_console_closePseudoConsole(hpc)
 }
 
 public actual fun consoleControl(command: Consolecontrol, consoleinformation: COpaquePointer?, consoleinformationlength: UInt): Ntstatus =

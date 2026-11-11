@@ -566,10 +566,10 @@ public data class Morrslt(
     public var cchOutput: UShort = 0u,
     public var anonymous1: Morrslt0 = Morrslt0(),
     public var anonymous2: Morrslt1 = Morrslt1(),
-    public var pchInputPos: UShort? = null,
-    public var pchOutputIdxWDD: UShort? = null,
+    public var pchInputPos: COpaquePointer? = null,
+    public var pchOutputIdxWDD: COpaquePointer? = null,
     public var anonymous3: Morrslt2 = Morrslt2(),
-    public var paMonoRubyPos: UShort? = null,
+    public var paMonoRubyPos: COpaquePointer? = null,
     public var pWDD: Wdd? = null,
     public var cWDD: Int = 0,
     public var pPrivate: COpaquePointer? = null,
@@ -623,8 +623,8 @@ public data class Morrslt1(
 )
 
 public data class Morrslt2(
-    public var pchReadIdxWDD: UShort? = null,
-    public var pchCompIdxWDD: UShort? = null,
+    public var pchReadIdxWDD: COpaquePointer? = null,
+    public var pchCompIdxWDD: COpaquePointer? = null,
 )
 
 public data class Postbl(

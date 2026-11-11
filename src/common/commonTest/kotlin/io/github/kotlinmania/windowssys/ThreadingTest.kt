@@ -5,8 +5,11 @@ import io.github.kotlinmania.windowssys.windows.win32.system.threading.PROCESS_A
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.PROCESS_QUERY_INFORMATION
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.PROCESS_QUERY_LIMITED_INFORMATION
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.PROCESS_TERMINATE
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurrentProcessId
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurrentThreadId
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class ThreadingTest {
     @Test
@@ -20,5 +23,12 @@ class ThreadingTest {
     @Test
     fun testInfinite() {
         assertEquals(4294967295u, INFINITE)
+    }
+
+    @Test
+    fun testLiveCurrentProcessAndThreadIds() {
+        val pid = getCurrentProcessId()
+        val tid = getCurrentThreadId()
+        assertTrue((pid == 0u && tid == 0u) || (pid > 0u && tid > 0u))
     }
 }

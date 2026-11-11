@@ -15,6 +15,6 @@ class FoundationBoolTest {
 
     @Test
     fun testInvalidHandleValue() {
-        assertEquals(-1L, INVALID_HANDLE_VALUE)
+        assertEquals(COpaquePointer(-1L), INVALID_HANDLE_VALUE)
     }
 }

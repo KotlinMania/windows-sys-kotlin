@@ -239,7 +239,7 @@ private external fun _wasm_windowssys_windows_win32_networking_clustering_cluste
 private external fun _wasm_windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(p0: String): Int
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(p0)")
-private external fun _wasm_windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(p0: String): Int
+private external fun _wasm_windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(p0: String): String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume(p0)")
 private external fun _wasm_windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume(p0: String): Int
@@ -257,7 +257,7 @@ private external fun _wasm_windowssys_windows_win32_networking_clustering_cluste
 private external fun _wasm_windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(p0: String, p1: Int, p2: String, p3: String): Int
 
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(p0: String, p1: String, p2: String): Int
+private external fun _wasm_windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(p0: String, p1: String, p2: String): String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum(p0)")
 private external fun _wasm_windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum(p0: String): Int
@@ -1450,7 +1450,7 @@ public actual fun clusterGroupSetGetEnumCount(hgroupsetenum: Hgroupsetenum): UIn
     if (_windowsWin32NetworkingClusteringNapiAvailable) _wasm_windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(hgroupsetenum.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun clusterGroupSetOpenEnum(hcluster: Hcluster): Hgroupsetenum =
-    if (_windowsWin32NetworkingClusteringNapiAvailable) _wasm_windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(hcluster.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32NetworkingClusteringNapiAvailable) _wasm_windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(hcluster.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun clusterIsPathOnSharedVolume(lpszpathname: Pcwstr): Bool =
     if (_windowsWin32NetworkingClusteringNapiAvailable) _wasm_windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume((lpszpathname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -1468,7 +1468,7 @@ public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, 
     if (_windowsWin32NetworkingClusteringNapiAvailable) _wasm_windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(hnetinterfaceenum.toString(), dwindex.toInt(), (lpszname?.value ?: 0L).toString(), (lpcchname?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun clusterNetInterfaceOpenEnum(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr): Hnetinterfaceenum =
-    if (_windowsWin32NetworkingClusteringNapiAvailable) _wasm_windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(hcluster.toString(), (lpsznodename?.value ?: 0L).toString(), (lpsznetworkname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32NetworkingClusteringNapiAvailable) _wasm_windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(hcluster.toString(), (lpsznodename?.value ?: 0L).toString(), (lpsznetworkname?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun clusterNetworkCloseEnum(hnetworkenum: Hnetworkenum): UInt =
     if (_windowsWin32NetworkingClusteringNapiAvailable) _wasm_windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum(hnetworkenum.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

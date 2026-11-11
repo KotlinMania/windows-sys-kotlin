@@ -96,7 +96,7 @@ public data class MidlFormatString(
 public data class MidlInterceptionInfo(
     public var version: UInt = 0u,
     public var procString: COpaquePointer? = null,
-    public var procFormatOffsetTable: UShort? = null,
+    public var procFormatOffsetTable: COpaquePointer? = null,
     public var procCount: UInt = 0u,
     public var typeString: COpaquePointer? = null,
 )
@@ -120,7 +120,7 @@ public data class MidlServerInfo(
     public var pStubDesc: MidlStubDesc? = null,
     public var dispatchTable: ServerRoutineFn? = null,
     public var procString: COpaquePointer? = null,
-    public var fmtStringOffset: UShort? = null,
+    public var fmtStringOffset: COpaquePointer? = null,
     public var thunkTable: ExprEvalFn? = null,
     public var pTransferSyntax: RpcSyntaxIdentifier? = null,
     public var nCount: Int = 0,
@@ -130,7 +130,7 @@ public data class MidlServerInfo(
 public data class MidlStublessProxyInfo(
     public var pStubDesc: MidlStubDesc? = null,
     public var procFormatString: COpaquePointer? = null,
-    public var formatStringOffset: UShort? = null,
+    public var formatStringOffset: COpaquePointer? = null,
     public var pTransferSyntax: RpcSyntaxIdentifier? = null,
     public var nCount: Int = 0,
     public var pSyntaxInfo: MidlSyntaxInfo? = null,
@@ -231,7 +231,7 @@ public data class MidlSyntaxInfo(
     public var transferSyntax: RpcSyntaxIdentifier = RpcSyntaxIdentifier(),
     public var dispatchTable: RpcDispatchTable? = null,
     public var procString: COpaquePointer? = null,
-    public var fmtStringOffset: UShort? = null,
+    public var fmtStringOffset: COpaquePointer? = null,
     public var typeString: COpaquePointer? = null,
     public var aUserMarshalQuadruple: COpaquePointer? = null,
     public var pMethodProperties: MidlInterfaceMethodProperties? = null,
@@ -730,7 +730,7 @@ public data class NdrCsSizeConvertRoutines(
 )
 
 public data class NdrExprDesc(
-    public var pOffset: UShort? = null,
+    public var pOffset: COpaquePointer? = null,
     public var pFormatExpr: COpaquePointer? = null,
 )
 
@@ -783,10 +783,10 @@ public data class RdrCalloutState(
     public var lastError: RpcStatus = 0,
     public var lastEEInfo: COpaquePointer? = null,
     public var lastCalledStage: RpcHttpRedirectorStage = 0,
-    public var serverName: UShort? = null,
-    public var serverPort: UShort? = null,
-    public var remoteUser: UShort? = null,
-    public var authType: UShort? = null,
+    public var serverName: COpaquePointer? = null,
+    public var serverPort: COpaquePointer? = null,
+    public var remoteUser: COpaquePointer? = null,
+    public var authType: COpaquePointer? = null,
     public var resourceTypePresent: UByte = 0u,
     public var sessionIdPresent: UByte = 0u,
     public var interfacePresent: UByte = 0u,
@@ -885,7 +885,7 @@ public data class RpcBindingHandleSecurityV1A(
 
 public data class RpcBindingHandleSecurityV1W(
     public var version: UInt = 0u,
-    public var serverPrincName: UShort? = null,
+    public var serverPrincName: COpaquePointer? = null,
     public var authnLevel: UInt = 0u,
     public var authnSvc: UInt = 0u,
     public var authIdentity: SecWinntAuthIdentityW? = null,
@@ -910,14 +910,14 @@ public data class RpcBindingHandleTemplateV1W(
     public var version: UInt = 0u,
     public var flags: UInt = 0u,
     public var protocolSequence: UInt = 0u,
-    public var networkAddress: UShort? = null,
-    public var stringEndpoint: UShort? = null,
+    public var networkAddress: COpaquePointer? = null,
+    public var stringEndpoint: COpaquePointer? = null,
     public var u1: RpcBindingHandleTemplateV1W0 = RpcBindingHandleTemplateV1W0(),
     public var objectUuid: Guid = Guid(),
 )
 
 public data class RpcBindingHandleTemplateV1W0(
-    public var reserved: UShort? = null,
+    public var reserved: COpaquePointer? = null,
 )
 
 public data class RpcBindingVector(
@@ -941,9 +941,9 @@ public data class RpcCallAttributesV1W(
     public var version: UInt = 0u,
     public var flags: UInt = 0u,
     public var serverPrincipalNameBufferLength: UInt = 0u,
-    public var serverPrincipalName: UShort? = null,
+    public var serverPrincipalName: COpaquePointer? = null,
     public var clientPrincipalNameBufferLength: UInt = 0u,
-    public var clientPrincipalName: UShort? = null,
+    public var clientPrincipalName: COpaquePointer? = null,
     public var authenticationLevel: UInt = 0u,
     public var authenticationService: UInt = 0u,
     public var nullSession: Bool = 0,
@@ -974,9 +974,9 @@ public class RpcCallAttributesV2W(
     public var version: UInt = 0u,
     public var flags: UInt = 0u,
     public var serverPrincipalNameBufferLength: UInt = 0u,
-    public var serverPrincipalName: UShort? = null,
+    public var serverPrincipalName: COpaquePointer? = null,
     public var clientPrincipalNameBufferLength: UInt = 0u,
-    public var clientPrincipalName: UShort? = null,
+    public var clientPrincipalName: COpaquePointer? = null,
     public var authenticationLevel: UInt = 0u,
     public var authenticationService: UInt = 0u,
     public var nullSession: Bool = 0,
@@ -1018,9 +1018,9 @@ public class RpcCallAttributesV3W(
     public var version: UInt = 0u,
     public var flags: UInt = 0u,
     public var serverPrincipalNameBufferLength: UInt = 0u,
-    public var serverPrincipalName: UShort? = null,
+    public var serverPrincipalName: COpaquePointer? = null,
     public var clientPrincipalNameBufferLength: UInt = 0u,
-    public var clientPrincipalName: UShort? = null,
+    public var clientPrincipalName: COpaquePointer? = null,
     public var authenticationLevel: UInt = 0u,
     public var authenticationService: UInt = 0u,
     public var nullSession: Bool = 0,
@@ -1155,7 +1155,7 @@ public data class RpcHttpTransportCredentialsV2W(
     public var authenticationTarget: RpcCHttpAuthnTarget = 0u,
     public var numberOfAuthnSchemes: UInt = 0u,
     public var authnSchemes: UInt? = null,
-    public var serverCertificateSubject: UShort? = null,
+    public var serverCertificateSubject: COpaquePointer? = null,
     public var proxyCredentials: SecWinntAuthIdentityW? = null,
     public var numberOfProxyAuthnSchemes: UInt = 0u,
     public var proxyAuthnSchemes: UInt? = null,
@@ -1179,7 +1179,7 @@ public data class RpcHttpTransportCredentialsV3W(
     public var authenticationTarget: RpcCHttpAuthnTarget = 0u,
     public var numberOfAuthnSchemes: UInt = 0u,
     public var authnSchemes: UInt? = null,
-    public var serverCertificateSubject: UShort? = null,
+    public var serverCertificateSubject: COpaquePointer? = null,
     public var proxyCredentials: COpaquePointer? = null,
     public var numberOfProxyAuthnSchemes: UInt = 0u,
     public var proxyAuthnSchemes: UInt? = null,
@@ -1191,7 +1191,7 @@ public data class RpcHttpTransportCredentialsW(
     public var authenticationTarget: RpcCHttpAuthnTarget = 0u,
     public var numberOfAuthnSchemes: UInt = 0u,
     public var authnSchemes: UInt? = null,
-    public var serverCertificateSubject: UShort? = null,
+    public var serverCertificateSubject: COpaquePointer? = null,
 )
 
 public data class RpcIfId(
@@ -1271,7 +1271,7 @@ public data class RpcProtseqVectora(
 
 public data class RpcProtseqVectorw(
     public var count: UInt = 0u,
-    public var protseq: List<UShort> = List(1) { 0u },
+    public var protseq: List<COpaquePointer> = List(1) { COpaquePointer(0L) },
 )
 
 public data class RpcSecurityQos(
@@ -1466,11 +1466,11 @@ public data class SecWinntAuthIdentityA(
 )
 
 public data class SecWinntAuthIdentityW(
-    public var user: UShort? = null,
+    public var user: COpaquePointer? = null,
     public var userLength: UInt = 0u,
-    public var domain: UShort? = null,
+    public var domain: COpaquePointer? = null,
     public var domainLength: UInt = 0u,
-    public var password: UShort? = null,
+    public var password: COpaquePointer? = null,
     public var passwordLength: UInt = 0u,
     public var flags: SecWinntAuthIdentity = 0u,
 )

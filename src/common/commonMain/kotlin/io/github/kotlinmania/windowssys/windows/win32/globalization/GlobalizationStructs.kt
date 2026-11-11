@@ -587,7 +587,7 @@ public data class TextrangeProperties(
 )
 
 public data class UCPTrie(
-    public var index: UShort? = null,
+    public var index: COpaquePointer? = null,
     public var data: UCPTrieData = UCPTrieData(),
     public var indexLength: Int = 0,
     public var dataLength: Int = 0,
@@ -604,7 +604,7 @@ public data class UCPTrie(
 
 public data class UCPTrieData(
     public var ptr0: COpaquePointer? = null,
-    public var ptr16: UShort? = null,
+    public var ptr16: COpaquePointer? = null,
     public var ptr32: UInt? = null,
     public var ptr8: COpaquePointer? = null,
 )
@@ -632,8 +632,8 @@ public data class UConverterFromUnicodeArgs(
     public var size: UShort = 0u,
     public var flush: Byte = 0,
     public var converter: Int? = null,
-    public var source: UShort? = null,
-    public var sourceLimit: UShort? = null,
+    public var source: COpaquePointer? = null,
+    public var sourceLimit: COpaquePointer? = null,
     public var target: Pstr = null,
     public var targetLimit: Pcstr = null,
     public var offsets: Int? = null,
@@ -645,8 +645,8 @@ public data class UConverterToUnicodeArgs(
     public var converter: Int? = null,
     public var source: Pcstr = null,
     public var sourceLimit: Pcstr = null,
-    public var target: UShort? = null,
-    public var targetLimit: UShort? = null,
+    public var target: COpaquePointer? = null,
+    public var targetLimit: COpaquePointer? = null,
     public var offsets: Int? = null,
 )
 
@@ -705,7 +705,7 @@ public data class UReplaceableCallbacks(
 )
 
 public data class USerializedSet(
-    public var array: UShort? = null,
+    public var array: COpaquePointer? = null,
     public var bmpLength: Int = 0,
     public var length: Int = 0,
     public var staticArray: UShortArray = UShortArray(8),
@@ -740,7 +740,7 @@ public class UText(
     public var chunkNativeStart: Long = 0L,
     public var chunkOffset: Int = 0,
     public var chunkLength: Int = 0,
-    public var chunkContents: UShort? = null,
+    public var chunkContents: COpaquePointer? = null,
     public var pFuncs: UTextFuncs? = null,
     public var pExtra: COpaquePointer? = null,
     public var context: COpaquePointer? = null,

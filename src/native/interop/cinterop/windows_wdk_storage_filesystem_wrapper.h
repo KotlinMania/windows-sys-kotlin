@@ -107,7 +107,6 @@ void windowssys_windows_wdk_storage_filesystem_fsRtlDeleteKeyFromTunnelCache(voi
 void windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache(void* cache);
 void windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider(void* handle);
 void windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete(void* deviceobject, int32_t dismountstatus);
-void windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(const char* path, void* firstname, void* remainingname);
 bool windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards(void* name);
 bool windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards(void* name);
 bool windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead(void* filelock, void* startingbyte, void* length, uint32_t key, void* fileobject, void* processid);
@@ -158,8 +157,6 @@ bool windowssys_windows_wdk_storage_filesystem_fsRtlIsDbcsInExpression(void* exp
 bool windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged(void* ecpcontext);
 bool windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode(void* ecpcontext);
 uint32_t windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(uint32_t startpage, uint32_t numberofpages, uint32_t flags);
-bool windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(const char* dbcsname, bool wildcardspermissible, bool pathnamepermissible, bool leadingbackslashpermissible);
-bool windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(const char* dbcsname, bool wildcardspermissible, bool pathnamepermissible, bool leadingbackslashpermissible);
 bool windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS(void);
 bool windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression(void* expression, void* name, bool ignorecase, void* upcasetable);
 bool windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression(void* expression, void* name, bool ignorecase, void* upcasetable);

@@ -1,63 +1,70 @@
 package io.github.kotlinmania.windowssys
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
-import io.github.kotlinmania.windowssys.windows.win32.system.time.DYNAMIC_TIME_ZONE_INFORMATION
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.system.time.DynamicTimeZoneInformation
 import io.github.kotlinmania.windowssys.windows.win32.system.time.TIME_ZONE_ID_INVALID
-import io.github.kotlinmania.windowssys.windows.win32.system.time.TIME_ZONE_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.system.time.TSF_Authenticated
-import io.github.kotlinmania.windowssys.windows.win32.system.time.TSF_Hardware
-import io.github.kotlinmania.windowssys.windows.win32.system.time.TSF_IPv6
-import io.github.kotlinmania.windowssys.windows.win32.system.time.TSF_SignatureAuthenticated
-import io.github.kotlinmania.windowssys.windows.win32.system.time.wszW32TimeRegKeyPolicyTimeProviders
-import io.github.kotlinmania.windowssys.windows.win32.system.time.wszW32TimeRegKeyTimeProviders
-import io.github.kotlinmania.windowssys.windows.win32.system.time.wszW32TimeRegValueDllName
-import io.github.kotlinmania.windowssys.windows.win32.system.time.wszW32TimeRegValueEnabled
-import io.github.kotlinmania.windowssys.windows.win32.system.time.wszW32TimeRegValueInputProvider
-import io.github.kotlinmania.windowssys.windows.win32.system.time.wszW32TimeRegValueMetaDataProvider
+import io.github.kotlinmania.windowssys.windows.win32.system.time.TSF_AUTHENTICATED
+import io.github.kotlinmania.windowssys.windows.win32.system.time.TSF_HARDWARE
+import io.github.kotlinmania.windowssys.windows.win32.system.time.TSF_I_PV6
+import io.github.kotlinmania.windowssys.windows.win32.system.time.TSF_SIGNATURE_AUTHENTICATED
+import io.github.kotlinmania.windowssys.windows.win32.system.time.TimeZoneInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.time.WSZ_W32TIME_REG_KEY_POLICY_TIME_PROVIDERS
+import io.github.kotlinmania.windowssys.windows.win32.system.time.WSZ_W32TIME_REG_KEY_TIME_PROVIDERS
+import io.github.kotlinmania.windowssys.windows.win32.system.time.WSZ_W32TIME_REG_VALUE_DLL_NAME
+import io.github.kotlinmania.windowssys.windows.win32.system.time.WSZ_W32TIME_REG_VALUE_ENABLED
+import io.github.kotlinmania.windowssys.windows.win32.system.time.WSZ_W32TIME_REG_VALUE_INPUT_PROVIDER
+import io.github.kotlinmania.windowssys.windows.win32.system.time.WSZ_W32TIME_REG_VALUE_META_DATA_PROVIDER
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
+import kotlin.test.assertNotNull
 
 class TimeTest {
     @Test
     fun testTimeConstants() {
         assertEquals(4294967295u, TIME_ZONE_ID_INVALID)
-        assertEquals(1u, TSF_Hardware)
-        assertEquals(2u, TSF_Authenticated)
-        assertEquals(4u, TSF_IPv6)
-        assertEquals(8u, TSF_SignatureAuthenticated)
+        assertEquals(1u, TSF_HARDWARE)
+        assertEquals(2u, TSF_AUTHENTICATED)
+        assertEquals(4u, TSF_I_PV6)
+        assertEquals(8u, TSF_SIGNATURE_AUTHENTICATED)
 
-        assertNotEquals(0L, wszW32TimeRegKeyPolicyTimeProviders)
-        assertNotEquals(0L, wszW32TimeRegKeyTimeProviders)
-        assertNotEquals(0L, wszW32TimeRegValueDllName)
-        assertNotEquals(0L, wszW32TimeRegValueEnabled)
-        assertNotEquals(0L, wszW32TimeRegValueInputProvider)
-        assertNotEquals(0L, wszW32TimeRegValueMetaDataProvider)
+        assertNotNull(WSZ_W32TIME_REG_KEY_POLICY_TIME_PROVIDERS)
+        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_KEY_POLICY_TIME_PROVIDERS)
+        assertNotNull(WSZ_W32TIME_REG_KEY_TIME_PROVIDERS)
+        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_KEY_TIME_PROVIDERS)
+        assertNotNull(WSZ_W32TIME_REG_VALUE_DLL_NAME)
+        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_VALUE_DLL_NAME)
+        assertNotNull(WSZ_W32TIME_REG_VALUE_ENABLED)
+        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_VALUE_ENABLED)
+        assertNotNull(WSZ_W32TIME_REG_VALUE_INPUT_PROVIDER)
+        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_VALUE_INPUT_PROVIDER)
+        assertNotNull(WSZ_W32TIME_REG_VALUE_META_DATA_PROVIDER)
+        assertNotEquals(COpaquePointer(0L), WSZ_W32TIME_REG_VALUE_META_DATA_PROVIDER)
     }
 
     @Test
     fun testTimeZoneInformation() {
-        val st = SYSTEMTIME(wYear = 2026u, wMonth = 10u, wDay = 12u)
+        val st = Systemtime(wYear = 2026u, wMonth = 10u, wDay = 12u)
         val tzi =
-            TIME_ZONE_INFORMATION(
-                Bias = 480,
-                StandardBias = 0,
-                DaylightBias = -60,
-                StandardDate = st,
-                DaylightDate = st,
+            TimeZoneInformation(
+                bias = 480,
+                standardBias = 0,
+                daylightBias = -60,
+                standardDate = st,
+                daylightDate = st,
             )
-        assertEquals(480, tzi.Bias)
-        assertEquals(0, tzi.StandardBias)
-        assertEquals(-60, tzi.DaylightBias)
-        assertEquals(2026u, tzi.StandardDate.wYear)
+        assertEquals(480, tzi.bias)
+        assertEquals(0, tzi.standardBias)
+        assertEquals(-60, tzi.daylightBias)
+        assertEquals(2026u, tzi.standardDate.wYear)
 
         val tzi2 =
-            TIME_ZONE_INFORMATION(
-                Bias = 480,
-                StandardBias = 0,
-                DaylightBias = -60,
-                StandardDate = st,
-                DaylightDate = st,
+            TimeZoneInformation(
+                bias = 480,
+                standardBias = 0,
+                daylightBias = -60,
+                standardDate = st,
+                daylightDate = st,
             )
         assertEquals(tzi, tzi2)
         assertEquals(tzi.hashCode(), tzi2.hashCode())
@@ -65,27 +72,27 @@ class TimeTest {
 
     @Test
     fun testDynamicTimeZoneInformation() {
-        val st = SYSTEMTIME(wYear = 2026u, wMonth = 10u, wDay = 12u)
+        val st = Systemtime(wYear = 2026u, wMonth = 10u, wDay = 12u)
         val dtzi =
-            DYNAMIC_TIME_ZONE_INFORMATION(
-                Bias = 480,
-                StandardBias = 0,
-                DaylightBias = -60,
-                StandardDate = st,
-                DaylightDate = st,
-                DynamicDaylightTimeDisabled = false,
+            DynamicTimeZoneInformation(
+                bias = 480,
+                standardBias = 0,
+                daylightBias = -60,
+                standardDate = st,
+                daylightDate = st,
+                dynamicDaylightTimeDisabled = false,
             )
-        assertEquals(480, dtzi.Bias)
-        assertEquals(false, dtzi.DynamicDaylightTimeDisabled)
+        assertEquals(480, dtzi.bias)
+        assertEquals(false, dtzi.dynamicDaylightTimeDisabled)
 
         val dtzi2 =
-            DYNAMIC_TIME_ZONE_INFORMATION(
-                Bias = 480,
-                StandardBias = 0,
-                DaylightBias = -60,
-                StandardDate = st,
-                DaylightDate = st,
-                DynamicDaylightTimeDisabled = false,
+            DynamicTimeZoneInformation(
+                bias = 480,
+                standardBias = 0,
+                daylightBias = -60,
+                standardDate = st,
+                daylightDate = st,
+                dynamicDaylightTimeDisabled = false,
             )
         assertEquals(dtzi, dtzi2)
         assertEquals(dtzi.hashCode(), dtzi2.hashCode())

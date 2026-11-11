@@ -144,7 +144,7 @@ public actual fun pSGetNameFromPropertyKey(propkey: COpaquePointer?, ppszcanonic
     windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameFromPropertyKey(propkey?.value?.toCPointer<ByteVar>(), ppszcanonicalname?.value?.toCPointer<ByteVar>())
 
 public actual fun pSGetNamedPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, pszname: Pcwstr, ppropvar: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage(psps.toLong(), cb, pszname?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage(psps, cb, pszname?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
 public actual fun pSGetPropertyDescription(propkey: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescription(propkey?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
@@ -156,7 +156,7 @@ public actual fun pSGetPropertyDescriptionListFromString(pszproplist: Pcwstr, ri
     windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionListFromString(pszproplist?.value?.toCPointer<ByteVar>(), riid?.value?.toCPointer<ByteVar>(), ppv?.value?.toCPointer<ByteVar>())
 
 public actual fun pSGetPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, rpkey: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
-    windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage(psps.toLong(), cb, rpkey?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage(psps, cb, rpkey?.value?.toCPointer<ByteVar>(), ppropvar?.value?.toCPointer<ByteVar>())
 
 public actual fun pSGetPropertyKeyFromName(pszname: Pcwstr, ppropkey: COpaquePointer?): Hresult =
     windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyKeyFromName(pszname?.value?.toCPointer<ByteVar>(), ppropkey?.value?.toCPointer<ByteVar>())

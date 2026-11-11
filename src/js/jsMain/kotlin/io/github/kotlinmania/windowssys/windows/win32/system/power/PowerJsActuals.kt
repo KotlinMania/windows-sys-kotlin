@@ -270,10 +270,10 @@ public actual fun readPwrScheme(uiid: UInt, ppowerpolicy: COpaquePointer?): Bool
     if (_windowsWin32SystemPowerNapiAddon != null) (_windowsWin32SystemPowerNapiAddon.windowssys_windows_win32_system_power_readPwrScheme(uiid.toInt(), (ppowerpolicy?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerPowerSettingNotification(hrecipient: Handle, powersettingguid: COpaquePointer?, flags: RegisterNotificationFlags): Hpowernotify =
-    if (_windowsWin32SystemPowerNapiAddon != null) (_windowsWin32SystemPowerNapiAddon.windowssys_windows_win32_system_power_registerPowerSettingNotification((hrecipient?.value ?: 0L).toString(), (powersettingguid?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32SystemPowerNapiAddon != null) (_windowsWin32SystemPowerNapiAddon.windowssys_windows_win32_system_power_registerPowerSettingNotification((hrecipient?.value ?: 0L).toString(), (powersettingguid?.value ?: 0L).toString(), flags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerSuspendResumeNotification(hrecipient: Handle, flags: RegisterNotificationFlags): Hpowernotify =
-    if (_windowsWin32SystemPowerNapiAddon != null) (_windowsWin32SystemPowerNapiAddon.windowssys_windows_win32_system_power_registerSuspendResumeNotification((hrecipient?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32SystemPowerNapiAddon != null) (_windowsWin32SystemPowerNapiAddon.windowssys_windows_win32_system_power_registerSuspendResumeNotification((hrecipient?.value ?: 0L).toString(), flags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun requestWakeupLatency(latency: LatencyTime): Bool =
     if (_windowsWin32SystemPowerNapiAddon != null) (_windowsWin32SystemPowerNapiAddon.windowssys_windows_win32_system_power_requestWakeupLatency(latency) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

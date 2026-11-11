@@ -519,13 +519,8 @@ public actual fun fsRtlDismountComplete(deviceobject: COpaquePointer?, dismounts
     }
 }
 
-public actual fun fsRtlDissectDbcs(path: String, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
-    if (_windowsWdkStorageFilesystemNapiAddon != null) {
-        _windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(path, (firstname?.value ?: 0L).toString(), (remainingname?.value ?: 0L).toString())
-    } else {
-        throw UnsupportedOperationException("Native FFI addon is not available")
-    }
-}
+public actual fun fsRtlDissectDbcs(path: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, firstname: COpaquePointer?, remainingname: COpaquePointer?): Unit =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI addon is not available")
@@ -765,11 +760,11 @@ public actual fun fsRtlIsEcpFromUserMode(ecpcontext: COpaquePointer?): Boolean =
 public actual fun fsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
     if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(startpage.toInt(), numberofpages.toInt(), flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fsRtlIsFatDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun fsRtlIsFatDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun fsRtlIsMobileOS(): Boolean =
     if (_windowsWdkStorageFilesystemNapiAddon != null) (_windowsWdkStorageFilesystemNapiAddon.windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS() as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")

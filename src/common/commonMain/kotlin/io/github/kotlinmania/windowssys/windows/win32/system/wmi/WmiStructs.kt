@@ -55,7 +55,7 @@ public data class MiBooleanField(
 )
 
 public data class MiChar16A(
-    public var data: UShort? = null,
+    public var data: COpaquePointer? = null,
     public var size: UInt = 0u,
 )
 
@@ -74,8 +74,8 @@ public data class MiChar16Field(
 public data class MiClass(
     public var ft: MiClassFt? = null,
     public var classDecl: MiClassDecl? = null,
-    public var namespaceName: UShort? = null,
-    public var serverName: UShort? = null,
+    public var namespaceName: COpaquePointer? = null,
+    public var serverName: COpaquePointer? = null,
     public var reserved: IntArray = IntArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -102,13 +102,13 @@ public data class MiClass(
 public data class MiClassDecl(
     public var flags: UInt = 0u,
     public var code: UInt = 0u,
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var qualifiers: COpaquePointer? = null,
     public var numQualifiers: UInt = 0u,
     public var properties: COpaquePointer? = null,
     public var numProperties: UInt = 0u,
     public var size: UInt = 0u,
-    public var superClass: UShort? = null,
+    public var superClass: COpaquePointer? = null,
     public var superClassDecl: MiClassDecl? = null,
     public var methods: COpaquePointer? = null,
     public var numMethods: UInt = 0u,
@@ -165,7 +165,7 @@ public data class MiConstBooleanField(
 )
 
 public data class MiConstChar16A(
-    public var data: UShort? = null,
+    public var data: COpaquePointer? = null,
     public var size: UInt = 0u,
 )
 
@@ -346,13 +346,13 @@ public data class MiConstStringAfield(
 )
 
 public data class MiConstStringField(
-    public var value: UShort? = null,
+    public var value: COpaquePointer? = null,
     public var exists: UByte = 0u,
     public var flags: UByte = 0u,
 )
 
 public data class MiConstUint16A(
-    public var data: UShort? = null,
+    public var data: COpaquePointer? = null,
     public var size: UInt = 0u,
 )
 
@@ -539,7 +539,7 @@ public data class MiDestinationOptionsFt(
 public data class MiFeatureDecl(
     public var flags: UInt = 0u,
     public var code: UInt = 0u,
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var qualifiers: COpaquePointer? = null,
     public var numQualifiers: UInt = 0u,
 )
@@ -582,8 +582,8 @@ public data class MiHostedProviderFt(
 public data class MiInstance(
     public var ft: MiInstanceFt? = null,
     public var classDecl: MiClassDecl? = null,
-    public var serverName: UShort? = null,
-    public var nameSpace: UShort? = null,
+    public var serverName: COpaquePointer? = null,
+    public var nameSpace: COpaquePointer? = null,
     public var reserved: IntArray = IntArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -664,15 +664,15 @@ public data class MiInterval(
 public data class MiMethodDecl(
     public var flags: UInt = 0u,
     public var code: UInt = 0u,
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var qualifiers: COpaquePointer? = null,
     public var numQualifiers: UInt = 0u,
     public var parameters: COpaquePointer? = null,
     public var numParameters: UInt = 0u,
     public var size: UInt = 0u,
     public var returnType: UInt = 0u,
-    public var origin: UShort? = null,
-    public var propagator: UShort? = null,
+    public var origin: COpaquePointer? = null,
+    public var propagator: COpaquePointer? = null,
     public var schema: MiSchemaDecl? = null,
     public var function: MiMethodDeclInvoke = null,
 )
@@ -691,7 +691,7 @@ public data class MiModule(
 public data class MiObjectDecl(
     public var flags: UInt = 0u,
     public var code: UInt = 0u,
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var qualifiers: COpaquePointer? = null,
     public var numQualifiers: UInt = 0u,
     public var properties: COpaquePointer? = null,
@@ -751,11 +751,11 @@ public data class MiOperationOptionsFt(
 public data class MiParameterDecl(
     public var flags: UInt = 0u,
     public var code: UInt = 0u,
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var qualifiers: COpaquePointer? = null,
     public var numQualifiers: UInt = 0u,
     public var type: UInt = 0u,
-    public var className: UShort? = null,
+    public var className: COpaquePointer? = null,
     public var subscript: UInt = 0u,
     public var offset: UInt = 0u,
 )
@@ -776,15 +776,15 @@ public data class MiParameterSetFt(
 public data class MiPropertyDecl(
     public var flags: UInt = 0u,
     public var code: UInt = 0u,
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var qualifiers: COpaquePointer? = null,
     public var numQualifiers: UInt = 0u,
     public var type: UInt = 0u,
-    public var className: UShort? = null,
+    public var className: COpaquePointer? = null,
     public var subscript: UInt = 0u,
     public var offset: UInt = 0u,
-    public var origin: UShort? = null,
-    public var propagator: UShort? = null,
+    public var origin: COpaquePointer? = null,
+    public var propagator: COpaquePointer? = null,
     public var value: COpaquePointer? = null,
 )
 
@@ -836,14 +836,14 @@ public data class MiProviderFt(
 )
 
 public data class MiQualifier(
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var type: UInt = 0u,
     public var flavor: UInt = 0u,
     public var value: COpaquePointer? = null,
 )
 
 public data class MiQualifierDecl(
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var type: UInt = 0u,
     public var scope: UInt = 0u,
     public var flavor: UInt = 0u,
@@ -1055,7 +1055,7 @@ public data class MiStringAfield(
 )
 
 public data class MiStringField(
-    public var value: UShort? = null,
+    public var value: COpaquePointer? = null,
     public var exists: UByte = 0u,
     public var flags: UByte = 0u,
 )
@@ -1098,7 +1098,7 @@ public data class MiTimestamp(
 )
 
 public data class MiUint16A(
-    public var data: UShort? = null,
+    public var data: COpaquePointer? = null,
     public var size: UInt = 0u,
 )
 
@@ -1166,19 +1166,19 @@ public data class MiUint8Field(
 )
 
 public data class MiUserCredentials(
-    public var authenticationType: UShort? = null,
+    public var authenticationType: COpaquePointer? = null,
     public var credentials: MiUserCredentials0 = MiUserCredentials0(),
 )
 
 public data class MiUserCredentials0(
     public var usernamePassword: MiUsernamePasswordCreds = MiUsernamePasswordCreds(),
-    public var certificateThumbprint: UShort? = null,
+    public var certificateThumbprint: COpaquePointer? = null,
 )
 
 public data class MiUsernamePasswordCreds(
-    public var domain: UShort? = null,
-    public var username: UShort? = null,
-    public var password: UShort? = null,
+    public var domain: COpaquePointer? = null,
+    public var username: COpaquePointer? = null,
+    public var password: COpaquePointer? = null,
 )
 
 public data class MiUtilitiesFt(
@@ -1200,7 +1200,7 @@ public class MiValue(
     public var real64: Double = 0.0,
     public var char16: UShort = 0u,
     public var datetime: MiDatetime = MiDatetime(),
-    public var string: UShort? = null,
+    public var string: COpaquePointer? = null,
     public var instance: MiInstance? = null,
     public var reference: MiInstance? = null,
     public var booleana: MiBooleanA = MiBooleanA(),

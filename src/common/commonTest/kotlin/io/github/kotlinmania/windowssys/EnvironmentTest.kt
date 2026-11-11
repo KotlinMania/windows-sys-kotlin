@@ -3,19 +3,21 @@ package io.github.kotlinmania.windowssys
 import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE
 import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED
 import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_FLAG_FULL_DEBUG_ENABLED
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_IDENTITY
 import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_INFORMATION
 import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_REPORT_DATA_LENGTH
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_VBS_BASIC_KEY_REQUEST
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.VBS_BASIC_ENCLAVE_EXCEPTION_AMD64
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.VBS_BASIC_ENCLAVE_SYSCALL_PAGE
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.VBS_ENCLAVE_REPORT
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.VBS_ENCLAVE_REPORT_MODULE
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.VBS_ENCLAVE_REPORT_PKG_HEADER
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.EnclaveIdentity
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.EnclaveInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.EnclaveVbsBasicKeyRequest
 import io.github.kotlinmania.windowssys.windows.win32.system.environment.VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.VbsBasicEnclaveBasicCallCommitPagesFn
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.VbsBasicEnclaveBasicCallReturnFromEnclaveFn
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.VbsBasicEnclaveExceptionAmd64
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.VbsBasicEnclaveSyscallPage
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.VbsBasicEnclaveThreadDescriptor32
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.VbsBasicEnclaveThreadDescriptor64
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.VbsEnclaveReport
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.VbsEnclaveReportModule
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.VbsEnclaveReportPkgHeader
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
@@ -33,39 +35,39 @@ class EnvironmentTest {
 
     @Test
     fun testEnvironmentStructs() {
-        val identity = ENCLAVE_IDENTITY(EnclaveSvn = 5u)
-        val info = ENCLAVE_INFORMATION(EnclaveType = 1u, Identity = identity)
-        assertEquals(5u, info.Identity.EnclaveSvn)
-        assertEquals(1u, info.EnclaveType)
+        val identity = EnclaveIdentity(enclaveSvn = 5u)
+        val info = EnclaveInformation(enclaveType = 1u, identity = identity)
+        assertEquals(5u, info.identity.enclaveSvn)
+        assertEquals(1u, info.enclaveType)
 
-        val keyReq = ENCLAVE_VBS_BASIC_KEY_REQUEST(RequestSize = 32u, EnclaveSVN = 2u)
-        assertEquals(32u, keyReq.RequestSize)
-        assertEquals(2u, keyReq.EnclaveSVN)
+        val keyReq = EnclaveVbsBasicKeyRequest(requestSize = 32u, enclaveSVN = 2u)
+        assertEquals(32u, keyReq.requestSize)
+        assertEquals(2u, keyReq.enclaveSVN)
 
-        val exc = VBS_BASIC_ENCLAVE_EXCEPTION_AMD64(ExceptionCode = 0xC0000005u)
-        assertEquals(0xC0000005u, exc.ExceptionCode)
+        val exc = VbsBasicEnclaveExceptionAmd64(exceptionCode = 0xC0000005u)
+        assertEquals(0xC0000005u, exc.exceptionCode)
 
-        val desc32 = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32(EntryPoint = 0x1000u)
-        assertEquals(0x1000u, desc32.EntryPoint)
+        val desc32 = VbsBasicEnclaveThreadDescriptor32(entryPoint = 0x1000u)
+        assertEquals(0x1000u, desc32.entryPoint)
 
-        val desc64 = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64(EntryPoint = 0x2000uL)
-        assertEquals(0x2000uL, desc64.EntryPoint)
+        val desc64 = VbsBasicEnclaveThreadDescriptor64(entryPoint = 0x2000uL)
+        assertEquals(0x2000uL, desc64.entryPoint)
 
-        val report = VBS_ENCLAVE_REPORT(ReportSize = 128u)
-        assertEquals(128u, report.ReportSize)
+        val report = VbsEnclaveReport(reportSize = 128u)
+        assertEquals(128u, report.reportSize)
 
-        val mod = VBS_ENCLAVE_REPORT_MODULE(Svn = 3u)
-        assertEquals(3u, mod.Svn)
+        val mod = VbsEnclaveReportModule(svn = 3u)
+        assertEquals(3u, mod.svn)
 
-        val pkg = VBS_ENCLAVE_REPORT_PKG_HEADER(PackageSize = 256u)
-        assertEquals(256u, pkg.PackageSize)
+        val pkg = VbsEnclaveReportPkgHeader(packageSize = 256u)
+        assertEquals(256u, pkg.packageSize)
 
         val syscallPage =
-            VBS_BASIC_ENCLAVE_SYSCALL_PAGE(
-                ReturnFromEnclave = { _ -> },
-                CommitPages = { _, _, _, _ -> 0 },
+            VbsBasicEnclaveSyscallPage(
+                returnFromEnclave = VbsBasicEnclaveBasicCallReturnFromEnclaveFn { _ -> },
+                commitPages = VbsBasicEnclaveBasicCallCommitPagesFn { _, _, _, _ -> 0 },
             )
-        assertNotNull(syscallPage.ReturnFromEnclave)
-        assertNotNull(syscallPage.CommitPages)
+        assertNotNull(syscallPage.returnFromEnclave)
+        assertNotNull(syscallPage.commitPages)
     }
 }

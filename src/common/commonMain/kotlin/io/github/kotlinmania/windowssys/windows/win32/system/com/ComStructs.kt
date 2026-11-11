@@ -123,11 +123,11 @@ public data class Categoryinfo(
 }
 
 public data class Coauthidentity(
-    public var user: UShort? = null,
+    public var user: COpaquePointer? = null,
     public var userLength: UInt = 0u,
-    public var domain: UShort? = null,
+    public var domain: COpaquePointer? = null,
     public var domainLength: UInt = 0u,
-    public var password: UShort? = null,
+    public var password: COpaquePointer? = null,
     public var passwordLength: UInt = 0u,
     public var flags: UInt = 0u,
 )
@@ -593,7 +593,7 @@ public data class WordBlob(
 
 public data class WordSizedarr(
     public var clSize: UInt = 0u,
-    public var pData: UShort? = null,
+    public var pData: COpaquePointer? = null,
 )
 
 public data class UClsspec(

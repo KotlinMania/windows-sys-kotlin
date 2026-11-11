@@ -209,10 +209,10 @@ private external fun _wasm_windowssys_windows_win32_system_threading_createSemap
 private external fun _wasm_windowssys_windows_win32_system_threading_createThread(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThreadpool(p0)")
-private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpool(p0: String): Int
+private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpool(p0: String): String
 
 @JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup()")
-private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(): Int
+private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(): String
 
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_threading_createThreadpoolIo(p0, p1, p2, p3)")
 private external fun _wasm_windowssys_windows_win32_system_threading_createThreadpoolIo(p0: String, p1: String, p2: String, p3: String): String
@@ -1255,10 +1255,10 @@ public actual fun createThread(lpthreadattributes: COpaquePointer?, dwstacksize:
     if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThread((lpthreadattributes?.value ?: 0L).toString(), dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpthreadid?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createThreadpool(reserved: COpaquePointer?): PtpPool =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpool((reserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpool((reserved?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createThreadpoolCleanupGroup(): PtpCleanupGroup =
-    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup() else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createThreadpoolIo(fl: Handle, pfnio: PtpWin32IoCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpIo =
     if (_windowsWin32SystemThreadingNapiAvailable) _wasm_windowssys_windows_win32_system_threading_createThreadpoolIo((fl?.value ?: 0L).toString(), 0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -94,13 +94,13 @@ public actual fun createUpDownControl(dwstyle: UInt, x: Int, y: Int, cx: Int, cy
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_createUpDownControl(dwstyle.toInt(), x, y, cx, cy, (hparent?.value ?: 0L).toString(), nid, (hinst?.value ?: 0L).toString(), (hbuddy?.value ?: 0L).toString(), nupper, nlower, npos) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dpaClone(hdpa: Hdpa, hdpanew: Hdpa): Hdpa =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dpaClone(hdpa.toString(), hdpanew.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dpaClone(hdpa.toString(), hdpanew.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dpaCreate(citemgrow: Int): Hdpa =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dpaCreate(citemgrow) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dpaCreate(citemgrow) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dpaCreateEx(cpgrow: Int, hheap: Handle): Hdpa =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dpaCreateEx(cpgrow, (hheap?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dpaCreateEx(cpgrow, (hheap?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dpaDeleteAllPtrs(hdpa: Hdpa): Bool =
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs(hdpa.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -161,10 +161,10 @@ public actual fun dpaSort(hdpa: Hdpa, pfncompare: Pfndacompare, lparam: Lparam):
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dpaSort(hdpa.toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dsaClone(hdsa: Hdsa): Hdsa =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dsaClone(hdsa.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dsaClone(hdsa.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dsaCreate(cbitem: Int, citemgrow: Int): Hdsa =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dsaCreate(cbitem, citemgrow) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dsaCreate(cbitem, citemgrow) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dsaDeleteAllItems(hdsa: Hdsa): Bool =
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_dsaDeleteAllItems(hdsa.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -487,7 +487,7 @@ public actual fun getWindowFeedbackSetting(hwnd: Hwnd, feedback: FeedbackType, d
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_getWindowFeedbackSetting((hwnd?.value ?: 0L).toString(), feedback, dwflags.toInt(), (psize?.value ?: 0L).toString(), (config?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getWindowTheme(hwnd: Hwnd): Htheme =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_getWindowTheme((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_getWindowTheme((hwnd?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun himagelistQueryInterface(himl: Himagelist, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_himagelistQueryInterface(himl.toString(), (riid?.value ?: 0L).toString(), (ppv?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -511,7 +511,7 @@ public actual fun imageListCopy(himldst: Himagelist, idst: Int, himlsrc: Himagel
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListCopy(himldst.toString(), idst, himlsrc.toString(), isrc, uflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListCreate(cx: Int, cy: Int, flags: ImagelistCreationFlags, cinitial: Int, cgrow: Int): Himagelist =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListCreate(cx, cy, flags.toInt(), cinitial, cgrow) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListCreate(cx, cy, flags.toInt(), cinitial, cgrow) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListDestroy(himl: Himagelist): Bool =
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListDestroy(himl.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -538,7 +538,7 @@ public actual fun imageListDrawIndirect(pimldp: COpaquePointer?): Bool =
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListDrawIndirect((pimldp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListDuplicate(himl: Himagelist): Himagelist =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListDuplicate(himl.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListDuplicate(himl.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListEndDrag() {
     if (_windowsWin32UiControlsNapiAddon != null) {
@@ -552,7 +552,7 @@ public actual fun imageListGetBkColor(himl: Himagelist): Colorref =
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListGetBkColor(himl.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListGetDragImage(ppt: COpaquePointer?, ppthotspot: COpaquePointer?): Himagelist =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListGetDragImage((ppt?.value ?: 0L).toString(), (ppthotspot?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListGetDragImage((ppt?.value ?: 0L).toString(), (ppthotspot?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListGetIcon(himl: Himagelist, i: Int, flags: ImageListDrawStyle): Hicon =
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListGetIcon(himl.toString(), i, flags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -567,16 +567,16 @@ public actual fun imageListGetImageInfo(himl: Himagelist, i: Int, pimageinfo: CO
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListGetImageInfo(himl.toString(), i, (pimageinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListLoadImageA(hi: Hinstance, lpbmp: Pcstr, cx: Int, cgrow: Int, crmask: Colorref, utype: UInt, uflags: ImageFlags): Himagelist =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListLoadImageA((hi?.value ?: 0L).toString(), (lpbmp?.value ?: 0L).toString(), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListLoadImageA((hi?.value ?: 0L).toString(), (lpbmp?.value ?: 0L).toString(), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListLoadImageW(hi: Hinstance, lpbmp: Pcwstr, cx: Int, cgrow: Int, crmask: Colorref, utype: UInt, uflags: ImageFlags): Himagelist =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListLoadImageW((hi?.value ?: 0L).toString(), (lpbmp?.value ?: 0L).toString(), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListLoadImageW((hi?.value ?: 0L).toString(), (lpbmp?.value ?: 0L).toString(), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListMerge(himl1: Himagelist, i1: Int, himl2: Himagelist, i2: Int, dx: Int, dy: Int): Himagelist =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListMerge(himl1.toString(), i1, himl2.toString(), i2, dx, dy) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListMerge(himl1.toString(), i1, himl2.toString(), i2, dx, dy) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListRead(pstm: COpaquePointer?): Himagelist =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListRead((pstm?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListRead((pstm?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun imageListReadEx(dwflags: UInt, pstm: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_imageListReadEx(dwflags.toInt(), (pstm?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), (ppv?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -678,10 +678,10 @@ public actual fun menuHelp(umsg: UInt, wparam: Wparam, lparam: Lparam, hmainmenu
 }
 
 public actual fun openThemeData(hwnd: Hwnd, pszclasslist: Pcwstr): Htheme =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_openThemeData((hwnd?.value ?: 0L).toString(), (pszclasslist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_openThemeData((hwnd?.value ?: 0L).toString(), (pszclasslist?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openThemeDataEx(hwnd: Hwnd, pszclasslist: Pcwstr, dwflags: OpenThemeDataFlags): Htheme =
-    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_openThemeDataEx((hwnd?.value ?: 0L).toString(), (pszclasslist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_openThemeDataEx((hwnd?.value ?: 0L).toString(), (pszclasslist?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun packTouchHitTestingProximityEvaluation(phittestinginput: COpaquePointer?, pproximityeval: COpaquePointer?): Lresult =
     if (_windowsWin32UiControlsNapiAddon != null) (_windowsWin32UiControlsNapiAddon.windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation((phittestinginput?.value ?: 0L).toString(), (pproximityeval?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")

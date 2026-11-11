@@ -82,13 +82,13 @@ uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetControl(i
 uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx(int64_t hgroupset, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned, void* lpszreason);
 uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetEnum(int64_t hgroupsetenum, uint32_t dwindex, void* lpszname, void* lpcchname);
 uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(int64_t hgroupsetenum);
-int32_t windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(int64_t hcluster);
+int64_t windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(int64_t hcluster);
 int32_t windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume(void* lpszpathname);
 uint32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum(int64_t hnetinterfaceenum);
 uint32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl(int64_t hnetinterface, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned);
 uint32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx(int64_t hnetinterface, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason);
 uint32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(int64_t hnetinterfaceenum, uint32_t dwindex, void* lpszname, void* lpcchname);
-int32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(int64_t hcluster, void* lpsznodename, void* lpsznetworkname);
+int64_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(int64_t hcluster, void* lpsznodename, void* lpsznetworkname);
 uint32_t windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum(int64_t hnetworkenum);
 uint32_t windowssys_windows_win32_networking_clustering_clusterNetworkControl(int64_t hnetwork, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned);
 uint32_t windowssys_windows_win32_networking_clustering_clusterNetworkControlEx(int64_t hnetwork, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason);

@@ -1,10 +1,11 @@
 package io.github.kotlinmania.windowssys
 
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.FreeEnvironmentStringsW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.GetCommandLineW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.GetEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.freeEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.getCommandLineW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.getEnvironmentStringsW
 import kotlin.test.Test
-import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class WindowsSysJvmTest {
@@ -14,15 +15,15 @@ class WindowsSysJvmTest {
     @Test
     fun testEnvironmentApis() {
         if (!isWindowsHost) {
-            assertEquals(0L, GetCommandLineW())
+            assertNull(getCommandLineW())
             return
         }
 
-        val cmd = GetCommandLineW()
-        assertTrue(cmd != 0L)
+        val cmd = getCommandLineW()
+        assertNotNull(cmd)
 
-        val envStrings = GetEnvironmentStringsW()
-        assertTrue(envStrings != 0L)
-        assertTrue(FreeEnvironmentStringsW(envStrings) != 0)
+        val envStrings = getEnvironmentStringsW()
+        assertNotNull(envStrings)
+        assertTrue(freeEnvironmentStringsW(envStrings) != 0)
     }
 }

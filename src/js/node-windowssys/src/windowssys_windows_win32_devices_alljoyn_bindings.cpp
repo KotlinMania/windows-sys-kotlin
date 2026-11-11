@@ -310,13 +310,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
     Napi::Env km_env = km_info.Env();
     void* defaultlanguage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(defaultlanguage);
     } else {
@@ -326,21 +326,21 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
 #else
     (void)defaultlanguage;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void);
+    typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_create_empty")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr();
     } else {
@@ -349,9 +349,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
     }
 #else
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull_napi(const Napi::CallbackInfo& km_info) {
@@ -359,13 +359,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* language = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_create_full")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(arg, language);
     } else {
@@ -376,9 +376,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
     (void)arg;
     (void)language;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg_napi(const Napi::CallbackInfo& km_info) {
@@ -1524,13 +1524,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalist
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdatalistener_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(callbacks, context);
     } else {
@@ -1541,9 +1541,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalist
     (void)callbacks;
     (void)context;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -1593,13 +1593,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClea
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void);
+    typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr();
     } else {
@@ -1608,9 +1608,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCrea
     }
 #else
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -1781,13 +1781,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjC
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t icon = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonobj_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(bus, icon);
     } else {
@@ -1798,9 +1798,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjC
     (void)bus;
     (void)icon;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -1831,13 +1831,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonprox
     void* busname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonproxy_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(bus, busname, sessionid);
     } else {
@@ -1849,9 +1849,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonprox
     (void)busname;
     (void)sessionid;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -1935,13 +1935,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutlistener
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutlistener_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(callback, context);
     } else {
@@ -1952,9 +1952,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutlistener
     (void)callback;
     (void)context;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -2042,13 +2042,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreat
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t isannounced = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobj_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(bus, isannounced);
     } else {
@@ -2059,9 +2059,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreat
     (void)bus;
     (void)isannounced;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -2136,13 +2136,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void);
+    typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr();
     } else {
@@ -2151,22 +2151,22 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
     }
 #else
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t arg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_create_full")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(arg);
     } else {
@@ -2176,9 +2176,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
 #else
     (void)arg;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg_napi(const Napi::CallbackInfo& km_info) {
@@ -2437,13 +2437,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCre
     void* busname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutproxy_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(bus, busname, sessionid);
     } else {
@@ -2455,9 +2455,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCre
     (void)busname;
     (void)sessionid;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -2570,13 +2570,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynApplicationst
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_applicationstatelistener_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(callbacks, context);
     } else {
@@ -2587,9 +2587,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynApplicationst
     (void)callbacks;
     (void)context;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -2862,13 +2862,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCre
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(bus);
     } else {
@@ -2878,9 +2878,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCre
 #else
     (void)bus;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -3913,13 +3913,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getinterface")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(bus, name);
     } else {
@@ -3930,9 +3930,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
     (void)bus;
     (void)name;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfaces_napi(const Napi::CallbackInfo& km_info) {
@@ -4028,13 +4028,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
     Napi::Env km_env = km_info.Env();
     int64_t bus = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getpermissionconfigurator")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(bus);
     } else {
@@ -4044,9 +4044,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
 #else
     (void)bus;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimestamp_napi(const Napi::CallbackInfo& km_info) {
@@ -5163,13 +5163,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCr
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_buslistener_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(callbacks, context);
     } else {
@@ -5180,9 +5180,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCr
     (void)callbacks;
     (void)context;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -10781,13 +10781,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverCreat
     void* mandatoryinterfaces = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint64_t nummandatoryinterfaces = km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(bus, mandatoryinterfaces, nummandatoryinterfaces);
     } else {
@@ -10799,9 +10799,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverCreat
     (void)mandatoryinterfaces;
     (void)nummandatoryinterfaces;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -10984,13 +10984,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverliste
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observerlistener_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(callback, context);
     } else {
@@ -11001,9 +11001,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverliste
     (void)callback;
     (void)context;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -11060,13 +11060,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurationlistener_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(callbacks, context);
     } else {
@@ -11077,9 +11077,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
     (void)callbacks;
     (void)context;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -11981,13 +11981,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerC
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_pinglistener_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(callback, context);
     } else {
@@ -11998,9 +11998,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerC
     (void)callback;
     (void)context;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -12360,13 +12360,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
     int64_t proxyobj = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* iface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getinterface")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(proxyobj, iface);
     } else {
@@ -12377,9 +12377,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
     (void)proxyobj;
     (void)iface;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfaces_napi(const Napi::CallbackInfo& km_info) {
@@ -13306,13 +13306,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
     void* appbusname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t sessionid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(bus, appbusname, sessionid);
     } else {
@@ -13324,9 +13324,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
     (void)appbusname;
     (void)sessionid;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -13927,13 +13927,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionlisten
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionlistener_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(callbacks, context);
     } else {
@@ -13944,9 +13944,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionlisten
     (void)callbacks;
     (void)context;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -14279,13 +14279,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionportli
     void* callbacks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionportlistener_create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(callbacks, context);
     } else {
@@ -14296,9 +14296,9 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionportli
     (void)callbacks;
     (void)context;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy_napi(const Napi::CallbackInfo& km_info) {

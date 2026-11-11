@@ -662,13 +662,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_dpaClone_napi(const Napi
     int64_t hdpa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hdpanew = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DPA_Clone")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(hdpa, hdpanew);
     } else {
@@ -679,22 +679,22 @@ static Napi::Value windowssys_windows_win32_ui_controls_dpaClone_napi(const Napi
     (void)hdpa;
     (void)hdpanew;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_dpaCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t citemgrow = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DPA_Create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(citemgrow);
     } else {
@@ -704,9 +704,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_dpaCreate_napi(const Nap
 #else
     (void)citemgrow;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_dpaCreateEx_napi(const Napi::CallbackInfo& km_info) {
@@ -714,13 +714,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_dpaCreateEx_napi(const N
     int32_t cpgrow = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DPA_CreateEx")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(cpgrow, hheap);
     } else {
@@ -731,9 +731,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_dpaCreateEx_napi(const N
     (void)cpgrow;
     (void)hheap;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs_napi(const Napi::CallbackInfo& km_info) {
@@ -1194,13 +1194,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_dsaClone_napi(const Napi
     Napi::Env km_env = km_info.Env();
     int64_t hdsa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DSA_Clone")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(hdsa);
     } else {
@@ -1210,9 +1210,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_dsaClone_napi(const Napi
 #else
     (void)hdsa;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_dsaCreate_napi(const Napi::CallbackInfo& km_info) {
@@ -1220,13 +1220,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_dsaCreate_napi(const Nap
     int32_t cbitem = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t citemgrow = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DSA_Create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(cbitem, citemgrow);
     } else {
@@ -1237,9 +1237,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_dsaCreate_napi(const Nap
     (void)cbitem;
     (void)citemgrow;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_dsaDeleteAllItems_napi(const Napi::CallbackInfo& km_info) {
@@ -4176,13 +4176,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_getWindowTheme_napi(cons
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWindowTheme")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(hwnd);
     } else {
@@ -4192,9 +4192,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_getWindowTheme_napi(cons
 #else
     (void)hwnd;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_himagelistQueryInterface_napi(const Napi::CallbackInfo& km_info) {
@@ -4387,13 +4387,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListCreate_napi(con
     int32_t cinitial = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
     int32_t cgrow = static_cast<int32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_Create")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(cx, cy, flags, cinitial, cgrow);
     } else {
@@ -4407,9 +4407,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListCreate_napi(con
     (void)cinitial;
     (void)cgrow;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_imageListDestroy_napi(const Napi::CallbackInfo& km_info) {
@@ -4650,13 +4650,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListDuplicate_napi(
     Napi::Env km_env = km_info.Env();
     int64_t himl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_Duplicate")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(himl);
     } else {
@@ -4666,9 +4666,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListDuplicate_napi(
 #else
     (void)himl;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_imageListEndDrag_napi(const Napi::CallbackInfo& km_info) {
@@ -4721,13 +4721,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListGetDragImage_na
     void* ppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppthotspot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_GetDragImage")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(ppt, ppthotspot);
     } else {
@@ -4738,9 +4738,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListGetDragImage_na
     (void)ppt;
     (void)ppthotspot;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_imageListGetIcon_napi(const Napi::CallbackInfo& km_info) {
@@ -4865,13 +4865,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListLoadImageA_napi
     uint32_t utype = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_LoadImageA")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(hi, lpbmp, cx, cgrow, crmask, utype, uflags);
     } else {
@@ -4887,9 +4887,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListLoadImageA_napi
     (void)utype;
     (void)uflags;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_imageListLoadImageW_napi(const Napi::CallbackInfo& km_info) {
@@ -4902,13 +4902,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListLoadImageW_napi
     uint32_t utype = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_LoadImageW")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(hi, lpbmp, cx, cgrow, crmask, utype, uflags);
     } else {
@@ -4924,9 +4924,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListLoadImageW_napi
     (void)utype;
     (void)uflags;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_imageListMerge_napi(const Napi::CallbackInfo& km_info) {
@@ -4938,13 +4938,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListMerge_napi(cons
     int32_t dx = static_cast<int32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
     int32_t dy = static_cast<int32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_Merge")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(himl1, i1, himl2, i2, dx, dy);
     } else {
@@ -4959,22 +4959,22 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListMerge_napi(cons
     (void)dx;
     (void)dy;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_imageListRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageList_Read")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(pstm);
     } else {
@@ -4984,9 +4984,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_imageListRead_napi(const
 #else
     (void)pstm;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_imageListReadEx_napi(const Napi::CallbackInfo& km_info) {
@@ -5730,13 +5730,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_openThemeData_napi(const
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszclasslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenThemeData")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(hwnd, pszclasslist);
     } else {
@@ -5747,9 +5747,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_openThemeData_napi(const
     (void)hwnd;
     (void)pszclasslist;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_openThemeDataEx_napi(const Napi::CallbackInfo& km_info) {
@@ -5758,13 +5758,13 @@ static Napi::Value windowssys_windows_win32_ui_controls_openThemeDataEx_napi(con
     void* pszclasslist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenThemeDataEx")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(hwnd, pszclasslist, dwflags);
     } else {
@@ -5776,9 +5776,9 @@ static Napi::Value windowssys_windows_win32_ui_controls_openThemeDataEx_napi(con
     (void)pszclasslist;
     (void)dwflags;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation_napi(const Napi::CallbackInfo& km_info) {

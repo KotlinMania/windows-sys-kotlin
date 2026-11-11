@@ -8,12 +8,12 @@ public typealias Hresult = Int
 
 public typealias Pstr = COpaquePointer?
 
-public typealias Pwstr = UShort?
+public typealias Pwstr = COpaquePointer?
 
 public typealias Pcstr = COpaquePointer?
 
-public typealias Pcwstr = UShort?
+public typealias Pcwstr = COpaquePointer?
 
-public typealias Bstr = UShort?
+public typealias Bstr = COpaquePointer?
 
 public typealias Hstring = COpaquePointer?

@@ -35,7 +35,7 @@ public data class Kbdnlstables(
     public var numOfVkToF: UInt = 0u,
     public var pVkToF: VkF? = null,
     public var numOfMouseVKey: Int = 0,
-    public var pusMouseVKey: UShort? = null,
+    public var pusMouseVKey: COpaquePointer? = null,
 )
 
 public data class Kbdtables(
@@ -45,7 +45,7 @@ public data class Kbdtables(
     public var pKeyNames: VscLpwstr? = null,
     public var pKeyNamesExt: VscLpwstr? = null,
     public var pKeyNamesDead: COpaquePointer? = null,
-    public var pusVSCtoVK: UShort? = null,
+    public var pusVSCtoVK: COpaquePointer? = null,
     public var bMaxVSCtoVK: UByte = 0u,
     public var pVsctoVkE0: VscVk? = null,
     public var pVsctoVkE1: VscVk? = null,

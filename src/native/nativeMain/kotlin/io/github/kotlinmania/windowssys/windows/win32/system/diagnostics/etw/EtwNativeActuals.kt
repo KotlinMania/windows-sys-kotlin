@@ -241,7 +241,7 @@ public actual fun tdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: 
     windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor?.value?.toCPointer<ByteVar>())
 
 public actual fun tdhCloseDecodingHandle(handle: TdhHandle): UInt =
-    windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle(handle.toLong())
+    windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle(handle)
 
 public actual fun tdhCreatePayloadFilter(providerguid: COpaquePointer?, eventdescriptor: COpaquePointer?, eventmatchany: Boolean, payloadpredicatecount: UInt, payloadpredicates: COpaquePointer?, payloadfilter: COpaquePointer?): UInt =
     windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter(providerguid?.value?.toCPointer<ByteVar>(), eventdescriptor?.value?.toCPointer<ByteVar>(), eventmatchany, payloadpredicatecount, payloadpredicates?.value?.toCPointer<ByteVar>(), payloadfilter?.value?.toCPointer<ByteVar>())
@@ -268,7 +268,7 @@ public actual fun tdhFormatProperty(eventinfo: COpaquePointer?, mapinfo: COpaque
     windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty(eventinfo?.value?.toCPointer<ByteVar>(), mapinfo?.value?.toCPointer<ByteVar>(), pointersize, propertyintype, propertyouttype, propertylength, userdatalength, userdata?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), userdataconsumed?.value?.toCPointer<ByteVar>())
 
 public actual fun tdhGetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter(handle.toLong(), tdhcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter(handle, tdhcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun tdhGetEventInformation(event: COpaquePointer?, tdhcontextcount: UInt, tdhcontext: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
     windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation(event?.value?.toCPointer<ByteVar>(), tdhcontextcount, tdhcontext?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
@@ -286,10 +286,10 @@ public actual fun tdhGetPropertySize(pevent: COpaquePointer?, tdhcontextcount: U
     windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize(pevent?.value?.toCPointer<ByteVar>(), tdhcontextcount, ptdhcontext?.value?.toCPointer<ByteVar>(), propertydatacount, ppropertydata?.value?.toCPointer<ByteVar>(), ppropertysize?.value?.toCPointer<ByteVar>())
 
 public actual fun tdhGetWppMessage(handle: TdhHandle, eventrecord: COpaquePointer?, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage(handle.toLong(), eventrecord?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage(handle, eventrecord?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun tdhGetWppProperty(handle: TdhHandle, eventrecord: COpaquePointer?, propertyname: Pcwstr, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty(handle.toLong(), eventrecord?.value?.toCPointer<ByteVar>(), propertyname?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty(handle, eventrecord?.value?.toCPointer<ByteVar>(), propertyname?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun tdhLoadManifest(manifest: Pcwstr): UInt =
     windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest(manifest?.value?.toCPointer<ByteVar>())
@@ -307,7 +307,7 @@ public actual fun tdhQueryProviderFieldInformation(pguid: COpaquePointer?, event
     windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation(pguid?.value?.toCPointer<ByteVar>(), eventfieldvalue, eventfieldtype, pbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>())
 
 public actual fun tdhSetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter(handle.toLong(), tdhcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter(handle, tdhcontext?.value?.toCPointer<ByteVar>())
 
 public actual fun tdhUnloadManifest(manifest: Pcwstr): UInt =
     windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest(manifest?.value?.toCPointer<ByteVar>())

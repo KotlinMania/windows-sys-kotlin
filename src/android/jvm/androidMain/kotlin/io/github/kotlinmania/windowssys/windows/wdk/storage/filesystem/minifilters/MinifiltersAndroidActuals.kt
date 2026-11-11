@@ -828,7 +828,7 @@ private object WindowsWdkStorageFilesystemMinifiltersJniBridge {
 }
 
 public actual fun fltAcknowledgeEcp(filter: PfltFilter, ecpcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAcknowledgeEcp(filter.toLong(), (ecpcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAcknowledgeEcp(filter, (ecpcontext?.value ?: 0L))
 }
 
 public actual fun fltAcquirePushLockExclusive(pushlock: COpaquePointer?) {
@@ -856,7 +856,7 @@ public actual fun fltAcquireResourceShared(resource: COpaquePointer?) {
 }
 
 public actual fun fltAddOpenReparseEntry(filter: PfltFilter, data: COpaquePointer?, openreparseentry: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAddOpenReparseEntry(filter.toLong(), (data?.value ?: 0L), (openreparseentry?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAddOpenReparseEntry(filter, (data?.value ?: 0L), (openreparseentry?.value ?: 0L))
 
 public actual fun fltAdjustDeviceStackSizeForIoRedirection(sourceinstance: PfltInstance, targetinstance: PfltInstance, sourcedevicestacksizemodified: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAdjustDeviceStackSizeForIoRedirection(sourceinstance, targetinstance, (sourcedevicestacksizemodified?.value ?: 0L))
@@ -868,19 +868,19 @@ public actual fun fltAllocateCallbackDataEx(instance: PfltInstance, fileobject: 
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateCallbackDataEx(instance, (fileobject?.value ?: 0L), flags.toInt(), (retnewcallbackdata?.value ?: 0L))
 
 public actual fun fltAllocateContext(filter: PfltFilter, contexttype: UShort, contextsize: ULong, pooltype: PoolType, returnedcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateContext(filter.toLong(), contexttype.toShort(), contextsize.toLong(), pooltype, (returnedcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateContext(filter, contexttype.toShort(), contextsize.toLong(), pooltype, (returnedcontext?.value ?: 0L))
 
 public actual fun fltAllocateDeferredIoWorkItem(): PfltDeferredIoWorkitem =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateDeferredIoWorkItem()
 
 public actual fun fltAllocateExtraCreateParameter(filter: PfltFilter, ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameter(filter.toLong(), (ecptype?.value ?: 0L), sizeofcontext.toInt(), flags.toInt(), 0L, pooltag.toInt(), (ecpcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameter(filter, (ecptype?.value ?: 0L), sizeofcontext.toInt(), flags.toInt(), 0L, pooltag.toInt(), (ecpcontext?.value ?: 0L))
 
 public actual fun fltAllocateExtraCreateParameterFromLookasideList(filter: PfltFilter, ecptype: COpaquePointer?, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterFromLookasideList(filter.toLong(), (ecptype?.value ?: 0L), sizeofcontext.toInt(), flags.toInt(), 0L, (lookasidelist?.value ?: 0L), (ecpcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterFromLookasideList(filter, (ecptype?.value ?: 0L), sizeofcontext.toInt(), flags.toInt(), 0L, (lookasidelist?.value ?: 0L), (ecpcontext?.value ?: 0L))
 
 public actual fun fltAllocateExtraCreateParameterList(filter: PfltFilter, flags: UInt, ecplist: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterList(filter.toLong(), flags.toInt(), (ecplist?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateExtraCreateParameterList(filter, flags.toInt(), (ecplist?.value ?: 0L))
 
 public actual fun fltAllocateFileLock(completelockcallbackdataroutine: PfltCompleteLockCallbackDataRoutine, unlockroutine: PunlockRoutine): COpaquePointer? =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAllocateFileLock(0L, 0L).let { if (it == 0L) null else COpaquePointer(it) }
@@ -895,10 +895,10 @@ public actual fun fltApplyPriorityInfoThread(inputpriorityinfo: COpaquePointer?,
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltApplyPriorityInfoThread((inputpriorityinfo?.value ?: 0L), (outputpriorityinfo?.value ?: 0L), thread)
 
 public actual fun fltAttachVolume(filter: PfltFilter, volume: PfltVolume, instancename: COpaquePointer?, retinstance: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolume(filter.toLong(), volume.toLong(), (instancename?.value ?: 0L), (retinstance?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolume(filter, volume, (instancename?.value ?: 0L), (retinstance?.value ?: 0L))
 
 public actual fun fltAttachVolumeAtAltitude(filter: PfltFilter, volume: PfltVolume, altitude: COpaquePointer?, instancename: COpaquePointer?, retinstance: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolumeAtAltitude(filter.toLong(), volume.toLong(), (altitude?.value ?: 0L), (instancename?.value ?: 0L), (retinstance?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltAttachVolumeAtAltitude(filter, volume, (altitude?.value ?: 0L), (instancename?.value ?: 0L), (retinstance?.value ?: 0L))
 
 public actual fun fltBuildDefaultSecurityDescriptor(securitydescriptor: COpaquePointer?, desiredaccess: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltBuildDefaultSecurityDescriptor((securitydescriptor?.value ?: 0L), desiredaccess.toInt())
@@ -962,7 +962,7 @@ public actual fun fltClose(filehandle: Handle): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltClose((filehandle?.value ?: 0L))
 
 public actual fun fltCloseClientPort(filter: PfltFilter, clientport: COpaquePointer?) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseClientPort(filter.toLong(), (clientport?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCloseClientPort(filter, (clientport?.value ?: 0L))
 }
 
 public actual fun fltCloseCommunicationPort(serverport: PfltPort) {
@@ -990,25 +990,25 @@ public actual fun fltCompletePendedPreOperation(callbackdata: COpaquePointer?, c
 }
 
 public actual fun fltCopyOpenReparseList(filter: PfltFilter, data: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCopyOpenReparseList(filter.toLong(), (data?.value ?: 0L), (ecplist?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCopyOpenReparseList(filter, (data?.value ?: 0L), (ecplist?.value ?: 0L))
 
 public actual fun fltCreateCommunicationPort(filter: PfltFilter, serverport: COpaquePointer?, objectattributes: COpaquePointer?, serverportcookie: COpaquePointer?, connectnotifycallback: PfltConnectNotify, disconnectnotifycallback: PfltDisconnectNotify, messagenotifycallback: PfltMessageNotify, maxconnections: Int): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateCommunicationPort(filter.toLong(), (serverport?.value ?: 0L), (objectattributes?.value ?: 0L), (serverportcookie?.value ?: 0L), 0L, 0L, 0L, maxconnections)
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateCommunicationPort(filter, (serverport?.value ?: 0L), (objectattributes?.value ?: 0L), (serverportcookie?.value ?: 0L), 0L, 0L, 0L, maxconnections)
 
 public actual fun fltCreateFile(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, allocationsize: COpaquePointer?, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: COpaquePointer?, ealength: UInt, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFile(filter.toLong(), instance, (filehandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (allocationsize?.value ?: 0L), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), (eabuffer?.value ?: 0L), ealength.toInt(), flags.toInt())
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFile(filter, instance, (filehandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (allocationsize?.value ?: 0L), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), (eabuffer?.value ?: 0L), ealength.toInt(), flags.toInt())
 
 public actual fun fltCreateFileEx(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, allocationsize: COpaquePointer?, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: COpaquePointer?, ealength: UInt, flags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx(filter.toLong(), instance, (filehandle?.value ?: 0L), (fileobject?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (allocationsize?.value ?: 0L), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), (eabuffer?.value ?: 0L), ealength.toInt(), flags.toInt())
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx(filter, instance, (filehandle?.value ?: 0L), (fileobject?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (allocationsize?.value ?: 0L), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), (eabuffer?.value ?: 0L), ealength.toInt(), flags.toInt())
 
 public actual fun fltCreateFileEx2(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, allocationsize: COpaquePointer?, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: COpaquePointer?, ealength: UInt, flags: UInt, drivercontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx2(filter.toLong(), instance, (filehandle?.value ?: 0L), (fileobject?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (allocationsize?.value ?: 0L), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), (eabuffer?.value ?: 0L), ealength.toInt(), flags.toInt(), (drivercontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateFileEx2(filter, instance, (filehandle?.value ?: 0L), (fileobject?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (allocationsize?.value ?: 0L), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), (eabuffer?.value ?: 0L), ealength.toInt(), flags.toInt(), (drivercontext?.value ?: 0L))
 
 public actual fun fltCreateMailslotFile(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, createoptions: UInt, mailslotquota: UInt, maximummessagesize: UInt, readtimeout: COpaquePointer?, drivercontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateMailslotFile(filter.toLong(), instance, (filehandle?.value ?: 0L), (fileobject?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), createoptions.toInt(), mailslotquota.toInt(), maximummessagesize.toInt(), (readtimeout?.value ?: 0L), (drivercontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateMailslotFile(filter, instance, (filehandle?.value ?: 0L), (fileobject?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), createoptions.toInt(), mailslotquota.toInt(), maximummessagesize.toInt(), (readtimeout?.value ?: 0L), (drivercontext?.value ?: 0L))
 
 public actual fun fltCreateNamedPipeFile(filter: PfltFilter, instance: PfltInstance, filehandle: COpaquePointer?, fileobject: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, namedpipetype: UInt, readmode: UInt, completionmode: UInt, maximuminstances: UInt, inboundquota: UInt, outboundquota: UInt, defaulttimeout: COpaquePointer?, drivercontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateNamedPipeFile(filter.toLong(), instance, (filehandle?.value ?: 0L), (fileobject?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), namedpipetype.toInt(), readmode.toInt(), completionmode.toInt(), maximuminstances.toInt(), inboundquota.toInt(), outboundquota.toInt(), (defaulttimeout?.value ?: 0L), (drivercontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateNamedPipeFile(filter, instance, (filehandle?.value ?: 0L), (fileobject?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), namedpipetype.toInt(), readmode.toInt(), completionmode.toInt(), maximuminstances.toInt(), inboundquota.toInt(), outboundquota.toInt(), (defaulttimeout?.value ?: 0L), (drivercontext?.value ?: 0L))
 
 public actual fun fltCreateSectionForDataScan(instance: PfltInstance, fileobject: COpaquePointer?, sectioncontext: PfltContext, desiredaccess: UInt, objectattributes: COpaquePointer?, maximumsize: COpaquePointer?, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt, sectionhandle: COpaquePointer?, sectionobject: COpaquePointer?, sectionfilesize: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltCreateSectionForDataScan(instance, (fileobject?.value ?: 0L), (sectioncontext?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (maximumsize?.value ?: 0L), sectionpageprotection.toInt(), allocationattributes.toInt(), flags.toInt(), (sectionhandle?.value ?: 0L), (sectionobject?.value ?: 0L), (sectionfilesize?.value ?: 0L))
@@ -1033,7 +1033,7 @@ public actual fun fltDeleteContext(context: PfltContext) {
 }
 
 public actual fun fltDeleteExtraCreateParameterLookasideList(filter: PfltFilter, lookaside: COpaquePointer?, flags: UInt) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteExtraCreateParameterLookasideList(filter.toLong(), (lookaside?.value ?: 0L), flags.toInt())
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteExtraCreateParameterLookasideList(filter, (lookaside?.value ?: 0L), flags.toInt())
 }
 
 public actual fun fltDeleteFileContext(instance: PfltInstance, fileobject: COpaquePointer?, oldcontext: COpaquePointer?): Ntstatus =
@@ -1056,10 +1056,10 @@ public actual fun fltDeleteTransactionContext(instance: PfltInstance, transactio
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteTransactionContext(instance, (transaction?.value ?: 0L), (oldcontext?.value ?: 0L))
 
 public actual fun fltDeleteVolumeContext(filter: PfltFilter, volume: PfltVolume, oldcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteVolumeContext(filter.toLong(), volume.toLong(), (oldcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltDeleteVolumeContext(filter, volume, (oldcontext?.value ?: 0L))
 
 public actual fun fltDetachVolume(filter: PfltFilter, volume: PfltVolume, instancename: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltDetachVolume(filter.toLong(), volume.toLong(), (instancename?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltDetachVolume(filter, volume, (instancename?.value ?: 0L))
 
 public actual fun fltDeviceIoControlFile(instance: PfltInstance, fileobject: COpaquePointer?, iocontrolcode: UInt, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, lengthreturned: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltDeviceIoControlFile(instance, (fileobject?.value ?: 0L), iocontrolcode.toInt(), (inputbuffer?.value ?: 0L), inputbufferlength.toInt(), (outputbuffer?.value ?: 0L), outputbufferlength.toInt(), (lengthreturned?.value ?: 0L))
@@ -1080,22 +1080,22 @@ public actual fun fltEnumerateInstanceInformationByDeviceObject(deviceobject: CO
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByDeviceObject((deviceobject?.value ?: 0L), index.toInt(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
 
 public actual fun fltEnumerateInstanceInformationByFilter(filter: PfltFilter, index: UInt, informationclass: InstanceInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByFilter(filter.toLong(), index.toInt(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByFilter(filter, index.toInt(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
 
 public actual fun fltEnumerateInstanceInformationByVolume(volume: PfltVolume, index: UInt, informationclass: InstanceInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByVolume(volume.toLong(), index.toInt(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByVolume(volume, index.toInt(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
 
 public actual fun fltEnumerateInstanceInformationByVolumeName(volumename: COpaquePointer?, index: UInt, informationclass: InstanceInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstanceInformationByVolumeName((volumename?.value ?: 0L), index.toInt(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
 
 public actual fun fltEnumerateInstances(volume: PfltVolume, filter: PfltFilter, instancelist: COpaquePointer?, instancelistsize: UInt, numberinstancesreturned: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstances(volume.toLong(), filter.toLong(), (instancelist?.value ?: 0L), instancelistsize.toInt(), (numberinstancesreturned?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateInstances(volume, filter, (instancelist?.value ?: 0L), instancelistsize.toInt(), (numberinstancesreturned?.value ?: 0L))
 
 public actual fun fltEnumerateVolumeInformation(filter: PfltFilter, index: UInt, informationclass: FilterVolumeInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumeInformation(filter.toLong(), index.toInt(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumeInformation(filter, index.toInt(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
 
 public actual fun fltEnumerateVolumes(filter: PfltFilter, volumelist: COpaquePointer?, volumelistsize: UInt, numbervolumesreturned: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumes(filter.toLong(), (volumelist?.value ?: 0L), volumelistsize.toInt(), (numbervolumesreturned?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltEnumerateVolumes(filter, (volumelist?.value ?: 0L), volumelistsize.toInt(), (numbervolumesreturned?.value ?: 0L))
 
 public actual fun fltFastIoMdlRead(initiatinginstance: PfltInstance, fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, lockkey: UInt, mdlchain: COpaquePointer?, iostatus: COpaquePointer?): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoMdlRead(initiatinginstance, (fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L), (iostatus?.value ?: 0L))
@@ -1110,7 +1110,7 @@ public actual fun fltFastIoPrepareMdlWrite(initiatinginstance: PfltInstance, fil
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFastIoPrepareMdlWrite(initiatinginstance, (fileobject?.value ?: 0L), (fileoffset?.value ?: 0L), length.toInt(), lockkey.toInt(), (mdlchain?.value ?: 0L), (iostatus?.value ?: 0L))
 
 public actual fun fltFindExtraCreateParameter(filter: PfltFilter, ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFindExtraCreateParameter(filter.toLong(), (ecplist?.value ?: 0L), (ecptype?.value ?: 0L), (ecpcontext?.value ?: 0L), (ecpcontextsize?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFindExtraCreateParameter(filter, (ecplist?.value ?: 0L), (ecptype?.value ?: 0L), (ecpcontext?.value ?: 0L), (ecpcontextsize?.value ?: 0L))
 
 public actual fun fltFlushBuffers(instance: PfltInstance, fileobject: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFlushBuffers(instance, (fileobject?.value ?: 0L))
@@ -1127,11 +1127,11 @@ public actual fun fltFreeDeferredIoWorkItem(fltworkitem: PfltDeferredIoWorkitem)
 }
 
 public actual fun fltFreeExtraCreateParameter(filter: PfltFilter, ecpcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameter(filter.toLong(), (ecpcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameter(filter, (ecpcontext?.value ?: 0L))
 }
 
 public actual fun fltFreeExtraCreateParameterList(filter: PfltFilter, ecplist: COpaquePointer?) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameterList(filter.toLong(), (ecplist?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeExtraCreateParameterList(filter, (ecplist?.value ?: 0L))
 }
 
 public actual fun fltFreeFileLock(filelock: COpaquePointer?) {
@@ -1143,7 +1143,7 @@ public actual fun fltFreeGenericWorkItem(fltworkitem: PfltGenericWorkitem) {
 }
 
 public actual fun fltFreeOpenReparseList(filter: PfltFilter, ecplist: COpaquePointer?) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeOpenReparseList(filter.toLong(), (ecplist?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltFreeOpenReparseList(filter, (ecplist?.value ?: 0L))
 }
 
 public actual fun fltFreePoolAlignedWithTag(instance: PfltInstance, buffer: COpaquePointer?, tag: UInt) {
@@ -1161,7 +1161,7 @@ public actual fun fltGetActivityIdCallbackData(callbackdata: COpaquePointer?, gu
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetActivityIdCallbackData((callbackdata?.value ?: 0L), (guid?.value ?: 0L))
 
 public actual fun fltGetBottomInstance(volume: PfltVolume, instance: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetBottomInstance(volume.toLong(), (instance?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetBottomInstance(volume, (instance?.value ?: 0L))
 
 public actual fun fltGetContexts(fltobjects: COpaquePointer?, desiredcontexts: UShort, contexts: COpaquePointer?) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetContexts((fltobjects?.value ?: 0L), desiredcontexts.toShort(), (contexts?.value ?: 0L))
@@ -1174,13 +1174,13 @@ public actual fun fltGetDestinationFileNameInformation(instance: PfltInstance, f
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDestinationFileNameInformation(instance, (fileobject?.value ?: 0L), (rootdirectory?.value ?: 0L), (filename?.value ?: 0L), filenamelength.toInt(), nameoptions.toInt(), (retfilenameinformation?.value ?: 0L))
 
 public actual fun fltGetDeviceObject(volume: PfltVolume, deviceobject: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDeviceObject(volume.toLong(), (deviceobject?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDeviceObject(volume, (deviceobject?.value ?: 0L))
 
 public actual fun fltGetDiskDeviceObject(volume: PfltVolume, diskdeviceobject: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDiskDeviceObject(volume.toLong(), (diskdeviceobject?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetDiskDeviceObject(volume, (diskdeviceobject?.value ?: 0L))
 
 public actual fun fltGetEcpListFromCallbackData(filter: PfltFilter, callbackdata: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetEcpListFromCallbackData(filter.toLong(), (callbackdata?.value ?: 0L), (ecplist?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetEcpListFromCallbackData(filter, (callbackdata?.value ?: 0L), (ecplist?.value ?: 0L))
 
 public actual fun fltGetFileContext(instance: PfltInstance, fileobject: COpaquePointer?, context: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFileContext(instance, (fileobject?.value ?: 0L), (context?.value ?: 0L))
@@ -1201,7 +1201,7 @@ public actual fun fltGetFilterFromName(filtername: COpaquePointer?, retfilter: C
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterFromName((filtername?.value ?: 0L), (retfilter?.value ?: 0L))
 
 public actual fun fltGetFilterInformation(filter: PfltFilter, informationclass: FilterInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterInformation(filter.toLong(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFilterInformation(filter, informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
 
 public actual fun fltGetFsZeroingOffset(data: COpaquePointer?, zeroingoffset: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetFsZeroingOffset((data?.value ?: 0L), (zeroingoffset?.value ?: 0L))
@@ -1237,7 +1237,7 @@ public actual fun fltGetNewSystemBufferAddress(callbackdata: COpaquePointer?): C
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNewSystemBufferAddress((callbackdata?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun fltGetNextExtraCreateParameter(filter: PfltFilter, ecplist: COpaquePointer?, currentecpcontext: COpaquePointer?, nextecptype: COpaquePointer?, nextecpcontext: COpaquePointer?, nextecpcontextsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNextExtraCreateParameter(filter.toLong(), (ecplist?.value ?: 0L), (currentecpcontext?.value ?: 0L), (nextecptype?.value ?: 0L), (nextecpcontext?.value ?: 0L), (nextecpcontextsize?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetNextExtraCreateParameter(filter, (ecplist?.value ?: 0L), (currentecpcontext?.value ?: 0L), (nextecptype?.value ?: 0L), (nextecpcontext?.value ?: 0L), (nextecpcontextsize?.value ?: 0L))
 
 public actual fun fltGetRequestorProcess(callbackdata: COpaquePointer?): Peprocess =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetRequestorProcess((callbackdata?.value ?: 0L))
@@ -1267,7 +1267,7 @@ public actual fun fltGetSwappedBufferMdlAddress(callbackdata: COpaquePointer?): 
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetSwappedBufferMdlAddress((callbackdata?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun fltGetTopInstance(volume: PfltVolume, instance: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTopInstance(volume.toLong(), (instance?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTopInstance(volume, (instance?.value ?: 0L))
 
 public actual fun fltGetTransactionContext(instance: PfltInstance, transaction: COpaquePointer?, context: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetTransactionContext(instance, (transaction?.value ?: 0L), (context?.value ?: 0L))
@@ -1279,37 +1279,37 @@ public actual fun fltGetUpperInstance(currentinstance: PfltInstance, upperinstan
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetUpperInstance(currentinstance, (upperinstance?.value ?: 0L))
 
 public actual fun fltGetVolumeContext(filter: PfltFilter, volume: PfltVolume, context: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeContext(filter.toLong(), volume.toLong(), (context?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeContext(filter, volume, (context?.value ?: 0L))
 
 public actual fun fltGetVolumeFromDeviceObject(filter: PfltFilter, deviceobject: COpaquePointer?, retvolume: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromDeviceObject(filter.toLong(), (deviceobject?.value ?: 0L), (retvolume?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromDeviceObject(filter, (deviceobject?.value ?: 0L), (retvolume?.value ?: 0L))
 
 public actual fun fltGetVolumeFromFileObject(filter: PfltFilter, fileobject: COpaquePointer?, retvolume: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromFileObject(filter.toLong(), (fileobject?.value ?: 0L), (retvolume?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromFileObject(filter, (fileobject?.value ?: 0L), (retvolume?.value ?: 0L))
 
 public actual fun fltGetVolumeFromInstance(instance: PfltInstance, retvolume: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromInstance(instance, (retvolume?.value ?: 0L))
 
 public actual fun fltGetVolumeFromName(filter: PfltFilter, volumename: COpaquePointer?, retvolume: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromName(filter.toLong(), (volumename?.value ?: 0L), (retvolume?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeFromName(filter, (volumename?.value ?: 0L), (retvolume?.value ?: 0L))
 
 public actual fun fltGetVolumeGuidName(volume: PfltVolume, volumeguidname: COpaquePointer?, buffersizeneeded: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeGuidName(volume.toLong(), (volumeguidname?.value ?: 0L), (buffersizeneeded?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeGuidName(volume, (volumeguidname?.value ?: 0L), (buffersizeneeded?.value ?: 0L))
 
 public actual fun fltGetVolumeInformation(volume: PfltVolume, informationclass: FilterVolumeInformationClass, buffer: COpaquePointer?, buffersize: UInt, bytesreturned: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInformation(volume.toLong(), informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInformation(volume, informationclass, (buffer?.value ?: 0L), buffersize.toInt(), (bytesreturned?.value ?: 0L))
 
 public actual fun fltGetVolumeInstanceFromName(filter: PfltFilter, volume: PfltVolume, instancename: COpaquePointer?, retinstance: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInstanceFromName(filter.toLong(), volume.toLong(), (instancename?.value ?: 0L), (retinstance?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeInstanceFromName(filter, volume, (instancename?.value ?: 0L), (retinstance?.value ?: 0L))
 
 public actual fun fltGetVolumeName(volume: PfltVolume, volumename: COpaquePointer?, buffersizeneeded: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeName(volume.toLong(), (volumename?.value ?: 0L), (buffersizeneeded?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeName(volume, (volumename?.value ?: 0L), (buffersizeneeded?.value ?: 0L))
 
 public actual fun fltGetVolumeProperties(volume: PfltVolume, volumeproperties: COpaquePointer?, volumepropertieslength: UInt, lengthreturned: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeProperties(volume.toLong(), (volumeproperties?.value ?: 0L), volumepropertieslength.toInt(), (lengthreturned?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltGetVolumeProperties(volume, (volumeproperties?.value ?: 0L), volumepropertieslength.toInt(), (lengthreturned?.value ?: 0L))
 
 public actual fun fltInitExtraCreateParameterLookasideList(filter: PfltFilter, lookaside: COpaquePointer?, flags: UInt, size: ULong, tag: UInt) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltInitExtraCreateParameterLookasideList(filter.toLong(), (lookaside?.value ?: 0L), flags.toInt(), size.toLong(), tag.toInt())
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltInitExtraCreateParameterLookasideList(filter, (lookaside?.value ?: 0L), flags.toInt(), size.toLong(), tag.toInt())
 }
 
 public actual fun fltInitializeFileLock(filelock: COpaquePointer?) {
@@ -1325,7 +1325,7 @@ public actual fun fltInitializePushLock(pushlock: COpaquePointer?) {
 }
 
 public actual fun fltInsertExtraCreateParameter(filter: PfltFilter, ecplist: COpaquePointer?, ecpcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltInsertExtraCreateParameter(filter.toLong(), (ecplist?.value ?: 0L), (ecpcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltInsertExtraCreateParameter(filter, (ecplist?.value ?: 0L), (ecpcontext?.value ?: 0L))
 
 public actual fun fltIs32bitProcess(callbackdata: COpaquePointer?): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltIs32bitProcess((callbackdata?.value ?: 0L))
@@ -1337,10 +1337,10 @@ public actual fun fltIsDirectory(fileobject: COpaquePointer?, instance: PfltInst
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltIsDirectory((fileobject?.value ?: 0L), instance, (isdirectory?.value ?: 0L))
 
 public actual fun fltIsEcpAcknowledged(filter: PfltFilter, ecpcontext: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpAcknowledged(filter.toLong(), (ecpcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpAcknowledged(filter, (ecpcontext?.value ?: 0L))
 
 public actual fun fltIsEcpFromUserMode(filter: PfltFilter, ecpcontext: COpaquePointer?): Boolean =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpFromUserMode(filter.toLong(), (ecpcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltIsEcpFromUserMode(filter, (ecpcontext?.value ?: 0L))
 
 public actual fun fltIsFltMgrVolumeDeviceObject(deviceobject: COpaquePointer?): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltIsFltMgrVolumeDeviceObject((deviceobject?.value ?: 0L))
@@ -1426,7 +1426,7 @@ public actual fun fltPrepareComplete(instance: PfltInstance, transaction: COpaqu
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareComplete(instance, (transaction?.value ?: 0L), (transactioncontext?.value ?: 0L))
 
 public actual fun fltPrepareToReuseEcp(filter: PfltFilter, ecpcontext: COpaquePointer?) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareToReuseEcp(filter.toLong(), (ecpcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltPrepareToReuseEcp(filter, (ecpcontext?.value ?: 0L))
 }
 
 public actual fun fltProcessFileLock(filelock: COpaquePointer?, callbackdata: COpaquePointer?, context: COpaquePointer?): FltPreopCallbackStatus =
@@ -1451,7 +1451,7 @@ public actual fun fltQueryEaFile(instance: PfltInstance, fileobject: COpaquePoin
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryEaFile(instance, (fileobject?.value ?: 0L), (returnedeadata?.value ?: 0L), length.toInt(), returnsingleentry, (ealist?.value ?: 0L), ealistlength.toInt(), (eaindex?.value ?: 0L), restartscan, (lengthreturned?.value ?: 0L))
 
 public actual fun fltQueryInformationByName(filter: PfltFilter, instance: PfltInstance, objectattributes: COpaquePointer?, iostatusblock: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, drivercontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformationByName(filter.toLong(), instance, (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass, (drivercontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformationByName(filter, instance, (objectattributes?.value ?: 0L), (iostatusblock?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass, (drivercontext?.value ?: 0L))
 
 public actual fun fltQueryInformationFile(instance: PfltInstance, fileobject: COpaquePointer?, fileinformation: COpaquePointer?, length: UInt, fileinformationclass: FileInformationClass, lengthreturned: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltQueryInformationFile(instance, (fileobject?.value ?: 0L), (fileinformation?.value ?: 0L), length.toInt(), fileinformationclass, (lengthreturned?.value ?: 0L))
@@ -1527,14 +1527,14 @@ public actual fun fltReleaseResource(resource: COpaquePointer?) {
 }
 
 public actual fun fltRemoveExtraCreateParameter(filter: PfltFilter, ecplist: COpaquePointer?, ecptype: COpaquePointer?, ecpcontext: COpaquePointer?, ecpcontextsize: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveExtraCreateParameter(filter.toLong(), (ecplist?.value ?: 0L), (ecptype?.value ?: 0L), (ecpcontext?.value ?: 0L), (ecpcontextsize?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveExtraCreateParameter(filter, (ecplist?.value ?: 0L), (ecptype?.value ?: 0L), (ecpcontext?.value ?: 0L), (ecpcontextsize?.value ?: 0L))
 
 public actual fun fltRemoveOpenReparseEntry(filter: PfltFilter, data: COpaquePointer?, openreparseentry: COpaquePointer?) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveOpenReparseEntry(filter.toLong(), (data?.value ?: 0L), (openreparseentry?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRemoveOpenReparseEntry(filter, (data?.value ?: 0L), (openreparseentry?.value ?: 0L))
 }
 
 public actual fun fltRequestFileInfoOnCreateCompletion(filter: PfltFilter, data: COpaquePointer?, infoclassflags: UInt): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestFileInfoOnCreateCompletion(filter.toLong(), (data?.value ?: 0L), infoclassflags.toInt())
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestFileInfoOnCreateCompletion(filter, (data?.value ?: 0L), infoclassflags.toInt())
 
 public actual fun fltRequestOperationStatusCallback(data: COpaquePointer?, callbackroutine: PfltGetOperationStatusCallback, requestercontext: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRequestOperationStatusCallback((data?.value ?: 0L), 0L, (requestercontext?.value ?: 0L))
@@ -1544,10 +1544,10 @@ public actual fun fltRetainSwappedBufferMdlAddress(callbackdata: COpaquePointer?
 }
 
 public actual fun fltRetrieveFileInfoOnCreateCompletion(filter: PfltFilter, data: COpaquePointer?, infoclass: UInt, size: COpaquePointer?): COpaquePointer? =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletion(filter.toLong(), (data?.value ?: 0L), infoclass.toInt(), (size?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletion(filter, (data?.value ?: 0L), infoclass.toInt(), (size?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun fltRetrieveFileInfoOnCreateCompletionEx(filter: PfltFilter, data: COpaquePointer?, infoclass: UInt, retinfosize: COpaquePointer?, retinfobuffer: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletionEx(filter.toLong(), (data?.value ?: 0L), infoclass.toInt(), (retinfosize?.value ?: 0L), (retinfobuffer?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveFileInfoOnCreateCompletionEx(filter, (data?.value ?: 0L), infoclass.toInt(), (retinfosize?.value ?: 0L), (retinfobuffer?.value ?: 0L))
 
 public actual fun fltRetrieveIoPriorityInfo(data: COpaquePointer?, fileobject: COpaquePointer?, thread: Pethread, priorityinfo: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRetrieveIoPriorityInfo((data?.value ?: 0L), (fileobject?.value ?: 0L), thread, (priorityinfo?.value ?: 0L))
@@ -1563,7 +1563,7 @@ public actual fun fltRollbackEnlistment(instance: PfltInstance, transaction: COp
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltRollbackEnlistment(instance, (transaction?.value ?: 0L), (transactioncontext?.value ?: 0L))
 
 public actual fun fltSendMessage(filter: PfltFilter, clientport: COpaquePointer?, senderbuffer: COpaquePointer?, senderbufferlength: UInt, replybuffer: COpaquePointer?, replylength: COpaquePointer?, timeout: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSendMessage(filter.toLong(), (clientport?.value ?: 0L), (senderbuffer?.value ?: 0L), senderbufferlength.toInt(), (replybuffer?.value ?: 0L), (replylength?.value ?: 0L), (timeout?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSendMessage(filter, (clientport?.value ?: 0L), (senderbuffer?.value ?: 0L), senderbufferlength.toInt(), (replybuffer?.value ?: 0L), (replylength?.value ?: 0L), (timeout?.value ?: 0L))
 
 public actual fun fltSetActivityIdCallbackData(callbackdata: COpaquePointer?, guid: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSetActivityIdCallbackData((callbackdata?.value ?: 0L), (guid?.value ?: 0L))
@@ -1579,7 +1579,7 @@ public actual fun fltSetEaFile(instance: PfltInstance, fileobject: COpaquePointe
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEaFile(instance, (fileobject?.value ?: 0L), (eabuffer?.value ?: 0L), length.toInt())
 
 public actual fun fltSetEcpListIntoCallbackData(filter: PfltFilter, callbackdata: COpaquePointer?, ecplist: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEcpListIntoCallbackData(filter.toLong(), (callbackdata?.value ?: 0L), (ecplist?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSetEcpListIntoCallbackData(filter, (callbackdata?.value ?: 0L), (ecplist?.value ?: 0L))
 
 public actual fun fltSetFileContext(instance: PfltInstance, fileobject: COpaquePointer?, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSetFileContext(instance, (fileobject?.value ?: 0L), operation, (newcontext?.value ?: 0L), (oldcontext?.value ?: 0L))
@@ -1621,13 +1621,13 @@ public actual fun fltSetTransactionContext(instance: PfltInstance, transaction: 
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSetTransactionContext(instance, (transaction?.value ?: 0L), operation, (newcontext?.value ?: 0L), (oldcontext?.value ?: 0L))
 
 public actual fun fltSetVolumeContext(volume: PfltVolume, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: COpaquePointer?): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeContext(volume.toLong(), operation, (newcontext?.value ?: 0L), (oldcontext?.value ?: 0L))
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeContext(volume, operation, (newcontext?.value ?: 0L), (oldcontext?.value ?: 0L))
 
 public actual fun fltSetVolumeInformation(instance: PfltInstance, iosb: COpaquePointer?, fsinformation: COpaquePointer?, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSetVolumeInformation(instance, (iosb?.value ?: 0L), (fsinformation?.value ?: 0L), length.toInt(), fsinformationclass)
 
 public actual fun fltStartFiltering(filter: PfltFilter): Ntstatus =
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltStartFiltering(filter.toLong())
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltStartFiltering(filter)
 
 public actual fun fltSupportsFileContexts(fileobject: COpaquePointer?): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltSupportsFileContexts((fileobject?.value ?: 0L))
@@ -1659,7 +1659,7 @@ public actual fun fltUnloadFilter(filtername: COpaquePointer?): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltUnloadFilter((filtername?.value ?: 0L))
 
 public actual fun fltUnregisterFilter(filter: PfltFilter) {
-    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltUnregisterFilter(filter.toLong())
+    WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssys_windows_wdk_storage_filesystem_minifilters_fltUnregisterFilter(filter)
 }
 
 public actual fun fltUntagFile(initiatinginstance: PfltInstance, fileobject: COpaquePointer?, filetag: UInt, guid: COpaquePointer?): Ntstatus =

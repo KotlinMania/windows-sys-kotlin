@@ -574,209 +574,209 @@ public actual fun alljoynAboutdataCreateFull(arg: AlljoynMsgarg, language: Pcstr
     windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull(arg, language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataCreatefrommsgarg(data: AlljoynAboutdata, arg: AlljoynMsgarg, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg(data.toLong(), arg, language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg(data, arg, language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataCreatefromxml(data: AlljoynAboutdata, aboutdataxml: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml(data.toLong(), aboutdataxml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml(data, aboutdataxml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataDestroy(data: AlljoynAboutdata) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy(data.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy(data)
 }
 
 public actual fun alljoynAboutdataGetaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata(data.toLong(), msgarg, language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata(data, msgarg, language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetajsoftwareversion(data: AlljoynAboutdata, ajsoftwareversion: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion(data.toLong(), ajsoftwareversion?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion(data, ajsoftwareversion?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetannouncedaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata(data.toLong(), msgarg)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata(data, msgarg)
 
 public actual fun alljoynAboutdataGetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid(data.toLong(), appid?.value?.toCPointer<ByteVar>(), num?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid(data, appid?.value?.toCPointer<ByteVar>(), num?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetappname(data: AlljoynAboutdata, appname: COpaquePointer?, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname(data.toLong(), appname?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname(data, appname?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture(data.toLong(), dateofmanufacture?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture(data, dateofmanufacture?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage(data.toLong(), defaultlanguage?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage(data, defaultlanguage?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetdescription(data: AlljoynAboutdata, description: COpaquePointer?, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription(data.toLong(), description?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription(data, description?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetdeviceid(data: AlljoynAboutdata, deviceid: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid(data.toLong(), deviceid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid(data, deviceid?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetdevicename(data: AlljoynAboutdata, devicename: COpaquePointer?, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename(data.toLong(), devicename?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename(data, devicename?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetfield(data: AlljoynAboutdata, name: Pcstr, value: COpaquePointer?, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield(data.toLong(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield(data, name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetfields(data: AlljoynAboutdata, fields: COpaquePointer?, numFields: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields(data.toLong(), fields?.value?.toCPointer<ByteVar>(), numFields)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields(data, fields?.value?.toCPointer<ByteVar>(), numFields)
 
 public actual fun alljoynAboutdataGetfieldsignature(data: AlljoynAboutdata, fieldname: Pcstr): Pcstr =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature(data.toLong(), fieldname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature(data, fieldname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
 public actual fun alljoynAboutdataGethardwareversion(data: AlljoynAboutdata, hardwareversion: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion(data.toLong(), hardwareversion?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion(data, hardwareversion?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetmanufacturer(data: AlljoynAboutdata, manufacturer: COpaquePointer?, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer(data.toLong(), manufacturer?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer(data, manufacturer?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetmodelnumber(data: AlljoynAboutdata, modelnumber: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber(data.toLong(), modelnumber?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber(data, modelnumber?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetsoftwareversion(data: AlljoynAboutdata, softwareversion: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion(data.toLong(), softwareversion?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion(data, softwareversion?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataGetsupportedlanguages(data: AlljoynAboutdata, languagetags: COpaquePointer?, num: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages(data.toLong(), languagetags?.value?.toCPointer<ByteVar>(), num)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages(data, languagetags?.value?.toCPointer<ByteVar>(), num)
 
 public actual fun alljoynAboutdataGetsupporturl(data: AlljoynAboutdata, supporturl: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl(data.toLong(), supporturl?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl(data, supporturl?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataIsfieldannounced(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced(data.toLong(), fieldname?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced(data, fieldname?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataIsfieldlocalized(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized(data.toLong(), fieldname?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized(data, fieldname?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataIsfieldrequired(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired(data.toLong(), fieldname?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired(data, fieldname?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataIsvalid(data: AlljoynAboutdata, language: Pcstr): UByte =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid(data.toLong(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid(data, language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: ULong): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid(data.toLong(), appid?.value?.toCPointer<ByteVar>(), num)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid(data, appid?.value?.toCPointer<ByteVar>(), num)
 
 public actual fun alljoynAboutdataSetappidFromstring(data: AlljoynAboutdata, appid: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring(data.toLong(), appid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring(data, appid?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetappname(data: AlljoynAboutdata, appname: Pcstr, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname(data.toLong(), appname?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname(data, appname?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture(data.toLong(), dateofmanufacture?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture(data, dateofmanufacture?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage(data.toLong(), defaultlanguage?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage(data, defaultlanguage?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetdescription(data: AlljoynAboutdata, description: Pcstr, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription(data.toLong(), description?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription(data, description?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetdeviceid(data: AlljoynAboutdata, deviceid: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid(data.toLong(), deviceid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid(data, deviceid?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetdevicename(data: AlljoynAboutdata, devicename: Pcstr, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename(data.toLong(), devicename?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename(data, devicename?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetfield(data: AlljoynAboutdata, name: Pcstr, value: AlljoynMsgarg, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield(data.toLong(), name?.value?.toCPointer<ByteVar>(), value, language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield(data, name?.value?.toCPointer<ByteVar>(), value, language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSethardwareversion(data: AlljoynAboutdata, hardwareversion: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion(data.toLong(), hardwareversion?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion(data, hardwareversion?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetmanufacturer(data: AlljoynAboutdata, manufacturer: Pcstr, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer(data.toLong(), manufacturer?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer(data, manufacturer?.value?.toCPointer<ByteVar>(), language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetmodelnumber(data: AlljoynAboutdata, modelnumber: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber(data.toLong(), modelnumber?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber(data, modelnumber?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetsoftwareversion(data: AlljoynAboutdata, softwareversion: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion(data.toLong(), softwareversion?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion(data, softwareversion?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetsupportedlanguage(data: AlljoynAboutdata, language: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage(data.toLong(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage(data, language?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdataSetsupporturl(data: AlljoynAboutdata, supporturl: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl(data.toLong(), supporturl?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl(data, supporturl?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdatalistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAboutdatalistener =
     windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate(callbacks?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutdatalistenerDestroy(listener: AlljoynAboutdatalistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy(listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy(listener)
 }
 
 public actual fun alljoynAbouticonClear(icon: AlljoynAbouticon) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear(icon.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear(icon)
 }
 
 public actual fun alljoynAbouticonCreate(): AlljoynAbouticon =
     windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate()
 
 public actual fun alljoynAbouticonDestroy(icon: AlljoynAbouticon) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy(icon.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy(icon)
 }
 
 public actual fun alljoynAbouticonGetcontent(icon: AlljoynAbouticon, data: COpaquePointer?, size: COpaquePointer?) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent(icon.toLong(), data?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent(icon, data?.value?.toCPointer<ByteVar>(), size?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun alljoynAbouticonGeturl(icon: AlljoynAbouticon, type: COpaquePointer?, url: COpaquePointer?) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl(icon.toLong(), type?.value?.toCPointer<ByteVar>(), url?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl(icon, type?.value?.toCPointer<ByteVar>(), url?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun alljoynAbouticonSetcontent(icon: AlljoynAbouticon, type: Pcstr, data: COpaquePointer?, csize: ULong, ownsdata: UByte): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent(icon.toLong(), type?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>(), csize, ownsdata)
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent(icon, type?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>(), csize, ownsdata)
 
 public actual fun alljoynAbouticonSetcontentFrommsgarg(icon: AlljoynAbouticon, arg: AlljoynMsgarg): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg(icon.toLong(), arg)
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg(icon, arg)
 
 public actual fun alljoynAbouticonSeturl(icon: AlljoynAbouticon, type: Pcstr, url: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl(icon.toLong(), type?.value?.toCPointer<ByteVar>(), url?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl(icon, type?.value?.toCPointer<ByteVar>(), url?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAbouticonobjCreate(bus: AlljoynBusattachment, icon: AlljoynAbouticon): AlljoynAbouticonobj =
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(bus, icon.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(bus, icon)
 
 public actual fun alljoynAbouticonobjDestroy(icon: AlljoynAbouticonobj) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy(icon.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy(icon)
 }
 
 public actual fun alljoynAbouticonproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAbouticonproxy =
     windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate(bus, busname?.value?.toCPointer<ByteVar>(), sessionid)
 
 public actual fun alljoynAbouticonproxyDestroy(proxy: AlljoynAbouticonproxy) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy(proxy.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy(proxy)
 }
 
 public actual fun alljoynAbouticonproxyGeticon(proxy: AlljoynAbouticonproxy, icon: AlljoynAbouticon): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon(proxy.toLong(), icon.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon(proxy, icon)
 
 public actual fun alljoynAbouticonproxyGetversion(proxy: AlljoynAbouticonproxy, version: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion(proxy.toLong(), version?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion(proxy, version?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynAboutlistener =
     windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate(callback?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutlistenerDestroy(listener: AlljoynAboutlistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy(listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy(listener)
 }
 
 public actual fun alljoynAboutobjAnnounce(obj: AlljoynAboutobj, sessionport: UShort, aboutdata: AlljoynAboutdata): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce(obj.toLong(), sessionport, aboutdata.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce(obj, sessionport, aboutdata)
 
 public actual fun alljoynAboutobjAnnounceUsingDatalistener(obj: AlljoynAboutobj, sessionport: UShort, aboutlistener: AlljoynAboutdatalistener): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener(obj.toLong(), sessionport, aboutlistener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener(obj, sessionport, aboutlistener)
 
 public actual fun alljoynAboutobjCreate(bus: AlljoynBusattachment, isannounced: AlljoynAboutAnnounceflag): AlljoynAboutobj =
     windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate(bus, isannounced)
 
 public actual fun alljoynAboutobjDestroy(obj: AlljoynAboutobj) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy(obj.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy(obj)
 }
 
 public actual fun alljoynAboutobjUnannounce(obj: AlljoynAboutobj): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce(obj.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce(obj)
 
 public actual fun alljoynAboutobjectdescriptionClear(description: AlljoynAboutobjectdescription) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear(description.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear(description)
 }
 
 public actual fun alljoynAboutobjectdescriptionCreate(): AlljoynAboutobjectdescription =
@@ -786,54 +786,54 @@ public actual fun alljoynAboutobjectdescriptionCreateFull(arg: AlljoynMsgarg): A
     windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull(arg)
 
 public actual fun alljoynAboutobjectdescriptionCreatefrommsgarg(description: AlljoynAboutobjectdescription, arg: AlljoynMsgarg): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg(description.toLong(), arg)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg(description, arg)
 
 public actual fun alljoynAboutobjectdescriptionDestroy(description: AlljoynAboutobjectdescription) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy(description.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy(description)
 }
 
 public actual fun alljoynAboutobjectdescriptionGetinterfacepaths(description: AlljoynAboutobjectdescription, interfacename: Pcstr, paths: COpaquePointer?, numpaths: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths(description.toLong(), interfacename?.value?.toCPointer<ByteVar>(), paths?.value?.toCPointer<ByteVar>(), numpaths)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths(description, interfacename?.value?.toCPointer<ByteVar>(), paths?.value?.toCPointer<ByteVar>(), numpaths)
 
 public actual fun alljoynAboutobjectdescriptionGetinterfaces(description: AlljoynAboutobjectdescription, path: Pcstr, interfaces: COpaquePointer?, numinterfaces: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces(description.toLong(), path?.value?.toCPointer<ByteVar>(), interfaces?.value?.toCPointer<ByteVar>(), numinterfaces)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces(description, path?.value?.toCPointer<ByteVar>(), interfaces?.value?.toCPointer<ByteVar>(), numinterfaces)
 
 public actual fun alljoynAboutobjectdescriptionGetmsgarg(description: AlljoynAboutobjectdescription, msgarg: AlljoynMsgarg): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg(description.toLong(), msgarg)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg(description, msgarg)
 
 public actual fun alljoynAboutobjectdescriptionGetpaths(description: AlljoynAboutobjectdescription, paths: COpaquePointer?, numpaths: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths(description.toLong(), paths?.value?.toCPointer<ByteVar>(), numpaths)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths(description, paths?.value?.toCPointer<ByteVar>(), numpaths)
 
 public actual fun alljoynAboutobjectdescriptionHasinterface(description: AlljoynAboutobjectdescription, interfacename: Pcstr): UByte =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface(description.toLong(), interfacename?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface(description, interfacename?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutobjectdescriptionHasinterfaceatpath(description: AlljoynAboutobjectdescription, path: Pcstr, interfacename: Pcstr): UByte =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath(description.toLong(), path?.value?.toCPointer<ByteVar>(), interfacename?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath(description, path?.value?.toCPointer<ByteVar>(), interfacename?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutobjectdescriptionHaspath(description: AlljoynAboutobjectdescription, path: Pcstr): UByte =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath(description.toLong(), path?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath(description, path?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAboutproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAboutproxy =
     windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate(bus, busname?.value?.toCPointer<ByteVar>(), sessionid)
 
 public actual fun alljoynAboutproxyDestroy(proxy: AlljoynAboutproxy) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy(proxy.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy(proxy)
 }
 
 public actual fun alljoynAboutproxyGetaboutdata(proxy: AlljoynAboutproxy, language: Pcstr, data: AlljoynMsgarg): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata(proxy.toLong(), language?.value?.toCPointer<ByteVar>(), data)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata(proxy, language?.value?.toCPointer<ByteVar>(), data)
 
 public actual fun alljoynAboutproxyGetobjectdescription(proxy: AlljoynAboutproxy, objectdesc: AlljoynMsgarg): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription(proxy.toLong(), objectdesc)
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription(proxy, objectdesc)
 
 public actual fun alljoynAboutproxyGetversion(proxy: AlljoynAboutproxy, version: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion(proxy.toLong(), version?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion(proxy, version?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynApplicationstatelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynApplicationstatelistener =
     windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate(callbacks?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynApplicationstatelistenerDestroy(listener: AlljoynApplicationstatelistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy(listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy(listener)
 }
 
 public actual fun alljoynAuthlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener =
@@ -860,36 +860,36 @@ public actual fun alljoynAuthlistenerasyncDestroy(listener: AlljoynAuthlistener)
 }
 
 public actual fun alljoynAutopingerAdddestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination(autopinger.toLong(), group?.value?.toCPointer<ByteVar>(), destination?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination(autopinger, group?.value?.toCPointer<ByteVar>(), destination?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynAutopingerAddpinggroup(autopinger: AlljoynAutopinger, group: Pcstr, listener: AlljoynPinglistener, pinginterval: UInt) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup(autopinger.toLong(), group?.value?.toCPointer<ByteVar>(), listener.toLong(), pinginterval)
+    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup(autopinger, group?.value?.toCPointer<ByteVar>(), listener, pinginterval)
 }
 
 public actual fun alljoynAutopingerCreate(bus: AlljoynBusattachment): AlljoynAutopinger =
     windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate(bus)
 
 public actual fun alljoynAutopingerDestroy(autopinger: AlljoynAutopinger) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy(autopinger.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy(autopinger)
 }
 
 public actual fun alljoynAutopingerPause(autopinger: AlljoynAutopinger) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause(autopinger.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause(autopinger)
 }
 
 public actual fun alljoynAutopingerRemovedestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr, removeall: Int): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination(autopinger.toLong(), group?.value?.toCPointer<ByteVar>(), destination?.value?.toCPointer<ByteVar>(), removeall)
+    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination(autopinger, group?.value?.toCPointer<ByteVar>(), destination?.value?.toCPointer<ByteVar>(), removeall)
 
 public actual fun alljoynAutopingerRemovepinggroup(autopinger: AlljoynAutopinger, group: Pcstr) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup(autopinger.toLong(), group?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup(autopinger, group?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun alljoynAutopingerResume(autopinger: AlljoynAutopinger) {
-    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume(autopinger.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume(autopinger)
 }
 
 public actual fun alljoynAutopingerSetpinginterval(autopinger: AlljoynAutopinger, group: Pcstr, pinginterval: UInt): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval(autopinger.toLong(), group?.value?.toCPointer<ByteVar>(), pinginterval)
+    windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval(autopinger, group?.value?.toCPointer<ByteVar>(), pinginterval)
 
 public actual fun alljoynBusattachmentAddlogonentry(bus: AlljoynBusattachment, authmechanism: Pcstr, username: Pcstr, password: Pcstr): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonentry(bus, authmechanism?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>(), password?.value?.toCPointer<ByteVar>())
@@ -901,7 +901,7 @@ public actual fun alljoynBusattachmentAdvertisename(bus: AlljoynBusattachment, n
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisename(bus, name?.value?.toCPointer<ByteVar>(), transports)
 
 public actual fun alljoynBusattachmentBindsessionport(bus: AlljoynBusattachment, sessionport: COpaquePointer?, opts: AlljoynSessionopts, listener: AlljoynSessionportlistener): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport(bus, sessionport?.value?.toCPointer<ByteVar>(), opts, listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport(bus, sessionport?.value?.toCPointer<ByteVar>(), opts, listener)
 
 public actual fun alljoynBusattachmentCanceladvertisename(bus: AlljoynBusattachment, name: Pcstr, transports: UShort): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladvertisename(bus, name?.value?.toCPointer<ByteVar>(), transports)
@@ -947,7 +947,7 @@ public actual fun alljoynBusattachmentDeletedefaultkeystore(applicationname: Pcs
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefaultkeystore(applicationname?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynBusattachmentDeleteinterface(bus: AlljoynBusattachment, iface: AlljoynInterfacedescription): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface(bus, iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface(bus, iface)
 
 public actual fun alljoynBusattachmentDestroy(bus: AlljoynBusattachment) {
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy(bus)
@@ -964,7 +964,7 @@ public actual fun alljoynBusattachmentEnablepeersecurity(bus: AlljoynBusattachme
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecurity(bus, authmechanisms?.value?.toCPointer<ByteVar>(), listener, keystorefilename?.value?.toCPointer<ByteVar>(), isshared)
 
 public actual fun alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus: AlljoynBusattachment, authmechanisms: Pcstr, authlistener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int, permissionconfigurationlistener: AlljoynPermissionconfigurationlistener): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus, authmechanisms?.value?.toCPointer<ByteVar>(), authlistener, keystorefilename?.value?.toCPointer<ByteVar>(), isshared, permissionconfigurationlistener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus, authmechanisms?.value?.toCPointer<ByteVar>(), authlistener, keystorefilename?.value?.toCPointer<ByteVar>(), isshared, permissionconfigurationlistener)
 
 public actual fun alljoynBusattachmentFindadvertisedname(bus: AlljoynBusattachment, nameprefix: Pcstr): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisedname(bus, nameprefix?.value?.toCPointer<ByteVar>())
@@ -1027,10 +1027,10 @@ public actual fun alljoynBusattachmentJoin(bus: AlljoynBusattachment): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin(bus)
 
 public actual fun alljoynBusattachmentJoinsession(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, sessionid: COpaquePointer?, opts: AlljoynSessionopts): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession(bus, sessionhost?.value?.toCPointer<ByteVar>(), sessionport, listener.toLong(), sessionid?.value?.toCPointer<ByteVar>(), opts)
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession(bus, sessionhost?.value?.toCPointer<ByteVar>(), sessionport, listener, sessionid?.value?.toCPointer<ByteVar>(), opts)
 
 public actual fun alljoynBusattachmentJoinsessionasync(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, opts: AlljoynSessionopts, callback: AlljoynBusattachmentJoinsessioncbPtr, context: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync(bus, sessionhost?.value?.toCPointer<ByteVar>(), sessionport, listener.toLong(), opts, 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync(bus, sessionhost?.value?.toCPointer<ByteVar>(), sessionport, listener, opts, 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynBusattachmentLeavesession(bus: AlljoynBusattachment, sessionid: UInt): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesession(bus, sessionid)
@@ -1042,14 +1042,14 @@ public actual fun alljoynBusattachmentPing(bus: AlljoynBusattachment, name: Pcst
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing(bus, name?.value?.toCPointer<ByteVar>(), timeout)
 
 public actual fun alljoynBusattachmentRegisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener(bus, aboutlistener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener(bus, aboutlistener)
 }
 
 public actual fun alljoynBusattachmentRegisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener(bus, listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener(bus, listener)
 
 public actual fun alljoynBusattachmentRegisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener(bus, listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener(bus, listener)
 }
 
 public actual fun alljoynBusattachmentRegisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
@@ -1101,7 +1101,7 @@ public actual fun alljoynBusattachmentSetlinktimeoutasync(bus: AlljoynBusattachm
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeoutasync(bus, sessionid, linktimeout, 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynBusattachmentSetsessionlistener(bus: AlljoynBusattachment, sessionid: UInt, listener: AlljoynSessionlistener): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener(bus, sessionid, listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener(bus, sessionid, listener)
 
 public actual fun alljoynBusattachmentStart(bus: AlljoynBusattachment): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart(bus)
@@ -1113,7 +1113,7 @@ public actual fun alljoynBusattachmentUnbindsessionport(bus: AlljoynBusattachmen
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessionport(bus, sessionport)
 
 public actual fun alljoynBusattachmentUnregisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener(bus, aboutlistener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener(bus, aboutlistener)
 }
 
 public actual fun alljoynBusattachmentUnregisterallaboutlisteners(bus: AlljoynBusattachment) {
@@ -1124,10 +1124,10 @@ public actual fun alljoynBusattachmentUnregisterallhandlers(bus: AlljoynBusattac
     windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallhandlers(bus)
 
 public actual fun alljoynBusattachmentUnregisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener(bus, listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener(bus, listener)
 
 public actual fun alljoynBusattachmentUnregisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener(bus, listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener(bus, listener)
 }
 
 public actual fun alljoynBusattachmentUnregisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject) {
@@ -1150,14 +1150,14 @@ public actual fun alljoynBuslistenerCreate(callbacks: COpaquePointer?, context: 
     windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate(callbacks?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynBuslistenerDestroy(listener: AlljoynBuslistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy(listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy(listener)
 }
 
 public actual fun alljoynBusobjectAddinterface(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface(bus, iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface(bus, iface)
 
 public actual fun alljoynBusobjectAddinterfaceAnnounced(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced(bus, iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced(bus, iface)
 
 public actual fun alljoynBusobjectAddmethodhandler(bus: AlljoynBusobject, member: AlljoynInterfacedescriptionMember, handler: AlljoynMessagereceiverMethodhandlerPtr, context: COpaquePointer?): QStatus =
     0
@@ -1211,7 +1211,7 @@ public actual fun alljoynBusobjectMethodreplyStatus(bus: AlljoynBusobject, msg: 
     windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStatus(bus, msg, status)
 
 public actual fun alljoynBusobjectSetannounceflag(bus: AlljoynBusobject, iface: AlljoynInterfacedescription, isannounced: AlljoynAboutAnnounceflag): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag(bus, iface.toLong(), isannounced)
+    windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag(bus, iface, isannounced)
 
 public actual fun alljoynBusobjectSignal(bus: AlljoynBusobject, destination: Pcstr, sessionid: UInt, signal: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, timetolive: UShort, flags: UByte, msg: AlljoynMessage): QStatus =
     0
@@ -1285,117 +1285,117 @@ public actual fun alljoynInit(): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynInit()
 
 public actual fun alljoynInterfacedescriptionActivate(iface: AlljoynInterfacedescription) {
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate(iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate(iface)
 }
 
 public actual fun alljoynInterfacedescriptionAddannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation(iface.toLong(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation(iface, name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionAddargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation(iface.toLong(), member?.value?.toCPointer<ByteVar>(), argname?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation(iface, member?.value?.toCPointer<ByteVar>(), argname?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionAddmember(iface: AlljoynInterfacedescription, type: AlljoynMessagetype, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember(iface.toLong(), type, name?.value?.toCPointer<ByteVar>(), inputsig?.value?.toCPointer<ByteVar>(), outsig?.value?.toCPointer<ByteVar>(), argnames?.value?.toCPointer<ByteVar>(), annotation)
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember(iface, type, name?.value?.toCPointer<ByteVar>(), inputsig?.value?.toCPointer<ByteVar>(), outsig?.value?.toCPointer<ByteVar>(), argnames?.value?.toCPointer<ByteVar>(), annotation)
 
 public actual fun alljoynInterfacedescriptionAddmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation(iface.toLong(), member?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation(iface, member?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionAddmethod(iface: AlljoynInterfacedescription, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod(iface.toLong(), name?.value?.toCPointer<ByteVar>(), inputsig?.value?.toCPointer<ByteVar>(), outsig?.value?.toCPointer<ByteVar>(), argnames?.value?.toCPointer<ByteVar>(), annotation, accessperms?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod(iface, name?.value?.toCPointer<ByteVar>(), inputsig?.value?.toCPointer<ByteVar>(), outsig?.value?.toCPointer<ByteVar>(), argnames?.value?.toCPointer<ByteVar>(), annotation, accessperms?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionAddproperty(iface: AlljoynInterfacedescription, name: Pcstr, signature: Pcstr, access: UByte): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty(iface.toLong(), name?.value?.toCPointer<ByteVar>(), signature?.value?.toCPointer<ByteVar>(), access)
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty(iface, name?.value?.toCPointer<ByteVar>(), signature?.value?.toCPointer<ByteVar>(), access)
 
 public actual fun alljoynInterfacedescriptionAddpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation(iface.toLong(), property?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation(iface, property?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionAddsignal(iface: AlljoynInterfacedescription, name: Pcstr, sig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal(iface.toLong(), name?.value?.toCPointer<ByteVar>(), sig?.value?.toCPointer<ByteVar>(), argnames?.value?.toCPointer<ByteVar>(), annotation, accessperms?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal(iface, name?.value?.toCPointer<ByteVar>(), sig?.value?.toCPointer<ByteVar>(), argnames?.value?.toCPointer<ByteVar>(), annotation, accessperms?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionEql(one: AlljoynInterfacedescription, other: AlljoynInterfacedescription): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql(one.toLong(), other.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql(one, other)
 
 public actual fun alljoynInterfacedescriptionGetannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation(iface.toLong(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valueSize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation(iface, name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valueSize?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetannotationatindex(iface: AlljoynInterfacedescription, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex(iface.toLong(), index, name?.value?.toCPointer<ByteVar>(), nameSize?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valueSize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex(iface, index, name?.value?.toCPointer<ByteVar>(), nameSize?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valueSize?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun alljoynInterfacedescriptionGetannotationscount(iface: AlljoynInterfacedescription): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount(iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount(iface)
 
 public actual fun alljoynInterfacedescriptionGetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage(iface.toLong(), member?.value?.toCPointer<ByteVar>(), arg?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), maxlanguagelength, languagetag?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage(iface, member?.value?.toCPointer<ByteVar>(), arg?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), maxlanguagelength, languagetag?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage(iface.toLong(), description?.value?.toCPointer<ByteVar>(), maxlanguagelength, languagetag?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage(iface, description?.value?.toCPointer<ByteVar>(), maxlanguagelength, languagetag?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetdescriptionlanguages(iface: AlljoynInterfacedescription, languages: COpaquePointer?, size: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages(iface.toLong(), languages?.value?.toCPointer<ByteVar>(), size)
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages(iface, languages?.value?.toCPointer<ByteVar>(), size)
 
 public actual fun alljoynInterfacedescriptionGetdescriptionlanguages2(iface: AlljoynInterfacedescription, languages: Pcstr, languagessize: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2(iface.toLong(), languages?.value?.toCPointer<ByteVar>(), languagessize)
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2(iface, languages?.value?.toCPointer<ByteVar>(), languagessize)
 
 public actual fun alljoynInterfacedescriptionGetdescriptiontranslationcallback(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionTranslationCallbackPtr =
     null
 
 public actual fun alljoynInterfacedescriptionGetmember(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember(iface.toLong(), name?.value?.toCPointer<ByteVar>(), member?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember(iface, name?.value?.toCPointer<ByteVar>(), member?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation(iface.toLong(), member?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valueSize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation(iface, member?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valueSize?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetmemberargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation(iface.toLong(), member?.value?.toCPointer<ByteVar>(), argname?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valueSize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation(iface, member?.value?.toCPointer<ByteVar>(), argname?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valueSize?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface.toLong(), member?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), maxlanguagelength, languagetag?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface, member?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), maxlanguagelength, languagetag?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetmembers(iface: AlljoynInterfacedescription, members: COpaquePointer?, nummembers: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers(iface.toLong(), members?.value?.toCPointer<ByteVar>(), nummembers)
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers(iface, members?.value?.toCPointer<ByteVar>(), nummembers)
 
 public actual fun alljoynInterfacedescriptionGetmethod(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod(iface.toLong(), name?.value?.toCPointer<ByteVar>(), member?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod(iface, name?.value?.toCPointer<ByteVar>(), member?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetname(iface: AlljoynInterfacedescription): Pcstr =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname(iface.toLong())?.let { COpaquePointer(it.toLong()) }
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname(iface)?.let { COpaquePointer(it.toLong()) }
 
 public actual fun alljoynInterfacedescriptionGetproperties(iface: AlljoynInterfacedescription, props: COpaquePointer?, numprops: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties(iface.toLong(), props?.value?.toCPointer<ByteVar>(), numprops)
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties(iface, props?.value?.toCPointer<ByteVar>(), numprops)
 
 public actual fun alljoynInterfacedescriptionGetproperty(iface: AlljoynInterfacedescription, name: Pcstr, property: COpaquePointer?): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty(iface.toLong(), name?.value?.toCPointer<ByteVar>(), property?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty(iface, name?.value?.toCPointer<ByteVar>(), property?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr, strSize: COpaquePointer?): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation(iface.toLong(), property?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), strSize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation(iface, property?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), strSize?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, property: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface.toLong(), property?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), maxlanguagelength, languagetag?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface, property?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), maxlanguagelength, languagetag?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionGetsecuritypolicy(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionSecuritypolicy =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy(iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy(iface)
 
 public actual fun alljoynInterfacedescriptionGetsignal(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal(iface.toLong(), name?.value?.toCPointer<ByteVar>(), member?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal(iface, name?.value?.toCPointer<ByteVar>(), member?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionHasdescription(iface: AlljoynInterfacedescription): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription(iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription(iface)
 
 public actual fun alljoynInterfacedescriptionHasmember(iface: AlljoynInterfacedescription, name: Pcstr, insig: Pcstr, outsig: Pcstr): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember(iface.toLong(), name?.value?.toCPointer<ByteVar>(), insig?.value?.toCPointer<ByteVar>(), outsig?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember(iface, name?.value?.toCPointer<ByteVar>(), insig?.value?.toCPointer<ByteVar>(), outsig?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionHasproperties(iface: AlljoynInterfacedescription): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties(iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties(iface)
 
 public actual fun alljoynInterfacedescriptionHasproperty(iface: AlljoynInterfacedescription, name: Pcstr): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty(iface.toLong(), name?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty(iface, name?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionIntrospect(iface: AlljoynInterfacedescription, str: Pcstr, buf: ULong, indent: ULong): ULong =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect(iface.toLong(), str?.value?.toCPointer<ByteVar>(), buf, indent)
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect(iface, str?.value?.toCPointer<ByteVar>(), buf, indent)
 
 public actual fun alljoynInterfacedescriptionIssecure(iface: AlljoynInterfacedescription): Int =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure(iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure(iface)
 
 public actual fun alljoynInterfacedescriptionMemberEql(one: AlljoynInterfacedescriptionMember, other: AlljoynInterfacedescriptionMember): Int =
     0
@@ -1431,37 +1431,37 @@ public actual fun alljoynInterfacedescriptionPropertyGetannotationscount(propert
     0uL
 
 public actual fun alljoynInterfacedescriptionSetargdescription(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, description: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription(iface.toLong(), member?.value?.toCPointer<ByteVar>(), argname?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription(iface, member?.value?.toCPointer<ByteVar>(), argname?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionSetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage(iface.toLong(), member?.value?.toCPointer<ByteVar>(), arg?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), languagetag?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage(iface, member?.value?.toCPointer<ByteVar>(), arg?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), languagetag?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionSetdescription(iface: AlljoynInterfacedescription, description: Pcstr) {
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription(iface.toLong(), description?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription(iface, description?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun alljoynInterfacedescriptionSetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, languagetag: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage(iface.toLong(), description?.value?.toCPointer<ByteVar>(), languagetag?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage(iface, description?.value?.toCPointer<ByteVar>(), languagetag?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionSetdescriptionlanguage(iface: AlljoynInterfacedescription, language: Pcstr) {
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage(iface.toLong(), language?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage(iface, language?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface: AlljoynInterfacedescription, translationcallback: AlljoynInterfacedescriptionTranslationCallbackPtr) {
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface.toLong(), 0L.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface, 0L.toCPointer<ByteVar>())
 }
 
 public actual fun alljoynInterfacedescriptionSetmemberdescription(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription(iface.toLong(), member?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription(iface, member?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface.toLong(), member?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), languagetag?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface, member?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), languagetag?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionSetpropertydescription(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription(iface.toLong(), name?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription(iface, name?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface.toLong(), name?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), languagetag?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface, name?.value?.toCPointer<ByteVar>(), description?.value?.toCPointer<ByteVar>(), languagetag?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynKeystorelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener =
     windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate(callbacks?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
@@ -1821,35 +1821,35 @@ public actual fun alljoynObserverCreate(bus: AlljoynBusattachment, mandatoryinte
     windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate(bus, mandatoryinterfaces?.value?.toCPointer<ByteVar>(), nummandatoryinterfaces)
 
 public actual fun alljoynObserverDestroy(observer: AlljoynObserver) {
-    windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy(observer.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy(observer)
 }
 
 public actual fun alljoynObserverGet(observer: AlljoynObserver, uniquebusname: Pcstr, objectpath: Pcstr): AlljoynProxybusobjectRef =
-    windowssys_windows_win32_devices_alljoyn_alljoynObserverGet(observer.toLong(), uniquebusname?.value?.toCPointer<ByteVar>(), objectpath?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynObserverGet(observer, uniquebusname?.value?.toCPointer<ByteVar>(), objectpath?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynObserverGetfirst(observer: AlljoynObserver): AlljoynProxybusobjectRef =
-    windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst(observer.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst(observer)
 
 public actual fun alljoynObserverGetnext(observer: AlljoynObserver, proxyref: AlljoynProxybusobjectRef): AlljoynProxybusobjectRef =
-    windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext(observer.toLong(), proxyref)
+    windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext(observer, proxyref)
 
 public actual fun alljoynObserverRegisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener, triggeronexisting: Int) {
-    windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener(observer.toLong(), listener.toLong(), triggeronexisting)
+    windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener(observer, listener, triggeronexisting)
 }
 
 public actual fun alljoynObserverUnregisteralllisteners(observer: AlljoynObserver) {
-    windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners(observer.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners(observer)
 }
 
 public actual fun alljoynObserverUnregisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener(observer.toLong(), listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener(observer, listener)
 }
 
 public actual fun alljoynObserverlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynObserverlistener =
     windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate(callback?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynObserverlistenerDestroy(listener: AlljoynObserverlistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy(listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy(listener)
 }
 
 public actual fun alljoynPasswordmanagerSetcredentials(authmechanism: Pcstr, password: Pcstr): QStatus =
@@ -1859,7 +1859,7 @@ public actual fun alljoynPermissionconfigurationlistenerCreate(callbacks: COpaqu
     windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate(callbacks?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfigurationlistenerDestroy(listener: AlljoynPermissionconfigurationlistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy(listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy(listener)
 }
 
 public actual fun alljoynPermissionconfiguratorCertificatechainDestroy(certificatechain: COpaquePointer?) {
@@ -1875,52 +1875,52 @@ public actual fun alljoynPermissionconfiguratorCertificateidarrayCleanup(certifi
 }
 
 public actual fun alljoynPermissionconfiguratorClaim(configurator: AlljoynPermissionconfigurator, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim(configurator.toLong(), cakey?.value?.toCPointer<ByteVar>(), identitycertificatechain?.value?.toCPointer<ByteVar>(), groupid?.value?.toCPointer<ByteVar>(), groupsize, groupauthority?.value?.toCPointer<ByteVar>(), manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount)
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim(configurator, cakey?.value?.toCPointer<ByteVar>(), identitycertificatechain?.value?.toCPointer<ByteVar>(), groupid?.value?.toCPointer<ByteVar>(), groupsize, groupauthority?.value?.toCPointer<ByteVar>(), manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount)
 
 public actual fun alljoynPermissionconfiguratorEndmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement(configurator.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement(configurator)
 
 public actual fun alljoynPermissionconfiguratorGetapplicationstate(configurator: AlljoynPermissionconfigurator, state: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate(configurator.toLong(), state?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate(configurator, state?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities(configurator.toLong(), claimcapabilities?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities(configurator, claimcapabilities?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator.toLong(), additionalinfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator, additionalinfo?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetdefaultclaimcapabilities(): UShort =
     windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultclaimcapabilities()
 
 public actual fun alljoynPermissionconfiguratorGetdefaultpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy(configurator.toLong(), policyxml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy(configurator, policyxml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity(configurator.toLong(), identitycertificatechain?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity(configurator, identitycertificatechain?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetidentitycertificateid(configurator: AlljoynPermissionconfigurator, certificateid: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid(configurator.toLong(), certificateid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid(configurator, certificateid?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetmanifests(configurator: AlljoynPermissionconfigurator, manifestarray: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests(configurator.toLong(), manifestarray?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests(configurator, manifestarray?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetmanifesttemplate(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate(configurator.toLong(), manifesttemplatexml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate(configurator, manifesttemplatexml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetmembershipsummaries(configurator: AlljoynPermissionconfigurator, certificateids: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries(configurator.toLong(), certificateids?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries(configurator, certificateids?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy(configurator.toLong(), policyxml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy(configurator, policyxml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorGetpublickey(configurator: AlljoynPermissionconfigurator, publickey: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey(configurator.toLong(), publickey?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey(configurator, publickey?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorInstallmanifests(configurator: AlljoynPermissionconfigurator, manifestsxmls: COpaquePointer?, manifestscount: ULong, append: Int): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests(configurator.toLong(), manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount, append)
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests(configurator, manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount, append)
 
 public actual fun alljoynPermissionconfiguratorInstallmembership(configurator: AlljoynPermissionconfigurator, membershipcertificatechain: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership(configurator.toLong(), membershipcertificatechain?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership(configurator, membershipcertificatechain?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray: COpaquePointer?) {
     windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray?.value?.toCPointer<ByteVar>())
@@ -1939,47 +1939,47 @@ public actual fun alljoynPermissionconfiguratorPublickeyDestroy(publickey: COpaq
 }
 
 public actual fun alljoynPermissionconfiguratorRemovemembership(configurator: AlljoynPermissionconfigurator, serial: COpaquePointer?, seriallen: ULong, issuerpublickey: COpaquePointer?, issueraki: COpaquePointer?, issuerakilen: ULong): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership(configurator.toLong(), serial?.value?.toCPointer<ByteVar>(), seriallen, issuerpublickey?.value?.toCPointer<ByteVar>(), issueraki?.value?.toCPointer<ByteVar>(), issuerakilen)
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership(configurator, serial?.value?.toCPointer<ByteVar>(), seriallen, issuerpublickey?.value?.toCPointer<ByteVar>(), issueraki?.value?.toCPointer<ByteVar>(), issuerakilen)
 
 public actual fun alljoynPermissionconfiguratorReset(configurator: AlljoynPermissionconfigurator): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset(configurator.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset(configurator)
 
 public actual fun alljoynPermissionconfiguratorResetpolicy(configurator: AlljoynPermissionconfigurator): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy(configurator.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy(configurator)
 
 public actual fun alljoynPermissionconfiguratorSetapplicationstate(configurator: AlljoynPermissionconfigurator, state: AlljoynApplicationstate): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate(configurator.toLong(), state)
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate(configurator, state)
 
 public actual fun alljoynPermissionconfiguratorSetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: UShort): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities(configurator.toLong(), claimcapabilities)
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities(configurator, claimcapabilities)
 
 public actual fun alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: UShort): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator.toLong(), additionalinfo)
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator, additionalinfo)
 
 public actual fun alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator.toLong(), manifesttemplatexml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator, manifesttemplatexml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPermissionconfiguratorStartmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement(configurator.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement(configurator)
 
 public actual fun alljoynPermissionconfiguratorUpdateidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity(configurator.toLong(), identitycertificatechain?.value?.toCPointer<ByteVar>(), manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount)
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity(configurator, identitycertificatechain?.value?.toCPointer<ByteVar>(), manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount)
 
 public actual fun alljoynPermissionconfiguratorUpdatepolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy(configurator.toLong(), policyxml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy(configurator, policyxml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPinglistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynPinglistener =
     windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate(callback?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynPinglistenerDestroy(listener: AlljoynPinglistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy(listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy(listener)
 }
 
 public actual fun alljoynProxybusobjectAddchild(proxyobj: AlljoynProxybusobject, child: AlljoynProxybusobject): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild(proxyobj, child)
 
 public actual fun alljoynProxybusobjectAddinterface(proxyobj: AlljoynProxybusobject, iface: AlljoynInterfacedescription): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface(proxyobj, iface.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface(proxyobj, iface)
 
 public actual fun alljoynProxybusobjectAddinterfaceByName(proxyobj: AlljoynProxybusobject, name: Pcstr): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfaceByName(proxyobj, name?.value?.toCPointer<ByteVar>())
@@ -2118,7 +2118,7 @@ public actual fun alljoynRoutershutdown(): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown()
 
 public actual fun alljoynSecurityapplicationproxyClaim(proxy: AlljoynSecurityapplicationproxy, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim(proxy.toLong(), cakey?.value?.toCPointer<ByteVar>(), identitycertificatechain?.value?.toCPointer<ByteVar>(), groupid?.value?.toCPointer<ByteVar>(), groupsize, groupauthority?.value?.toCPointer<ByteVar>(), manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount)
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim(proxy, cakey?.value?.toCPointer<ByteVar>(), identitycertificatechain?.value?.toCPointer<ByteVar>(), groupid?.value?.toCPointer<ByteVar>(), groupsize, groupauthority?.value?.toCPointer<ByteVar>(), manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount)
 
 public actual fun alljoynSecurityapplicationproxyComputemanifestdigest(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, digest: COpaquePointer?, digestsize: COpaquePointer?): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyComputemanifestdigest(unsignedmanifestxml?.value?.toCPointer<ByteVar>(), identitycertificatepem?.value?.toCPointer<ByteVar>(), digest?.value?.toCPointer<ByteVar>(), digestsize?.value?.toCPointer<ByteVar>())
@@ -2127,7 +2127,7 @@ public actual fun alljoynSecurityapplicationproxyCreate(bus: AlljoynBusattachmen
     windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate(bus, appbusname?.value?.toCPointer<ByteVar>(), sessionid)
 
 public actual fun alljoynSecurityapplicationproxyDestroy(proxy: AlljoynSecurityapplicationproxy) {
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy(proxy.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy(proxy)
 }
 
 public actual fun alljoynSecurityapplicationproxyDigestDestroy(digest: COpaquePointer?) {
@@ -2139,34 +2139,34 @@ public actual fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublicke
 }
 
 public actual fun alljoynSecurityapplicationproxyEndmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement(proxy.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement(proxy)
 
 public actual fun alljoynSecurityapplicationproxyGetapplicationstate(proxy: AlljoynSecurityapplicationproxy, applicationstate: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate(proxy.toLong(), applicationstate?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate(proxy, applicationstate?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSecurityapplicationproxyGetclaimcapabilities(proxy: AlljoynSecurityapplicationproxy, capabilities: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities(proxy.toLong(), capabilities?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities(proxy, capabilities?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy: AlljoynSecurityapplicationproxy, additionalinfo: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy.toLong(), additionalinfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy, additionalinfo?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSecurityapplicationproxyGetdefaultpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy(proxy.toLong(), policyxml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy(proxy, policyxml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSecurityapplicationproxyGeteccpublickey(proxy: AlljoynSecurityapplicationproxy, eccpublickey: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey(proxy.toLong(), eccpublickey?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey(proxy, eccpublickey?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSecurityapplicationproxyGetmanifesttemplate(proxy: AlljoynSecurityapplicationproxy, manifesttemplatexml: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate(proxy.toLong(), manifesttemplatexml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate(proxy, manifesttemplatexml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSecurityapplicationproxyGetpermissionmanagementsessionport(): UShort =
     windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpermissionmanagementsessionport()
 
 public actual fun alljoynSecurityapplicationproxyGetpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy(proxy.toLong(), policyxml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy(proxy, policyxml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSecurityapplicationproxyInstallmembership(proxy: AlljoynSecurityapplicationproxy, membershipcertificatechain: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership(proxy.toLong(), membershipcertificatechain?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership(proxy, membershipcertificatechain?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml: COpaquePointer?) {
     windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml?.value?.toCPointer<ByteVar>())
@@ -2181,10 +2181,10 @@ public actual fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: COpaqu
 }
 
 public actual fun alljoynSecurityapplicationproxyReset(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset(proxy.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset(proxy)
 
 public actual fun alljoynSecurityapplicationproxyResetpolicy(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy(proxy.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy(proxy)
 
 public actual fun alljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, signature: COpaquePointer?, signaturesize: ULong, signedmanifestxml: COpaquePointer?): QStatus =
     windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml?.value?.toCPointer<ByteVar>(), identitycertificatepem?.value?.toCPointer<ByteVar>(), signature?.value?.toCPointer<ByteVar>(), signaturesize, signedmanifestxml?.value?.toCPointer<ByteVar>())
@@ -2193,19 +2193,19 @@ public actual fun alljoynSecurityapplicationproxySignmanifest(unsignedmanifestxm
     windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySignmanifest(unsignedmanifestxml?.value?.toCPointer<ByteVar>(), identitycertificatepem?.value?.toCPointer<ByteVar>(), signingprivatekeypem?.value?.toCPointer<ByteVar>(), signedmanifestxml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSecurityapplicationproxyStartmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement(proxy.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement(proxy)
 
 public actual fun alljoynSecurityapplicationproxyUpdateidentity(proxy: AlljoynSecurityapplicationproxy, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity(proxy.toLong(), identitycertificatechain?.value?.toCPointer<ByteVar>(), manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount)
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity(proxy, identitycertificatechain?.value?.toCPointer<ByteVar>(), manifestsxmls?.value?.toCPointer<ByteVar>(), manifestscount)
 
 public actual fun alljoynSecurityapplicationproxyUpdatepolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
-    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy(proxy.toLong(), policyxml?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy(proxy, policyxml?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSessionlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionlistener =
     windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate(callbacks?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSessionlistenerDestroy(listener: AlljoynSessionlistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy(listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy(listener)
 }
 
 public actual fun alljoynSessionoptsCmp(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
@@ -2253,7 +2253,7 @@ public actual fun alljoynSessionportlistenerCreate(callbacks: COpaquePointer?, c
     windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate(callbacks?.value?.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>())
 
 public actual fun alljoynSessionportlistenerDestroy(listener: AlljoynSessionportlistener) {
-    windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy(listener.toLong())
+    windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy(listener)
 }
 
 public actual fun alljoynShutdown(): QStatus =

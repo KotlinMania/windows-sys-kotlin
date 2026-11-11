@@ -228,9 +228,9 @@ void* windowssys_windows_win32_devices_alljoyn_qccStatusText(int32_t status) {
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate(void* defaultlanguage) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate(void* defaultlanguage) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -250,9 +250,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate(void* de
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty(void) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty(void) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void);
+    typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -271,9 +271,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull(int64_t arg, void* language) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull(int64_t arg, void* language) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -1253,9 +1253,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl(i
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate(void* callbacks, void* context) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -1318,9 +1318,9 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear(int64_t icon
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate(void) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate(void) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void);
+    typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -1479,9 +1479,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(int64_t bus, int64_t icon) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(int64_t bus, int64_t icon) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -1523,9 +1523,9 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy(int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate(int64_t bus, void* busname, uint32_t sessionid) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate(int64_t bus, void* busname, uint32_t sessionid) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -1614,9 +1614,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate(void* callback, void* context) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate(void* callback, void* context) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -1706,9 +1706,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDat
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate(int64_t bus, int32_t isannounced) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate(int64_t bus, int32_t isannounced) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -1793,9 +1793,9 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate(void) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate(void) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void);
+    typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -1814,9 +1814,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull(int64_t arg) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull(int64_t arg) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -2047,9 +2047,9 @@ uint8_t windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHa
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate(int64_t bus, void* busname, uint32_t sessionid) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate(int64_t bus, void* busname, uint32_t sessionid) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -2162,9 +2162,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion(int
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate(void* callbacks, void* context) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -2415,9 +2415,9 @@ void windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate(int64_t bus) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate(int64_t bus) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -3314,9 +3314,9 @@ void* windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguid
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface(int64_t bus, void* name) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface(int64_t bus, void* name) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -3410,9 +3410,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator(int64_t bus) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator(int64_t bus) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -4379,9 +4379,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplemen
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate(void* callbacks, void* context) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -9169,9 +9169,9 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate(int64_t bus, void* mandatoryinterfaces, uint64_t nummandatoryinterfaces) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate(int64_t bus, void* mandatoryinterfaces, uint64_t nummandatoryinterfaces) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -9349,9 +9349,9 @@ void windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate(void* callback, void* context) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate(void* callback, void* context) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -9416,9 +9416,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcreden
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate(void* callbacks, void* context) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -10213,9 +10213,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate(void* callback, void* context) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate(void* callback, void* context) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -10537,9 +10537,9 @@ uint64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface(int64_t proxyobj, void* iface) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface(int64_t proxyobj, void* iface) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -11324,9 +11324,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate(int64_t bus, void* appbusname, uint32_t sessionid) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate(int64_t bus, void* appbusname, uint32_t sessionid) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -11866,9 +11866,9 @@ int32_t windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxy
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate(void* callbacks, void* context) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
@@ -12178,9 +12178,9 @@ void windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports(in
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate(void* callbacks, void* context) {
+int64_t windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate(void* callbacks, void* context) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");

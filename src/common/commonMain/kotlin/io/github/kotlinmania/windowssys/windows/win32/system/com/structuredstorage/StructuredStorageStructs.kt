@@ -123,7 +123,7 @@ public data class Cauh(
 
 public data class Caui(
     public var cElems: UInt = 0u,
-    public var pElems: UShort? = null,
+    public var pElems: COpaquePointer? = null,
 )
 
 public data class Caul(
@@ -295,7 +295,7 @@ public class Propvariant000 {
 
     public var piVal: Short? = null
 
-    public var puiVal: UShort? = null
+    public var puiVal: COpaquePointer? = null
 
     public var plVal: Int? = null
 

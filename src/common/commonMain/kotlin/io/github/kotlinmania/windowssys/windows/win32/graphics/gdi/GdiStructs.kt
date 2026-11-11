@@ -2216,13 +2216,13 @@ public data class Trivertex(
 public data class Ttembedinfo(
     public var usStructSize: UShort = 0u,
     public var usRootStrSize: UShort = 0u,
-    public var pusRootStr: UShort? = null,
+    public var pusRootStr: COpaquePointer? = null,
 )
 
 public data class Ttloadinfo(
     public var usStructSize: UShort = 0u,
     public var usRefStrSize: UShort = 0u,
-    public var pusRefStr: UShort? = null,
+    public var pusRefStr: COpaquePointer? = null,
 )
 
 public data class Ttpolycurve(
@@ -2244,7 +2244,7 @@ public data class Ttvalidationtestsparams(
     public var ulCharSet: UInt = 0u,
     public var usReserved1: UShort = 0u,
     public var usCharCodeCount: UShort = 0u,
-    public var pusCharCodeSet: UShort? = null,
+    public var pusCharCodeSet: COpaquePointer? = null,
 )
 
 public data class Ttvalidationtestsparamsex(

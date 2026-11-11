@@ -51,14 +51,14 @@ public actual fun wSManCloseOperation(operationhandle: WsmanOperationHandle, fla
     windowssys_windows_win32_system_remotemanagement_wSManCloseOperation(operationhandle, flags)
 
 public actual fun wSManCloseSession(session: WsmanSessionHandle, flags: UInt): UInt =
-    windowssys_windows_win32_system_remotemanagement_wSManCloseSession(session.toLong(), flags)
+    windowssys_windows_win32_system_remotemanagement_wSManCloseSession(session, flags)
 
 public actual fun wSManCloseShell(shellhandle: WsmanShellHandle, flags: UInt, async: COpaquePointer?) {
     windowssys_windows_win32_system_remotemanagement_wSManCloseShell(shellhandle, flags, async?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun wSManConnectShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, options: COpaquePointer?, connectxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
-    windowssys_windows_win32_system_remotemanagement_wSManConnectShell(session.toLong(), flags, resourceuri?.value?.toCPointer<ByteVar>(), shellid?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), connectxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), shell?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_remotemanagement_wSManConnectShell(session, flags, resourceuri?.value?.toCPointer<ByteVar>(), shellid?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), connectxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), shell?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, options: COpaquePointer?, connectxml: COpaquePointer?, async: COpaquePointer?, command: COpaquePointer?) {
@@ -66,31 +66,31 @@ public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt,
 }
 
 public actual fun wSManCreateSession(apihandle: WsmanApiHandle, connection: Pcwstr, flags: UInt, serverauthenticationcredentials: COpaquePointer?, proxyinfo: COpaquePointer?, session: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_remotemanagement_wSManCreateSession(apihandle.toLong(), connection?.value?.toCPointer<ByteVar>(), flags, serverauthenticationcredentials?.value?.toCPointer<ByteVar>(), proxyinfo?.value?.toCPointer<ByteVar>(), session?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_remotemanagement_wSManCreateSession(apihandle, connection?.value?.toCPointer<ByteVar>(), flags, serverauthenticationcredentials?.value?.toCPointer<ByteVar>(), proxyinfo?.value?.toCPointer<ByteVar>(), session?.value?.toCPointer<ByteVar>())
 
 public actual fun wSManCreateShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, startupinfo: COpaquePointer?, options: COpaquePointer?, createxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
-    windowssys_windows_win32_system_remotemanagement_wSManCreateShell(session.toLong(), flags, resourceuri?.value?.toCPointer<ByteVar>(), startupinfo?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), createxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), shell?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_remotemanagement_wSManCreateShell(session, flags, resourceuri?.value?.toCPointer<ByteVar>(), startupinfo?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), createxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), shell?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun wSManCreateShellEx(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, startupinfo: COpaquePointer?, options: COpaquePointer?, createxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
-    windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx(session.toLong(), flags, resourceuri?.value?.toCPointer<ByteVar>(), shellid?.value?.toCPointer<ByteVar>(), startupinfo?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), createxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), shell?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx(session, flags, resourceuri?.value?.toCPointer<ByteVar>(), shellid?.value?.toCPointer<ByteVar>(), startupinfo?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), createxml?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), shell?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun wSManDeinitialize(apihandle: WsmanApiHandle, flags: UInt): UInt =
-    windowssys_windows_win32_system_remotemanagement_wSManDeinitialize(apihandle.toLong(), flags)
+    windowssys_windows_win32_system_remotemanagement_wSManDeinitialize(apihandle, flags)
 
 public actual fun wSManDisconnectShell(shell: WsmanShellHandle, flags: UInt, disconnectinfo: COpaquePointer?, async: COpaquePointer?) {
     windowssys_windows_win32_system_remotemanagement_wSManDisconnectShell(shell, flags, disconnectinfo?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun wSManGetErrorMessage(apihandle: WsmanApiHandle, flags: UInt, languagecode: Pcwstr, errorcode: UInt, messagelength: UInt, message: Pwstr, messagelengthused: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage(apihandle.toLong(), flags, languagecode?.value?.toCPointer<ByteVar>(), errorcode, messagelength, message?.value?.toCPointer<ByteVar>(), messagelengthused?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage(apihandle, flags, languagecode?.value?.toCPointer<ByteVar>(), errorcode, messagelength, message?.value?.toCPointer<ByteVar>(), messagelengthused?.value?.toCPointer<ByteVar>())
 
 public actual fun wSManGetSessionOptionAsDword(session: WsmanSessionHandle, option: WSManSessionOption, value: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword(session.toLong(), option, value?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword(session, option, value?.value?.toCPointer<ByteVar>())
 
 public actual fun wSManGetSessionOptionAsString(session: WsmanSessionHandle, option: WSManSessionOption, stringlength: UInt, string: Pwstr, stringlengthused: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString(session.toLong(), option, stringlength, string?.value?.toCPointer<ByteVar>(), stringlengthused?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString(session, option, stringlength, string?.value?.toCPointer<ByteVar>(), stringlengthused?.value?.toCPointer<ByteVar>())
 
 public actual fun wSManInitialize(flags: UInt, apihandle: COpaquePointer?): UInt =
     windowssys_windows_win32_system_remotemanagement_wSManInitialize(flags, apihandle?.value?.toCPointer<ByteVar>())
@@ -150,7 +150,7 @@ public actual fun wSManSendShellInput(shell: WsmanShellHandle, command: WsmanCom
 }
 
 public actual fun wSManSetSessionOption(session: WsmanSessionHandle, option: WSManSessionOption, data: COpaquePointer?): UInt =
-    windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption(session.toLong(), option, data?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption(session, option, data?.value?.toCPointer<ByteVar>())
 
 public actual fun wSManSignalShell(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, code: Pcwstr, async: COpaquePointer?, signaloperation: COpaquePointer?) {
     windowssys_windows_win32_system_remotemanagement_wSManSignalShell(shell, command, flags, code?.value?.toCPointer<ByteVar>(), async?.value?.toCPointer<ByteVar>(), signaloperation?.value?.toCPointer<ByteVar>())

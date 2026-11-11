@@ -96,13 +96,13 @@ private object WindowsWin32UiControlsJniBridge {
     external fun windowssys_windows_win32_ui_controls_createUpDownControl(dwstyle: Int, x: Int, y: Int, cx: Int, cy: Int, hparent: Long, nid: Int, hinst: Long, hbuddy: Long, nupper: Int, nlower: Int, npos: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dpaClone(hdpa: Long, hdpanew: Long): Int
+    external fun windowssys_windows_win32_ui_controls_dpaClone(hdpa: Long, hdpanew: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dpaCreate(citemgrow: Int): Int
+    external fun windowssys_windows_win32_ui_controls_dpaCreate(citemgrow: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dpaCreateEx(cpgrow: Int, hheap: Long): Int
+    external fun windowssys_windows_win32_ui_controls_dpaCreateEx(cpgrow: Int, hheap: Long): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs(hdpa: Long): Int
@@ -153,10 +153,10 @@ private object WindowsWin32UiControlsJniBridge {
     external fun windowssys_windows_win32_ui_controls_dpaSort(hdpa: Long, pfncompare: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dsaClone(hdsa: Long): Int
+    external fun windowssys_windows_win32_ui_controls_dsaClone(hdsa: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_dsaCreate(cbitem: Int, citemgrow: Int): Int
+    external fun windowssys_windows_win32_ui_controls_dsaCreate(cbitem: Int, citemgrow: Int): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_ui_controls_dsaDeleteAllItems(hdsa: Long): Int
@@ -444,7 +444,7 @@ private object WindowsWin32UiControlsJniBridge {
     external fun windowssys_windows_win32_ui_controls_getWindowFeedbackSetting(hwnd: Long, feedback: Int, dwflags: Int, psize: Long, config: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_getWindowTheme(hwnd: Long): Int
+    external fun windowssys_windows_win32_ui_controls_getWindowTheme(hwnd: Long): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_ui_controls_himagelistQueryInterface(himl: Long, riid: Long, ppv: Long): Int
@@ -465,7 +465,7 @@ private object WindowsWin32UiControlsJniBridge {
     external fun windowssys_windows_win32_ui_controls_imageListCopy(himldst: Long, idst: Int, himlsrc: Long, isrc: Int, uflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_imageListCreate(cx: Int, cy: Int, flags: Int, cinitial: Int, cgrow: Int): Int
+    external fun windowssys_windows_win32_ui_controls_imageListCreate(cx: Int, cy: Int, flags: Int, cinitial: Int, cgrow: Int): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_ui_controls_imageListDestroy(himl: Long): Int
@@ -492,7 +492,7 @@ private object WindowsWin32UiControlsJniBridge {
     external fun windowssys_windows_win32_ui_controls_imageListDrawIndirect(pimldp: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_imageListDuplicate(himl: Long): Int
+    external fun windowssys_windows_win32_ui_controls_imageListDuplicate(himl: Long): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_ui_controls_imageListEndDrag()
@@ -501,7 +501,7 @@ private object WindowsWin32UiControlsJniBridge {
     external fun windowssys_windows_win32_ui_controls_imageListGetBkColor(himl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_imageListGetDragImage(ppt: Long, ppthotspot: Long): Int
+    external fun windowssys_windows_win32_ui_controls_imageListGetDragImage(ppt: Long, ppthotspot: Long): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_ui_controls_imageListGetIcon(himl: Long, i: Int, flags: Int): Long
@@ -516,16 +516,16 @@ private object WindowsWin32UiControlsJniBridge {
     external fun windowssys_windows_win32_ui_controls_imageListGetImageInfo(himl: Long, i: Int, pimageinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_imageListLoadImageA(hi: Long, lpbmp: Long, cx: Int, cgrow: Int, crmask: Int, utype: Int, uflags: Int): Int
+    external fun windowssys_windows_win32_ui_controls_imageListLoadImageA(hi: Long, lpbmp: Long, cx: Int, cgrow: Int, crmask: Int, utype: Int, uflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_imageListLoadImageW(hi: Long, lpbmp: Long, cx: Int, cgrow: Int, crmask: Int, utype: Int, uflags: Int): Int
+    external fun windowssys_windows_win32_ui_controls_imageListLoadImageW(hi: Long, lpbmp: Long, cx: Int, cgrow: Int, crmask: Int, utype: Int, uflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_imageListMerge(himl1: Long, i1: Int, himl2: Long, i2: Int, dx: Int, dy: Int): Int
+    external fun windowssys_windows_win32_ui_controls_imageListMerge(himl1: Long, i1: Int, himl2: Long, i2: Int, dx: Int, dy: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_imageListRead(pstm: Long): Int
+    external fun windowssys_windows_win32_ui_controls_imageListRead(pstm: Long): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_ui_controls_imageListReadEx(dwflags: Int, pstm: Long, riid: Long, ppv: Long): Int
@@ -609,10 +609,10 @@ private object WindowsWin32UiControlsJniBridge {
     external fun windowssys_windows_win32_ui_controls_menuHelp(umsg: Int, wparam: Long, lparam: Long, hmainmenu: Long, hinst: Long, hwndstatus: Long, lpwids: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_openThemeData(hwnd: Long, pszclasslist: Long): Int
+    external fun windowssys_windows_win32_ui_controls_openThemeData(hwnd: Long, pszclasslist: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_controls_openThemeDataEx(hwnd: Long, pszclasslist: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_controls_openThemeDataEx(hwnd: Long, pszclasslist: Long, dwflags: Int): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_ui_controls_packTouchHitTestingProximityEvaluation(phittestinginput: Long, pproximityeval: Long): Long
@@ -706,7 +706,7 @@ public actual fun checkRadioButton(hdlg: Hwnd, nidfirstbutton: Int, nidlastbutto
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_checkRadioButton((hdlg?.value ?: 0L), nidfirstbutton, nidlastbutton, nidcheckbutton)
 
 public actual fun closeThemeData(htheme: Htheme): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_closeThemeData(htheme.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_closeThemeData(htheme)
 
 public actual fun createMappedBitmap(hinstance: Hinstance, idbitmap: Long, wflags: UInt, lpcolormap: COpaquePointer?, inummaps: Int): Hbitmap =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_createMappedBitmap((hinstance?.value ?: 0L), idbitmap, wflags.toInt(), (lpcolormap?.value ?: 0L), inummaps).let { if (it == 0L) null else COpaquePointer(it) }
@@ -733,7 +733,7 @@ public actual fun createUpDownControl(dwstyle: UInt, x: Int, y: Int, cx: Int, cy
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_createUpDownControl(dwstyle.toInt(), x, y, cx, cy, (hparent?.value ?: 0L), nid, (hinst?.value ?: 0L), (hbuddy?.value ?: 0L), nupper, nlower, npos).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun dpaClone(hdpa: Hdpa, hdpanew: Hdpa): Hdpa =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaClone(hdpa.toLong(), hdpanew.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaClone(hdpa, hdpanew)
 
 public actual fun dpaCreate(citemgrow: Int): Hdpa =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaCreate(citemgrow)
@@ -742,95 +742,95 @@ public actual fun dpaCreateEx(cpgrow: Int, hheap: Handle): Hdpa =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaCreateEx(cpgrow, (hheap?.value ?: 0L))
 
 public actual fun dpaDeleteAllPtrs(hdpa: Hdpa): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs(hdpa.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaDeleteAllPtrs(hdpa)
 
 public actual fun dpaDeletePtr(hdpa: Hdpa, i: Int): COpaquePointer? =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaDeletePtr(hdpa.toLong(), i).let { if (it == 0L) null else COpaquePointer(it) }
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaDeletePtr(hdpa, i).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun dpaDestroy(hdpa: Hdpa): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaDestroy(hdpa.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaDestroy(hdpa)
 
 public actual fun dpaDestroyCallback(hdpa: Hdpa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?) {
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaDestroyCallback(hdpa.toLong(), 0L, (pdata?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaDestroyCallback(hdpa, 0L, (pdata?.value ?: 0L))
 }
 
 public actual fun dpaEnumCallback(hdpa: Hdpa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?) {
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaEnumCallback(hdpa.toLong(), 0L, (pdata?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaEnumCallback(hdpa, 0L, (pdata?.value ?: 0L))
 }
 
 public actual fun dpaGetPtr(hdpa: Hdpa, i: Long): COpaquePointer? =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaGetPtr(hdpa.toLong(), i).let { if (it == 0L) null else COpaquePointer(it) }
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaGetPtr(hdpa, i).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun dpaGetPtrIndex(hdpa: Hdpa, p: COpaquePointer?): Int =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaGetPtrIndex(hdpa.toLong(), (p?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaGetPtrIndex(hdpa, (p?.value ?: 0L))
 
 public actual fun dpaGetSize(hdpa: Hdpa): ULong =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaGetSize(hdpa.toLong()).toULong()
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaGetSize(hdpa).toULong()
 
 public actual fun dpaGrow(pdpa: Hdpa, cp: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaGrow(pdpa.toLong(), cp)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaGrow(pdpa, cp)
 
 public actual fun dpaInsertPtr(hdpa: Hdpa, i: Int, p: COpaquePointer?): Int =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaInsertPtr(hdpa.toLong(), i, (p?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaInsertPtr(hdpa, i, (p?.value ?: 0L))
 
 public actual fun dpaLoadStream(phdpa: COpaquePointer?, pfn: Pfndpastream, pstream: COpaquePointer?, pvinstdata: COpaquePointer?): Hresult =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaLoadStream((phdpa?.value ?: 0L), 0L, (pstream?.value ?: 0L), (pvinstdata?.value ?: 0L))
 
 public actual fun dpaMerge(hdpadest: Hdpa, hdpasrc: Hdpa, dwflags: UInt, pfncompare: Pfndacompare, pfnmerge: Pfndpamerge, lparam: Lparam): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaMerge(hdpadest.toLong(), hdpasrc.toLong(), dwflags.toInt(), 0L, 0L, lparam)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaMerge(hdpadest, hdpasrc, dwflags.toInt(), 0L, 0L, lparam)
 
 public actual fun dpaSaveStream(hdpa: Hdpa, pfn: Pfndpastream, pstream: COpaquePointer?, pvinstdata: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaSaveStream(hdpa.toLong(), 0L, (pstream?.value ?: 0L), (pvinstdata?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaSaveStream(hdpa, 0L, (pstream?.value ?: 0L), (pvinstdata?.value ?: 0L))
 
 public actual fun dpaSearch(hdpa: Hdpa, pfind: COpaquePointer?, istart: Int, pfncompare: Pfndacompare, lparam: Lparam, options: UInt): Int =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaSearch(hdpa.toLong(), (pfind?.value ?: 0L), istart, 0L, lparam, options.toInt())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaSearch(hdpa, (pfind?.value ?: 0L), istart, 0L, lparam, options.toInt())
 
 public actual fun dpaSetPtr(hdpa: Hdpa, i: Int, p: COpaquePointer?): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaSetPtr(hdpa.toLong(), i, (p?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaSetPtr(hdpa, i, (p?.value ?: 0L))
 
 public actual fun dpaSort(hdpa: Hdpa, pfncompare: Pfndacompare, lparam: Lparam): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaSort(hdpa.toLong(), 0L, lparam)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dpaSort(hdpa, 0L, lparam)
 
 public actual fun dsaClone(hdsa: Hdsa): Hdsa =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaClone(hdsa.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaClone(hdsa)
 
 public actual fun dsaCreate(cbitem: Int, citemgrow: Int): Hdsa =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaCreate(cbitem, citemgrow)
 
 public actual fun dsaDeleteAllItems(hdsa: Hdsa): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaDeleteAllItems(hdsa.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaDeleteAllItems(hdsa)
 
 public actual fun dsaDeleteItem(hdsa: Hdsa, i: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaDeleteItem(hdsa.toLong(), i)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaDeleteItem(hdsa, i)
 
 public actual fun dsaDestroy(hdsa: Hdsa): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaDestroy(hdsa.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaDestroy(hdsa)
 
 public actual fun dsaDestroyCallback(hdsa: Hdsa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?) {
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaDestroyCallback(hdsa.toLong(), 0L, (pdata?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaDestroyCallback(hdsa, 0L, (pdata?.value ?: 0L))
 }
 
 public actual fun dsaEnumCallback(hdsa: Hdsa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?) {
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaEnumCallback(hdsa.toLong(), 0L, (pdata?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaEnumCallback(hdsa, 0L, (pdata?.value ?: 0L))
 }
 
 public actual fun dsaGetItem(hdsa: Hdsa, i: Int, pitem: COpaquePointer?): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaGetItem(hdsa.toLong(), i, (pitem?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaGetItem(hdsa, i, (pitem?.value ?: 0L))
 
 public actual fun dsaGetItemPtr(hdsa: Hdsa, i: Int): COpaquePointer? =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaGetItemPtr(hdsa.toLong(), i).let { if (it == 0L) null else COpaquePointer(it) }
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaGetItemPtr(hdsa, i).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun dsaGetSize(hdsa: Hdsa): ULong =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaGetSize(hdsa.toLong()).toULong()
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaGetSize(hdsa).toULong()
 
 public actual fun dsaInsertItem(hdsa: Hdsa, i: Int, pitem: COpaquePointer?): Int =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaInsertItem(hdsa.toLong(), i, (pitem?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaInsertItem(hdsa, i, (pitem?.value ?: 0L))
 
 public actual fun dsaSetItem(hdsa: Hdsa, i: Int, pitem: COpaquePointer?): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaSetItem(hdsa.toLong(), i, (pitem?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaSetItem(hdsa, i, (pitem?.value ?: 0L))
 
 public actual fun dsaSort(pdsa: Hdsa, pfncompare: Pfndacompare, lparam: Lparam): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaSort(pdsa.toLong(), 0L, lparam)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_dsaSort(pdsa, 0L, lparam)
 
 public actual fun destroyPropertySheetPage(param0: Hpropsheetpage): Bool =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_destroyPropertySheetPage((param0?.value ?: 0L))
@@ -879,16 +879,16 @@ public actual fun drawStatusTextW(hdc: Hdc, lprc: COpaquePointer?, psztext: Pcws
 }
 
 public actual fun drawThemeBackground(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, prect: COpaquePointer?, pcliprect: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeBackground(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (prect?.value ?: 0L), (pcliprect?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeBackground(htheme, (hdc?.value ?: 0L), ipartid, istateid, (prect?.value ?: 0L), (pcliprect?.value ?: 0L))
 
 public actual fun drawThemeBackgroundEx(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, prect: COpaquePointer?, poptions: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeBackgroundEx(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (prect?.value ?: 0L), (poptions?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeBackgroundEx(htheme, (hdc?.value ?: 0L), ipartid, istateid, (prect?.value ?: 0L), (poptions?.value ?: 0L))
 
 public actual fun drawThemeEdge(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, pdestrect: COpaquePointer?, uedge: DrawedgeFlags, uflags: DrawEdgeFlags, pcontentrect: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeEdge(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (pdestrect?.value ?: 0L), uedge.toInt(), uflags.toInt(), (pcontentrect?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeEdge(htheme, (hdc?.value ?: 0L), ipartid, istateid, (pdestrect?.value ?: 0L), uedge.toInt(), uflags.toInt(), (pcontentrect?.value ?: 0L))
 
 public actual fun drawThemeIcon(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, prect: COpaquePointer?, himl: Himagelist, iimageindex: Int): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeIcon(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (prect?.value ?: 0L), himl.toLong(), iimageindex)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeIcon(htheme, (hdc?.value ?: 0L), ipartid, istateid, (prect?.value ?: 0L), himl, iimageindex)
 
 public actual fun drawThemeParentBackground(hwnd: Hwnd, hdc: Hdc, prc: COpaquePointer?): Hresult =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeParentBackground((hwnd?.value ?: 0L), (hdc?.value ?: 0L), (prc?.value ?: 0L))
@@ -897,10 +897,10 @@ public actual fun drawThemeParentBackgroundEx(hwnd: Hwnd, hdc: Hdc, dwflags: Dra
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeParentBackgroundEx((hwnd?.value ?: 0L), (hdc?.value ?: 0L), dwflags.toInt(), (prc?.value ?: 0L))
 
 public actual fun drawThemeText(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, psztext: Pcwstr, cchtext: Int, dwtextflags: DrawTextFormat, dwtextflags2: UInt, prect: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeText(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (psztext?.value ?: 0L), cchtext, dwtextflags.toInt(), dwtextflags2.toInt(), (prect?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeText(htheme, (hdc?.value ?: 0L), ipartid, istateid, (psztext?.value ?: 0L), cchtext, dwtextflags.toInt(), dwtextflags2.toInt(), (prect?.value ?: 0L))
 
 public actual fun drawThemeTextEx(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, psztext: Pcwstr, cchtext: Int, dwtextflags: DrawTextFormat, prect: COpaquePointer?, poptions: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeTextEx(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (psztext?.value ?: 0L), cchtext, dwtextflags.toInt(), (prect?.value ?: 0L), (poptions?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_drawThemeTextEx(htheme, (hdc?.value ?: 0L), ipartid, istateid, (psztext?.value ?: 0L), cchtext, dwtextflags.toInt(), (prect?.value ?: 0L), (poptions?.value ?: 0L))
 
 public actual fun enableScrollBar(hwnd: Hwnd, wsbflags: UInt, warrows: EnableScrollBarArrows): Bool =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_enableScrollBar((hwnd?.value ?: 0L), wsbflags.toInt(), warrows.toInt())
@@ -985,106 +985,106 @@ public actual fun getMUILanguage(): UShort =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getMUILanguage().toUShort()
 
 public actual fun getThemeAnimationProperty(htheme: Htheme, istoryboardid: Int, itargetid: Int, eproperty: TaProperty, pvproperty: COpaquePointer?, cbsize: UInt, pcbsizeout: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeAnimationProperty(htheme.toLong(), istoryboardid, itargetid, eproperty, (pvproperty?.value ?: 0L), cbsize.toInt(), (pcbsizeout?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeAnimationProperty(htheme, istoryboardid, itargetid, eproperty, (pvproperty?.value ?: 0L), cbsize.toInt(), (pcbsizeout?.value ?: 0L))
 
 public actual fun getThemeAnimationTransform(htheme: Htheme, istoryboardid: Int, itargetid: Int, dwtransformindex: UInt, ptransform: COpaquePointer?, cbsize: UInt, pcbsizeout: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeAnimationTransform(htheme.toLong(), istoryboardid, itargetid, dwtransformindex.toInt(), (ptransform?.value ?: 0L), cbsize.toInt(), (pcbsizeout?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeAnimationTransform(htheme, istoryboardid, itargetid, dwtransformindex.toInt(), (ptransform?.value ?: 0L), cbsize.toInt(), (pcbsizeout?.value ?: 0L))
 
 public actual fun getThemeAppProperties(): SetThemeAppPropertiesFlags =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeAppProperties().toUInt()
 
 public actual fun getThemeBackgroundContentRect(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, pboundingrect: COpaquePointer?, pcontentrect: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBackgroundContentRect(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (pboundingrect?.value ?: 0L), (pcontentrect?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBackgroundContentRect(htheme, (hdc?.value ?: 0L), ipartid, istateid, (pboundingrect?.value ?: 0L), (pcontentrect?.value ?: 0L))
 
 public actual fun getThemeBackgroundExtent(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, pcontentrect: COpaquePointer?, pextentrect: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBackgroundExtent(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (pcontentrect?.value ?: 0L), (pextentrect?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBackgroundExtent(htheme, (hdc?.value ?: 0L), ipartid, istateid, (pcontentrect?.value ?: 0L), (pextentrect?.value ?: 0L))
 
 public actual fun getThemeBackgroundRegion(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, prect: COpaquePointer?, pregion: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBackgroundRegion(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (prect?.value ?: 0L), (pregion?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBackgroundRegion(htheme, (hdc?.value ?: 0L), ipartid, istateid, (prect?.value ?: 0L), (pregion?.value ?: 0L))
 
 public actual fun getThemeBitmap(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, dwflags: GetThemeBitmapFlags, phbitmap: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBitmap(htheme.toLong(), ipartid, istateid, ipropid, dwflags.toInt(), (phbitmap?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBitmap(htheme, ipartid, istateid, ipropid, dwflags.toInt(), (phbitmap?.value ?: 0L))
 
 public actual fun getThemeBool(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, pfval: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBool(htheme.toLong(), ipartid, istateid, ipropid, (pfval?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeBool(htheme, ipartid, istateid, ipropid, (pfval?.value ?: 0L))
 
 public actual fun getThemeColor(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, pcolor: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeColor(htheme.toLong(), ipartid, istateid, ipropid, (pcolor?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeColor(htheme, ipartid, istateid, ipropid, (pcolor?.value ?: 0L))
 
 public actual fun getThemeDocumentationProperty(pszthemename: Pcwstr, pszpropertyname: Pcwstr, pszvaluebuff: Pwstr, cchmaxvalchars: Int): Hresult =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeDocumentationProperty((pszthemename?.value ?: 0L), (pszpropertyname?.value ?: 0L), (pszvaluebuff?.value ?: 0L), cchmaxvalchars)
 
 public actual fun getThemeEnumValue(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, pival: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeEnumValue(htheme.toLong(), ipartid, istateid, ipropid, (pival?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeEnumValue(htheme, ipartid, istateid, ipropid, (pival?.value ?: 0L))
 
 public actual fun getThemeFilename(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, pszthemefilename: Pwstr, cchmaxbuffchars: Int): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeFilename(htheme.toLong(), ipartid, istateid, ipropid, (pszthemefilename?.value ?: 0L), cchmaxbuffchars)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeFilename(htheme, ipartid, istateid, ipropid, (pszthemefilename?.value ?: 0L), cchmaxbuffchars)
 
 public actual fun getThemeFont(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, ipropid: Int, pfont: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeFont(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, ipropid, (pfont?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeFont(htheme, (hdc?.value ?: 0L), ipartid, istateid, ipropid, (pfont?.value ?: 0L))
 
 public actual fun getThemeInt(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, pival: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeInt(htheme.toLong(), ipartid, istateid, ipropid, (pival?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeInt(htheme, ipartid, istateid, ipropid, (pival?.value ?: 0L))
 
 public actual fun getThemeIntList(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, pintlist: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeIntList(htheme.toLong(), ipartid, istateid, ipropid, (pintlist?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeIntList(htheme, ipartid, istateid, ipropid, (pintlist?.value ?: 0L))
 
 public actual fun getThemeMargins(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, ipropid: Int, prc: COpaquePointer?, pmargins: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeMargins(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, ipropid, (prc?.value ?: 0L), (pmargins?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeMargins(htheme, (hdc?.value ?: 0L), ipartid, istateid, ipropid, (prc?.value ?: 0L), (pmargins?.value ?: 0L))
 
 public actual fun getThemeMetric(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, ipropid: Int, pival: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeMetric(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, ipropid, (pival?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeMetric(htheme, (hdc?.value ?: 0L), ipartid, istateid, ipropid, (pival?.value ?: 0L))
 
 public actual fun getThemePartSize(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, prc: COpaquePointer?, esize: Themesize, psz: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemePartSize(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (prc?.value ?: 0L), esize, (psz?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemePartSize(htheme, (hdc?.value ?: 0L), ipartid, istateid, (prc?.value ?: 0L), esize, (psz?.value ?: 0L))
 
 public actual fun getThemePosition(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, ppoint: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemePosition(htheme.toLong(), ipartid, istateid, ipropid, (ppoint?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemePosition(htheme, ipartid, istateid, ipropid, (ppoint?.value ?: 0L))
 
 public actual fun getThemePropertyOrigin(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, porigin: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemePropertyOrigin(htheme.toLong(), ipartid, istateid, ipropid, (porigin?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemePropertyOrigin(htheme, ipartid, istateid, ipropid, (porigin?.value ?: 0L))
 
 public actual fun getThemeRect(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, prect: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeRect(htheme.toLong(), ipartid, istateid, ipropid, (prect?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeRect(htheme, ipartid, istateid, ipropid, (prect?.value ?: 0L))
 
 public actual fun getThemeStream(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, ppvstream: COpaquePointer?, pcbstream: COpaquePointer?, hinst: Hinstance): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeStream(htheme.toLong(), ipartid, istateid, ipropid, (ppvstream?.value ?: 0L), (pcbstream?.value ?: 0L), (hinst?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeStream(htheme, ipartid, istateid, ipropid, (ppvstream?.value ?: 0L), (pcbstream?.value ?: 0L), (hinst?.value ?: 0L))
 
 public actual fun getThemeString(htheme: Htheme, ipartid: Int, istateid: Int, ipropid: Int, pszbuff: Pwstr, cchmaxbuffchars: Int): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeString(htheme.toLong(), ipartid, istateid, ipropid, (pszbuff?.value ?: 0L), cchmaxbuffchars)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeString(htheme, ipartid, istateid, ipropid, (pszbuff?.value ?: 0L), cchmaxbuffchars)
 
 public actual fun getThemeSysBool(htheme: Htheme, iboolid: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysBool(htheme.toLong(), iboolid)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysBool(htheme, iboolid)
 
 public actual fun getThemeSysColor(htheme: Htheme, icolorid: Int): Colorref =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysColor(htheme.toLong(), icolorid).toUInt()
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysColor(htheme, icolorid).toUInt()
 
 public actual fun getThemeSysColorBrush(htheme: Htheme, icolorid: Int): Hbrush =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysColorBrush(htheme.toLong(), icolorid).let { if (it == 0L) null else COpaquePointer(it) }
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysColorBrush(htheme, icolorid).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun getThemeSysFont(htheme: Htheme, ifontid: Int, plf: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysFont(htheme.toLong(), ifontid, (plf?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysFont(htheme, ifontid, (plf?.value ?: 0L))
 
 public actual fun getThemeSysInt(htheme: Htheme, iintid: Int, pivalue: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysInt(htheme.toLong(), iintid, (pivalue?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysInt(htheme, iintid, (pivalue?.value ?: 0L))
 
 public actual fun getThemeSysSize(htheme: Htheme, isizeid: Int): Int =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysSize(htheme.toLong(), isizeid)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysSize(htheme, isizeid)
 
 public actual fun getThemeSysString(htheme: Htheme, istringid: Int, pszstringbuff: Pwstr, cchmaxstringchars: Int): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysString(htheme.toLong(), istringid, (pszstringbuff?.value ?: 0L), cchmaxstringchars)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeSysString(htheme, istringid, (pszstringbuff?.value ?: 0L), cchmaxstringchars)
 
 public actual fun getThemeTextExtent(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, psztext: Pcwstr, cchcharcount: Int, dwtextflags: DrawTextFormat, pboundingrect: COpaquePointer?, pextentrect: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeTextExtent(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (psztext?.value ?: 0L), cchcharcount, dwtextflags.toInt(), (pboundingrect?.value ?: 0L), (pextentrect?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeTextExtent(htheme, (hdc?.value ?: 0L), ipartid, istateid, (psztext?.value ?: 0L), cchcharcount, dwtextflags.toInt(), (pboundingrect?.value ?: 0L), (pextentrect?.value ?: 0L))
 
 public actual fun getThemeTextMetrics(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, ptm: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeTextMetrics(htheme.toLong(), (hdc?.value ?: 0L), ipartid, istateid, (ptm?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeTextMetrics(htheme, (hdc?.value ?: 0L), ipartid, istateid, (ptm?.value ?: 0L))
 
 public actual fun getThemeTimingFunction(htheme: Htheme, itimingfunctionid: Int, ptimingfunction: COpaquePointer?, cbsize: UInt, pcbsizeout: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeTimingFunction(htheme.toLong(), itimingfunctionid, (ptimingfunction?.value ?: 0L), cbsize.toInt(), (pcbsizeout?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeTimingFunction(htheme, itimingfunctionid, (ptimingfunction?.value ?: 0L), cbsize.toInt(), (pcbsizeout?.value ?: 0L))
 
 public actual fun getThemeTransitionDuration(htheme: Htheme, ipartid: Int, istateidfrom: Int, istateidto: Int, ipropid: Int, pdwduration: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeTransitionDuration(htheme.toLong(), ipartid, istateidfrom, istateidto, ipropid, (pdwduration?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getThemeTransitionDuration(htheme, ipartid, istateidfrom, istateidto, ipropid, (pdwduration?.value ?: 0L))
 
 public actual fun getWindowFeedbackSetting(hwnd: Hwnd, feedback: FeedbackType, dwflags: UInt, psize: COpaquePointer?, config: COpaquePointer?): Bool =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getWindowFeedbackSetting((hwnd?.value ?: 0L), feedback, dwflags.toInt(), (psize?.value ?: 0L), (config?.value ?: 0L))
@@ -1093,31 +1093,31 @@ public actual fun getWindowTheme(hwnd: Hwnd): Htheme =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_getWindowTheme((hwnd?.value ?: 0L))
 
 public actual fun himagelistQueryInterface(himl: Himagelist, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_himagelistQueryInterface(himl.toLong(), (riid?.value ?: 0L), (ppv?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_himagelistQueryInterface(himl, (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
 public actual fun hitTestThemeBackground(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, dwoptions: HitTestBackgroundOptions, prect: COpaquePointer?, hrgn: Hrgn, pttest: Point, pwhittestcode: COpaquePointer?): Hresult =
     0
 
 public actual fun imageListAdd(himl: Himagelist, hbmimage: Hbitmap, hbmmask: Hbitmap): Int =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListAdd(himl.toLong(), (hbmimage?.value ?: 0L), (hbmmask?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListAdd(himl, (hbmimage?.value ?: 0L), (hbmmask?.value ?: 0L))
 
 public actual fun imageListAddMasked(himl: Himagelist, hbmimage: Hbitmap, crmask: Colorref): Int =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListAddMasked(himl.toLong(), (hbmimage?.value ?: 0L), crmask.toInt())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListAddMasked(himl, (hbmimage?.value ?: 0L), crmask.toInt())
 
 public actual fun imageListBeginDrag(himltrack: Himagelist, itrack: Int, dxhotspot: Int, dyhotspot: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListBeginDrag(himltrack.toLong(), itrack, dxhotspot, dyhotspot)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListBeginDrag(himltrack, itrack, dxhotspot, dyhotspot)
 
 public actual fun imageListCoCreateInstance(rclsid: COpaquePointer?, punkouter: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListCoCreateInstance((rclsid?.value ?: 0L), (punkouter?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
 public actual fun imageListCopy(himldst: Himagelist, idst: Int, himlsrc: Himagelist, isrc: Int, uflags: ImageListCopyFlags): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListCopy(himldst.toLong(), idst, himlsrc.toLong(), isrc, uflags.toInt())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListCopy(himldst, idst, himlsrc, isrc, uflags.toInt())
 
 public actual fun imageListCreate(cx: Int, cy: Int, flags: ImagelistCreationFlags, cinitial: Int, cgrow: Int): Himagelist =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListCreate(cx, cy, flags.toInt(), cinitial, cgrow)
 
 public actual fun imageListDestroy(himl: Himagelist): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDestroy(himl.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDestroy(himl)
 
 public actual fun imageListDragEnter(hwndlock: Hwnd, x: Int, y: Int): Bool =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDragEnter((hwndlock?.value ?: 0L), x, y)
@@ -1132,38 +1132,38 @@ public actual fun imageListDragShowNolock(fshow: Bool): Bool =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDragShowNolock(fshow)
 
 public actual fun imageListDraw(himl: Himagelist, i: Int, hdcdst: Hdc, x: Int, y: Int, fstyle: ImageListDrawStyle): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDraw(himl.toLong(), i, (hdcdst?.value ?: 0L), x, y, fstyle.toInt())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDraw(himl, i, (hdcdst?.value ?: 0L), x, y, fstyle.toInt())
 
 public actual fun imageListDrawEx(himl: Himagelist, i: Int, hdcdst: Hdc, x: Int, y: Int, dx: Int, dy: Int, rgbbk: Colorref, rgbfg: Colorref, fstyle: ImageListDrawStyle): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDrawEx(himl.toLong(), i, (hdcdst?.value ?: 0L), x, y, dx, dy, rgbbk.toInt(), rgbfg.toInt(), fstyle.toInt())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDrawEx(himl, i, (hdcdst?.value ?: 0L), x, y, dx, dy, rgbbk.toInt(), rgbfg.toInt(), fstyle.toInt())
 
 public actual fun imageListDrawIndirect(pimldp: COpaquePointer?): Bool =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDrawIndirect((pimldp?.value ?: 0L))
 
 public actual fun imageListDuplicate(himl: Himagelist): Himagelist =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDuplicate(himl.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListDuplicate(himl)
 
 public actual fun imageListEndDrag() {
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListEndDrag()
 }
 
 public actual fun imageListGetBkColor(himl: Himagelist): Colorref =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetBkColor(himl.toLong()).toUInt()
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetBkColor(himl).toUInt()
 
 public actual fun imageListGetDragImage(ppt: COpaquePointer?, ppthotspot: COpaquePointer?): Himagelist =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetDragImage((ppt?.value ?: 0L), (ppthotspot?.value ?: 0L))
 
 public actual fun imageListGetIcon(himl: Himagelist, i: Int, flags: ImageListDrawStyle): Hicon =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetIcon(himl.toLong(), i, flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetIcon(himl, i, flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
 public actual fun imageListGetIconSize(himl: Himagelist, cx: COpaquePointer?, cy: COpaquePointer?): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetIconSize(himl.toLong(), (cx?.value ?: 0L), (cy?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetIconSize(himl, (cx?.value ?: 0L), (cy?.value ?: 0L))
 
 public actual fun imageListGetImageCount(himl: Himagelist): Int =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetImageCount(himl.toLong())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetImageCount(himl)
 
 public actual fun imageListGetImageInfo(himl: Himagelist, i: Int, pimageinfo: COpaquePointer?): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetImageInfo(himl.toLong(), i, (pimageinfo?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListGetImageInfo(himl, i, (pimageinfo?.value ?: 0L))
 
 public actual fun imageListLoadImageA(hi: Hinstance, lpbmp: Pcstr, cx: Int, cgrow: Int, crmask: Colorref, utype: UInt, uflags: ImageFlags): Himagelist =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListLoadImageA((hi?.value ?: 0L), (lpbmp?.value ?: 0L), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt())
@@ -1172,7 +1172,7 @@ public actual fun imageListLoadImageW(hi: Hinstance, lpbmp: Pcwstr, cx: Int, cgr
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListLoadImageW((hi?.value ?: 0L), (lpbmp?.value ?: 0L), cx, cgrow, crmask.toInt(), utype.toInt(), uflags.toInt())
 
 public actual fun imageListMerge(himl1: Himagelist, i1: Int, himl2: Himagelist, i2: Int, dx: Int, dy: Int): Himagelist =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListMerge(himl1.toLong(), i1, himl2.toLong(), i2, dx, dy)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListMerge(himl1, i1, himl2, i2, dx, dy)
 
 public actual fun imageListRead(pstm: COpaquePointer?): Himagelist =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListRead((pstm?.value ?: 0L))
@@ -1181,34 +1181,34 @@ public actual fun imageListReadEx(dwflags: UInt, pstm: COpaquePointer?, riid: CO
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListReadEx(dwflags.toInt(), (pstm?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
 public actual fun imageListRemove(himl: Himagelist, i: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListRemove(himl.toLong(), i)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListRemove(himl, i)
 
 public actual fun imageListReplace(himl: Himagelist, i: Int, hbmimage: Hbitmap, hbmmask: Hbitmap): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListReplace(himl.toLong(), i, (hbmimage?.value ?: 0L), (hbmmask?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListReplace(himl, i, (hbmimage?.value ?: 0L), (hbmmask?.value ?: 0L))
 
 public actual fun imageListReplaceIcon(himl: Himagelist, i: Int, hicon: Hicon): Int =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListReplaceIcon(himl.toLong(), i, (hicon?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListReplaceIcon(himl, i, (hicon?.value ?: 0L))
 
 public actual fun imageListSetBkColor(himl: Himagelist, clrbk: Colorref): Colorref =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetBkColor(himl.toLong(), clrbk.toInt()).toUInt()
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetBkColor(himl, clrbk.toInt()).toUInt()
 
 public actual fun imageListSetDragCursorImage(himldrag: Himagelist, idrag: Int, dxhotspot: Int, dyhotspot: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetDragCursorImage(himldrag.toLong(), idrag, dxhotspot, dyhotspot)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetDragCursorImage(himldrag, idrag, dxhotspot, dyhotspot)
 
 public actual fun imageListSetIconSize(himl: Himagelist, cx: Int, cy: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetIconSize(himl.toLong(), cx, cy)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetIconSize(himl, cx, cy)
 
 public actual fun imageListSetImageCount(himl: Himagelist, unewcount: UInt): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetImageCount(himl.toLong(), unewcount.toInt())
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetImageCount(himl, unewcount.toInt())
 
 public actual fun imageListSetOverlayImage(himl: Himagelist, iimage: Int, ioverlay: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetOverlayImage(himl.toLong(), iimage, ioverlay)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListSetOverlayImage(himl, iimage, ioverlay)
 
 public actual fun imageListWrite(himl: Himagelist, pstm: COpaquePointer?): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListWrite(himl.toLong(), (pstm?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListWrite(himl, (pstm?.value ?: 0L))
 
 public actual fun imageListWriteEx(himl: Himagelist, dwflags: ImageListWriteStreamFlags, pstm: COpaquePointer?): Hresult =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListWriteEx(himl.toLong(), dwflags.toInt(), (pstm?.value ?: 0L))
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_imageListWriteEx(himl, dwflags.toInt(), (pstm?.value ?: 0L))
 
 public actual fun initCommonControls() {
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_initCommonControls()
@@ -1240,13 +1240,13 @@ public actual fun isThemeActive(): Bool =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_isThemeActive()
 
 public actual fun isThemeBackgroundPartiallyTransparent(htheme: Htheme, ipartid: Int, istateid: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_isThemeBackgroundPartiallyTransparent(htheme.toLong(), ipartid, istateid)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_isThemeBackgroundPartiallyTransparent(htheme, ipartid, istateid)
 
 public actual fun isThemeDialogTextureEnabled(hwnd: Hwnd): Bool =
     WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_isThemeDialogTextureEnabled((hwnd?.value ?: 0L))
 
 public actual fun isThemePartDefined(htheme: Htheme, ipartid: Int, istateid: Int): Bool =
-    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_isThemePartDefined(htheme.toLong(), ipartid, istateid)
+    WindowsWin32UiControlsJniBridge.windowssys_windows_win32_ui_controls_isThemePartDefined(htheme, ipartid, istateid)
 
 public actual fun lBItemFromPt(hlb: Hwnd, pt: Point, bautoscroll: Bool): Int =
     0

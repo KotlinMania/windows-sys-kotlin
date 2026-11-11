@@ -1038,7 +1038,7 @@ public class WireVariant0(
     public var decVal: Decimal = Decimal(),
     public var pdecVal: Decimal? = null,
     public var pcVal: Pstr = null,
-    public var puiVal: UShort? = null,
+    public var puiVal: COpaquePointer? = null,
     public var pulVal: UInt? = null,
     public var pullVal: ULong? = null,
     public var pintVal: Int? = null,

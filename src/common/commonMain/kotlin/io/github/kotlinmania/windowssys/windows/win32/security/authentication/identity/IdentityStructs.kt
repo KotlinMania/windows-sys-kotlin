@@ -2207,7 +2207,7 @@ public data class SecurityPackageOptions(
 public data class SecurityString(
     public var length: UShort = 0u,
     public var maximumLength: UShort = 0u,
-    public var buffer: UShort? = null,
+    public var buffer: COpaquePointer? = null,
 )
 
 public data class SecurityUserData(
@@ -2304,7 +2304,7 @@ public data class SecFlags(
 public data class SecNegotiationInfo(
     public var size: UInt = 0u,
     public var nameLength: UInt = 0u,
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var reserved: COpaquePointer? = null,
 )
 
@@ -2508,14 +2508,14 @@ public data class SecWinntAuthIdentityExa(
 public data class SecWinntAuthIdentityExw(
     public var version: UInt = 0u,
     public var length: UInt = 0u,
-    public var user: UShort? = null,
+    public var user: COpaquePointer? = null,
     public var userLength: UInt = 0u,
-    public var domain: UShort? = null,
+    public var domain: COpaquePointer? = null,
     public var domainLength: UInt = 0u,
-    public var password: UShort? = null,
+    public var password: COpaquePointer? = null,
     public var passwordLength: UInt = 0u,
     public var flags: UInt = 0u,
-    public var packageList: UShort? = null,
+    public var packageList: COpaquePointer? = null,
     public var packageListLength: UInt = 0u,
 )
 

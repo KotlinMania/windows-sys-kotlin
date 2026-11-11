@@ -101,7 +101,7 @@ public class EvtVariant0(
     public var int32Arr: Int? = null,
     public var int64Arr: Long? = null,
     public var byteArr: COpaquePointer? = null,
-    public var uInt16Arr: UShort? = null,
+    public var uInt16Arr: COpaquePointer? = null,
     public var uInt32Arr: UInt? = null,
     public var uInt64Arr: ULong? = null,
     public var singleArr: Float? = null,

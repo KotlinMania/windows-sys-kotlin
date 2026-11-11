@@ -105,7 +105,7 @@ public data class SecPkgContextAuthorityA(
 )
 
 public data class SecPkgContextAuthorityW(
-    public var sAuthorityName: UShort? = null,
+    public var sAuthorityName: COpaquePointer? = null,
 )
 
 public data class SecPkgContextAuthzId(
@@ -202,7 +202,7 @@ public data class SecPkgContextClientCertPolicyResult(
 )
 
 public data class SecPkgContextClientSpecifiedTarget(
-    public var sTargetName: UShort? = null,
+    public var sTargetName: COpaquePointer? = null,
 )
 
 public data class SecPkgContextConnectionInfo(
@@ -264,7 +264,7 @@ public data class SecPkgContextCredentialNameA(
 
 public data class SecPkgContextCredentialNameW(
     public var credentialType: UInt = 0u,
-    public var sCredentialName: UShort? = null,
+    public var sCredentialName: COpaquePointer? = null,
 )
 
 public data class SecPkgContextDceInfo(
@@ -319,8 +319,8 @@ public data class SecPkgContextKeyInfoA(
 )
 
 public data class SecPkgContextKeyInfoW(
-    public var sSignatureAlgorithmName: UShort? = null,
-    public var sEncryptAlgorithmName: UShort? = null,
+    public var sSignatureAlgorithmName: COpaquePointer? = null,
+    public var sEncryptAlgorithmName: COpaquePointer? = null,
     public var keySize: UInt = 0u,
     public var signatureAlgorithm: UInt = 0u,
     public var encryptAlgorithm: UInt = 0u,
@@ -379,7 +379,7 @@ public data class SecPkgContextNamesA(
 )
 
 public data class SecPkgContextNamesW(
-    public var sUserName: UShort? = null,
+    public var sUserName: COpaquePointer? = null,
 )
 
 public data class SecPkgContextNativeNamesA(
@@ -388,8 +388,8 @@ public data class SecPkgContextNativeNamesA(
 )
 
 public data class SecPkgContextNativeNamesW(
-    public var sClientName: UShort? = null,
-    public var sServerName: UShort? = null,
+    public var sClientName: COpaquePointer? = null,
+    public var sServerName: COpaquePointer? = null,
 )
 
 public data class SecPkgContextNegoKeys(
@@ -411,7 +411,7 @@ public data class SecPkgContextNegoStatus(
 
 public data class SecPkgContextNegotiatedTlsExtensions(
     public var extensionsCount: UInt = 0u,
-    public var extensions: UShort? = null,
+    public var extensions: COpaquePointer? = null,
 )
 
 public data class SecPkgContextNegotiationInfoA(
@@ -443,7 +443,7 @@ public data class SecPkgContextProtoInfoA(
 )
 
 public data class SecPkgContextProtoInfoW(
-    public var sProtocolName: UShort? = null,
+    public var sProtocolName: COpaquePointer? = null,
     public var majorVersion: UInt = 0u,
     public var minorVersion: UInt = 0u,
 )
@@ -520,7 +520,7 @@ public data class SecPkgContextSubjectAttributes(
 
 public data class SecPkgContextSupportedSignatures(
     public var cSignatureAndHashAlgorithms: UShort = 0u,
-    public var pSignatureAndHashAlgorithms: UShort? = null,
+    public var pSignatureAndHashAlgorithms: COpaquePointer? = null,
 )
 
 public data class SecPkgContextTarget(
@@ -623,7 +623,7 @@ public data class SecPkgCredentialsNamesA(
 )
 
 public data class SecPkgCredentialsNamesW(
-    public var sUserName: UShort? = null,
+    public var sUserName: COpaquePointer? = null,
 )
 
 public data class SecPkgCredentialsSsiproviderA(
@@ -633,7 +633,7 @@ public data class SecPkgCredentialsSsiproviderA(
 )
 
 public data class SecPkgCredentialsSsiproviderW(
-    public var sProviderName: UShort? = null,
+    public var sProviderName: COpaquePointer? = null,
     public var providerInfoLength: UInt = 0u,
     public var providerInfo: Pstr = null,
 )
@@ -652,8 +652,8 @@ public data class SecPkgInfoW(
     public var wVersion: UShort = 0u,
     public var wRPCID: UShort = 0u,
     public var cbMaxToken: UInt = 0u,
-    public var name: UShort? = null,
-    public var comment: UShort? = null,
+    public var name: COpaquePointer? = null,
+    public var comment: COpaquePointer? = null,
 )
 
 public class SecurityFunctionTableA(

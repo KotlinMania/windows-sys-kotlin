@@ -834,40 +834,40 @@ public actual fun initializeSecurityContextW(phcredential: COpaquePointer?, phco
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_initializeSecurityContextW((phcredential?.value ?: 0L), (phcontext?.value ?: 0L), (psztargetname?.value ?: 0L), fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), (pinput?.value ?: 0L), reserved2.toInt(), (phnewcontext?.value ?: 0L), (poutput?.value ?: 0L), (pfcontextattr?.value ?: 0L), (ptsexpiry?.value ?: 0L))
 
 public actual fun lsaAddAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: COpaquePointer?, countofrights: UInt): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaAddAccountRights(policyhandle.toLong(), (accountsid?.value ?: 0L), (userrights?.value ?: 0L), countofrights.toInt())
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaAddAccountRights(policyhandle, (accountsid?.value ?: 0L), (userrights?.value ?: 0L), countofrights.toInt())
 
 public actual fun lsaCallAuthenticationPackage(lsahandle: Handle, authenticationpackage: UInt, protocolsubmitbuffer: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaCallAuthenticationPackage((lsahandle?.value ?: 0L), authenticationpackage.toInt(), (protocolsubmitbuffer?.value ?: 0L), submitbufferlength.toInt(), (protocolreturnbuffer?.value ?: 0L), (returnbufferlength?.value ?: 0L), (protocolstatus?.value ?: 0L))
 
 public actual fun lsaClose(objecthandle: LsaHandle): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaClose(objecthandle.toLong())
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaClose(objecthandle)
 
 public actual fun lsaConnectUntrusted(lsahandle: COpaquePointer?): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaConnectUntrusted((lsahandle?.value ?: 0L))
 
 public actual fun lsaCreateTrustedDomainEx(policyhandle: LsaHandle, trusteddomaininformation: COpaquePointer?, authenticationinformation: COpaquePointer?, desiredaccess: UInt, trusteddomainhandle: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaCreateTrustedDomainEx(policyhandle.toLong(), (trusteddomaininformation?.value ?: 0L), (authenticationinformation?.value ?: 0L), desiredaccess.toInt(), (trusteddomainhandle?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaCreateTrustedDomainEx(policyhandle, (trusteddomaininformation?.value ?: 0L), (authenticationinformation?.value ?: 0L), desiredaccess.toInt(), (trusteddomainhandle?.value ?: 0L))
 
 public actual fun lsaDeleteTrustedDomain(policyhandle: LsaHandle, trusteddomainsid: Psid): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaDeleteTrustedDomain(policyhandle.toLong(), (trusteddomainsid?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaDeleteTrustedDomain(policyhandle, (trusteddomainsid?.value ?: 0L))
 
 public actual fun lsaDeregisterLogonProcess(lsahandle: Handle): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaDeregisterLogonProcess((lsahandle?.value ?: 0L))
 
 public actual fun lsaEnumerateAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: COpaquePointer?, countofrights: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountRights(policyhandle.toLong(), (accountsid?.value ?: 0L), (userrights?.value ?: 0L), (countofrights?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountRights(policyhandle, (accountsid?.value ?: 0L), (userrights?.value ?: 0L), (countofrights?.value ?: 0L))
 
 public actual fun lsaEnumerateAccountsWithUserRight(policyhandle: LsaHandle, userright: COpaquePointer?, buffer: COpaquePointer?, countreturned: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountsWithUserRight(policyhandle.toLong(), (userright?.value ?: 0L), (buffer?.value ?: 0L), (countreturned?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountsWithUserRight(policyhandle, (userright?.value ?: 0L), (buffer?.value ?: 0L), (countreturned?.value ?: 0L))
 
 public actual fun lsaEnumerateLogonSessions(logonsessioncount: COpaquePointer?, logonsessionlist: COpaquePointer?): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaEnumerateLogonSessions((logonsessioncount?.value ?: 0L), (logonsessionlist?.value ?: 0L))
 
 public actual fun lsaEnumerateTrustedDomains(policyhandle: LsaHandle, enumerationcontext: COpaquePointer?, buffer: COpaquePointer?, preferedmaximumlength: UInt, countreturned: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomains(policyhandle.toLong(), (enumerationcontext?.value ?: 0L), (buffer?.value ?: 0L), preferedmaximumlength.toInt(), (countreturned?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomains(policyhandle, (enumerationcontext?.value ?: 0L), (buffer?.value ?: 0L), preferedmaximumlength.toInt(), (countreturned?.value ?: 0L))
 
 public actual fun lsaEnumerateTrustedDomainsEx(policyhandle: LsaHandle, enumerationcontext: COpaquePointer?, buffer: COpaquePointer?, preferedmaximumlength: UInt, countreturned: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomainsEx(policyhandle.toLong(), (enumerationcontext?.value ?: 0L), (buffer?.value ?: 0L), preferedmaximumlength.toInt(), (countreturned?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomainsEx(policyhandle, (enumerationcontext?.value ?: 0L), (buffer?.value ?: 0L), preferedmaximumlength.toInt(), (countreturned?.value ?: 0L))
 
 public actual fun lsaFreeMemory(buffer: COpaquePointer?): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaFreeMemory((buffer?.value ?: 0L))
@@ -888,16 +888,16 @@ public actual fun lsaLookupAuthenticationPackage(lsahandle: Handle, packagename:
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaLookupAuthenticationPackage((lsahandle?.value ?: 0L), (packagename?.value ?: 0L), (authenticationpackage?.value ?: 0L))
 
 public actual fun lsaLookupNames(policyhandle: LsaHandle, count: UInt, names: COpaquePointer?, referenceddomains: COpaquePointer?, sids: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaLookupNames(policyhandle.toLong(), count.toInt(), (names?.value ?: 0L), (referenceddomains?.value ?: 0L), (sids?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaLookupNames(policyhandle, count.toInt(), (names?.value ?: 0L), (referenceddomains?.value ?: 0L), (sids?.value ?: 0L))
 
 public actual fun lsaLookupNames2(policyhandle: LsaHandle, flags: UInt, count: UInt, names: COpaquePointer?, referenceddomains: COpaquePointer?, sids: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaLookupNames2(policyhandle.toLong(), flags.toInt(), count.toInt(), (names?.value ?: 0L), (referenceddomains?.value ?: 0L), (sids?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaLookupNames2(policyhandle, flags.toInt(), count.toInt(), (names?.value ?: 0L), (referenceddomains?.value ?: 0L), (sids?.value ?: 0L))
 
 public actual fun lsaLookupSids(policyhandle: LsaHandle, count: UInt, sids: COpaquePointer?, referenceddomains: COpaquePointer?, names: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaLookupSids(policyhandle.toLong(), count.toInt(), (sids?.value ?: 0L), (referenceddomains?.value ?: 0L), (names?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaLookupSids(policyhandle, count.toInt(), (sids?.value ?: 0L), (referenceddomains?.value ?: 0L), (names?.value ?: 0L))
 
 public actual fun lsaLookupSids2(policyhandle: LsaHandle, lookupoptions: UInt, count: UInt, sids: COpaquePointer?, referenceddomains: COpaquePointer?, names: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaLookupSids2(policyhandle.toLong(), lookupoptions.toInt(), count.toInt(), (sids?.value ?: 0L), (referenceddomains?.value ?: 0L), (names?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaLookupSids2(policyhandle, lookupoptions.toInt(), count.toInt(), (sids?.value ?: 0L), (referenceddomains?.value ?: 0L), (names?.value ?: 0L))
 
 public actual fun lsaNtStatusToWinError(status: Ntstatus): UInt =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaNtStatusToWinError(status).toUInt()
@@ -906,28 +906,28 @@ public actual fun lsaOpenPolicy(systemname: COpaquePointer?, objectattributes: C
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaOpenPolicy((systemname?.value ?: 0L), (objectattributes?.value ?: 0L), desiredaccess.toInt(), (policyhandle?.value ?: 0L))
 
 public actual fun lsaOpenTrustedDomainByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, desiredaccess: UInt, trusteddomainhandle: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaOpenTrustedDomainByName(policyhandle.toLong(), (trusteddomainname?.value ?: 0L), desiredaccess.toInt(), (trusteddomainhandle?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaOpenTrustedDomainByName(policyhandle, (trusteddomainname?.value ?: 0L), desiredaccess.toInt(), (trusteddomainhandle?.value ?: 0L))
 
 public actual fun lsaQueryCAPs(capids: COpaquePointer?, capidcount: UInt, caps: COpaquePointer?, capcount: COpaquePointer?): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryCAPs((capids?.value ?: 0L), capidcount.toInt(), (caps?.value ?: 0L), (capcount?.value ?: 0L))
 
 public actual fun lsaQueryDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryDomainInformationPolicy(policyhandle.toLong(), informationclass, (buffer?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryDomainInformationPolicy(policyhandle, informationclass, (buffer?.value ?: 0L))
 
 public actual fun lsaQueryForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, foresttrustinfo: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation(policyhandle.toLong(), (trusteddomainname?.value ?: 0L), (foresttrustinfo?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation(policyhandle, (trusteddomainname?.value ?: 0L), (foresttrustinfo?.value ?: 0L))
 
 public actual fun lsaQueryForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation2(policyhandle.toLong(), (trusteddomainname?.value ?: 0L), highestrecordtype, (foresttrustinfo?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation2(policyhandle, (trusteddomainname?.value ?: 0L), highestrecordtype, (foresttrustinfo?.value ?: 0L))
 
 public actual fun lsaQueryInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryInformationPolicy(policyhandle.toLong(), informationclass, (buffer?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryInformationPolicy(policyhandle, informationclass, (buffer?.value ?: 0L))
 
 public actual fun lsaQueryTrustedDomainInfo(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfo(policyhandle.toLong(), (trusteddomainsid?.value ?: 0L), informationclass, (buffer?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfo(policyhandle, (trusteddomainsid?.value ?: 0L), informationclass, (buffer?.value ?: 0L))
 
 public actual fun lsaQueryTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfoByName(policyhandle.toLong(), (trusteddomainname?.value ?: 0L), informationclass, (buffer?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfoByName(policyhandle, (trusteddomainname?.value ?: 0L), informationclass, (buffer?.value ?: 0L))
 
 public actual fun lsaRegisterLogonProcess(logonprocessname: COpaquePointer?, lsahandle: COpaquePointer?, securitymode: COpaquePointer?): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaRegisterLogonProcess((logonprocessname?.value ?: 0L), (lsahandle?.value ?: 0L), (securitymode?.value ?: 0L))
@@ -936,34 +936,34 @@ public actual fun lsaRegisterPolicyChangeNotification(informationclass: PolicyNo
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaRegisterPolicyChangeNotification(informationclass, (notificationeventhandle?.value ?: 0L))
 
 public actual fun lsaRemoveAccountRights(policyhandle: LsaHandle, accountsid: Psid, allrights: Boolean, userrights: COpaquePointer?, countofrights: UInt): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaRemoveAccountRights(policyhandle.toLong(), (accountsid?.value ?: 0L), allrights, (userrights?.value ?: 0L), countofrights.toInt())
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaRemoveAccountRights(policyhandle, (accountsid?.value ?: 0L), allrights, (userrights?.value ?: 0L), countofrights.toInt())
 
 public actual fun lsaRetrievePrivateData(policyhandle: LsaHandle, keyname: COpaquePointer?, privatedata: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaRetrievePrivateData(policyhandle.toLong(), (keyname?.value ?: 0L), (privatedata?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaRetrievePrivateData(policyhandle, (keyname?.value ?: 0L), (privatedata?.value ?: 0L))
 
 public actual fun lsaSetCAPs(capdns: COpaquePointer?, capdncount: UInt, flags: UInt): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetCAPs((capdns?.value ?: 0L), capdncount.toInt(), flags.toInt())
 
 public actual fun lsaSetDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetDomainInformationPolicy(policyhandle.toLong(), informationclass, (buffer?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetDomainInformationPolicy(policyhandle, informationclass, (buffer?.value ?: 0L))
 
 public actual fun lsaSetForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, foresttrustinfo: COpaquePointer?, checkonly: Boolean, collisioninfo: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation(policyhandle.toLong(), (trusteddomainname?.value ?: 0L), (foresttrustinfo?.value ?: 0L), checkonly, (collisioninfo?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation(policyhandle, (trusteddomainname?.value ?: 0L), (foresttrustinfo?.value ?: 0L), checkonly, (collisioninfo?.value ?: 0L))
 
 public actual fun lsaSetForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: COpaquePointer?, checkonly: Boolean, collisioninfo: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation2(policyhandle.toLong(), (trusteddomainname?.value ?: 0L), highestrecordtype, (foresttrustinfo?.value ?: 0L), checkonly, (collisioninfo?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation2(policyhandle, (trusteddomainname?.value ?: 0L), highestrecordtype, (foresttrustinfo?.value ?: 0L), checkonly, (collisioninfo?.value ?: 0L))
 
 public actual fun lsaSetInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetInformationPolicy(policyhandle.toLong(), informationclass, (buffer?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetInformationPolicy(policyhandle, informationclass, (buffer?.value ?: 0L))
 
 public actual fun lsaSetTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInfoByName(policyhandle.toLong(), (trusteddomainname?.value ?: 0L), informationclass, (buffer?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInfoByName(policyhandle, (trusteddomainname?.value ?: 0L), informationclass, (buffer?.value ?: 0L))
 
 public actual fun lsaSetTrustedDomainInformation(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInformation(policyhandle.toLong(), (trusteddomainsid?.value ?: 0L), informationclass, (buffer?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInformation(policyhandle, (trusteddomainsid?.value ?: 0L), informationclass, (buffer?.value ?: 0L))
 
 public actual fun lsaStorePrivateData(policyhandle: LsaHandle, keyname: COpaquePointer?, privatedata: COpaquePointer?): Ntstatus =
-    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaStorePrivateData(policyhandle.toLong(), (keyname?.value ?: 0L), (privatedata?.value ?: 0L))
+    WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaStorePrivateData(policyhandle, (keyname?.value ?: 0L), (privatedata?.value ?: 0L))
 
 public actual fun lsaUnregisterPolicyChangeNotification(informationclass: PolicyNotificationInformationClass, notificationeventhandle: Handle): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssys_windows_win32_security_authentication_identity_lsaUnregisterPolicyChangeNotification(informationclass, (notificationeventhandle?.value ?: 0L))

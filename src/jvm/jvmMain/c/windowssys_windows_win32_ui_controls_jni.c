@@ -572,17 +572,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dpaClone(JNIEnv* km_env, jclass km_clazz, jlong hdpa, jlong hdpanew) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dpaClone(JNIEnv* km_env, jclass km_clazz, jlong hdpa, jlong hdpanew) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DPA_Clone");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((int64_t)hdpa, (int64_t)hdpanew);
     } else {
@@ -593,22 +593,22 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)hdpa;
     (void)hdpanew;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dpaCreate(JNIEnv* km_env, jclass km_clazz, jint citemgrow) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dpaCreate(JNIEnv* km_env, jclass km_clazz, jint citemgrow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DPA_Create");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((int32_t)citemgrow);
     } else {
@@ -618,22 +618,22 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
 #else
     (void)citemgrow;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dpaCreateEx(JNIEnv* km_env, jclass km_clazz, jint cpgrow, jlong hheap) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dpaCreateEx(JNIEnv* km_env, jclass km_clazz, jint cpgrow, jlong hheap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DPA_CreateEx");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((int32_t)cpgrow, (void*)(uintptr_t)hheap);
     } else {
@@ -644,9 +644,9 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)cpgrow;
     (void)hheap;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
 JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dpaDeleteAllPtrs(JNIEnv* km_env, jclass km_clazz, jlong hdpa) {
@@ -1071,17 +1071,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dsaClone(JNIEnv* km_env, jclass km_clazz, jlong hdsa) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dsaClone(JNIEnv* km_env, jclass km_clazz, jlong hdsa) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DSA_Clone");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((int64_t)hdsa);
     } else {
@@ -1091,22 +1091,22 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
 #else
     (void)hdsa;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dsaCreate(JNIEnv* km_env, jclass km_clazz, jint cbitem, jint citemgrow) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dsaCreate(JNIEnv* km_env, jclass km_clazz, jint cbitem, jint citemgrow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DSA_Create");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((int32_t)cbitem, (int32_t)citemgrow);
     } else {
@@ -1117,9 +1117,9 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)cbitem;
     (void)citemgrow;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
 JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1dsaDeleteAllItems(JNIEnv* km_env, jclass km_clazz, jlong hdsa) {
@@ -3757,17 +3757,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1getWindowTheme(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1getWindowTheme(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetWindowTheme");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((void*)(uintptr_t)hwnd);
     } else {
@@ -3777,9 +3777,9 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
 #else
     (void)hwnd;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
 JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1himagelistQueryInterface(JNIEnv* km_env, jclass km_clazz, jlong himl, jlong riid, jlong ppv) {
@@ -3948,17 +3948,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListCreate(JNIEnv* km_env, jclass km_clazz, jint cx, jint cy, jint flags, jint cinitial, jint cgrow) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListCreate(JNIEnv* km_env, jclass km_clazz, jint cx, jint cy, jint flags, jint cinitial, jint cgrow) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ImageList_Create");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((int32_t)cx, (int32_t)cy, (uint32_t)flags, (int32_t)cinitial, (int32_t)cgrow);
     } else {
@@ -3972,9 +3972,9 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)cinitial;
     (void)cgrow;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
 JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListDestroy(JNIEnv* km_env, jclass km_clazz, jlong himl) {
@@ -4194,17 +4194,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListDuplicate(JNIEnv* km_env, jclass km_clazz, jlong himl) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListDuplicate(JNIEnv* km_env, jclass km_clazz, jlong himl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ImageList_Duplicate");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((int64_t)himl);
     } else {
@@ -4214,9 +4214,9 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
 #else
     (void)himl;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
 JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListEndDrag(JNIEnv* km_env, jclass km_clazz) {
@@ -4264,17 +4264,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListGetDragImage(JNIEnv* km_env, jclass km_clazz, jlong ppt, jlong ppthotspot) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListGetDragImage(JNIEnv* km_env, jclass km_clazz, jlong ppt, jlong ppthotspot) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ImageList_GetDragImage");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((void*)(uintptr_t)ppt, (void*)(uintptr_t)ppthotspot);
     } else {
@@ -4285,9 +4285,9 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)ppt;
     (void)ppthotspot;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
 JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListGetIcon(JNIEnv* km_env, jclass km_clazz, jlong himl, jint i, jint flags) {
@@ -4396,17 +4396,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListLoadImageA(JNIEnv* km_env, jclass km_clazz, jlong hi, jlong lpbmp, jint cx, jint cgrow, jint crmask, jint utype, jint uflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListLoadImageA(JNIEnv* km_env, jclass km_clazz, jlong hi, jlong lpbmp, jint cx, jint cgrow, jint crmask, jint utype, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ImageList_LoadImageA");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((void*)(uintptr_t)hi, (void*)(uintptr_t)lpbmp, (int32_t)cx, (int32_t)cgrow, (uint32_t)crmask, (uint32_t)utype, (uint32_t)uflags);
     } else {
@@ -4422,22 +4422,22 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)utype;
     (void)uflags;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListLoadImageW(JNIEnv* km_env, jclass km_clazz, jlong hi, jlong lpbmp, jint cx, jint cgrow, jint crmask, jint utype, jint uflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListLoadImageW(JNIEnv* km_env, jclass km_clazz, jlong hi, jlong lpbmp, jint cx, jint cgrow, jint crmask, jint utype, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ImageList_LoadImageW");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((void*)(uintptr_t)hi, (void*)(uintptr_t)lpbmp, (int32_t)cx, (int32_t)cgrow, (uint32_t)crmask, (uint32_t)utype, (uint32_t)uflags);
     } else {
@@ -4453,22 +4453,22 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)utype;
     (void)uflags;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListMerge(JNIEnv* km_env, jclass km_clazz, jlong himl1, jint i1, jlong himl2, jint i2, jint dx, jint dy) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListMerge(JNIEnv* km_env, jclass km_clazz, jlong himl1, jint i1, jlong himl2, jint i2, jint dx, jint dy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t, int64_t, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ImageList_Merge");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((int64_t)himl1, (int32_t)i1, (int64_t)himl2, (int32_t)i2, (int32_t)dx, (int32_t)dy);
     } else {
@@ -4483,22 +4483,22 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)dx;
     (void)dy;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListRead(JNIEnv* km_env, jclass km_clazz, jlong pstm) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListRead(JNIEnv* km_env, jclass km_clazz, jlong pstm) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ImageList_Read");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((void*)(uintptr_t)pstm);
     } else {
@@ -4508,9 +4508,9 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
 #else
     (void)pstm;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
 JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1imageListReadEx(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pstm, jlong riid, jlong ppv) {
@@ -5211,17 +5211,17 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1openThemeData(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszclasslist) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1openThemeData(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszclasslist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenThemeData");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszclasslist);
     } else {
@@ -5232,22 +5232,22 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)hwnd;
     (void)pszclasslist;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1openThemeDataEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszclasslist, jint dwflags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1openThemeDataEx(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszclasslist, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("uxtheme.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenThemeDataEx");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszclasslist, (uint32_t)dwflags);
     } else {
@@ -5259,9 +5259,9 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)pszclasslist;
     (void)dwflags;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
 JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_controls_WindowsWin32UiControlsJniBridge_windowssys_1windows_1win32_1ui_1controls_1packTouchHitTestingProximityEvaluation(JNIEnv* km_env, jclass km_clazz, jlong phittestinginput, jlong pproximityeval) {

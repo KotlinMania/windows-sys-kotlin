@@ -617,10 +617,10 @@ public actual fun ldapGetDnW(ld: COpaquePointer?, entry: COpaquePointer?): Pwstr
     windowssys_windows_win32_networking_ldap_ldapGetDnW(ld?.value?.toCPointer<ByteVar>(), entry?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
 public actual fun ldapGetNextPage(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: COpaquePointer?): UInt =
-    windowssys_windows_win32_networking_ldap_ldapGetNextPage(externalhandle?.value?.toCPointer<ByteVar>(), searchhandle.toLong(), pagesize, messagenumber?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_networking_ldap_ldapGetNextPage(externalhandle?.value?.toCPointer<ByteVar>(), searchhandle, pagesize, messagenumber?.value?.toCPointer<ByteVar>())
 
 public actual fun ldapGetNextPageS(externalhandle: COpaquePointer?, searchhandle: PLDAPSearch, timeout: COpaquePointer?, pagesize: UInt, totalcount: COpaquePointer?, results: COpaquePointer?): UInt =
-    windowssys_windows_win32_networking_ldap_ldapGetNextPageS(externalhandle?.value?.toCPointer<ByteVar>(), searchhandle.toLong(), timeout?.value?.toCPointer<ByteVar>(), pagesize, totalcount?.value?.toCPointer<ByteVar>(), results?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_networking_ldap_ldapGetNextPageS(externalhandle?.value?.toCPointer<ByteVar>(), searchhandle, timeout?.value?.toCPointer<ByteVar>(), pagesize, totalcount?.value?.toCPointer<ByteVar>(), results?.value?.toCPointer<ByteVar>())
 
 public actual fun ldapGetOption(ld: COpaquePointer?, option: Int, outvalue: COpaquePointer?): UInt =
     windowssys_windows_win32_networking_ldap_ldapGetOption(ld?.value?.toCPointer<ByteVar>(), option, outvalue?.value?.toCPointer<ByteVar>())
@@ -629,7 +629,7 @@ public actual fun ldapGetOptionW(ld: COpaquePointer?, option: Int, outvalue: COp
     windowssys_windows_win32_networking_ldap_ldapGetOptionW(ld?.value?.toCPointer<ByteVar>(), option, outvalue?.value?.toCPointer<ByteVar>())
 
 public actual fun ldapGetPagedCount(externalhandle: COpaquePointer?, searchblock: PLDAPSearch, totalcount: COpaquePointer?, results: COpaquePointer?): UInt =
-    windowssys_windows_win32_networking_ldap_ldapGetPagedCount(externalhandle?.value?.toCPointer<ByteVar>(), searchblock.toLong(), totalcount?.value?.toCPointer<ByteVar>(), results?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_networking_ldap_ldapGetPagedCount(externalhandle?.value?.toCPointer<ByteVar>(), searchblock, totalcount?.value?.toCPointer<ByteVar>(), results?.value?.toCPointer<ByteVar>())
 
 public actual fun ldapGetValues(ld: COpaquePointer?, entry: COpaquePointer?, attr: Pcstr): COpaquePointer? =
     windowssys_windows_win32_networking_ldap_ldapGetValues(ld?.value?.toCPointer<ByteVar>(), entry?.value?.toCPointer<ByteVar>(), attr?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
@@ -867,7 +867,7 @@ public actual fun ldapSearchW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, fi
     windowssys_windows_win32_networking_ldap_ldapSearchW(ld?.value?.toCPointer<ByteVar>(), base?.value?.toCPointer<ByteVar>(), scope, filter?.value?.toCPointer<ByteVar>(), attrs?.value?.toCPointer<ByteVar>(), attrsonly)
 
 public actual fun ldapSearchAbandonPage(externalhandle: COpaquePointer?, searchblock: PLDAPSearch): UInt =
-    windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage(externalhandle?.value?.toCPointer<ByteVar>(), searchblock.toLong())
+    windowssys_windows_win32_networking_ldap_ldapSearchAbandonPage(externalhandle?.value?.toCPointer<ByteVar>(), searchblock)
 
 public actual fun ldapSearchExt(ld: COpaquePointer?, base: Pcstr, scope: UInt, filter: Pcstr, attrs: COpaquePointer?, attrsonly: UInt, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, timelimit: UInt, sizelimit: UInt, messagenumber: COpaquePointer?): UInt =
     windowssys_windows_win32_networking_ldap_ldapSearchExt(ld?.value?.toCPointer<ByteVar>(), base?.value?.toCPointer<ByteVar>(), scope, filter?.value?.toCPointer<ByteVar>(), attrs?.value?.toCPointer<ByteVar>(), attrsonly, servercontrols?.value?.toCPointer<ByteVar>(), clientcontrols?.value?.toCPointer<ByteVar>(), timelimit, sizelimit, messagenumber?.value?.toCPointer<ByteVar>())

@@ -304,13 +304,13 @@ public actual fun powerSettingRegisterNotification(settingguid: COpaquePointer?,
     windowssys_windows_win32_system_power_powerSettingRegisterNotification(settingguid?.value?.toCPointer<ByteVar>(), flags, recipient?.value?.toCPointer<ByteVar>(), registrationhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun powerSettingUnregisterNotification(registrationhandle: Hpowernotify): Win32Error =
-    windowssys_windows_win32_system_power_powerSettingUnregisterNotification(registrationhandle.toLong())
+    windowssys_windows_win32_system_power_powerSettingUnregisterNotification(registrationhandle)
 
 public actual fun powerUnregisterFromEffectivePowerModeNotifications(registrationhandle: COpaquePointer?): Hresult =
     windowssys_windows_win32_system_power_powerUnregisterFromEffectivePowerModeNotifications(registrationhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun powerUnregisterSuspendResumeNotification(registrationhandle: Hpowernotify): Win32Error =
-    windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotification(registrationhandle.toLong())
+    windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotification(registrationhandle)
 
 public actual fun powerWriteACDefaultIndex(rootsystempowerkey: Hkey, schemepersonalityguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, defaultacindex: UInt): UInt =
     windowssys_windows_win32_system_power_powerWriteACDefaultIndex(rootsystempowerkey?.value?.toCPointer<ByteVar>(), schemepersonalityguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), defaultacindex)
@@ -388,10 +388,10 @@ public actual fun setThreadExecutionState(esflags: ExecutionState): ExecutionSta
     windowssys_windows_win32_system_power_setThreadExecutionState(esflags)
 
 public actual fun unregisterPowerSettingNotification(handle: Hpowernotify): Bool =
-    windowssys_windows_win32_system_power_unregisterPowerSettingNotification(handle.toLong())
+    windowssys_windows_win32_system_power_unregisterPowerSettingNotification(handle)
 
 public actual fun unregisterSuspendResumeNotification(handle: Hpowernotify): Bool =
-    windowssys_windows_win32_system_power_unregisterSuspendResumeNotification(handle.toLong())
+    windowssys_windows_win32_system_power_unregisterSuspendResumeNotification(handle)
 
 public actual fun validatePowerPolicies(pglobalpowerpolicy: COpaquePointer?, ppowerpolicy: COpaquePointer?): Boolean =
     windowssys_windows_win32_system_power_validatePowerPolicies(pglobalpowerpolicy?.value?.toCPointer<ByteVar>(), ppowerpolicy?.value?.toCPointer<ByteVar>())

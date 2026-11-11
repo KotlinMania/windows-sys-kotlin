@@ -682,37 +682,37 @@ public actual fun jetMove(sesid: JetSesid, tableid: JetTableid, crow: Int, grbit
     windowssys_windows_win32_storage_jet_jetMove(sesid, tableid, crow, grbit)
 
 public actual fun jetOSSnapshotAbort(snapid: JetOssnapid, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotAbort(snapid.toULong(), grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotAbort(snapid, grbit)
 
 public actual fun jetOSSnapshotEnd(snapid: JetOssnapid, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotEnd(snapid.toULong(), grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotEnd(snapid, grbit)
 
 public actual fun jetOSSnapshotFreezeA(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA(snapid.toULong(), pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA(snapid, pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetOSSnapshotFreezeW(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW(snapid.toULong(), pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW(snapid, pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetOSSnapshotGetFreezeInfoA(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA(snapid.toULong(), pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA(snapid, pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetOSSnapshotGetFreezeInfoW(snapid: JetOssnapid, pcinstanceinfo: COpaquePointer?, painstanceinfo: COpaquePointer?, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW(snapid.toULong(), pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW(snapid, pcinstanceinfo?.value?.toCPointer<ByteVar>(), painstanceinfo?.value?.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetOSSnapshotPrepare(psnapid: COpaquePointer?, grbit: UInt): Int =
     windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare(psnapid?.value?.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetOSSnapshotPrepareInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance(snapid.toULong(), instance, grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance(snapid, instance, grbit)
 
 public actual fun jetOSSnapshotThaw(snapid: JetOssnapid, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotThaw(snapid.toULong(), grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotThaw(snapid, grbit)
 
 public actual fun jetOSSnapshotTruncateLog(snapid: JetOssnapid, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog(snapid.toULong(), grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog(snapid, grbit)
 
 public actual fun jetOSSnapshotTruncateLogInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance(snapid.toULong(), instance, grbit)
+    windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance(snapid, instance, grbit)
 
 public actual fun jetOpenDatabaseA(sesid: JetSesid, szfilename: COpaquePointer?, szconnect: COpaquePointer?, pdbid: COpaquePointer?, grbit: UInt): Int =
     windowssys_windows_win32_storage_jet_jetOpenDatabaseA(sesid, szfilename?.value?.toCPointer<ByteVar>(), szconnect?.value?.toCPointer<ByteVar>(), pdbid?.value?.toCPointer<ByteVar>(), grbit)
@@ -874,7 +874,7 @@ public actual fun jetSetIndexRange(sesid: JetSesid, tableidsrc: JetTableid, grbi
     windowssys_windows_win32_storage_jet_jetSetIndexRange(sesid, tableidsrc, grbit)
 
 public actual fun jetSetLS(sesid: JetSesid, tableid: JetTableid, ls: JetLs, grbit: UInt): Int =
-    windowssys_windows_win32_storage_jet_jetSetLS(sesid, tableid, ls.toULong(), grbit)
+    windowssys_windows_win32_storage_jet_jetSetLS(sesid, tableid, ls, grbit)
 
 public actual fun jetSetSessionContext(sesid: JetSesid, ulcontext: JetApiPtr): Int =
     windowssys_windows_win32_storage_jet_jetSetSessionContext(sesid, ulcontext)

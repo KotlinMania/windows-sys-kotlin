@@ -2298,17 +2298,17 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1registerPowerSettingNotification(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jlong powersettingguid, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1registerPowerSettingNotification(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jlong powersettingguid, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterPowerSettingNotification");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((void*)(uintptr_t)hrecipient, (void*)(uintptr_t)powersettingguid, (uint32_t)flags);
     } else {
@@ -2320,22 +2320,22 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)powersettingguid;
     (void)flags;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1registerSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1registerSuspendResumeNotification(JNIEnv* km_env, jclass km_clazz, jlong hrecipient, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterSuspendResumeNotification");
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != NULL) {
         km_res = km_fn_ptr((void*)(uintptr_t)hrecipient, (uint32_t)flags);
     } else {
@@ -2346,9 +2346,9 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)hrecipient;
     (void)flags;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return (jint)km_res;
+    return (jlong)km_res;
 }
 
 JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_power_WindowsWin32SystemPowerJniBridge_windowssys_1windows_1win32_1system_1power_1requestWakeupLatency(JNIEnv* km_env, jclass km_clazz, jint latency) {

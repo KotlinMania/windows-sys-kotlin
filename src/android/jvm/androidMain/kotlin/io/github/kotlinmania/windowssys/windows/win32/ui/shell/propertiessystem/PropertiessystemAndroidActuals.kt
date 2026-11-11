@@ -299,7 +299,7 @@ public actual fun pSGetNameFromPropertyKey(propkey: COpaquePointer?, ppszcanonic
     WindowsWin32UiShellPropertiessystemJniBridge.windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameFromPropertyKey((propkey?.value ?: 0L), (ppszcanonicalname?.value ?: 0L))
 
 public actual fun pSGetNamedPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, pszname: Pcwstr, ppropvar: COpaquePointer?): Hresult =
-    WindowsWin32UiShellPropertiessystemJniBridge.windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage(psps.toLong(), cb.toInt(), (pszname?.value ?: 0L), (ppropvar?.value ?: 0L))
+    WindowsWin32UiShellPropertiessystemJniBridge.windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamedPropertyFromPropertyStorage(psps, cb.toInt(), (pszname?.value ?: 0L), (ppropvar?.value ?: 0L))
 
 public actual fun pSGetPropertyDescription(propkey: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     WindowsWin32UiShellPropertiessystemJniBridge.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescription((propkey?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
@@ -311,7 +311,7 @@ public actual fun pSGetPropertyDescriptionListFromString(pszproplist: Pcwstr, ri
     WindowsWin32UiShellPropertiessystemJniBridge.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyDescriptionListFromString((pszproplist?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
 public actual fun pSGetPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, rpkey: COpaquePointer?, ppropvar: COpaquePointer?): Hresult =
-    WindowsWin32UiShellPropertiessystemJniBridge.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage(psps.toLong(), cb.toInt(), (rpkey?.value ?: 0L), (ppropvar?.value ?: 0L))
+    WindowsWin32UiShellPropertiessystemJniBridge.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyFromPropertyStorage(psps, cb.toInt(), (rpkey?.value ?: 0L), (ppropvar?.value ?: 0L))
 
 public actual fun pSGetPropertyKeyFromName(pszname: Pcwstr, ppropkey: COpaquePointer?): Hresult =
     WindowsWin32UiShellPropertiessystemJniBridge.windowssys_windows_win32_ui_shell_propertiessystem_pSGetPropertyKeyFromName((pszname?.value ?: 0L), (ppropkey?.value ?: 0L))

@@ -121,14 +121,14 @@ public actual fun wSManCloseOperation(operationhandle: WsmanOperationHandle, fla
     WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCloseOperation(operationhandle, flags.toInt()).toUInt()
 
 public actual fun wSManCloseSession(session: WsmanSessionHandle, flags: UInt): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCloseSession(session.toLong(), flags.toInt()).toUInt()
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCloseSession(session, flags.toInt()).toUInt()
 
 public actual fun wSManCloseShell(shellhandle: WsmanShellHandle, flags: UInt, async: COpaquePointer?) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCloseShell(shellhandle, flags.toInt(), (async?.value ?: 0L))
 }
 
 public actual fun wSManConnectShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, options: COpaquePointer?, connectxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManConnectShell(session.toLong(), flags.toInt(), (resourceuri?.value ?: 0L), (shellid?.value ?: 0L), (options?.value ?: 0L), (connectxml?.value ?: 0L), (async?.value ?: 0L), (shell?.value ?: 0L))
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManConnectShell(session, flags.toInt(), (resourceuri?.value ?: 0L), (shellid?.value ?: 0L), (options?.value ?: 0L), (connectxml?.value ?: 0L), (async?.value ?: 0L), (shell?.value ?: 0L))
 }
 
 public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, options: COpaquePointer?, connectxml: COpaquePointer?, async: COpaquePointer?, command: COpaquePointer?) {
@@ -136,31 +136,31 @@ public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt,
 }
 
 public actual fun wSManCreateSession(apihandle: WsmanApiHandle, connection: Pcwstr, flags: UInt, serverauthenticationcredentials: COpaquePointer?, proxyinfo: COpaquePointer?, session: COpaquePointer?): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCreateSession(apihandle.toLong(), (connection?.value ?: 0L), flags.toInt(), (serverauthenticationcredentials?.value ?: 0L), (proxyinfo?.value ?: 0L), (session?.value ?: 0L)).toUInt()
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCreateSession(apihandle, (connection?.value ?: 0L), flags.toInt(), (serverauthenticationcredentials?.value ?: 0L), (proxyinfo?.value ?: 0L), (session?.value ?: 0L)).toUInt()
 
 public actual fun wSManCreateShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, startupinfo: COpaquePointer?, options: COpaquePointer?, createxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCreateShell(session.toLong(), flags.toInt(), (resourceuri?.value ?: 0L), (startupinfo?.value ?: 0L), (options?.value ?: 0L), (createxml?.value ?: 0L), (async?.value ?: 0L), (shell?.value ?: 0L))
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCreateShell(session, flags.toInt(), (resourceuri?.value ?: 0L), (startupinfo?.value ?: 0L), (options?.value ?: 0L), (createxml?.value ?: 0L), (async?.value ?: 0L), (shell?.value ?: 0L))
 }
 
 public actual fun wSManCreateShellEx(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, startupinfo: COpaquePointer?, options: COpaquePointer?, createxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx(session.toLong(), flags.toInt(), (resourceuri?.value ?: 0L), (shellid?.value ?: 0L), (startupinfo?.value ?: 0L), (options?.value ?: 0L), (createxml?.value ?: 0L), (async?.value ?: 0L), (shell?.value ?: 0L))
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx(session, flags.toInt(), (resourceuri?.value ?: 0L), (shellid?.value ?: 0L), (startupinfo?.value ?: 0L), (options?.value ?: 0L), (createxml?.value ?: 0L), (async?.value ?: 0L), (shell?.value ?: 0L))
 }
 
 public actual fun wSManDeinitialize(apihandle: WsmanApiHandle, flags: UInt): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManDeinitialize(apihandle.toLong(), flags.toInt()).toUInt()
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManDeinitialize(apihandle, flags.toInt()).toUInt()
 
 public actual fun wSManDisconnectShell(shell: WsmanShellHandle, flags: UInt, disconnectinfo: COpaquePointer?, async: COpaquePointer?) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManDisconnectShell(shell, flags.toInt(), (disconnectinfo?.value ?: 0L), (async?.value ?: 0L))
 }
 
 public actual fun wSManGetErrorMessage(apihandle: WsmanApiHandle, flags: UInt, languagecode: Pcwstr, errorcode: UInt, messagelength: UInt, message: Pwstr, messagelengthused: COpaquePointer?): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage(apihandle.toLong(), flags.toInt(), (languagecode?.value ?: 0L), errorcode.toInt(), messagelength.toInt(), (message?.value ?: 0L), (messagelengthused?.value ?: 0L)).toUInt()
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage(apihandle, flags.toInt(), (languagecode?.value ?: 0L), errorcode.toInt(), messagelength.toInt(), (message?.value ?: 0L), (messagelengthused?.value ?: 0L)).toUInt()
 
 public actual fun wSManGetSessionOptionAsDword(session: WsmanSessionHandle, option: WSManSessionOption, value: COpaquePointer?): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword(session.toLong(), option, (value?.value ?: 0L)).toUInt()
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword(session, option, (value?.value ?: 0L)).toUInt()
 
 public actual fun wSManGetSessionOptionAsString(session: WsmanSessionHandle, option: WSManSessionOption, stringlength: UInt, string: Pwstr, stringlengthused: COpaquePointer?): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString(session.toLong(), option, stringlength.toInt(), (string?.value ?: 0L), (stringlengthused?.value ?: 0L)).toUInt()
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString(session, option, stringlength.toInt(), (string?.value ?: 0L), (stringlengthused?.value ?: 0L)).toUInt()
 
 public actual fun wSManInitialize(flags: UInt, apihandle: COpaquePointer?): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManInitialize(flags.toInt(), (apihandle?.value ?: 0L)).toUInt()
@@ -220,7 +220,7 @@ public actual fun wSManSendShellInput(shell: WsmanShellHandle, command: WsmanCom
 }
 
 public actual fun wSManSetSessionOption(session: WsmanSessionHandle, option: WSManSessionOption, data: COpaquePointer?): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption(session.toLong(), option, (data?.value ?: 0L)).toUInt()
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption(session, option, (data?.value ?: 0L)).toUInt()
 
 public actual fun wSManSignalShell(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, code: Pcwstr, async: COpaquePointer?, signaloperation: COpaquePointer?) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManSignalShell(shell, command, flags.toInt(), (code?.value ?: 0L), (async?.value ?: 0L), (signaloperation?.value ?: 0L))

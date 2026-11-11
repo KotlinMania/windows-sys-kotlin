@@ -381,7 +381,7 @@ public actual fun tdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: 
     WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor((eventfilterdescriptor?.value ?: 0L)).toUInt()
 
 public actual fun tdhCloseDecodingHandle(handle: TdhHandle): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle(handle.toLong()).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle(handle).toUInt()
 
 public actual fun tdhCreatePayloadFilter(providerguid: COpaquePointer?, eventdescriptor: COpaquePointer?, eventmatchany: Boolean, payloadpredicatecount: UInt, payloadpredicates: COpaquePointer?, payloadfilter: COpaquePointer?): UInt =
     WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter((providerguid?.value ?: 0L), (eventdescriptor?.value ?: 0L), eventmatchany, payloadpredicatecount.toInt(), (payloadpredicates?.value ?: 0L), (payloadfilter?.value ?: 0L)).toUInt()
@@ -408,7 +408,7 @@ public actual fun tdhFormatProperty(eventinfo: COpaquePointer?, mapinfo: COpaque
     WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty((eventinfo?.value ?: 0L), (mapinfo?.value ?: 0L), pointersize.toInt(), propertyintype.toShort(), propertyouttype.toShort(), propertylength.toShort(), userdatalength.toShort(), (userdata?.value ?: 0L), (buffersize?.value ?: 0L), (buffer?.value ?: 0L), (userdataconsumed?.value ?: 0L)).toUInt()
 
 public actual fun tdhGetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter(handle.toLong(), (tdhcontext?.value ?: 0L)).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter(handle, (tdhcontext?.value ?: 0L)).toUInt()
 
 public actual fun tdhGetEventInformation(event: COpaquePointer?, tdhcontextcount: UInt, tdhcontext: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
     WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation((event?.value ?: 0L), tdhcontextcount.toInt(), (tdhcontext?.value ?: 0L), (buffer?.value ?: 0L), (buffersize?.value ?: 0L)).toUInt()
@@ -426,10 +426,10 @@ public actual fun tdhGetPropertySize(pevent: COpaquePointer?, tdhcontextcount: U
     WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize((pevent?.value ?: 0L), tdhcontextcount.toInt(), (ptdhcontext?.value ?: 0L), propertydatacount.toInt(), (ppropertydata?.value ?: 0L), (ppropertysize?.value ?: 0L)).toUInt()
 
 public actual fun tdhGetWppMessage(handle: TdhHandle, eventrecord: COpaquePointer?, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage(handle.toLong(), (eventrecord?.value ?: 0L), (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage(handle, (eventrecord?.value ?: 0L), (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
 public actual fun tdhGetWppProperty(handle: TdhHandle, eventrecord: COpaquePointer?, propertyname: Pcwstr, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty(handle.toLong(), (eventrecord?.value ?: 0L), (propertyname?.value ?: 0L), (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty(handle, (eventrecord?.value ?: 0L), (propertyname?.value ?: 0L), (buffersize?.value ?: 0L), (buffer?.value ?: 0L)).toUInt()
 
 public actual fun tdhLoadManifest(manifest: Pcwstr): UInt =
     WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest((manifest?.value ?: 0L)).toUInt()
@@ -447,7 +447,7 @@ public actual fun tdhQueryProviderFieldInformation(pguid: COpaquePointer?, event
     WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation((pguid?.value ?: 0L), eventfieldvalue.toLong(), eventfieldtype, (pbuffer?.value ?: 0L), (pbuffersize?.value ?: 0L)).toUInt()
 
 public actual fun tdhSetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
-    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter(handle.toLong(), (tdhcontext?.value ?: 0L)).toUInt()
+    WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter(handle, (tdhcontext?.value ?: 0L)).toUInt()
 
 public actual fun tdhUnloadManifest(manifest: Pcwstr): UInt =
     WindowsWin32SystemDiagnosticsEtwJniBridge.windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest((manifest?.value ?: 0L)).toUInt()

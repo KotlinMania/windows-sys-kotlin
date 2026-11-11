@@ -272,10 +272,10 @@ private external fun _wasm_windowssys_windows_win32_system_power_readProcessorPw
 private external fun _wasm_windowssys_windows_win32_system_power_readPwrScheme(p0: Int, p1: String): Boolean
 
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_power_registerPowerSettingNotification(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_win32_system_power_registerPowerSettingNotification(p0: String, p1: String, p2: Int): Int
+private external fun _wasm_windowssys_windows_win32_system_power_registerPowerSettingNotification(p0: String, p1: String, p2: Int): String
 
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_power_registerSuspendResumeNotification(p0, p1)")
-private external fun _wasm_windowssys_windows_win32_system_power_registerSuspendResumeNotification(p0: String, p1: Int): Int
+private external fun _wasm_windowssys_windows_win32_system_power_registerSuspendResumeNotification(p0: String, p1: Int): String
 
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_system_power_requestWakeupLatency(p0)")
 private external fun _wasm_windowssys_windows_win32_system_power_requestWakeupLatency(p0: Int): Int
@@ -563,10 +563,10 @@ public actual fun readPwrScheme(uiid: UInt, ppowerpolicy: COpaquePointer?): Bool
     if (_windowsWin32SystemPowerNapiAvailable) _wasm_windowssys_windows_win32_system_power_readPwrScheme(uiid.toInt(), (ppowerpolicy?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerPowerSettingNotification(hrecipient: Handle, powersettingguid: COpaquePointer?, flags: RegisterNotificationFlags): Hpowernotify =
-    if (_windowsWin32SystemPowerNapiAvailable) _wasm_windowssys_windows_win32_system_power_registerPowerSettingNotification((hrecipient?.value ?: 0L).toString(), (powersettingguid?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32SystemPowerNapiAvailable) _wasm_windowssys_windows_win32_system_power_registerPowerSettingNotification((hrecipient?.value ?: 0L).toString(), (powersettingguid?.value ?: 0L).toString(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerSuspendResumeNotification(hrecipient: Handle, flags: RegisterNotificationFlags): Hpowernotify =
-    if (_windowsWin32SystemPowerNapiAvailable) _wasm_windowssys_windows_win32_system_power_registerSuspendResumeNotification((hrecipient?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+    if (_windowsWin32SystemPowerNapiAvailable) _wasm_windowssys_windows_win32_system_power_registerSuspendResumeNotification((hrecipient?.value ?: 0L).toString(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun requestWakeupLatency(latency: LatencyTime): Bool =
     if (_windowsWin32SystemPowerNapiAvailable) _wasm_windowssys_windows_win32_system_power_requestWakeupLatency(latency) else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -2365,29 +2365,6 @@ void windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete(void* devic
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(const char* path, void* firstname, void* remainingname) {
-#ifdef _WIN32
-    typedef void (__stdcall *km_fn_t)(const char*, void*, void*);
-    static km_fn_t km_fn_ptr = NULL;
-    if (km_fn_ptr == NULL) {
-        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
-        if (km_h_mod != NULL) {
-            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FsRtlDissectDbcs");
-        }
-    }
-    if (km_fn_ptr != NULL) {
-        km_fn_ptr(path, firstname, remainingname);
-        return;
-    }
-    errno = ENOSYS;
-#else
-    (void)path;
-    (void)firstname;
-    (void)remainingname;
-    errno = ENOSYS;
-#endif
-}
-
 bool windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards(void* name) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
@@ -3547,56 +3524,6 @@ uint32_t windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(uint32_
     (void)flags;
     errno = ENOSYS;
     return 0;
-#endif
-}
-
-bool windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(const char* dbcsname, bool wildcardspermissible, bool pathnamepermissible, bool leadingbackslashpermissible) {
-#ifdef _WIN32
-    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
-    static km_fn_t km_fn_ptr = NULL;
-    if (km_fn_ptr == NULL) {
-        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
-        if (km_h_mod != NULL) {
-            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FsRtlIsFatDbcsLegal");
-        }
-    }
-    if (km_fn_ptr != NULL) {
-        return km_fn_ptr(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible);
-    }
-    errno = ENOSYS;
-    return false;
-#else
-    (void)dbcsname;
-    (void)wildcardspermissible;
-    (void)pathnamepermissible;
-    (void)leadingbackslashpermissible;
-    errno = ENOSYS;
-    return false;
-#endif
-}
-
-bool windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(const char* dbcsname, bool wildcardspermissible, bool pathnamepermissible, bool leadingbackslashpermissible) {
-#ifdef _WIN32
-    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
-    static km_fn_t km_fn_ptr = NULL;
-    if (km_fn_ptr == NULL) {
-        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
-        if (km_h_mod != NULL) {
-            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FsRtlIsHpfsDbcsLegal");
-        }
-    }
-    if (km_fn_ptr != NULL) {
-        return km_fn_ptr(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible);
-    }
-    errno = ENOSYS;
-    return false;
-#else
-    (void)dbcsname;
-    (void)wildcardspermissible;
-    (void)pathnamepermissible;
-    (void)leadingbackslashpermissible;
-    errno = ENOSYS;
-    return false;
 #endif
 }
 

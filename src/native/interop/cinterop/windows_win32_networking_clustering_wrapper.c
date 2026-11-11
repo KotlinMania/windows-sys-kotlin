@@ -1771,9 +1771,9 @@ uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(int64_t hcluster) {
+int64_t windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(int64_t hcluster) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
@@ -1921,9 +1921,9 @@ uint32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(int64_t hcluster, void* lpsznodename, void* lpsznetworkname) {
+int64_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(int64_t hcluster, void* lpsznodename, void* lpsznetworkname) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
+    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");

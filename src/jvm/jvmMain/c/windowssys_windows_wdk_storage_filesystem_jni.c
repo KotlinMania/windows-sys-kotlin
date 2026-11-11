@@ -2552,30 +2552,6 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_storage
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_storage_filesystem_WindowsWdkStorageFilesystemJniBridge_windowssys_1windows_1wdk_1storage_1filesystem_1fsRtlDissectDbcs(JNIEnv* km_env, jclass km_clazz, jstring path, jlong firstname, jlong remainingname) {
-    (void)km_env;
-    (void)km_clazz;
-    const char* path_utf = (path != NULL) ? (*km_env)->GetStringUTFChars(km_env, path, NULL) : NULL;
-#ifdef _WIN32
-    typedef void (__stdcall *km_fn_t)(const char*, void*, void*);
-    static km_fn_t km_fn_ptr = NULL;
-    if (km_fn_ptr == NULL) {
-        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
-        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FsRtlDissectDbcs");
-    }
-    if (km_fn_ptr != NULL) {
-        km_fn_ptr(path_utf, (void*)(uintptr_t)firstname, (void*)(uintptr_t)remainingname);
-    } else {
-        errno = ENOSYS;
-    }
-#else
-    (void)firstname;
-    (void)remainingname;
-    errno = ENOSYS;
-#endif
-    if (path != NULL && path_utf != NULL) (*km_env)->ReleaseStringUTFChars(km_env, path, path_utf);
-}
-
 JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_storage_filesystem_WindowsWdkStorageFilesystemJniBridge_windowssys_1windows_1wdk_1storage_1filesystem_1fsRtlDoesDbcsContainWildCards(JNIEnv* km_env, jclass km_clazz, jlong name) {
     (void)km_env;
     (void)km_clazz;
@@ -3835,64 +3811,6 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_storage
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
-}
-
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_storage_filesystem_WindowsWdkStorageFilesystemJniBridge_windowssys_1windows_1wdk_1storage_1filesystem_1fsRtlIsFatDbcsLegal(JNIEnv* km_env, jclass km_clazz, jstring dbcsname, jboolean wildcardspermissible, jboolean pathnamepermissible, jboolean leadingbackslashpermissible) {
-    (void)km_env;
-    (void)km_clazz;
-    const char* dbcsname_utf = (dbcsname != NULL) ? (*km_env)->GetStringUTFChars(km_env, dbcsname, NULL) : NULL;
-#ifdef _WIN32
-    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
-    static km_fn_t km_fn_ptr = NULL;
-    if (km_fn_ptr == NULL) {
-        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
-        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FsRtlIsFatDbcsLegal");
-    }
-    bool km_res;
-    if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr(dbcsname_utf, (bool)wildcardspermissible, (bool)pathnamepermissible, (bool)leadingbackslashpermissible);
-    } else {
-        errno = ENOSYS;
-        km_res = false;
-    }
-#else
-    (void)wildcardspermissible;
-    (void)pathnamepermissible;
-    (void)leadingbackslashpermissible;
-    errno = ENOSYS;
-    bool km_res = false;
-#endif
-    if (dbcsname != NULL && dbcsname_utf != NULL) (*km_env)->ReleaseStringUTFChars(km_env, dbcsname, dbcsname_utf);
-    return (jboolean)km_res;
-}
-
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_storage_filesystem_WindowsWdkStorageFilesystemJniBridge_windowssys_1windows_1wdk_1storage_1filesystem_1fsRtlIsHpfsDbcsLegal(JNIEnv* km_env, jclass km_clazz, jstring dbcsname, jboolean wildcardspermissible, jboolean pathnamepermissible, jboolean leadingbackslashpermissible) {
-    (void)km_env;
-    (void)km_clazz;
-    const char* dbcsname_utf = (dbcsname != NULL) ? (*km_env)->GetStringUTFChars(km_env, dbcsname, NULL) : NULL;
-#ifdef _WIN32
-    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
-    static km_fn_t km_fn_ptr = NULL;
-    if (km_fn_ptr == NULL) {
-        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
-        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FsRtlIsHpfsDbcsLegal");
-    }
-    bool km_res;
-    if (km_fn_ptr != NULL) {
-        km_res = km_fn_ptr(dbcsname_utf, (bool)wildcardspermissible, (bool)pathnamepermissible, (bool)leadingbackslashpermissible);
-    } else {
-        errno = ENOSYS;
-        km_res = false;
-    }
-#else
-    (void)wildcardspermissible;
-    (void)pathnamepermissible;
-    (void)leadingbackslashpermissible;
-    errno = ENOSYS;
-    bool km_res = false;
-#endif
-    if (dbcsname != NULL && dbcsname_utf != NULL) (*km_env)->ReleaseStringUTFChars(km_env, dbcsname, dbcsname_utf);
-    return (jboolean)km_res;
 }
 
 JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_storage_filesystem_WindowsWdkStorageFilesystemJniBridge_windowssys_1windows_1wdk_1storage_1filesystem_1fsRtlIsMobileOS(JNIEnv* km_env, jclass km_clazz) {

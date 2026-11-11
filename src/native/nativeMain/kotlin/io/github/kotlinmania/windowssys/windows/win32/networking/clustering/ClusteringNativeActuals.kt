@@ -625,7 +625,7 @@ public actual fun clusterGroupOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcw
     windowssys_windows_win32_networking_clustering_clusterGroupOpenEnumEx(hcluster, lpszproperties?.value?.toCPointer<ByteVar>(), cbproperties, lpszroproperties?.value?.toCPointer<ByteVar>(), cbroproperties, dwflags)
 
 public actual fun clusterGroupSetCloseEnum(hgroupsetenum: Hgroupsetenum): UInt =
-    windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum(hgroupsetenum.toLong())
+    windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum(hgroupsetenum)
 
 public actual fun clusterGroupSetControl(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
     windowssys_windows_win32_networking_clustering_clusterGroupSetControl(hgroupset, hhostnode, dwcontrolcode, lpinbuffer?.value?.toCPointer<ByteVar>(), cbinbuffersize, lpoutbuffer?.value?.toCPointer<ByteVar>(), cboutbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>())
@@ -634,10 +634,10 @@ public actual fun clusterGroupSetControlEx(hgroupset: Hgroupset, hhostnode: Hnod
     windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx(hgroupset, hhostnode, dwcontrolcode, lpinbuffer?.value?.toCPointer<ByteVar>(), cbinbuffersize, lpoutbuffer?.value?.toCPointer<ByteVar>(), cboutbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>(), lpszreason?.value?.toCPointer<ByteVar>())
 
 public actual fun clusterGroupSetEnum(hgroupsetenum: Hgroupsetenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    windowssys_windows_win32_networking_clustering_clusterGroupSetEnum(hgroupsetenum.toLong(), dwindex, lpszname?.value?.toCPointer<ByteVar>(), lpcchname?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_networking_clustering_clusterGroupSetEnum(hgroupsetenum, dwindex, lpszname?.value?.toCPointer<ByteVar>(), lpcchname?.value?.toCPointer<ByteVar>())
 
 public actual fun clusterGroupSetGetEnumCount(hgroupsetenum: Hgroupsetenum): UInt =
-    windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(hgroupsetenum.toLong())
+    windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(hgroupsetenum)
 
 public actual fun clusterGroupSetOpenEnum(hcluster: Hcluster): Hgroupsetenum =
     windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(hcluster)
@@ -646,7 +646,7 @@ public actual fun clusterIsPathOnSharedVolume(lpszpathname: Pcwstr): Bool =
     windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume(lpszpathname?.value?.toCPointer<ByteVar>())
 
 public actual fun clusterNetInterfaceCloseEnum(hnetinterfaceenum: Hnetinterfaceenum): UInt =
-    windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum(hnetinterfaceenum.toLong())
+    windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum(hnetinterfaceenum)
 
 public actual fun clusterNetInterfaceControl(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
     windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl(hnetinterface, hhostnode, dwcontrolcode, lpinbuffer?.value?.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer?.value?.toCPointer<ByteVar>(), noutbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>())
@@ -655,7 +655,7 @@ public actual fun clusterNetInterfaceControlEx(hnetinterface: Hnetinterface, hho
     windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx(hnetinterface, hhostnode, dwcontrolcode, lpinbuffer?.value?.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer?.value?.toCPointer<ByteVar>(), noutbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>(), lpszreason?.value?.toCPointer<ByteVar>())
 
 public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
-    windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(hnetinterfaceenum.toLong(), dwindex, lpszname?.value?.toCPointer<ByteVar>(), lpcchname?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(hnetinterfaceenum, dwindex, lpszname?.value?.toCPointer<ByteVar>(), lpcchname?.value?.toCPointer<ByteVar>())
 
 public actual fun clusterNetInterfaceOpenEnum(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr): Hnetinterfaceenum =
     windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(hcluster, lpsznodename?.value?.toCPointer<ByteVar>(), lpsznetworkname?.value?.toCPointer<ByteVar>())

@@ -336,9 +336,6 @@ private external fun _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlDeregi
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete(p0, p1)")
 private external fun _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete(p0: String, p1: Int)
 
-@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(p0, p1, p2)")
-private external fun _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(p0: String?, p1: String, p2: String)
-
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards(p0)")
 private external fun _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards(p0: String): Boolean
 
@@ -488,12 +485,6 @@ private external fun _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpF
 
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(p0, p1, p2)")
 private external fun _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(p0: Int, p1: Int, p2: Int): Int
-
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(p0: String?, p1: Boolean, p2: Boolean, p3: Boolean): Boolean
-
-@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(p0, p1, p2, p3)")
-private external fun _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(p0: String?, p1: Boolean, p2: Boolean, p3: Boolean): Boolean
 
 @JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS()")
 private external fun _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS(): Boolean
@@ -2510,13 +2501,8 @@ public actual fun fsRtlDismountComplete(deviceobject: COpaquePointer?, dismounts
     }
 }
 
-public actual fun fsRtlDissectDbcs(path: String, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
-    if (_windowsWdkStorageFilesystemNapiAvailable) {
-        _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(path, (firstname?.value ?: 0L).toString(), (remainingname?.value ?: 0L).toString())
-    } else {
-        throw UnsupportedOperationException("Native FFI addon is not available")
-    }
-}
+public actual fun fsRtlDissectDbcs(path: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, firstname: COpaquePointer?, remainingname: COpaquePointer?): Unit =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI addon is not available")
@@ -2756,11 +2742,11 @@ public actual fun fsRtlIsEcpFromUserMode(ecpcontext: COpaquePointer?): Boolean =
 public actual fun fsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
     if (_windowsWdkStorageFilesystemNapiAvailable) _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(startpage.toInt(), numberofpages.toInt(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fsRtlIsFatDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAvailable) _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun fsRtlIsFatDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    if (_windowsWdkStorageFilesystemNapiAvailable) _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible) else throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun fsRtlIsMobileOS(): Boolean =
     if (_windowsWdkStorageFilesystemNapiAvailable) _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS() else throw UnsupportedOperationException("Native FFI addon is not available")

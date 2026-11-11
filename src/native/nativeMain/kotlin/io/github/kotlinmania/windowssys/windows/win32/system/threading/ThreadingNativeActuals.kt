@@ -431,15 +431,15 @@ public actual fun closePrivateNamespace(handle: Handle, flags: UInt): Boolean =
     windowssys_windows_win32_system_threading_closePrivateNamespace(handle?.value?.toCPointer<ByteVar>(), flags)
 
 public actual fun closeThreadpool(ptpp: PtpPool) {
-    windowssys_windows_win32_system_threading_closeThreadpool(ptpp.toLong())
+    windowssys_windows_win32_system_threading_closeThreadpool(ptpp)
 }
 
 public actual fun closeThreadpoolCleanupGroup(ptpcg: PtpCleanupGroup) {
-    windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(ptpcg.toLong())
+    windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(ptpcg)
 }
 
 public actual fun closeThreadpoolCleanupGroupMembers(ptpcg: PtpCleanupGroup, fcancelpendingcallbacks: Bool, pvcleanupcontext: COpaquePointer?) {
-    windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(ptpcg.toLong(), fcancelpendingcallbacks, pvcleanupcontext?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(ptpcg, fcancelpendingcallbacks, pvcleanupcontext?.value?.toCPointer<ByteVar>())
 }
 
 public actual fun closeThreadpoolIo(pio: PtpIo) {
@@ -1001,7 +1001,7 @@ public actual fun queryProtectedPolicy(policyguid: COpaquePointer?, policyvalue:
     windowssys_windows_win32_system_threading_queryProtectedPolicy(policyguid?.value?.toCPointer<ByteVar>(), policyvalue?.value?.toCPointer<ByteVar>())
 
 public actual fun queryThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(ptpp.toLong(), ptpsi?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(ptpp, ptpsi?.value?.toCPointer<ByteVar>())
 
 public actual fun queryUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt, returnlength: COpaquePointer?): Bool =
     windowssys_windows_win32_system_threading_queryUmsThreadInformation(umsthread?.value?.toCPointer<ByteVar>(), umsthreadinfoclass, umsthreadinformation?.value?.toCPointer<ByteVar>(), umsthreadinformationlength, returnlength?.value?.toCPointer<ByteVar>())
@@ -1237,14 +1237,14 @@ public actual fun setThreadToken(thread: COpaquePointer?, token: Handle): Bool =
     windowssys_windows_win32_system_threading_setThreadToken(thread?.value?.toCPointer<ByteVar>(), token?.value?.toCPointer<ByteVar>())
 
 public actual fun setThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
-    windowssys_windows_win32_system_threading_setThreadpoolStackInformation(ptpp.toLong(), ptpsi?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_threading_setThreadpoolStackInformation(ptpp, ptpsi?.value?.toCPointer<ByteVar>())
 
 public actual fun setThreadpoolThreadMaximum(ptpp: PtpPool, cthrdmost: UInt) {
-    windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(ptpp.toLong(), cthrdmost)
+    windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(ptpp, cthrdmost)
 }
 
 public actual fun setThreadpoolThreadMinimum(ptpp: PtpPool, cthrdmic: UInt): Bool =
-    windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(ptpp.toLong(), cthrdmic)
+    windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(ptpp, cthrdmic)
 
 public actual fun setThreadpoolTimer(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt) {
     windowssys_windows_win32_system_threading_setThreadpoolTimer(pti, pftduetime?.value?.toCPointer<ByteVar>(), msperiod, mswindowlength)

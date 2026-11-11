@@ -337,9 +337,6 @@ private object WindowsWdkStorageFilesystemJniBridge {
     external fun windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete(deviceobject: Long, dismountstatus: Int)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(path: String?, firstname: Long, remainingname: Long)
-
-    @JvmStatic
     external fun windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards(name: Long): Boolean
 
     @JvmStatic
@@ -488,12 +485,6 @@ private object WindowsWdkStorageFilesystemJniBridge {
 
     @JvmStatic
     external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(startpage: Int, numberofpages: Int, flags: Int): Int
-
-    @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(dbcsname: String?, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean
-
-    @JvmStatic
-    external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(dbcsname: String?, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean
 
     @JvmStatic
     external fun windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS(): Boolean
@@ -2363,8 +2354,7 @@ public actual fun fsRtlDismountComplete(deviceobject: COpaquePointer?, dismounts
     WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete((deviceobject?.value ?: 0L), dismountstatus)
 }
 
-public actual fun fsRtlDissectDbcs(path: String, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(path, (firstname?.value ?: 0L), (remainingname?.value ?: 0L))
+public actual fun fsRtlDissectDbcs(path: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
 }
 
 public actual fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
@@ -2537,11 +2527,11 @@ public actual fun fsRtlIsEcpFromUserMode(ecpcontext: COpaquePointer?): Boolean =
 public actual fun fsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
     WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(startpage.toInt(), numberofpages.toInt(), flags.toInt()).toUInt()
 
-public actual fun fsRtlIsFatDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible)
+public actual fun fsRtlIsFatDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    false
 
-public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible)
+public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    false
 
 public actual fun fsRtlIsMobileOS(): Boolean =
     WindowsWdkStorageFilesystemJniBridge.windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS()

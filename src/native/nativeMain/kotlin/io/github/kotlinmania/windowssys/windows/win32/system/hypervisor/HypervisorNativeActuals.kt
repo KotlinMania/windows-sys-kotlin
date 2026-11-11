@@ -309,52 +309,52 @@ public actual fun wHvAcceptPartitionMigration(migrationhandle: Handle, partition
     windowssys_windows_win32_system_hypervisor_wHvAcceptPartitionMigration(migrationhandle?.value?.toCPointer<ByteVar>(), partition?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvAdviseGpaRange(partition: WhvPartitionHandle, gparanges: COpaquePointer?, gparangescount: UInt, advice: WhvAdviseGpaRangeCode, advicebuffer: COpaquePointer?, advicebuffersizeinbytes: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange(partition.toLong(), gparanges?.value?.toCPointer<ByteVar>(), gparangescount, advice, advicebuffer?.value?.toCPointer<ByteVar>(), advicebuffersizeinbytes)
+    windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange(partition, gparanges?.value?.toCPointer<ByteVar>(), gparangescount, advice, advicebuffer?.value?.toCPointer<ByteVar>(), advicebuffersizeinbytes)
 
 public actual fun wHvAllocateVpciResource(providerid: COpaquePointer?, flags: WhvAllocateVpciResourceFlags, resourcedescriptor: COpaquePointer?, resourcedescriptorsizeinbytes: UInt, vpciresource: COpaquePointer?): Hresult =
     windowssys_windows_win32_system_hypervisor_wHvAllocateVpciResource(providerid?.value?.toCPointer<ByteVar>(), flags, resourcedescriptor?.value?.toCPointer<ByteVar>(), resourcedescriptorsizeinbytes, vpciresource?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvCancelPartitionMigration(partition: WhvPartitionHandle): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvCancelPartitionMigration(partition.toLong())
+    windowssys_windows_win32_system_hypervisor_wHvCancelPartitionMigration(partition)
 
 public actual fun wHvCancelRunVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, flags: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtualProcessor(partition.toLong(), vpindex, flags)
+    windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtualProcessor(partition, vpindex, flags)
 
 public actual fun wHvCompletePartitionMigration(partition: WhvPartitionHandle): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvCompletePartitionMigration(partition.toLong())
+    windowssys_windows_win32_system_hypervisor_wHvCompletePartitionMigration(partition)
 
 public actual fun wHvCreateNotificationPort(partition: WhvPartitionHandle, parameters: COpaquePointer?, eventhandle: Handle, porthandle: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvCreateNotificationPort(partition.toLong(), parameters?.value?.toCPointer<ByteVar>(), eventhandle?.value?.toCPointer<ByteVar>(), porthandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvCreateNotificationPort(partition, parameters?.value?.toCPointer<ByteVar>(), eventhandle?.value?.toCPointer<ByteVar>(), porthandle?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvCreatePartition(partition: COpaquePointer?): Hresult =
     windowssys_windows_win32_system_hypervisor_wHvCreatePartition(partition?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvCreateTrigger(partition: WhvPartitionHandle, parameters: COpaquePointer?, triggerhandle: COpaquePointer?, eventhandle: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvCreateTrigger(partition.toLong(), parameters?.value?.toCPointer<ByteVar>(), triggerhandle?.value?.toCPointer<ByteVar>(), eventhandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvCreateTrigger(partition, parameters?.value?.toCPointer<ByteVar>(), triggerhandle?.value?.toCPointer<ByteVar>(), eventhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvCreateVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, flags: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor(partition.toLong(), vpindex, flags)
+    windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor(partition, vpindex, flags)
 
 public actual fun wHvCreateVirtualProcessor2(partition: WhvPartitionHandle, vpindex: UInt, properties: COpaquePointer?, propertycount: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor2(partition.toLong(), vpindex, properties?.value?.toCPointer<ByteVar>(), propertycount)
+    windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor2(partition, vpindex, properties?.value?.toCPointer<ByteVar>(), propertycount)
 
 public actual fun wHvCreateVpciDevice(partition: WhvPartitionHandle, logicaldeviceid: ULong, vpciresource: Handle, flags: WhvCreateVpciDeviceFlags, notificationeventhandle: Handle): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevice(partition.toLong(), logicaldeviceid, vpciresource?.value?.toCPointer<ByteVar>(), flags, notificationeventhandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevice(partition, logicaldeviceid, vpciresource?.value?.toCPointer<ByteVar>(), flags, notificationeventhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvDeleteNotificationPort(partition: WhvPartitionHandle, porthandle: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvDeleteNotificationPort(partition.toLong(), porthandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvDeleteNotificationPort(partition, porthandle?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvDeletePartition(partition: WhvPartitionHandle): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvDeletePartition(partition.toLong())
+    windowssys_windows_win32_system_hypervisor_wHvDeletePartition(partition)
 
 public actual fun wHvDeleteTrigger(partition: WhvPartitionHandle, triggerhandle: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger(partition.toLong(), triggerhandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger(partition, triggerhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvDeleteVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualProcessor(partition.toLong(), vpindex)
+    windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualProcessor(partition, vpindex)
 
 public actual fun wHvDeleteVpciDevice(partition: WhvPartitionHandle, logicaldeviceid: ULong): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevice(partition.toLong(), logicaldeviceid)
+    windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevice(partition, logicaldeviceid)
 
 public actual fun wHvEmulatorCreateEmulator(callbacks: COpaquePointer?, emulator: COpaquePointer?): Hresult =
     windowssys_windows_win32_system_hypervisor_wHvEmulatorCreateEmulator(callbacks?.value?.toCPointer<ByteVar>(), emulator?.value?.toCPointer<ByteVar>())
@@ -372,145 +372,145 @@ public actual fun wHvGetCapability(capabilitycode: WhvCapabilityCode, capability
     windowssys_windows_win32_system_hypervisor_wHvGetCapability(capabilitycode, capabilitybuffer?.value?.toCPointer<ByteVar>(), capabilitybuffersizeinbytes, writtensizeinbytes?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetInterruptTargetVpSet(partition: WhvPartitionHandle, destination: ULong, destinationmode: WhvInterruptDestinationMode, targetvps: COpaquePointer?, vpcount: UInt, targetvpcount: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetInterruptTargetVpSet(partition.toLong(), destination, destinationmode, targetvps?.value?.toCPointer<ByteVar>(), vpcount, targetvpcount?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetInterruptTargetVpSet(partition, destination, destinationmode, targetvps?.value?.toCPointer<ByteVar>(), vpcount, targetvpcount?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetPartitionCounters(partition: WhvPartitionHandle, counterset: WhvPartitionCounterSet, buffer: COpaquePointer?, buffersizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetPartitionCounters(partition.toLong(), counterset, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetPartitionCounters(partition, counterset, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetPartitionProperty(partition: WhvPartitionHandle, propertycode: WhvPartitionPropertyCode, propertybuffer: COpaquePointer?, propertybuffersizeinbytes: UInt, writtensizeinbytes: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetPartitionProperty(partition.toLong(), propertycode, propertybuffer?.value?.toCPointer<ByteVar>(), propertybuffersizeinbytes, writtensizeinbytes?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetPartitionProperty(partition, propertycode, propertybuffer?.value?.toCPointer<ByteVar>(), propertybuffersizeinbytes, writtensizeinbytes?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetVirtualProcessorCounters(partition: WhvPartitionHandle, vpindex: UInt, counterset: WhvProcessorCounterSet, buffer: COpaquePointer?, buffersizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCounters(partition.toLong(), vpindex, counterset, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCounters(partition, vpindex, counterset, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetVirtualProcessorCpuidOutput(partition: WhvPartitionHandle, vpindex: UInt, eax: UInt, ecx: UInt, cpuidoutput: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCpuidOutput(partition.toLong(), vpindex, eax, ecx, cpuidoutput?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCpuidOutput(partition, vpindex, eax, ecx, cpuidoutput?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetVirtualProcessorInterruptControllerState(partition: WhvPartitionHandle, vpindex: UInt, state: COpaquePointer?, statesize: UInt, writtensize: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState(partition.toLong(), vpindex, state?.value?.toCPointer<ByteVar>(), statesize, writtensize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState(partition, vpindex, state?.value?.toCPointer<ByteVar>(), statesize, writtensize?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetVirtualProcessorInterruptControllerState2(partition: WhvPartitionHandle, vpindex: UInt, state: COpaquePointer?, statesize: UInt, writtensize: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState2(partition.toLong(), vpindex, state?.value?.toCPointer<ByteVar>(), statesize, writtensize?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState2(partition, vpindex, state?.value?.toCPointer<ByteVar>(), statesize, writtensize?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetVirtualProcessorRegisters(partition: WhvPartitionHandle, vpindex: UInt, registernames: COpaquePointer?, registercount: UInt, registervalues: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorRegisters(partition.toLong(), vpindex, registernames?.value?.toCPointer<ByteVar>(), registercount, registervalues?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorRegisters(partition, vpindex, registernames?.value?.toCPointer<ByteVar>(), registercount, registervalues?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetVirtualProcessorState(partition: WhvPartitionHandle, vpindex: UInt, statetype: WhvVirtualProcessorStateType, buffer: COpaquePointer?, buffersizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorState(partition.toLong(), vpindex, statetype, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorState(partition, vpindex, statetype, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetVirtualProcessorXsaveState(partition: WhvPartitionHandle, vpindex: UInt, buffer: COpaquePointer?, buffersizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorXsaveState(partition.toLong(), vpindex, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorXsaveState(partition, vpindex, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetVpciDeviceInterruptTarget(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt, multimessagenumber: UInt, target: COpaquePointer?, targetsizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarget(partition.toLong(), logicaldeviceid, index, multimessagenumber, target?.value?.toCPointer<ByteVar>(), targetsizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarget(partition, logicaldeviceid, index, multimessagenumber, target?.value?.toCPointer<ByteVar>(), targetsizeinbytes, byteswritten?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvGetVpciDeviceNotification(partition: WhvPartitionHandle, logicaldeviceid: ULong, notification: COpaquePointer?, notificationsizeinbytes: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNotification(partition.toLong(), logicaldeviceid, notification?.value?.toCPointer<ByteVar>(), notificationsizeinbytes)
+    windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNotification(partition, logicaldeviceid, notification?.value?.toCPointer<ByteVar>(), notificationsizeinbytes)
 
 public actual fun wHvGetVpciDeviceProperty(partition: WhvPartitionHandle, logicaldeviceid: ULong, propertycode: WhvVpciDevicePropertyCode, propertybuffer: COpaquePointer?, propertybuffersizeinbytes: UInt, writtensizeinbytes: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceProperty(partition.toLong(), logicaldeviceid, propertycode, propertybuffer?.value?.toCPointer<ByteVar>(), propertybuffersizeinbytes, writtensizeinbytes?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceProperty(partition, logicaldeviceid, propertycode, propertybuffer?.value?.toCPointer<ByteVar>(), propertybuffersizeinbytes, writtensizeinbytes?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvMapGpaRange(partition: WhvPartitionHandle, sourceaddress: COpaquePointer?, guestaddress: ULong, sizeinbytes: ULong, flags: WhvMapGpaRangeFlags): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvMapGpaRange(partition.toLong(), sourceaddress?.value?.toCPointer<ByteVar>(), guestaddress, sizeinbytes, flags)
+    windowssys_windows_win32_system_hypervisor_wHvMapGpaRange(partition, sourceaddress?.value?.toCPointer<ByteVar>(), guestaddress, sizeinbytes, flags)
 
 public actual fun wHvMapGpaRange2(partition: WhvPartitionHandle, process: Handle, sourceaddress: COpaquePointer?, guestaddress: ULong, sizeinbytes: ULong, flags: WhvMapGpaRangeFlags): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2(partition.toLong(), process?.value?.toCPointer<ByteVar>(), sourceaddress?.value?.toCPointer<ByteVar>(), guestaddress, sizeinbytes, flags)
+    windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2(partition, process?.value?.toCPointer<ByteVar>(), sourceaddress?.value?.toCPointer<ByteVar>(), guestaddress, sizeinbytes, flags)
 
 public actual fun wHvMapVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt, messagecount: UInt, target: COpaquePointer?, msiaddress: COpaquePointer?, msidata: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt(partition.toLong(), logicaldeviceid, index, messagecount, target?.value?.toCPointer<ByteVar>(), msiaddress?.value?.toCPointer<ByteVar>(), msidata?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt(partition, logicaldeviceid, index, messagecount, target?.value?.toCPointer<ByteVar>(), msiaddress?.value?.toCPointer<ByteVar>(), msidata?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvMapVpciDeviceMmioRanges(partition: WhvPartitionHandle, logicaldeviceid: ULong, mappingcount: COpaquePointer?, mappings: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMmioRanges(partition.toLong(), logicaldeviceid, mappingcount?.value?.toCPointer<ByteVar>(), mappings?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMmioRanges(partition, logicaldeviceid, mappingcount?.value?.toCPointer<ByteVar>(), mappings?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvPostVirtualProcessorSynicMessage(partition: WhvPartitionHandle, vpindex: UInt, sintindex: UInt, message: COpaquePointer?, messagesizeinbytes: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvPostVirtualProcessorSynicMessage(partition.toLong(), vpindex, sintindex, message?.value?.toCPointer<ByteVar>(), messagesizeinbytes)
+    windowssys_windows_win32_system_hypervisor_wHvPostVirtualProcessorSynicMessage(partition, vpindex, sintindex, message?.value?.toCPointer<ByteVar>(), messagesizeinbytes)
 
 public actual fun wHvQueryGpaRangeDirtyBitmap(partition: WhvPartitionHandle, guestaddress: ULong, rangesizeinbytes: ULong, bitmap: COpaquePointer?, bitmapsizeinbytes: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDirtyBitmap(partition.toLong(), guestaddress, rangesizeinbytes, bitmap?.value?.toCPointer<ByteVar>(), bitmapsizeinbytes)
+    windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDirtyBitmap(partition, guestaddress, rangesizeinbytes, bitmap?.value?.toCPointer<ByteVar>(), bitmapsizeinbytes)
 
 public actual fun wHvReadGpaRange(partition: WhvPartitionHandle, vpindex: UInt, guestaddress: ULong, controls: WhvAccessGpaControls, data: COpaquePointer?, datasizeinbytes: UInt): Hresult =
     0
 
 public actual fun wHvReadVpciDeviceRegister(partition: WhvPartitionHandle, logicaldeviceid: ULong, register: COpaquePointer?, data: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceRegister(partition.toLong(), logicaldeviceid, register?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceRegister(partition, logicaldeviceid, register?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvRegisterPartitionDoorbellEvent(partition: WhvPartitionHandle, matchdata: COpaquePointer?, eventhandle: Handle): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvRegisterPartitionDoorbellEvent(partition.toLong(), matchdata?.value?.toCPointer<ByteVar>(), eventhandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvRegisterPartitionDoorbellEvent(partition, matchdata?.value?.toCPointer<ByteVar>(), eventhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvRequestInterrupt(partition: WhvPartitionHandle, interrupt: COpaquePointer?, interruptcontrolsize: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvRequestInterrupt(partition.toLong(), interrupt?.value?.toCPointer<ByteVar>(), interruptcontrolsize)
+    windowssys_windows_win32_system_hypervisor_wHvRequestInterrupt(partition, interrupt?.value?.toCPointer<ByteVar>(), interruptcontrolsize)
 
 public actual fun wHvRequestVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvRequestVpciDeviceInterrupt(partition.toLong(), logicaldeviceid, msiaddress, msidata)
+    windowssys_windows_win32_system_hypervisor_wHvRequestVpciDeviceInterrupt(partition, logicaldeviceid, msiaddress, msidata)
 
 public actual fun wHvResetPartition(partition: WhvPartitionHandle): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvResetPartition(partition.toLong())
+    windowssys_windows_win32_system_hypervisor_wHvResetPartition(partition)
 
 public actual fun wHvResumePartitionTime(partition: WhvPartitionHandle): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvResumePartitionTime(partition.toLong())
+    windowssys_windows_win32_system_hypervisor_wHvResumePartitionTime(partition)
 
 public actual fun wHvRetargetVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt, target: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDeviceInterrupt(partition.toLong(), logicaldeviceid, msiaddress, msidata, target?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDeviceInterrupt(partition, logicaldeviceid, msiaddress, msidata, target?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvRunVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, exitcontext: COpaquePointer?, exitcontextsizeinbytes: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvRunVirtualProcessor(partition.toLong(), vpindex, exitcontext?.value?.toCPointer<ByteVar>(), exitcontextsizeinbytes)
+    windowssys_windows_win32_system_hypervisor_wHvRunVirtualProcessor(partition, vpindex, exitcontext?.value?.toCPointer<ByteVar>(), exitcontextsizeinbytes)
 
 public actual fun wHvSetNotificationPortProperty(partition: WhvPartitionHandle, porthandle: COpaquePointer?, propertycode: WhvNotificationPortPropertyCode, propertyvalue: ULong): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSetNotificationPortProperty(partition.toLong(), porthandle?.value?.toCPointer<ByteVar>(), propertycode, propertyvalue)
+    windowssys_windows_win32_system_hypervisor_wHvSetNotificationPortProperty(partition, porthandle?.value?.toCPointer<ByteVar>(), propertycode, propertyvalue)
 
 public actual fun wHvSetPartitionProperty(partition: WhvPartitionHandle, propertycode: WhvPartitionPropertyCode, propertybuffer: COpaquePointer?, propertybuffersizeinbytes: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSetPartitionProperty(partition.toLong(), propertycode, propertybuffer?.value?.toCPointer<ByteVar>(), propertybuffersizeinbytes)
+    windowssys_windows_win32_system_hypervisor_wHvSetPartitionProperty(partition, propertycode, propertybuffer?.value?.toCPointer<ByteVar>(), propertybuffersizeinbytes)
 
 public actual fun wHvSetVirtualProcessorInterruptControllerState(partition: WhvPartitionHandle, vpindex: UInt, state: COpaquePointer?, statesize: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState(partition.toLong(), vpindex, state?.value?.toCPointer<ByteVar>(), statesize)
+    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState(partition, vpindex, state?.value?.toCPointer<ByteVar>(), statesize)
 
 public actual fun wHvSetVirtualProcessorInterruptControllerState2(partition: WhvPartitionHandle, vpindex: UInt, state: COpaquePointer?, statesize: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState2(partition.toLong(), vpindex, state?.value?.toCPointer<ByteVar>(), statesize)
+    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState2(partition, vpindex, state?.value?.toCPointer<ByteVar>(), statesize)
 
 public actual fun wHvSetVirtualProcessorRegisters(partition: WhvPartitionHandle, vpindex: UInt, registernames: COpaquePointer?, registercount: UInt, registervalues: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorRegisters(partition.toLong(), vpindex, registernames?.value?.toCPointer<ByteVar>(), registercount, registervalues?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorRegisters(partition, vpindex, registernames?.value?.toCPointer<ByteVar>(), registercount, registervalues?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvSetVirtualProcessorState(partition: WhvPartitionHandle, vpindex: UInt, statetype: WhvVirtualProcessorStateType, buffer: COpaquePointer?, buffersizeinbytes: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorState(partition.toLong(), vpindex, statetype, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes)
+    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorState(partition, vpindex, statetype, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes)
 
 public actual fun wHvSetVirtualProcessorXsaveState(partition: WhvPartitionHandle, vpindex: UInt, buffer: COpaquePointer?, buffersizeinbytes: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorXsaveState(partition.toLong(), vpindex, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes)
+    windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorXsaveState(partition, vpindex, buffer?.value?.toCPointer<ByteVar>(), buffersizeinbytes)
 
 public actual fun wHvSetVpciDevicePowerState(partition: WhvPartitionHandle, logicaldeviceid: ULong, powerstate: DevicePowerState): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePowerState(partition.toLong(), logicaldeviceid, powerstate)
+    windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePowerState(partition, logicaldeviceid, powerstate)
 
 public actual fun wHvSetupPartition(partition: WhvPartitionHandle): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSetupPartition(partition.toLong())
+    windowssys_windows_win32_system_hypervisor_wHvSetupPartition(partition)
 
 public actual fun wHvSignalVirtualProcessorSynicEvent(partition: WhvPartitionHandle, synicevent: WhvSynicEventParameters, newlysignaled: COpaquePointer?): Hresult =
     0
 
 public actual fun wHvStartPartitionMigration(partition: WhvPartitionHandle, migrationhandle: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvStartPartitionMigration(partition.toLong(), migrationhandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvStartPartitionMigration(partition, migrationhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvSuspendPartitionTime(partition: WhvPartitionHandle): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvSuspendPartitionTime(partition.toLong())
+    windowssys_windows_win32_system_hypervisor_wHvSuspendPartitionTime(partition)
 
 public actual fun wHvTranslateGva(partition: WhvPartitionHandle, vpindex: UInt, gva: ULong, translateflags: WhvTranslateGvaFlags, translationresult: COpaquePointer?, gpa: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvTranslateGva(partition.toLong(), vpindex, gva, translateflags, translationresult?.value?.toCPointer<ByteVar>(), gpa?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvTranslateGva(partition, vpindex, gva, translateflags, translationresult?.value?.toCPointer<ByteVar>(), gpa?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvUnmapGpaRange(partition: WhvPartitionHandle, guestaddress: ULong, sizeinbytes: ULong): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange(partition.toLong(), guestaddress, sizeinbytes)
+    windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange(partition, guestaddress, sizeinbytes)
 
 public actual fun wHvUnmapVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceInterrupt(partition.toLong(), logicaldeviceid, index)
+    windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceInterrupt(partition, logicaldeviceid, index)
 
 public actual fun wHvUnmapVpciDeviceMmioRanges(partition: WhvPartitionHandle, logicaldeviceid: ULong): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceMmioRanges(partition.toLong(), logicaldeviceid)
+    windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceMmioRanges(partition, logicaldeviceid)
 
 public actual fun wHvUnregisterPartitionDoorbellEvent(partition: WhvPartitionHandle, matchdata: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvUnregisterPartitionDoorbellEvent(partition.toLong(), matchdata?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvUnregisterPartitionDoorbellEvent(partition, matchdata?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvUpdateTriggerParameters(partition: WhvPartitionHandle, parameters: COpaquePointer?, triggerhandle: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerParameters(partition.toLong(), parameters?.value?.toCPointer<ByteVar>(), triggerhandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerParameters(partition, parameters?.value?.toCPointer<ByteVar>(), triggerhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun wHvWriteGpaRange(partition: WhvPartitionHandle, vpindex: UInt, guestaddress: ULong, controls: WhvAccessGpaControls, data: COpaquePointer?, datasizeinbytes: UInt): Hresult =
     0
 
 public actual fun wHvWriteVpciDeviceRegister(partition: WhvPartitionHandle, logicaldeviceid: ULong, register: COpaquePointer?, data: COpaquePointer?): Hresult =
-    windowssys_windows_win32_system_hypervisor_wHvWriteVpciDeviceRegister(partition.toLong(), logicaldeviceid, register?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_system_hypervisor_wHvWriteVpciDeviceRegister(partition, logicaldeviceid, register?.value?.toCPointer<ByteVar>(), data?.value?.toCPointer<ByteVar>())

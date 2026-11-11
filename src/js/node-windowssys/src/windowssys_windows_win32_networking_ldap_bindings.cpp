@@ -6404,13 +6404,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPage_n
     uint32_t totalsizelimit = static_cast<uint32_t>(km_info.Length() > 9 ? km_info[9].ToNumber().Int32Value() : 0);
     void* sortkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 10 ? km_napi_arg_u64(km_info[10]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_init_page")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(externalhandle, distinguishedname, scopeofsearch, searchfilter, attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys);
     } else {
@@ -6430,9 +6430,9 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPage_n
     (void)totalsizelimit;
     (void)sortkeys;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageA_napi(const Napi::CallbackInfo& km_info) {
@@ -6449,13 +6449,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageA_
     uint32_t totalsizelimit = static_cast<uint32_t>(km_info.Length() > 9 ? km_info[9].ToNumber().Int32Value() : 0);
     void* sortkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 10 ? km_napi_arg_u64(km_info[10]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_init_pageA")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(externalhandle, distinguishedname, scopeofsearch, searchfilter, attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys);
     } else {
@@ -6475,9 +6475,9 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageA_
     (void)totalsizelimit;
     (void)sortkeys;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageW_napi(const Napi::CallbackInfo& km_info) {
@@ -6494,13 +6494,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageW_
     uint32_t totalsizelimit = static_cast<uint32_t>(km_info.Length() > 9 ? km_info[9].ToNumber().Int32Value() : 0);
     void* sortkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 10 ? km_napi_arg_u64(km_info[10]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_init_pageW")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(externalhandle, distinguishedname, scopeofsearch, searchfilter, attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys);
     } else {
@@ -6520,9 +6520,9 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageW_
     (void)totalsizelimit;
     (void)sortkeys;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchS_napi(const Napi::CallbackInfo& km_info) {

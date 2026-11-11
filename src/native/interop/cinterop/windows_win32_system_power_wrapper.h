@@ -93,8 +93,8 @@ uint32_t windowssys_windows_win32_system_power_powerWriteValueUnitsSpecifier(voi
 bool windowssys_windows_win32_system_power_readGlobalPwrPolicy(void* pglobalpowerpolicy);
 bool windowssys_windows_win32_system_power_readProcessorPwrScheme(uint32_t uiid, void* pmachineprocessorpowerpolicy);
 bool windowssys_windows_win32_system_power_readPwrScheme(uint32_t uiid, void* ppowerpolicy);
-int32_t windowssys_windows_win32_system_power_registerPowerSettingNotification(void* hrecipient, void* powersettingguid, uint32_t flags);
-int32_t windowssys_windows_win32_system_power_registerSuspendResumeNotification(void* hrecipient, uint32_t flags);
+int64_t windowssys_windows_win32_system_power_registerPowerSettingNotification(void* hrecipient, void* powersettingguid, uint32_t flags);
+int64_t windowssys_windows_win32_system_power_registerSuspendResumeNotification(void* hrecipient, uint32_t flags);
 int32_t windowssys_windows_win32_system_power_requestWakeupLatency(int32_t latency);
 bool windowssys_windows_win32_system_power_setActivePwrScheme(uint32_t uiid, void* pglobalpowerpolicy, void* ppowerpolicy);
 bool windowssys_windows_win32_system_power_setSuspendState(bool bhibernate, bool bforce, bool bwakeupeventsdisabled);

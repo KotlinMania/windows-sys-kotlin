@@ -403,40 +403,40 @@ public actual fun initializeSecurityContextW(phcredential: COpaquePointer?, phco
     windowssys_windows_win32_security_authentication_identity_initializeSecurityContextW(phcredential?.value?.toCPointer<ByteVar>(), phcontext?.value?.toCPointer<ByteVar>(), psztargetname?.value?.toCPointer<ByteVar>(), fcontextreq, reserved1, targetdatarep, pinput?.value?.toCPointer<ByteVar>(), reserved2, phnewcontext?.value?.toCPointer<ByteVar>(), poutput?.value?.toCPointer<ByteVar>(), pfcontextattr?.value?.toCPointer<ByteVar>(), ptsexpiry?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaAddAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: COpaquePointer?, countofrights: UInt): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaAddAccountRights(policyhandle.toLong(), accountsid?.value?.toCPointer<ByteVar>(), userrights?.value?.toCPointer<ByteVar>(), countofrights)
+    windowssys_windows_win32_security_authentication_identity_lsaAddAccountRights(policyhandle, accountsid?.value?.toCPointer<ByteVar>(), userrights?.value?.toCPointer<ByteVar>(), countofrights)
 
 public actual fun lsaCallAuthenticationPackage(lsahandle: Handle, authenticationpackage: UInt, protocolsubmitbuffer: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus =
     windowssys_windows_win32_security_authentication_identity_lsaCallAuthenticationPackage(lsahandle?.value?.toCPointer<ByteVar>(), authenticationpackage, protocolsubmitbuffer?.value?.toCPointer<ByteVar>(), submitbufferlength, protocolreturnbuffer?.value?.toCPointer<ByteVar>(), returnbufferlength?.value?.toCPointer<ByteVar>(), protocolstatus?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaClose(objecthandle: LsaHandle): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaClose(objecthandle.toLong())
+    windowssys_windows_win32_security_authentication_identity_lsaClose(objecthandle)
 
 public actual fun lsaConnectUntrusted(lsahandle: COpaquePointer?): Ntstatus =
     windowssys_windows_win32_security_authentication_identity_lsaConnectUntrusted(lsahandle?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaCreateTrustedDomainEx(policyhandle: LsaHandle, trusteddomaininformation: COpaquePointer?, authenticationinformation: COpaquePointer?, desiredaccess: UInt, trusteddomainhandle: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaCreateTrustedDomainEx(policyhandle.toLong(), trusteddomaininformation?.value?.toCPointer<ByteVar>(), authenticationinformation?.value?.toCPointer<ByteVar>(), desiredaccess, trusteddomainhandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaCreateTrustedDomainEx(policyhandle, trusteddomaininformation?.value?.toCPointer<ByteVar>(), authenticationinformation?.value?.toCPointer<ByteVar>(), desiredaccess, trusteddomainhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaDeleteTrustedDomain(policyhandle: LsaHandle, trusteddomainsid: Psid): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaDeleteTrustedDomain(policyhandle.toLong(), trusteddomainsid?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaDeleteTrustedDomain(policyhandle, trusteddomainsid?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaDeregisterLogonProcess(lsahandle: Handle): Ntstatus =
     windowssys_windows_win32_security_authentication_identity_lsaDeregisterLogonProcess(lsahandle?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaEnumerateAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: COpaquePointer?, countofrights: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountRights(policyhandle.toLong(), accountsid?.value?.toCPointer<ByteVar>(), userrights?.value?.toCPointer<ByteVar>(), countofrights?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountRights(policyhandle, accountsid?.value?.toCPointer<ByteVar>(), userrights?.value?.toCPointer<ByteVar>(), countofrights?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaEnumerateAccountsWithUserRight(policyhandle: LsaHandle, userright: COpaquePointer?, buffer: COpaquePointer?, countreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountsWithUserRight(policyhandle.toLong(), userright?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), countreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaEnumerateAccountsWithUserRight(policyhandle, userright?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), countreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaEnumerateLogonSessions(logonsessioncount: COpaquePointer?, logonsessionlist: COpaquePointer?): Ntstatus =
     windowssys_windows_win32_security_authentication_identity_lsaEnumerateLogonSessions(logonsessioncount?.value?.toCPointer<ByteVar>(), logonsessionlist?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaEnumerateTrustedDomains(policyhandle: LsaHandle, enumerationcontext: COpaquePointer?, buffer: COpaquePointer?, preferedmaximumlength: UInt, countreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomains(policyhandle.toLong(), enumerationcontext?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), preferedmaximumlength, countreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomains(policyhandle, enumerationcontext?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), preferedmaximumlength, countreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaEnumerateTrustedDomainsEx(policyhandle: LsaHandle, enumerationcontext: COpaquePointer?, buffer: COpaquePointer?, preferedmaximumlength: UInt, countreturned: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomainsEx(policyhandle.toLong(), enumerationcontext?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), preferedmaximumlength, countreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaEnumerateTrustedDomainsEx(policyhandle, enumerationcontext?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), preferedmaximumlength, countreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaFreeMemory(buffer: COpaquePointer?): Ntstatus =
     windowssys_windows_win32_security_authentication_identity_lsaFreeMemory(buffer?.value?.toCPointer<ByteVar>())
@@ -457,16 +457,16 @@ public actual fun lsaLookupAuthenticationPackage(lsahandle: Handle, packagename:
     windowssys_windows_win32_security_authentication_identity_lsaLookupAuthenticationPackage(lsahandle?.value?.toCPointer<ByteVar>(), packagename?.value?.toCPointer<ByteVar>(), authenticationpackage?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaLookupNames(policyhandle: LsaHandle, count: UInt, names: COpaquePointer?, referenceddomains: COpaquePointer?, sids: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaLookupNames(policyhandle.toLong(), count, names?.value?.toCPointer<ByteVar>(), referenceddomains?.value?.toCPointer<ByteVar>(), sids?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaLookupNames(policyhandle, count, names?.value?.toCPointer<ByteVar>(), referenceddomains?.value?.toCPointer<ByteVar>(), sids?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaLookupNames2(policyhandle: LsaHandle, flags: UInt, count: UInt, names: COpaquePointer?, referenceddomains: COpaquePointer?, sids: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaLookupNames2(policyhandle.toLong(), flags, count, names?.value?.toCPointer<ByteVar>(), referenceddomains?.value?.toCPointer<ByteVar>(), sids?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaLookupNames2(policyhandle, flags, count, names?.value?.toCPointer<ByteVar>(), referenceddomains?.value?.toCPointer<ByteVar>(), sids?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaLookupSids(policyhandle: LsaHandle, count: UInt, sids: COpaquePointer?, referenceddomains: COpaquePointer?, names: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaLookupSids(policyhandle.toLong(), count, sids?.value?.toCPointer<ByteVar>(), referenceddomains?.value?.toCPointer<ByteVar>(), names?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaLookupSids(policyhandle, count, sids?.value?.toCPointer<ByteVar>(), referenceddomains?.value?.toCPointer<ByteVar>(), names?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaLookupSids2(policyhandle: LsaHandle, lookupoptions: UInt, count: UInt, sids: COpaquePointer?, referenceddomains: COpaquePointer?, names: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaLookupSids2(policyhandle.toLong(), lookupoptions, count, sids?.value?.toCPointer<ByteVar>(), referenceddomains?.value?.toCPointer<ByteVar>(), names?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaLookupSids2(policyhandle, lookupoptions, count, sids?.value?.toCPointer<ByteVar>(), referenceddomains?.value?.toCPointer<ByteVar>(), names?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaNtStatusToWinError(status: Ntstatus): UInt =
     windowssys_windows_win32_security_authentication_identity_lsaNtStatusToWinError(status)
@@ -475,28 +475,28 @@ public actual fun lsaOpenPolicy(systemname: COpaquePointer?, objectattributes: C
     windowssys_windows_win32_security_authentication_identity_lsaOpenPolicy(systemname?.value?.toCPointer<ByteVar>(), objectattributes?.value?.toCPointer<ByteVar>(), desiredaccess, policyhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaOpenTrustedDomainByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, desiredaccess: UInt, trusteddomainhandle: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaOpenTrustedDomainByName(policyhandle.toLong(), trusteddomainname?.value?.toCPointer<ByteVar>(), desiredaccess, trusteddomainhandle?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaOpenTrustedDomainByName(policyhandle, trusteddomainname?.value?.toCPointer<ByteVar>(), desiredaccess, trusteddomainhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaQueryCAPs(capids: COpaquePointer?, capidcount: UInt, caps: COpaquePointer?, capcount: COpaquePointer?): Ntstatus =
     windowssys_windows_win32_security_authentication_identity_lsaQueryCAPs(capids?.value?.toCPointer<ByteVar>(), capidcount, caps?.value?.toCPointer<ByteVar>(), capcount?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaQueryDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaQueryDomainInformationPolicy(policyhandle.toLong(), informationclass, buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaQueryDomainInformationPolicy(policyhandle, informationclass, buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaQueryForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, foresttrustinfo: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation(policyhandle.toLong(), trusteddomainname?.value?.toCPointer<ByteVar>(), foresttrustinfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation(policyhandle, trusteddomainname?.value?.toCPointer<ByteVar>(), foresttrustinfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaQueryForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation2(policyhandle.toLong(), trusteddomainname?.value?.toCPointer<ByteVar>(), highestrecordtype, foresttrustinfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaQueryForestTrustInformation2(policyhandle, trusteddomainname?.value?.toCPointer<ByteVar>(), highestrecordtype, foresttrustinfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaQueryInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaQueryInformationPolicy(policyhandle.toLong(), informationclass, buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaQueryInformationPolicy(policyhandle, informationclass, buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaQueryTrustedDomainInfo(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfo(policyhandle.toLong(), trusteddomainsid?.value?.toCPointer<ByteVar>(), informationclass, buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfo(policyhandle, trusteddomainsid?.value?.toCPointer<ByteVar>(), informationclass, buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaQueryTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfoByName(policyhandle.toLong(), trusteddomainname?.value?.toCPointer<ByteVar>(), informationclass, buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaQueryTrustedDomainInfoByName(policyhandle, trusteddomainname?.value?.toCPointer<ByteVar>(), informationclass, buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaRegisterLogonProcess(logonprocessname: COpaquePointer?, lsahandle: COpaquePointer?, securitymode: COpaquePointer?): Ntstatus =
     windowssys_windows_win32_security_authentication_identity_lsaRegisterLogonProcess(logonprocessname?.value?.toCPointer<ByteVar>(), lsahandle?.value?.toCPointer<ByteVar>(), securitymode?.value?.toCPointer<ByteVar>())
@@ -505,34 +505,34 @@ public actual fun lsaRegisterPolicyChangeNotification(informationclass: PolicyNo
     windowssys_windows_win32_security_authentication_identity_lsaRegisterPolicyChangeNotification(informationclass, notificationeventhandle?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaRemoveAccountRights(policyhandle: LsaHandle, accountsid: Psid, allrights: Boolean, userrights: COpaquePointer?, countofrights: UInt): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaRemoveAccountRights(policyhandle.toLong(), accountsid?.value?.toCPointer<ByteVar>(), allrights, userrights?.value?.toCPointer<ByteVar>(), countofrights)
+    windowssys_windows_win32_security_authentication_identity_lsaRemoveAccountRights(policyhandle, accountsid?.value?.toCPointer<ByteVar>(), allrights, userrights?.value?.toCPointer<ByteVar>(), countofrights)
 
 public actual fun lsaRetrievePrivateData(policyhandle: LsaHandle, keyname: COpaquePointer?, privatedata: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaRetrievePrivateData(policyhandle.toLong(), keyname?.value?.toCPointer<ByteVar>(), privatedata?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaRetrievePrivateData(policyhandle, keyname?.value?.toCPointer<ByteVar>(), privatedata?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaSetCAPs(capdns: COpaquePointer?, capdncount: UInt, flags: UInt): Ntstatus =
     windowssys_windows_win32_security_authentication_identity_lsaSetCAPs(capdns?.value?.toCPointer<ByteVar>(), capdncount, flags)
 
 public actual fun lsaSetDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaSetDomainInformationPolicy(policyhandle.toLong(), informationclass, buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaSetDomainInformationPolicy(policyhandle, informationclass, buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaSetForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, foresttrustinfo: COpaquePointer?, checkonly: Boolean, collisioninfo: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation(policyhandle.toLong(), trusteddomainname?.value?.toCPointer<ByteVar>(), foresttrustinfo?.value?.toCPointer<ByteVar>(), checkonly, collisioninfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation(policyhandle, trusteddomainname?.value?.toCPointer<ByteVar>(), foresttrustinfo?.value?.toCPointer<ByteVar>(), checkonly, collisioninfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaSetForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: COpaquePointer?, checkonly: Boolean, collisioninfo: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation2(policyhandle.toLong(), trusteddomainname?.value?.toCPointer<ByteVar>(), highestrecordtype, foresttrustinfo?.value?.toCPointer<ByteVar>(), checkonly, collisioninfo?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaSetForestTrustInformation2(policyhandle, trusteddomainname?.value?.toCPointer<ByteVar>(), highestrecordtype, foresttrustinfo?.value?.toCPointer<ByteVar>(), checkonly, collisioninfo?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaSetInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaSetInformationPolicy(policyhandle.toLong(), informationclass, buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaSetInformationPolicy(policyhandle, informationclass, buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaSetTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInfoByName(policyhandle.toLong(), trusteddomainname?.value?.toCPointer<ByteVar>(), informationclass, buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInfoByName(policyhandle, trusteddomainname?.value?.toCPointer<ByteVar>(), informationclass, buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaSetTrustedDomainInformation(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInformation(policyhandle.toLong(), trusteddomainsid?.value?.toCPointer<ByteVar>(), informationclass, buffer?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaSetTrustedDomainInformation(policyhandle, trusteddomainsid?.value?.toCPointer<ByteVar>(), informationclass, buffer?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaStorePrivateData(policyhandle: LsaHandle, keyname: COpaquePointer?, privatedata: COpaquePointer?): Ntstatus =
-    windowssys_windows_win32_security_authentication_identity_lsaStorePrivateData(policyhandle.toLong(), keyname?.value?.toCPointer<ByteVar>(), privatedata?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_security_authentication_identity_lsaStorePrivateData(policyhandle, keyname?.value?.toCPointer<ByteVar>(), privatedata?.value?.toCPointer<ByteVar>())
 
 public actual fun lsaUnregisterPolicyChangeNotification(informationclass: PolicyNotificationInformationClass, notificationeventhandle: Handle): Ntstatus =
     windowssys_windows_win32_security_authentication_identity_lsaUnregisterPolicyChangeNotification(informationclass, notificationeventhandle?.value?.toCPointer<ByteVar>())

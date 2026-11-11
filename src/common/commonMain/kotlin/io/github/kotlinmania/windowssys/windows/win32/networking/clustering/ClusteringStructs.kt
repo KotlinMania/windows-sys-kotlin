@@ -149,7 +149,7 @@ public data class CluspropBinary(
 
 public class CluspropBufferHelper(
     public var pb: COpaquePointer? = null,
-    public var pw: UShort? = null,
+    public var pw: COpaquePointer? = null,
     public var pdw: UInt? = null,
     public var pl: Int? = null,
     public var psz: Pwstr = null,

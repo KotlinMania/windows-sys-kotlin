@@ -30,7 +30,7 @@ private object WindowsWin32StorageImapiJniBridge {
 }
 
 public actual fun closeIMsgSession(lpmsgsess: Lpmsgsess) {
-    WindowsWin32StorageImapiJniBridge.windowssys_windows_win32_storage_imapi_closeIMsgSession(lpmsgsess.toLong())
+    WindowsWin32StorageImapiJniBridge.windowssys_windows_win32_storage_imapi_closeIMsgSession(lpmsgsess)
 }
 
 public actual fun getAttribIMsgOnIStg(lpobject: COpaquePointer?, lpproptagarray: COpaquePointer?, lpppropattrarray: COpaquePointer?): Hresult =

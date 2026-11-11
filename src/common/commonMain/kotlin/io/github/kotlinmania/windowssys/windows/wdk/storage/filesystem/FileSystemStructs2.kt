@@ -20,7 +20,7 @@ public data class SecFlags(
 public data class SecNegotiationInfo(
     public var size: UInt = 0u,
     public var nameLength: UInt = 0u,
-    public var name: UShort? = null,
+    public var name: COpaquePointer? = null,
     public var reserved: COpaquePointer? = null,
 )
 

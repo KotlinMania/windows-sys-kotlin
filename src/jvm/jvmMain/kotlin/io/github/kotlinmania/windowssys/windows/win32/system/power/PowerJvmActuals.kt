@@ -272,10 +272,10 @@ private object WindowsWin32SystemPowerJniBridge {
     external fun windowssys_windows_win32_system_power_readPwrScheme(uiid: Int, ppowerpolicy: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_power_registerPowerSettingNotification(hrecipient: Long, powersettingguid: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_power_registerPowerSettingNotification(hrecipient: Long, powersettingguid: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_power_registerSuspendResumeNotification(hrecipient: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_power_registerSuspendResumeNotification(hrecipient: Long, flags: Int): Long
 
     @JvmStatic
     external fun windowssys_windows_win32_system_power_requestWakeupLatency(latency: Int): Int
@@ -501,13 +501,13 @@ public actual fun powerSettingRegisterNotification(settingguid: COpaquePointer?,
     WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_powerSettingRegisterNotification((settingguid?.value ?: 0L), flags.toInt(), (recipient?.value ?: 0L), (registrationhandle?.value ?: 0L)).toUInt()
 
 public actual fun powerSettingUnregisterNotification(registrationhandle: Hpowernotify): Win32Error =
-    WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_powerSettingUnregisterNotification(registrationhandle.toLong()).toUInt()
+    WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_powerSettingUnregisterNotification(registrationhandle).toUInt()
 
 public actual fun powerUnregisterFromEffectivePowerModeNotifications(registrationhandle: COpaquePointer?): Hresult =
     WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_powerUnregisterFromEffectivePowerModeNotifications((registrationhandle?.value ?: 0L))
 
 public actual fun powerUnregisterSuspendResumeNotification(registrationhandle: Hpowernotify): Win32Error =
-    WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotification(registrationhandle.toLong()).toUInt()
+    WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotification(registrationhandle).toUInt()
 
 public actual fun powerWriteACDefaultIndex(rootsystempowerkey: Hkey, schemepersonalityguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, defaultacindex: UInt): UInt =
     WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_powerWriteACDefaultIndex((rootsystempowerkey?.value ?: 0L), (schemepersonalityguid?.value ?: 0L), (subgroupofpowersettingsguid?.value ?: 0L), (powersettingguid?.value ?: 0L), defaultacindex.toInt()).toUInt()
@@ -585,10 +585,10 @@ public actual fun setThreadExecutionState(esflags: ExecutionState): ExecutionSta
     WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_setThreadExecutionState(esflags.toInt()).toUInt()
 
 public actual fun unregisterPowerSettingNotification(handle: Hpowernotify): Bool =
-    WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_unregisterPowerSettingNotification(handle.toLong())
+    WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_unregisterPowerSettingNotification(handle)
 
 public actual fun unregisterSuspendResumeNotification(handle: Hpowernotify): Bool =
-    WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_unregisterSuspendResumeNotification(handle.toLong())
+    WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_unregisterSuspendResumeNotification(handle)
 
 public actual fun validatePowerPolicies(pglobalpowerpolicy: COpaquePointer?, ppowerpolicy: COpaquePointer?): Boolean =
     WindowsWin32SystemPowerJniBridge.windowssys_windows_win32_system_power_validatePowerPolicies((pglobalpowerpolicy?.value ?: 0L), (ppowerpolicy?.value ?: 0L))

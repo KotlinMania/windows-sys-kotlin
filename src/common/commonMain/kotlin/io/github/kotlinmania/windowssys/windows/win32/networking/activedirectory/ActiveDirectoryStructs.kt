@@ -46,17 +46,17 @@ public data class Adsvalue(
 )
 
 public class Adsvalue0(
-    public var dNString: UShort? = null,
-    public var caseExactString: UShort? = null,
-    public var caseIgnoreString: UShort? = null,
-    public var printableString: UShort? = null,
-    public var numericString: UShort? = null,
+    public var dNString: COpaquePointer? = null,
+    public var caseExactString: COpaquePointer? = null,
+    public var caseIgnoreString: COpaquePointer? = null,
+    public var printableString: COpaquePointer? = null,
+    public var numericString: COpaquePointer? = null,
     public var boolean: UInt = 0u,
     public var integer: UInt = 0u,
     public var octetString: AdsOctetString = AdsOctetString(),
     public var uTCTime: Systemtime = Systemtime(),
     public var largeInteger: Long = 0L,
-    public var className: UShort? = null,
+    public var className: COpaquePointer? = null,
     public var providerSpecific: AdsProvSpecific = AdsProvSpecific(),
     public var pCaseIgnoreList: AdsCaseignoreList? = null,
     public var pOctetList: AdsOctetList? = null,

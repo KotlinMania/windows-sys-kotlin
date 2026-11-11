@@ -2714,11 +2714,11 @@ public actual fun unloadUserProfile(htoken: Handle, hprofile: Handle): Bool =
     windowssys_windows_win32_ui_shell_unloadUserProfile(htoken?.value?.toCPointer<ByteVar>(), hprofile?.value?.toCPointer<ByteVar>())
 
 public actual fun unregisterAppConstrainedChangeNotification(registration: PappconstrainRegistration) {
-    windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification(registration.toLong())
+    windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification(registration)
 }
 
 public actual fun unregisterAppStateChangeNotification(registration: PappstateRegistration) {
-    windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification(registration.toLong())
+    windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification(registration)
 }
 
 public actual fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult =

@@ -2852,34 +2852,6 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDismountComple
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs_napi(const Napi::CallbackInfo& km_info) {
-    Napi::Env km_env = km_info.Env();
-    bool path_null = (km_info.Length() <= 0 || km_info[0].IsNull() || km_info[0].IsUndefined());
-    std::string path_str = path_null ? std::string() : km_info[0].ToString().Utf8Value();
-    const char* path = path_null ? nullptr : path_str.c_str();
-    void* firstname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
-    void* remainingname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
-#ifdef _WIN32
-    typedef void (__stdcall *km_fn_t)(const char*, void*, void*);
-    static km_fn_t km_fn_ptr = nullptr;
-    if (km_fn_ptr == nullptr) {
-        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
-        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FsRtlDissectDbcs")));
-    }
-    if (km_fn_ptr != nullptr) {
-        km_fn_ptr(path, firstname, remainingname);
-    } else {
-        errno = ENOSYS;
-    }
-#else
-    (void)path;
-    (void)firstname;
-    (void)remainingname;
-    errno = ENOSYS;
-#endif
-    return km_env.Undefined();
-}
-
 static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
@@ -4235,72 +4207,6 @@ static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangli
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
-}
-
-static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal_napi(const Napi::CallbackInfo& km_info) {
-    Napi::Env km_env = km_info.Env();
-    bool dbcsname_null = (km_info.Length() <= 0 || km_info[0].IsNull() || km_info[0].IsUndefined());
-    std::string dbcsname_str = dbcsname_null ? std::string() : km_info[0].ToString().Utf8Value();
-    const char* dbcsname = dbcsname_null ? nullptr : dbcsname_str.c_str();
-    bool wildcardspermissible = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
-    bool pathnamepermissible = km_info.Length() > 2 ? km_info[2].ToBoolean().Value() : false;
-    bool leadingbackslashpermissible = km_info.Length() > 3 ? km_info[3].ToBoolean().Value() : false;
-#ifdef _WIN32
-    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
-    static km_fn_t km_fn_ptr = nullptr;
-    if (km_fn_ptr == nullptr) {
-        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
-        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FsRtlIsFatDbcsLegal")));
-    }
-    bool km_res;
-    if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible);
-    } else {
-        errno = ENOSYS;
-        km_res = false;
-    }
-#else
-    (void)dbcsname;
-    (void)wildcardspermissible;
-    (void)pathnamepermissible;
-    (void)leadingbackslashpermissible;
-    errno = ENOSYS;
-    bool km_res = false;
-#endif
-    return Napi::Boolean::New(km_env, km_res);
-}
-
-static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal_napi(const Napi::CallbackInfo& km_info) {
-    Napi::Env km_env = km_info.Env();
-    bool dbcsname_null = (km_info.Length() <= 0 || km_info[0].IsNull() || km_info[0].IsUndefined());
-    std::string dbcsname_str = dbcsname_null ? std::string() : km_info[0].ToString().Utf8Value();
-    const char* dbcsname = dbcsname_null ? nullptr : dbcsname_str.c_str();
-    bool wildcardspermissible = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
-    bool pathnamepermissible = km_info.Length() > 2 ? km_info[2].ToBoolean().Value() : false;
-    bool leadingbackslashpermissible = km_info.Length() > 3 ? km_info[3].ToBoolean().Value() : false;
-#ifdef _WIN32
-    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
-    static km_fn_t km_fn_ptr = nullptr;
-    if (km_fn_ptr == nullptr) {
-        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
-        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FsRtlIsHpfsDbcsLegal")));
-    }
-    bool km_res;
-    if (km_fn_ptr != nullptr) {
-        km_res = km_fn_ptr(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible);
-    } else {
-        errno = ENOSYS;
-        km_res = false;
-    }
-#else
-    (void)dbcsname;
-    (void)wildcardspermissible;
-    (void)pathnamepermissible;
-    (void)leadingbackslashpermissible;
-    errno = ENOSYS;
-    bool km_res = false;
-#endif
-    return Napi::Boolean::New(km_env, km_res);
 }
 
 static Napi::Value windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS_napi(const Napi::CallbackInfo& km_info) {
@@ -19903,7 +19809,6 @@ static void register_windows_wdk_storage_filesystem_napi(Napi::Env env, Napi::Ob
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead_napi));
@@ -19954,8 +19859,6 @@ static void register_windows_wdk_storage_filesystem_napi(Napi::Env env, Napi::Ob
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal_napi));
-    exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression_napi));
     exports.Set("windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression", Napi::Function::New(env, windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression_napi));

@@ -1228,13 +1228,13 @@ public val TVIS_STATEIMAGEMASK: TreeViewItemStateFlags = 61440u
 
 public val TVIS_USERMASK: TreeViewItemStateFlags = 61440u
 
-public val TVI_FIRST: Htreeitem = -65535
+public val TVI_FIRST: Htreeitem = (-65535).toLong()
 
-public val TVI_LAST: Htreeitem = -65534
+public val TVI_LAST: Htreeitem = (-65534).toLong()
 
-public val TVI_ROOT: Htreeitem = -65536
+public val TVI_ROOT: Htreeitem = (-65536).toLong()
 
-public val TVI_SORT: Htreeitem = -65533
+public val TVI_SORT: Htreeitem = (-65533).toLong()
 
 public val TVM_CREATEDRAGIMAGE: UInt = 4370u
 

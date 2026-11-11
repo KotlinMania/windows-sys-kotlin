@@ -1887,13 +1887,13 @@ static Napi::Value windowssys_windows_win32_system_threading_createThreadpool_na
     Napi::Env km_env = km_info.Env();
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateThreadpool")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr(reserved);
     } else {
@@ -1903,21 +1903,21 @@ static Napi::Value windowssys_windows_win32_system_threading_createThreadpool_na
 #else
     (void)reserved;
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void);
+    typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateThreadpoolCleanupGroup")));
     }
-    int32_t km_res;
+    int64_t km_res;
     if (km_fn_ptr != nullptr) {
         km_res = km_fn_ptr();
     } else {
@@ -1926,9 +1926,9 @@ static Napi::Value windowssys_windows_win32_system_threading_createThreadpoolCle
     }
 #else
     errno = ENOSYS;
-    int32_t km_res = -1;
+    int64_t km_res = -1;
 #endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
 static Napi::Value windowssys_windows_win32_system_threading_createThreadpoolIo_napi(const Napi::CallbackInfo& km_info) {

@@ -1,28 +1,28 @@
 package io.github.kotlinmania.windowssys
 
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.ENUM_PAGE_FILE_INFORMATION
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.EnumPageFileInformation
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.LIST_MODULES_32BIT
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.LIST_MODULES_64BIT
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.LIST_MODULES_ALL
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.LIST_MODULES_DEFAULT
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.MODULEINFO
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PENUM_PAGE_FILE_CALLBACKA
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PENUM_PAGE_FILE_CALLBACKW
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PERFORMANCE_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PROCESS_MEMORY_COUNTERS
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PROCESS_MEMORY_COUNTERS_EX
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PROCESS_MEMORY_COUNTERS_EX2
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.Moduleinfo
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_VERSION
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WORKING_SET_BLOCK
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WORKING_SET_BLOCK_0
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WORKING_SET_EX_BLOCK
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WORKING_SET_EX_BLOCK_0
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WORKING_SET_EX_BLOCK_0_0
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WORKING_SET_EX_BLOCK_0_1
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WORKING_SET_EX_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WORKING_SET_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WS_WATCH_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PSAPI_WS_WATCH_INFORMATION_EX
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PenumPageFileCallbackaFn
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PenumPageFileCallbackwFn
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PerformanceInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.ProcessMemoryCounters
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.ProcessMemoryCountersEx
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.ProcessMemoryCountersEx2
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWorkingSetBlock
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWorkingSetBlock0
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWorkingSetExBlock
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWorkingSetExBlock0
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWorkingSetExBlock00
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWorkingSetExBlock01
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWorkingSetExInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWorkingSetInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWsWatchInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.PsapiWsWatchInformationEx
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
@@ -40,186 +40,186 @@ class ProcessStatusTest {
     @Test
     fun testEnumPageFileInformation() {
         val info =
-            ENUM_PAGE_FILE_INFORMATION(
+            EnumPageFileInformation(
                 cb = 24u,
-                Reserved = 0u,
-                TotalSize = 1024uL,
-                TotalInUse = 512uL,
-                PeakUsage = 768uL,
+                reserved = 0u,
+                totalSize = 1024,
+                totalInUse = 512,
+                peakUsage = 768,
             )
         assertEquals(24u, info.cb)
-        assertEquals(0u, info.Reserved)
-        assertEquals(1024uL, info.TotalSize)
-        assertEquals(512uL, info.TotalInUse)
-        assertEquals(768uL, info.PeakUsage)
+        assertEquals(0u, info.reserved)
+        assertEquals(1024, info.totalSize)
+        assertEquals(512, info.totalInUse)
+        assertEquals(768, info.peakUsage)
     }
 
     @Test
     fun testModuleInfo() {
         val modInfo =
-            MODULEINFO(
-                lpBaseOfDll = 0x140000000L,
-                SizeOfImage = 0x20000u,
-                EntryPoint = 0x140001000L,
+            Moduleinfo(
+                lpBaseOfDll = COpaquePointer(0x140000000L),
+                sizeOfImage = 0x20000u,
+                entryPoint = COpaquePointer(0x140001000L),
             )
-        assertEquals(0x140000000L, modInfo.lpBaseOfDll)
-        assertEquals(0x20000u, modInfo.SizeOfImage)
-        assertEquals(0x140001000L, modInfo.EntryPoint)
+        assertEquals(COpaquePointer(0x140000000L), modInfo.lpBaseOfDll)
+        assertEquals(0x20000u, modInfo.sizeOfImage)
+        assertEquals(COpaquePointer(0x140001000L), modInfo.entryPoint)
     }
 
     @Test
     fun testPerformanceInformation() {
         val perf =
-            PERFORMANCE_INFORMATION(
+            PerformanceInformation(
                 cb = 56u,
-                CommitTotal = 4096uL,
-                CommitLimit = 8192uL,
-                CommitPeak = 6000uL,
-                PhysicalTotal = 16384uL,
-                PhysicalAvailable = 8192uL,
-                SystemCache = 2048uL,
-                KernelTotal = 1024uL,
-                KernelPaged = 512uL,
-                KernelNonpaged = 512uL,
-                PageSize = 4096uL,
-                HandleCount = 25000u,
-                ProcessCount = 120u,
-                ThreadCount = 950u,
+                commitTotal = 4096,
+                commitLimit = 8192,
+                commitPeak = 6000,
+                physicalTotal = 16384,
+                physicalAvailable = 8192,
+                systemCache = 2048,
+                kernelTotal = 1024,
+                kernelPaged = 512,
+                kernelNonpaged = 512,
+                pageSize = 4096,
+                handleCount = 25000u,
+                processCount = 120u,
+                threadCount = 950u,
             )
         assertEquals(56u, perf.cb)
-        assertEquals(4096uL, perf.CommitTotal)
-        assertEquals(8192uL, perf.CommitLimit)
-        assertEquals(6000uL, perf.CommitPeak)
-        assertEquals(16384uL, perf.PhysicalTotal)
-        assertEquals(8192uL, perf.PhysicalAvailable)
-        assertEquals(2048uL, perf.SystemCache)
-        assertEquals(1024uL, perf.KernelTotal)
-        assertEquals(512uL, perf.KernelPaged)
-        assertEquals(512uL, perf.KernelNonpaged)
-        assertEquals(4096uL, perf.PageSize)
-        assertEquals(25000u, perf.HandleCount)
-        assertEquals(120u, perf.ProcessCount)
-        assertEquals(950u, perf.ThreadCount)
+        assertEquals(4096, perf.commitTotal)
+        assertEquals(8192, perf.commitLimit)
+        assertEquals(6000, perf.commitPeak)
+        assertEquals(16384, perf.physicalTotal)
+        assertEquals(8192, perf.physicalAvailable)
+        assertEquals(2048, perf.systemCache)
+        assertEquals(1024, perf.kernelTotal)
+        assertEquals(512, perf.kernelPaged)
+        assertEquals(512, perf.kernelNonpaged)
+        assertEquals(4096, perf.pageSize)
+        assertEquals(25000u, perf.handleCount)
+        assertEquals(120u, perf.processCount)
+        assertEquals(950u, perf.threadCount)
     }
 
     @Test
     fun testProcessMemoryCounters() {
         val counters =
-            PROCESS_MEMORY_COUNTERS(
+            ProcessMemoryCounters(
                 cb = 44u,
-                PageFaultCount = 100u,
-                PeakWorkingSetSize = 1048576uL,
-                WorkingSetSize = 524288uL,
-                QuotaPeakPagedPoolUsage = 65536uL,
-                QuotaPagedPoolUsage = 32768uL,
-                QuotaPeakNonPagedPoolUsage = 16384uL,
-                QuotaNonPagedPoolUsage = 8192uL,
-                PagefileUsage = 2097152uL,
-                PeakPagefileUsage = 3145728uL,
+                pageFaultCount = 100u,
+                peakWorkingSetSize = 1048576,
+                workingSetSize = 524288,
+                quotaPeakPagedPoolUsage = 65536,
+                quotaPagedPoolUsage = 32768,
+                quotaPeakNonPagedPoolUsage = 16384,
+                quotaNonPagedPoolUsage = 8192,
+                pagefileUsage = 2097152,
+                peakPagefileUsage = 3145728,
             )
         assertEquals(44u, counters.cb)
-        assertEquals(100u, counters.PageFaultCount)
-        assertEquals(1048576uL, counters.PeakWorkingSetSize)
-        assertEquals(524288uL, counters.WorkingSetSize)
-        assertEquals(65536uL, counters.QuotaPeakPagedPoolUsage)
-        assertEquals(32768uL, counters.QuotaPagedPoolUsage)
-        assertEquals(16384uL, counters.QuotaPeakNonPagedPoolUsage)
-        assertEquals(8192uL, counters.QuotaNonPagedPoolUsage)
-        assertEquals(2097152uL, counters.PagefileUsage)
-        assertEquals(3145728uL, counters.PeakPagefileUsage)
+        assertEquals(100u, counters.pageFaultCount)
+        assertEquals(1048576, counters.peakWorkingSetSize)
+        assertEquals(524288, counters.workingSetSize)
+        assertEquals(65536, counters.quotaPeakPagedPoolUsage)
+        assertEquals(32768, counters.quotaPagedPoolUsage)
+        assertEquals(16384, counters.quotaPeakNonPagedPoolUsage)
+        assertEquals(8192, counters.quotaNonPagedPoolUsage)
+        assertEquals(2097152, counters.pagefileUsage)
+        assertEquals(3145728, counters.peakPagefileUsage)
 
         val countersEx =
-            PROCESS_MEMORY_COUNTERS_EX(
+            ProcessMemoryCountersEx(
                 cb = 48u,
-                PrivateUsage = 4194304uL,
+                privateUsage = 4194304,
             )
         assertEquals(48u, countersEx.cb)
-        assertEquals(4194304uL, countersEx.PrivateUsage)
+        assertEquals(4194304, countersEx.privateUsage)
 
         val countersEx2 =
-            PROCESS_MEMORY_COUNTERS_EX2(
+            ProcessMemoryCountersEx2(
                 cb = 64u,
-                PrivateUsage = 4194304uL,
-                PrivateWorkingSetSize = 2097152uL,
-                SharedCommitUsage = 1048576uL,
+                privateUsage = 4194304,
+                privateWorkingSetSize = 2097152,
+                sharedCommitUsage = 1048576uL,
             )
         assertEquals(64u, countersEx2.cb)
-        assertEquals(4194304uL, countersEx2.PrivateUsage)
-        assertEquals(2097152uL, countersEx2.PrivateWorkingSetSize)
-        assertEquals(1048576uL, countersEx2.SharedCommitUsage)
+        assertEquals(4194304, countersEx2.privateUsage)
+        assertEquals(2097152, countersEx2.privateWorkingSetSize)
+        assertEquals(1048576uL, countersEx2.sharedCommitUsage)
     }
 
     @Test
     fun testWorkingSetStructures() {
-        val b0 = PSAPI_WORKING_SET_BLOCK_0(_bitfield = 0x1uL)
-        val block = PSAPI_WORKING_SET_BLOCK(Flags = 0x1uL, Anonymous = b0)
-        assertEquals(0x1uL, block.Flags)
-        assertEquals(0x1uL, block.Anonymous._bitfield)
+        val b0 = PsapiWorkingSetBlock0(bitfield = 0x1)
+        val block = PsapiWorkingSetBlock(flags = 0x1, anonymous = b0)
+        assertEquals(0x1, block.flags)
+        assertEquals(0x1, block.anonymous.bitfield)
 
-        val exB00 = PSAPI_WORKING_SET_EX_BLOCK_0_0(_bitfield = 0x2uL)
-        val exB01 = PSAPI_WORKING_SET_EX_BLOCK_0_1(_bitfield = 0x3uL)
-        val exB0 = PSAPI_WORKING_SET_EX_BLOCK_0(Anonymous = exB00, Invalid = exB01)
-        val exBlock = PSAPI_WORKING_SET_EX_BLOCK(Flags = 0x2uL, Anonymous = exB0)
-        assertEquals(0x2uL, exBlock.Flags)
-        assertEquals(0x2uL, exBlock.Anonymous.Anonymous._bitfield)
-        assertEquals(0x3uL, exBlock.Anonymous.Invalid._bitfield)
+        val exB00 = PsapiWorkingSetExBlock00(bitfield = 0x2)
+        val exB01 = PsapiWorkingSetExBlock01(bitfield = 0x3)
+        val exB0 = PsapiWorkingSetExBlock0(anonymous = exB00, invalid = exB01)
+        val exBlock = PsapiWorkingSetExBlock(flags = 0x2, anonymous = exB0)
+        assertEquals(0x2, exBlock.flags)
+        assertEquals(0x2, exBlock.anonymous.anonymous.bitfield)
+        assertEquals(0x3, exBlock.anonymous.invalid.bitfield)
 
         val wsExInfo =
-            PSAPI_WORKING_SET_EX_INFORMATION(
-                VirtualAddress = 0x10000000L,
-                VirtualAttributes = exBlock,
+            PsapiWorkingSetExInformation(
+                virtualAddress = COpaquePointer(0x10000000L),
+                virtualAttributes = exBlock,
             )
-        assertEquals(0x10000000L, wsExInfo.VirtualAddress)
-        assertEquals(0x2uL, wsExInfo.VirtualAttributes.Flags)
+        assertEquals(COpaquePointer(0x10000000L), wsExInfo.virtualAddress)
+        assertEquals(0x2, wsExInfo.virtualAttributes.flags)
 
         val wsInfo =
-            PSAPI_WORKING_SET_INFORMATION(
-                NumberOfEntries = 1uL,
-                WorkingSetInfo = arrayOf(block),
+            PsapiWorkingSetInformation(
+                numberOfEntries = 1,
+                workingSetInfo = listOf(block),
             )
-        assertEquals(1uL, wsInfo.NumberOfEntries)
-        assertEquals(block, wsInfo.WorkingSetInfo[0])
-        assertEquals(wsInfo, PSAPI_WORKING_SET_INFORMATION(1uL, arrayOf(block)))
+        assertEquals(1, wsInfo.numberOfEntries)
+        assertEquals(block, wsInfo.workingSetInfo[0])
+        assertEquals(wsInfo, PsapiWorkingSetInformation(1, listOf(block)))
     }
 
     @Test
     fun testWatchInformation() {
         val watchInfo =
-            PSAPI_WS_WATCH_INFORMATION(
-                FaultingPc = 0x7FFF0001L,
-                FaultingVa = 0x7FFF1000L,
+            PsapiWsWatchInformation(
+                faultingPc = COpaquePointer(0x7FFF0001L),
+                faultingVa = COpaquePointer(0x7FFF1000L),
             )
-        assertEquals(0x7FFF0001L, watchInfo.FaultingPc)
-        assertEquals(0x7FFF1000L, watchInfo.FaultingVa)
+        assertEquals(COpaquePointer(0x7FFF0001L), watchInfo.faultingPc)
+        assertEquals(COpaquePointer(0x7FFF1000L), watchInfo.faultingVa)
 
         val watchInfoEx =
-            PSAPI_WS_WATCH_INFORMATION_EX(
-                BasicInfo = watchInfo,
-                FaultingThreadId = 1234uL,
-                Flags = 0uL,
+            PsapiWsWatchInformationEx(
+                basicInfo = watchInfo,
+                faultingThreadId = 1234,
+                flags = 0,
             )
-        assertEquals(watchInfo, watchInfoEx.BasicInfo)
-        assertEquals(1234uL, watchInfoEx.FaultingThreadId)
-        assertEquals(0uL, watchInfoEx.Flags)
+        assertEquals(watchInfo, watchInfoEx.basicInfo)
+        assertEquals(1234, watchInfoEx.faultingThreadId)
+        assertEquals(0, watchInfoEx.flags)
     }
 
     @Test
     fun testPageFileCallbacks() {
         val callbackA =
-            PENUM_PAGE_FILE_CALLBACKA { _, ppagefileinfo, _ ->
+            PenumPageFileCallbackaFn { _, ppagefileinfo, _ ->
                 assertNotNull(ppagefileinfo)
                 1
             }
-        val info = ENUM_PAGE_FILE_INFORMATION(cb = 24u)
-        val resultA = callbackA.invoke(0L, info, 0L)
+        val infoPtr = COpaquePointer(0x2000L)
+        val resultA = callbackA.invoke(null, infoPtr, null)
         assertEquals(1, resultA)
 
         val callbackW =
-            PENUM_PAGE_FILE_CALLBACKW { _, ppagefileinfo, _ ->
+            PenumPageFileCallbackwFn { _, ppagefileinfo, _ ->
                 assertNotNull(ppagefileinfo)
                 1
             }
-        val resultW = callbackW.invoke(0L, info, 0L)
+        val resultW = callbackW.invoke(null, infoPtr, null)
         assertEquals(1, resultW)
     }
 }

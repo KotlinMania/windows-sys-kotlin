@@ -1525,9 +1525,9 @@ void* windowssys_windows_win32_system_threading_createThread(void* lpthreadattri
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_createThreadpool(void* reserved) {
+int64_t windowssys_windows_win32_system_threading_createThreadpool(void* reserved) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
+    typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
@@ -1547,9 +1547,9 @@ int32_t windowssys_windows_win32_system_threading_createThreadpool(void* reserve
 #endif
 }
 
-int32_t windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(void) {
+int64_t windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(void) {
 #ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void);
+    typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");

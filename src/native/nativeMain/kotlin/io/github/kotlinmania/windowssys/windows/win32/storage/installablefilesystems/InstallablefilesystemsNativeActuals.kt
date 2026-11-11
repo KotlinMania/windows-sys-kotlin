@@ -45,7 +45,7 @@ public actual fun filterAttachAtAltitude(lpfiltername: Pcwstr, lpvolumename: Pcw
     windowssys_windows_win32_storage_installablefilesystems_filterAttachAtAltitude(lpfiltername?.value?.toCPointer<ByteVar>(), lpvolumename?.value?.toCPointer<ByteVar>(), lpaltitude?.value?.toCPointer<ByteVar>(), lpinstancename?.value?.toCPointer<ByteVar>(), dwcreatedinstancenamelength, lpcreatedinstancename?.value?.toCPointer<ByteVar>())
 
 public actual fun filterClose(hfilter: Hfilter): Hresult =
-    windowssys_windows_win32_storage_installablefilesystems_filterClose(hfilter.toLong())
+    windowssys_windows_win32_storage_installablefilesystems_filterClose(hfilter)
 
 public actual fun filterConnectCommunicationPort(lpportname: Pcwstr, dwoptions: UInt, lpcontext: COpaquePointer?, wsizeofcontext: UShort, lpsecurityattributes: COpaquePointer?, hport: COpaquePointer?): Hresult =
     windowssys_windows_win32_storage_installablefilesystems_filterConnectCommunicationPort(lpportname?.value?.toCPointer<ByteVar>(), dwoptions, lpcontext?.value?.toCPointer<ByteVar>(), wsizeofcontext, lpsecurityattributes?.value?.toCPointer<ByteVar>(), hport?.value?.toCPointer<ByteVar>())
@@ -69,13 +69,13 @@ public actual fun filterGetDosName(lpvolumename: Pcwstr, lpdosname: Pwstr, dwdos
     windowssys_windows_win32_storage_installablefilesystems_filterGetDosName(lpvolumename?.value?.toCPointer<ByteVar>(), lpdosname?.value?.toCPointer<ByteVar>(), dwdosnamebuffersize)
 
 public actual fun filterGetInformation(hfilter: Hfilter, dwinformationclass: FilterInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_installablefilesystems_filterGetInformation(hfilter.toLong(), dwinformationclass, lpbuffer?.value?.toCPointer<ByteVar>(), dwbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_storage_installablefilesystems_filterGetInformation(hfilter, dwinformationclass, lpbuffer?.value?.toCPointer<ByteVar>(), dwbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun filterGetMessage(hport: Handle, lpmessagebuffer: COpaquePointer?, dwmessagebuffersize: UInt, lpoverlapped: COpaquePointer?): Hresult =
     windowssys_windows_win32_storage_installablefilesystems_filterGetMessage(hport?.value?.toCPointer<ByteVar>(), lpmessagebuffer?.value?.toCPointer<ByteVar>(), dwmessagebuffersize, lpoverlapped?.value?.toCPointer<ByteVar>())
 
 public actual fun filterInstanceClose(hinstance: HfilterInstance): Hresult =
-    windowssys_windows_win32_storage_installablefilesystems_filterInstanceClose(hinstance.toLong())
+    windowssys_windows_win32_storage_installablefilesystems_filterInstanceClose(hinstance)
 
 public actual fun filterInstanceCreate(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpinstancename: Pcwstr, hinstance: COpaquePointer?): Hresult =
     windowssys_windows_win32_storage_installablefilesystems_filterInstanceCreate(lpfiltername?.value?.toCPointer<ByteVar>(), lpvolumename?.value?.toCPointer<ByteVar>(), lpinstancename?.value?.toCPointer<ByteVar>(), hinstance?.value?.toCPointer<ByteVar>())
@@ -90,7 +90,7 @@ public actual fun filterInstanceFindNext(hfilterinstancefind: Handle, dwinformat
     windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindNext(hfilterinstancefind?.value?.toCPointer<ByteVar>(), dwinformationclass, lpbuffer?.value?.toCPointer<ByteVar>(), dwbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun filterInstanceGetInformation(hinstance: HfilterInstance, dwinformationclass: InstanceInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?): Hresult =
-    windowssys_windows_win32_storage_installablefilesystems_filterInstanceGetInformation(hinstance.toLong(), dwinformationclass, lpbuffer?.value?.toCPointer<ByteVar>(), dwbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>())
+    windowssys_windows_win32_storage_installablefilesystems_filterInstanceGetInformation(hinstance, dwinformationclass, lpbuffer?.value?.toCPointer<ByteVar>(), dwbuffersize, lpbytesreturned?.value?.toCPointer<ByteVar>())
 
 public actual fun filterLoad(lpfiltername: Pcwstr): Hresult =
     windowssys_windows_win32_storage_installablefilesystems_filterLoad(lpfiltername?.value?.toCPointer<ByteVar>())

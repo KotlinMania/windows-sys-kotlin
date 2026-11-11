@@ -1,17 +1,18 @@
 package io.github.kotlinmania.windowssys
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.CloseHandle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.GetLastError
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SetLastError
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.FreeEnvironmentStringsW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.GetCommandLineW
-import io.github.kotlinmania.windowssys.windows.win32.system.environment.GetEnvironmentStringsW
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.GetCurrentProcess
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.GetCurrentProcessId
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.GetCurrentThread
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.GetCurrentThreadId
+import io.github.kotlinmania.windowssys.windows.win32.foundation.closeHandle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.getLastError
+import io.github.kotlinmania.windowssys.windows.win32.foundation.setLastError
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.freeEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.getCommandLineW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.getEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurrentProcess
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurrentProcessId
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurrentThread
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurrentThreadId
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 private fun isNodeWindowsHost(): Boolean =
@@ -21,27 +22,27 @@ class WindowsSysJsTest {
     @Test
     fun testCloseHandleAndLastError() {
         if (!isNodeWindowsHost()) {
-            assertEquals(0u, GetLastError())
+            assertEquals(0u, getLastError())
             return
         }
-        CloseHandle(0L)
-        SetLastError(0u)
-        assertEquals(0u, GetLastError())
+        closeHandle(null)
+        setLastError(0u)
+        assertEquals(0u, getLastError())
     }
 
     @Test
     fun testThreadingAndEnvironmentFunctions() {
         if (!isNodeWindowsHost()) {
-            assertEquals(0u, GetCurrentProcessId())
+            assertEquals(0u, getCurrentProcessId())
             return
         }
-        assertTrue(GetCurrentProcess() != 0L)
-        assertTrue(GetCurrentProcessId() != 0u)
-        assertTrue(GetCurrentThread() != 0L)
-        assertTrue(GetCurrentThreadId() != 0u)
-        assertTrue(GetCommandLineW() != 0L)
-        val env = GetEnvironmentStringsW()
-        assertTrue(env != 0L)
-        assertTrue(FreeEnvironmentStringsW(env) != 0)
+        assertNotNull(getCurrentProcess())
+        assertTrue(getCurrentProcessId() != 0u)
+        assertNotNull(getCurrentThread())
+        assertTrue(getCurrentThreadId() != 0u)
+        assertNotNull(getCommandLineW())
+        val env = getEnvironmentStringsW()
+        assertNotNull(env)
+        assertTrue(freeEnvironmentStringsW(env) != 0)
     }
 }

@@ -71,8 +71,8 @@ void* windowssys_windows_win32_system_threading_createSemaphoreExA(void* lpsemap
 void* windowssys_windows_win32_system_threading_createSemaphoreExW(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname, uint32_t dwflags, uint32_t dwdesiredaccess);
 void* windowssys_windows_win32_system_threading_createSemaphoreW(void* lpsemaphoreattributes, int32_t linitialcount, int32_t lmaximumcount, void* lpname);
 void* windowssys_windows_win32_system_threading_createThread(void* lpthreadattributes, uint64_t dwstacksize, void* lpstartaddress, void* lpparameter, uint32_t dwcreationflags, void* lpthreadid);
-int32_t windowssys_windows_win32_system_threading_createThreadpool(void* reserved);
-int32_t windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(void);
+int64_t windowssys_windows_win32_system_threading_createThreadpool(void* reserved);
+int64_t windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup(void);
 int64_t windowssys_windows_win32_system_threading_createThreadpoolIo(void* fl, void* pfnio, void* pv, void* pcbe);
 int64_t windowssys_windows_win32_system_threading_createThreadpoolTimer(void* pfnti, void* pv, void* pcbe);
 int64_t windowssys_windows_win32_system_threading_createThreadpoolWait(void* pfnwa, void* pv, void* pcbe);

@@ -28,7 +28,6 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFla
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileShareMode
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EventType
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.String
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WaitType
 
 public expect fun applyControlToken(phcontext: COpaquePointer?, pinput: COpaquePointer?): Hresult
@@ -227,7 +226,7 @@ public expect fun fsRtlDeregisterUncProvider(handle: Handle)
 
 public expect fun fsRtlDismountComplete(deviceobject: COpaquePointer?, dismountstatus: Ntstatus)
 
-public expect fun fsRtlDissectDbcs(path: String, firstname: COpaquePointer?, remainingname: COpaquePointer?)
+public expect fun fsRtlDissectDbcs(path: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, firstname: COpaquePointer?, remainingname: COpaquePointer?)
 
 public expect fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?)
 
@@ -331,9 +330,9 @@ public expect fun fsRtlIsEcpFromUserMode(ecpcontext: COpaquePointer?): Boolean
 
 public expect fun fsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt
 
-public expect fun fsRtlIsFatDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean
+public expect fun fsRtlIsFatDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean
 
-public expect fun fsRtlIsHpfsDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean
+public expect fun fsRtlIsHpfsDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean
 
 public expect fun fsRtlIsMobileOS(): Boolean
 

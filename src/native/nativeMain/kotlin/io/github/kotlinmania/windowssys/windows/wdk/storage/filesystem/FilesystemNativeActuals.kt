@@ -117,7 +117,6 @@ import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete
-import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead
@@ -168,8 +167,6 @@ import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling
-import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal
-import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression
@@ -1034,8 +1031,7 @@ public actual fun fsRtlDismountComplete(deviceobject: COpaquePointer?, dismounts
     windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete(deviceobject?.value?.toCPointer<ByteVar>(), dismountstatus)
 }
 
-public actual fun fsRtlDissectDbcs(path: String, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
-    windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(path, firstname?.value?.toCPointer<ByteVar>(), remainingname?.value?.toCPointer<ByteVar>())
+public actual fun fsRtlDissectDbcs(path: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
 }
 
 public actual fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
@@ -1208,11 +1204,11 @@ public actual fun fsRtlIsEcpFromUserMode(ecpcontext: COpaquePointer?): Boolean =
 public actual fun fsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
     windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(startpage, numberofpages, flags)
 
-public actual fun fsRtlIsFatDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible)
+public actual fun fsRtlIsFatDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    false
 
-public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
-    windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible)
+public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, wildcardspermissible: Boolean, pathnamepermissible: Boolean, leadingbackslashpermissible: Boolean): Boolean =
+    false
 
 public actual fun fsRtlIsMobileOS(): Boolean =
     windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS()
