@@ -66,11 +66,13 @@ public actual fun aDsPropSetHwndWithTitle(hnotifyobj: Hwnd, hpage: Hwnd, ptztitl
 public actual fun aDsPropShowErrorDialog(hnotifyobj: Hwnd, hpage: Hwnd): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun aDsSetLastError(dwerr: UInt, pszerror: Pcwstr, pszprovider: Pcwstr): Unit =
+public actual fun aDsSetLastError(dwerr: UInt, pszerror: Pcwstr, pszprovider: Pcwstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun adsFreeAdsValues(padsvalues: COpaquePointer?, dwnumvalues: UInt): Unit =
+public actual fun adsFreeAdsValues(padsvalues: COpaquePointer?, dwnumvalues: UInt) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun adsTypeToPropVariant(padsvalues: COpaquePointer?, dwnumvalues: UInt, pvariant: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -195,35 +197,45 @@ public actual fun dsEnumerateDomainTrustsA(servername: Pcstr, flags: UInt, domai
 public actual fun dsEnumerateDomainTrustsW(servername: Pcwstr, flags: UInt, domains: COpaquePointer?, domaincount: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?): Unit =
+public actual fun dsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun dsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?): Unit =
+public actual fun dsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun dsFreeNameResultA(presult: COpaquePointer?): Unit =
+public actual fun dsFreeNameResultA(presult: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun dsFreeNameResultW(presult: COpaquePointer?): Unit =
+public actual fun dsFreeNameResultW(presult: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun dsFreePasswordCredentials(authidentity: COpaquePointer?): Unit =
+public actual fun dsFreePasswordCredentials(authidentity: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun dsFreeSchemaGuidMapA(pguidmap: COpaquePointer?): Unit =
+public actual fun dsFreeSchemaGuidMapA(pguidmap: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun dsFreeSchemaGuidMapW(pguidmap: COpaquePointer?): Unit =
+public actual fun dsFreeSchemaGuidMapW(pguidmap: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun dsFreeSpnArrayA(cspn: UInt, rpszspn: COpaquePointer?): Unit =
+public actual fun dsFreeSpnArrayA(cspn: UInt, rpszspn: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun dsFreeSpnArrayW(cspn: UInt, rpszspn: COpaquePointer?): Unit =
+public actual fun dsFreeSpnArrayW(cspn: UInt, rpszspn: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun dsGetDcCloseW(getdccontexthandle: Handle): Unit =
+public actual fun dsGetDcCloseW(getdccontexthandle: Handle) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun dsGetDcNameA(computername: Pcstr, domainname: Pcstr, domainguid: COpaquePointer?, sitename: Pcstr, flags: UInt, domaincontrollerinfo: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -360,8 +372,9 @@ public actual fun dsQuerySitesByCostA(hds: Handle, pszfromsite: Pcstr, rgsztosit
 public actual fun dsQuerySitesByCostW(hds: Handle, pwszfromsite: Pcwstr, rgwsztosites: COpaquePointer?, ctosites: UInt, dwflags: UInt, prgsiteinfo: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dsQuerySitesFree(rgsiteinfo: COpaquePointer?): Unit =
+public actual fun dsQuerySitesFree(rgsiteinfo: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun dsQuoteRdnValueA(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcstr, pcquotedrdnvaluelength: COpaquePointer?, psquotedrdnvalue: Pstr): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -396,8 +409,9 @@ public actual fun dsReplicaDelA(hds: Handle, namecontext: Pcstr, dsasrc: Pcstr, 
 public actual fun dsReplicaDelW(hds: Handle, namecontext: Pcwstr, dsasrc: Pcwstr, options: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dsReplicaFreeInfo(infotype: DsReplInfoType, pinfo: COpaquePointer?): Unit =
+public actual fun dsReplicaFreeInfo(infotype: DsReplInfoType, pinfo: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun dsReplicaGetInfo2W(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: COpaquePointer?, pszattributename: Pcwstr, pszvalue: Pcwstr, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -435,8 +449,9 @@ public actual fun dsReplicaVerifyObjectsA(hds: Handle, namecontext: Pcstr, puuid
 public actual fun dsReplicaVerifyObjectsW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: COpaquePointer?, uloptions: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dsRoleFreeMemory(buffer: COpaquePointer?): Unit =
+public actual fun dsRoleFreeMemory(buffer: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun dsRoleGetPrimaryDomainInformation(lpserver: Pcwstr, infolevel: DsrolePrimaryDomainInfoLevel, buffer: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

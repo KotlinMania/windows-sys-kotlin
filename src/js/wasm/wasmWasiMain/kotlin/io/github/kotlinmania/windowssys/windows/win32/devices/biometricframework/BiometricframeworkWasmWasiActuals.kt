@@ -88,17 +88,20 @@ public actual fun winBioFree(address: COpaquePointer?): Hresult =
 public actual fun winBioGetCredentialState(identity: WinbioIdentity, type: WinbioCredentialType, credentialstate: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun winBioGetDomainLogonSetting(value: COpaquePointer?, source: COpaquePointer?): Unit =
+public actual fun winBioGetDomainLogonSetting(value: COpaquePointer?, source: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun winBioGetEnabledSetting(value: COpaquePointer?, source: COpaquePointer?): Unit =
+public actual fun winBioGetEnabledSetting(value: COpaquePointer?, source: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun winBioGetEnrolledFactors(accountowner: COpaquePointer?, enrolledfactors: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun winBioGetLogonSetting(value: COpaquePointer?, source: COpaquePointer?): Unit =
+public actual fun winBioGetLogonSetting(value: COpaquePointer?, source: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun winBioGetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: COpaquePointer?, subfactor: UByte, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

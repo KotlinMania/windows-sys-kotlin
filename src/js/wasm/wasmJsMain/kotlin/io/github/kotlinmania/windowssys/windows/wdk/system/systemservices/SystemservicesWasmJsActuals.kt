@@ -4451,8 +4451,9 @@ public actual fun ioAcquireRemoveLockEx(removelock: COpaquePointer?, tag: COpaqu
 public actual fun ioAllocateAdapterChannel(adapterobject: COpaquePointer?, deviceobject: COpaquePointer?, numberofmapregisters: UInt, executionroutine: DriverControl, context: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateController(controllerobject: COpaquePointer?, deviceobject: COpaquePointer?, executionroutine: DriverControl, context: COpaquePointer?): Unit =
+public actual fun ioAllocateController(controllerobject: COpaquePointer?, deviceobject: COpaquePointer?, executionroutine: DriverControl, context: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI addon is not available")
+}
 
 public actual fun ioAllocateDriverObjectExtension(driverobject: COpaquePointer?, clientidentificationaddress: COpaquePointer?, driverobjectextensionsize: UInt, driverobjectextension: COpaquePointer?): Ntstatus =
     if (_windowsWdkSystemSystemservicesNapiAvailable) _wasm_windowssys_windows_wdk_system_systemservices_ioAllocateDriverObjectExtension((driverobject?.value ?: 0L).toString(), (clientidentificationaddress?.value ?: 0L).toString(), driverobjectextensionsize.toInt(), (driverobjectextension?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -4996,8 +4997,9 @@ public actual fun ioRecordIoAttribution(opaquehandle: COpaquePointer?, attributi
 public actual fun ioRegisterBootDriverCallback(callbackfunction: PbootDriverCallbackFunction, callbackcontext: COpaquePointer?): COpaquePointer? =
     if (_windowsWdkSystemSystemservicesNapiAvailable) _wasm_windowssys_windows_wdk_system_systemservices_ioRegisterBootDriverCallback(0L.toString(), (callbackcontext?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterBootDriverReinitialization(driverobject: COpaquePointer?, driverreinitializationroutine: DriverReinitialize, context: COpaquePointer?): Unit =
+public actual fun ioRegisterBootDriverReinitialization(driverobject: COpaquePointer?, driverreinitializationroutine: DriverReinitialize, context: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI addon is not available")
+}
 
 public actual fun ioRegisterContainerNotification(notificationclass: IoContainerNotificationClass, callbackfunction: PioContainerNotificationFunction, notificationinformation: COpaquePointer?, notificationinformationlength: UInt, callbackregistration: COpaquePointer?): Ntstatus =
     if (_windowsWdkSystemSystemservicesNapiAvailable) _wasm_windowssys_windows_wdk_system_systemservices_ioRegisterContainerNotification(notificationclass, 0L.toString(), (notificationinformation?.value ?: 0L).toString(), notificationinformationlength.toInt(), (callbackregistration?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -5005,8 +5007,9 @@ public actual fun ioRegisterContainerNotification(notificationclass: IoContainer
 public actual fun ioRegisterDeviceInterface(physicaldeviceobject: COpaquePointer?, interfaceclassguid: COpaquePointer?, referencestring: COpaquePointer?, symboliclinkname: COpaquePointer?): Ntstatus =
     if (_windowsWdkSystemSystemservicesNapiAvailable) _wasm_windowssys_windows_wdk_system_systemservices_ioRegisterDeviceInterface((physicaldeviceobject?.value ?: 0L).toString(), (interfaceclassguid?.value ?: 0L).toString(), (referencestring?.value ?: 0L).toString(), (symboliclinkname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterDriverReinitialization(driverobject: COpaquePointer?, driverreinitializationroutine: DriverReinitialize, context: COpaquePointer?): Unit =
+public actual fun ioRegisterDriverReinitialization(driverobject: COpaquePointer?, driverreinitializationroutine: DriverReinitialize, context: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI addon is not available")
+}
 
 public actual fun ioRegisterLastChanceShutdownNotification(deviceobject: COpaquePointer?): Ntstatus =
     if (_windowsWdkSystemSystemservicesNapiAvailable) _wasm_windowssys_windows_wdk_system_systemservices_ioRegisterLastChanceShutdownNotification((deviceobject?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -5256,8 +5259,9 @@ public actual fun ioStartNextPacketByKey(deviceobject: COpaquePointer?, cancelab
     }
 }
 
-public actual fun ioStartPacket(deviceobject: COpaquePointer?, irp: COpaquePointer?, key: COpaquePointer?, cancelfunction: DriverCancel): Unit =
+public actual fun ioStartPacket(deviceobject: COpaquePointer?, irp: COpaquePointer?, key: COpaquePointer?, cancelfunction: DriverCancel) {
     throw UnsupportedOperationException("Native FFI addon is not available")
+}
 
 public actual fun ioStartTimer(deviceobject: COpaquePointer?) {
     if (_windowsWdkSystemSystemservicesNapiAvailable) {

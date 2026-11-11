@@ -314,8 +314,9 @@ public actual fun makeAbsoluteSD(pselfrelativesecuritydescriptor: PsecurityDescr
 public actual fun makeSelfRelativeSD(pabsolutesecuritydescriptor: PsecurityDescriptor, pselfrelativesecuritydescriptor: PsecurityDescriptor, lpdwbufferlength: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mapGenericMask(accessmask: COpaquePointer?, genericmapping: COpaquePointer?): Unit =
+public actual fun mapGenericMask(accessmask: COpaquePointer?, genericmapping: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun objectCloseAuditAlarmA(subsystemname: Pcstr, handleid: COpaquePointer?, generateonclose: Bool): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -350,8 +351,9 @@ public actual fun privilegedServiceAuditAlarmA(subsystemname: Pcstr, servicename
 public actual fun privilegedServiceAuditAlarmW(subsystemname: Pcwstr, servicename: Pcwstr, clienttoken: Handle, privileges: COpaquePointer?, accessgranted: Bool): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun querySecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: COpaquePointer?): Unit =
+public actual fun querySecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun revertToSelf(): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -383,8 +385,9 @@ public actual fun setPrivateObjectSecurity(securityinformation: ObjectSecurityIn
 public actual fun setPrivateObjectSecurityEx(securityinformation: ObjectSecurityInformation, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: COpaquePointer?, autoinheritflags: SecurityAutoInheritFlags, genericmapping: COpaquePointer?, token: Handle): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun setSecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: COpaquePointer?): Unit =
+public actual fun setSecurityAccessMask(securityinformation: ObjectSecurityInformation, desiredaccess: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun setSecurityDescriptorControl(psecuritydescriptor: PsecurityDescriptor, controlbitsofinterest: SecurityDescriptorControl, controlbitstoset: SecurityDescriptorControl): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

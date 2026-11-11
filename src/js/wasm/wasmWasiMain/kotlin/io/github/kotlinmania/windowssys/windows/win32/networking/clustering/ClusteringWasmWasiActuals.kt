@@ -119,8 +119,9 @@ public actual fun clusWorkerCheckTerminate(lpworker: COpaquePointer?): Bool =
 public actual fun clusWorkerCreate(lpworker: COpaquePointer?, lpstartaddress: PworkerStartRoutine, lpparameter: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun clusWorkerTerminate(lpworker: COpaquePointer?): Unit =
+public actual fun clusWorkerTerminate(lpworker: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun clusWorkerTerminateEx(clusworker: COpaquePointer?, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -932,8 +933,9 @@ public actual fun resUtilFindULargeIntegerProperty(ppropertylist: COpaquePointer
 public actual fun resUtilFreeEnvironment(lpenvironment: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun resUtilFreeParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?): Unit =
+public actual fun resUtilFreeParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun resUtilGetAllProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

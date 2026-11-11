@@ -21,14 +21,17 @@ public actual fun webAuthNCancelCurrentOperation(pcancellationid: COpaquePointer
 public actual fun webAuthNDeletePlatformCredential(cbcredentialid: UInt, pbcredentialid: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun webAuthNFreeAssertion(pwebauthnassertion: COpaquePointer?): Unit =
+public actual fun webAuthNFreeAssertion(pwebauthnassertion: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun webAuthNFreeCredentialAttestation(pwebauthncredentialattestation: COpaquePointer?): Unit =
+public actual fun webAuthNFreeCredentialAttestation(pwebauthncredentialattestation: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun webAuthNFreePlatformCredentialList(pcredentialdetailslist: COpaquePointer?): Unit =
+public actual fun webAuthNFreePlatformCredentialList(pcredentialdetailslist: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun webAuthNGetApiVersionNumber(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -198,38 +201,49 @@ public actual fun wsFlushBody(message: COpaquePointer?, minsize: UInt, asynccont
 public actual fun wsFlushWriter(writer: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wsFreeChannel(channel: COpaquePointer?): Unit =
+public actual fun wsFreeChannel(channel: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeError(error: COpaquePointer?): Unit =
+public actual fun wsFreeError(error: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeHeap(heap: COpaquePointer?): Unit =
+public actual fun wsFreeHeap(heap: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeListener(listener: COpaquePointer?): Unit =
+public actual fun wsFreeListener(listener: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeMessage(message: COpaquePointer?): Unit =
+public actual fun wsFreeMessage(message: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeMetadata(metadata: COpaquePointer?): Unit =
+public actual fun wsFreeMetadata(metadata: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeReader(reader: COpaquePointer?): Unit =
+public actual fun wsFreeReader(reader: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeSecurityToken(token: COpaquePointer?): Unit =
+public actual fun wsFreeSecurityToken(token: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeServiceHost(servicehost: COpaquePointer?): Unit =
+public actual fun wsFreeServiceHost(servicehost: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeServiceProxy(serviceproxy: COpaquePointer?): Unit =
+public actual fun wsFreeServiceProxy(serviceproxy: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun wsFreeWriter(writer: COpaquePointer?): Unit =
+public actual fun wsFreeWriter(writer: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun wsGetChannelProperty(channel: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

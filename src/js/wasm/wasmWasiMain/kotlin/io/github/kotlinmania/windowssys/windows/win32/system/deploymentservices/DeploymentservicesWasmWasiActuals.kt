@@ -221,8 +221,9 @@ public actual fun wdsCliObtainDriverPackagesEx(hsession: Handle, pwszmachineinfo
 public actual fun wdsCliRegisterTrace(pfn: PfnWdsCliTraceFunction): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wdsCliSetTransferBufferSize(ulsizeinbytes: UInt): Unit =
+public actual fun wdsCliSetTransferBufferSize(ulsizeinbytes: UInt) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun wdsCliTransferFile(pwszserver: Pcwstr, pwsznamespace: Pcwstr, pwszremotefilepath: Pcwstr, pwszlocalfilepath: Pcwstr, dwflags: UInt, dwreserved: UInt, pfnwdsclicallback: PfnWdsCliCallback, pvuserdata: COpaquePointer?, phtransfer: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

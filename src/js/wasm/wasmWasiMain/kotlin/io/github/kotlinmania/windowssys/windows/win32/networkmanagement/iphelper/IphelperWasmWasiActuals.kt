@@ -21,8 +21,9 @@ public actual fun addIPAddress(address: UInt, ipmask: UInt, ifindex: UInt, nteco
 public actual fun cancelIPChangeNotify(notifyoverlapped: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun cancelIfTimestampConfigChange(notificationhandle: Hiftimestampchange): Unit =
+public actual fun cancelIfTimestampConfigChange(notificationhandle: Hiftimestampchange) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun cancelMibChangeNotify2(notificationhandle: Handle): Win32Error =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -147,14 +148,17 @@ public actual fun flushIpNetTable2(family: AddressFamily, interfaceindex: UInt):
 public actual fun flushIpPathTable(family: AddressFamily): Win32Error =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun freeDnsSettings(settings: COpaquePointer?): Unit =
+public actual fun freeDnsSettings(settings: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun freeInterfaceDnsSettings(settings: COpaquePointer?): Unit =
+public actual fun freeInterfaceDnsSettings(settings: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun freeMibTable(memory: COpaquePointer?): Unit =
+public actual fun freeMibTable(memory: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getAdapterIndex(adaptername: Pcwstr, ifindex: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -189,8 +193,9 @@ public actual fun getBestRoute2(interfaceluid: COpaquePointer?, interfaceindex: 
 public actual fun getCurrentThreadCompartmentId(): NetIfCompartmentId =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun getCurrentThreadCompartmentScope(compartmentscope: COpaquePointer?, compartmentid: COpaquePointer?): Unit =
+public actual fun getCurrentThreadCompartmentScope(compartmentscope: COpaquePointer?, compartmentid: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getDefaultCompartmentId(): NetIfCompartmentId =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -429,14 +434,17 @@ public actual fun icmpSendEcho2(icmphandle: Handle, event: Handle, apcroutine: P
 public actual fun icmpSendEcho2Ex(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, sourceaddress: UInt, destinationaddress: UInt, requestdata: COpaquePointer?, requestsize: UShort, requestoptions: COpaquePointer?, replybuffer: COpaquePointer?, replysize: UInt, timeout: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun initializeIpForwardEntry(row: COpaquePointer?): Unit =
+public actual fun initializeIpForwardEntry(row: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun initializeIpInterfaceEntry(row: COpaquePointer?): Unit =
+public actual fun initializeIpInterfaceEntry(row: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun initializeUnicastIpAddressEntry(row: COpaquePointer?): Unit =
+public actual fun initializeUnicastIpAddressEntry(row: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun ipReleaseAddress(adapterinfo: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -609,8 +617,9 @@ public actual fun setUnicastIpAddressEntry(row: COpaquePointer?): Win32Error =
 public actual fun unenableRouter(poverlapped: COpaquePointer?, lpdwenablecount: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun unregisterInterfaceTimestampConfigChange(notificationhandle: Hiftimestampchange): Unit =
+public actual fun unregisterInterfaceTimestampConfigChange(notificationhandle: Hiftimestampchange) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun ifIndextoname(interfaceindex: UInt, interfacename: Pstr): Pstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

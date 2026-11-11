@@ -115,8 +115,9 @@ public actual fun fwpmFilterGetSecurityInfoByKey0(enginehandle: Handle, key: COp
 public actual fun fwpmFilterSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun fwpmFreeMemory0(p: COpaquePointer?): Unit =
+public actual fun fwpmFreeMemory0(p: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun fwpmIPsecTunnelAdd0(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

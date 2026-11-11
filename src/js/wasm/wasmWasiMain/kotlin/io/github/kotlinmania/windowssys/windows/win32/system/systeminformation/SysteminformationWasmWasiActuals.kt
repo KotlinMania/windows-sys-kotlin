@@ -32,8 +32,9 @@ public actual fun getFirmwareType(firmwaretype: COpaquePointer?): Bool =
 public actual fun getIntegratedDisplaySize(sizeininches: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun getLocalTime(lpsystemtime: COpaquePointer?): Unit =
+public actual fun getLocalTime(lpsystemtime: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getLogicalProcessorInformation(buffer: COpaquePointer?, returnedlength: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -41,8 +42,9 @@ public actual fun getLogicalProcessorInformation(buffer: COpaquePointer?, return
 public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: COpaquePointer?, returnedlength: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun getNativeSystemInfo(lpsysteminfo: COpaquePointer?): Unit =
+public actual fun getNativeSystemInfo(lpsysteminfo: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getOsManufacturingMode(pbenabled: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -74,14 +76,16 @@ public actual fun getSystemDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
 public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: COpaquePointer?, buffersize: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun getSystemInfo(lpsysteminfo: COpaquePointer?): Unit =
+public actual fun getSystemInfo(lpsysteminfo: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getSystemLeapSecondInformation(enabled: COpaquePointer?, flags: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun getSystemTime(lpsystemtime: COpaquePointer?): Unit =
+public actual fun getSystemTime(lpsystemtime: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getSystemTimeAdjustment(lptimeadjustment: COpaquePointer?, lptimeincrement: COpaquePointer?, lptimeadjustmentdisabled: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -89,11 +93,13 @@ public actual fun getSystemTimeAdjustment(lptimeadjustment: COpaquePointer?, lpt
 public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: COpaquePointer?, lptimeincrement: COpaquePointer?, lptimeadjustmentdisabled: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: COpaquePointer?): Unit =
+public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: COpaquePointer?): Unit =
+public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getSystemWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -134,8 +140,9 @@ public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
 public actual fun getWindowsDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun globalMemoryStatus(lpbuffer: COpaquePointer?): Unit =
+public actual fun globalMemoryStatus(lpbuffer: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun globalMemoryStatusEx(lpbuffer: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -149,8 +156,9 @@ public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine
 public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: COpaquePointer?, puldeviceformbuffersize: COpaquePointer?, devicefamily: Pwstr, deviceform: Pwstr): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: COpaquePointer?, puldevicefamily: COpaquePointer?, puldeviceform: COpaquePointer?): Unit =
+public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: COpaquePointer?, puldevicefamily: COpaquePointer?, puldeviceform: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

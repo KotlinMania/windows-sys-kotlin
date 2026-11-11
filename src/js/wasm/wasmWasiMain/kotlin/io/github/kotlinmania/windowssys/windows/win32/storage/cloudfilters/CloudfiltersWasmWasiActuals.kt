@@ -8,8 +8,9 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileInfoByHandleClass
 
-public actual fun cfCloseHandle(filehandle: Handle): Unit =
+public actual fun cfCloseHandle(filehandle: Handle) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun cfConnectSyncRoot(syncrootpath: Pcwstr, callbacktable: COpaquePointer?, callbackcontext: COpaquePointer?, connectflags: CfConnectFlags, connectionkey: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -80,11 +81,13 @@ public actual fun cfReferenceProtectedHandle(protectedhandle: Handle): Boolean =
 public actual fun cfRegisterSyncRoot(syncrootpath: Pcwstr, registration: COpaquePointer?, policies: COpaquePointer?, registerflags: CfRegisterFlags): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun cfReleaseProtectedHandle(protectedhandle: Handle): Unit =
+public actual fun cfReleaseProtectedHandle(protectedhandle: Handle) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun cfReleaseTransferKey(filehandle: Handle, transferkey: COpaquePointer?): Unit =
+public actual fun cfReleaseTransferKey(filehandle: Handle, transferkey: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun cfReportProviderProgress(connectionkey: CfConnectionKey, transferkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

@@ -65,8 +65,9 @@ public actual fun faxEnumRoutingMethodsA(faxporthandle: Handle, routingmethod: C
 public actual fun faxEnumRoutingMethodsW(faxporthandle: Handle, routingmethod: COpaquePointer?, methodsreturned: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun faxFreeBuffer(buffer: COpaquePointer?): Unit =
+public actual fun faxFreeBuffer(buffer: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun faxGetConfigurationA(faxhandle: Handle, faxconfig: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

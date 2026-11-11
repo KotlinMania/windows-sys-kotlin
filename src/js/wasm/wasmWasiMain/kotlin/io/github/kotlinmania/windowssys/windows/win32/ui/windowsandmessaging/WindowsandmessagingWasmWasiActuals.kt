@@ -275,14 +275,16 @@ public actual fun destroyCursor(hcursor: Hcursor): Bool =
 public actual fun destroyIcon(hicon: Hicon): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: COpaquePointer?): Unit =
+public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun destroyMenu(hmenu: Hmenu): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun destroyResourceIndexer(resourceindexer: COpaquePointer?): Unit =
+public actual fun destroyResourceIndexer(resourceindexer: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun destroyWindow(hwnd: Hwnd): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -299,8 +301,9 @@ public actual fun dialogBoxParamA(hinstance: Hinstance, lptemplatename: Pcstr, h
 public actual fun dialogBoxParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun disableProcessWindowsGhosting(): Unit =
+public actual fun disableProcessWindowsGhosting() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun dispatchMessageA(lpmsg: COpaquePointer?): Lresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -935,8 +938,9 @@ public actual fun postMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lp
 public actual fun postMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun postQuitMessage(nexitcode: Int): Unit =
+public actual fun postQuitMessage(nexitcode: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun postThreadMessageA(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1073,8 +1077,9 @@ public actual fun setCursor(hcursor: Hcursor): Hcursor =
 public actual fun setCursorPos(x: Int, y: Int): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun setDebugErrorLevel(dwlevel: UInt): Unit =
+public actual fun setDebugErrorLevel(dwlevel: UInt) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun setDlgItemInt(hdlg: Hwnd, niddlgitem: Int, uvalue: UInt, bsigned: Bool): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1199,8 +1204,9 @@ public actual fun showWindowAsync(hwnd: Hwnd, ncmdshow: ShowWindowCmd): Bool =
 public actual fun soundSentry(): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun switchToThisWindow(hwnd: Hwnd, funknown: Bool): Unit =
+public actual fun switchToThisWindow(hwnd: Hwnd, funknown: Bool) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: COpaquePointer?, fwinini: SystemParametersInfoUpdateFlags): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

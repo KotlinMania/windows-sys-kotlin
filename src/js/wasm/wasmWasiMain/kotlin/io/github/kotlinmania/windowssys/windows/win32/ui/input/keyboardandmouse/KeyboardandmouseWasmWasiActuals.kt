@@ -158,8 +158,10 @@ public actual fun vkKeyScanExW(ch: UShort, dwhkl: Hkl): Short =
 public actual fun vkKeyScanW(ch: UShort): Short =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keybdEvent(bvk: UByte, bscan: UByte, dwflags: KeybdEventFlags, dwextrainfo: ULong): Unit =
+public actual fun keybdEvent(bvk: UByte, bscan: UByte, dwflags: KeybdEventFlags, dwextrainfo: ULong) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun mouseEvent(dwflags: MouseEventFlags, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong): Unit =
+public actual fun mouseEvent(dwflags: MouseEventFlags, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}

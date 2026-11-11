@@ -133,8 +133,9 @@ public actual fun fwpmFilterSubscriptionsGet0(enginehandle: Handle, entries: COp
 public actual fun fwpmFilterUnsubscribeChanges0(enginehandle: Handle, changehandle: Handle): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun fwpmFreeMemory0(p: COpaquePointer?): Unit =
+public actual fun fwpmFreeMemory0(p: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun fwpmGetAppIdFromFileName0(filename: Pcwstr, appid: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

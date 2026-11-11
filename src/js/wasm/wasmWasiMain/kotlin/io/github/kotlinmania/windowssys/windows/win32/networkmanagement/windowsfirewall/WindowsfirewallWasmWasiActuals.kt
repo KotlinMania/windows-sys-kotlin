@@ -9,8 +9,9 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
-public actual fun ncFreeNetconProperties(pprops: COpaquePointer?): Unit =
+public actual fun ncFreeNetconProperties(pprops: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun ncIsValidConnectionName(pszwname: Pcwstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

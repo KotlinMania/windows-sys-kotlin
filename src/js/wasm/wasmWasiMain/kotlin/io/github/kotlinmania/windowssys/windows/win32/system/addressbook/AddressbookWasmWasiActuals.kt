@@ -12,8 +12,9 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 public actual fun buildDisplayTable(lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: COpaquePointer?, hinstance: Hinstance, cpages: UInt, lppage: COpaquePointer?, ulflags: UInt, lpptable: COpaquePointer?, lpptbldata: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun changeIdleRoutine(ftg: COpaquePointer?, lpfnidle: Pfnidle, lpvidleparam: COpaquePointer?, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort): Unit =
+public actual fun changeIdleRoutine(ftg: COpaquePointer?, lpfnidle: Pfnidle, lpvidleparam: COpaquePointer?, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun createIProp(lpinterface: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: COpaquePointer?, lpppropdata: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -21,14 +22,17 @@ public actual fun createIProp(lpinterface: COpaquePointer?, lpallocatebuffer: Lp
 public actual fun createTable(lpinterface: COpaquePointer?, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: COpaquePointer?, ultabletype: UInt, ulproptagindexcolumn: UInt, lpsproptagarraycolumns: COpaquePointer?, lpptabledata: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun deinitMapiUtil(): Unit =
+public actual fun deinitMapiUtil() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun deregisterIdleRoutine(ftg: COpaquePointer?): Unit =
+public actual fun deregisterIdleRoutine(ftg: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun enableIdleRoutine(ftg: COpaquePointer?, fenable: Bool): Unit =
+public actual fun enableIdleRoutine(ftg: COpaquePointer?, fenable: Bool) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun fEqualNames(lpname1: COpaquePointer?, lpname2: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -42,11 +46,13 @@ public actual fun fPropContainsProp(lpspropvaluedst: COpaquePointer?, lpspropval
 public actual fun fPropExists(lpmapiprop: COpaquePointer?, ulproptag: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun freePadrlist(lpadrlist: COpaquePointer?): Unit =
+public actual fun freePadrlist(lpadrlist: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun freeProws(lprows: COpaquePointer?): Unit =
+public actual fun freeProws(lprows: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun ftAddFt(ftaddend1: Filetime, ftaddend2: Filetime): Filetime =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -99,8 +105,9 @@ public actual fun lPropCompareProp(lpspropvaluea: COpaquePointer?, lpspropvalueb
 public actual fun lpValFindProp(ulproptag: UInt, cvalues: UInt, lpproparray: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mAPIDeinitIdle(): Unit =
+public actual fun mAPIDeinitIdle() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun mAPIGetDefaultMalloc(): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

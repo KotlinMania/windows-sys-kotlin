@@ -24,17 +24,21 @@ public actual fun enumProtocolsA(lpiprotocols: COpaquePointer?, lpprotocolbuffer
 public actual fun enumProtocolsW(lpiprotocols: COpaquePointer?, lpprotocolbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun freeAddrInfoEx(paddrinfoex: COpaquePointer?): Unit =
+public actual fun freeAddrInfoEx(paddrinfoex: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun freeAddrInfoExW(paddrinfoex: COpaquePointer?): Unit =
+public actual fun freeAddrInfoExW(paddrinfoex: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun freeAddrInfoW(paddrinfo: COpaquePointer?): Unit =
+public actual fun freeAddrInfoW(paddrinfo: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun getAcceptExSockaddrs(lpoutputbuffer: COpaquePointer?, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, localsockaddr: COpaquePointer?, localsockaddrlength: COpaquePointer?, remotesockaddr: COpaquePointer?, remotesockaddrlength: COpaquePointer?): Unit =
+public actual fun getAcceptExSockaddrs(lpoutputbuffer: COpaquePointer?, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, localsockaddr: COpaquePointer?, localsockaddrlength: COpaquePointer?, remotesockaddr: COpaquePointer?, remotesockaddrlength: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getAddrInfoExA(pname: Pcstr, pservicename: Pcstr, dwnamespace: UInt, lpnspid: COpaquePointer?, hints: COpaquePointer?, ppresult: COpaquePointer?, timeout: COpaquePointer?, lpoverlapped: COpaquePointer?, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -384,8 +388,9 @@ public actual fun wSASetBlockingHook(lpblockfunc: Farproc): Farproc =
 public actual fun wSASetEvent(hevent: Wsaevent): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wSASetLastError(ierror: Int): Unit =
+public actual fun wSASetLastError(ierror: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun wSASetServiceA(lpqsreginfo: COpaquePointer?, essoperation: Wsaesetserviceop, dwcontrolflags: UInt): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -531,8 +536,9 @@ public actual fun closesocket(s: Socket): Int =
 public actual fun connect(s: Socket, name: COpaquePointer?, namelen: Int): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun freeaddrinfo(paddrinfo: COpaquePointer?): Unit =
+public actual fun freeaddrinfo(paddrinfo: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getaddrinfo(pnodename: Pcstr, pservicename: Pcstr, phints: COpaquePointer?, ppresult: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

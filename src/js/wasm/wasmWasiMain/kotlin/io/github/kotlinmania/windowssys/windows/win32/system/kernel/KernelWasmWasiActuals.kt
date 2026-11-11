@@ -7,8 +7,9 @@ import io.github.kotlinmania.windowssys.COpaquePointer
 public actual fun rtlFirstEntrySList(listhead: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlInitializeSListHead(listhead: COpaquePointer?): Unit =
+public actual fun rtlInitializeSListHead(listhead: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun rtlInterlockedFlushSList(listhead: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

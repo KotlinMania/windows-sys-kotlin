@@ -14,8 +14,9 @@ public actual fun certSrvBackupClose(hbc: COpaquePointer?): Hresult =
 public actual fun certSrvBackupEnd(hbc: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun certSrvBackupFree(pv: COpaquePointer?): Unit =
+public actual fun certSrvBackupFree(pv: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun certSrvBackupGetBackupLogsW(hbc: COpaquePointer?, ppwszzbackuplogfiles: COpaquePointer?, pcbsize: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

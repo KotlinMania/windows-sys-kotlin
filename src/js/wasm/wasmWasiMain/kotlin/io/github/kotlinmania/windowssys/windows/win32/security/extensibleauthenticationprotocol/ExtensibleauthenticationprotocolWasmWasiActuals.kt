@@ -16,17 +16,21 @@ public actual fun eapHostPeerClearConnection(pconnectionid: COpaquePointer?, ppe
 public actual fun eapHostPeerEndSession(sessionhandle: UInt, ppeaperror: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun eapHostPeerFreeEapError(peaperror: COpaquePointer?): Unit =
+public actual fun eapHostPeerFreeEapError(peaperror: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun eapHostPeerFreeErrorMemory(peaperror: COpaquePointer?): Unit =
+public actual fun eapHostPeerFreeErrorMemory(peaperror: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun eapHostPeerFreeMemory(pdata: COpaquePointer?): Unit =
+public actual fun eapHostPeerFreeMemory(pdata: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun eapHostPeerFreeRuntimeMemory(pdata: COpaquePointer?): Unit =
+public actual fun eapHostPeerFreeRuntimeMemory(pdata: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun eapHostPeerGetAuthStatus(sessionhandle: UInt, authparam: EapHostPeerAuthParams, pcbauthdata: COpaquePointer?, ppauthdata: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -91,5 +95,6 @@ public actual fun eapHostPeerSetResponseAttributes(sessionhandle: UInt, pattribs
 public actual fun eapHostPeerSetUIContext(sessionhandle: UInt, dwsizeofuicontextdata: UInt, puicontextdata: COpaquePointer?, peapoutput: COpaquePointer?, ppeaperror: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun eapHostPeerUninitialize(): Unit =
+public actual fun eapHostPeerUninitialize() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}

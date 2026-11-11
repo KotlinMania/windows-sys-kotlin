@@ -67,8 +67,9 @@ public actual fun hcnEnumerateNamespaces(query: Pcwstr, namespaces: COpaquePoint
 public actual fun hcnEnumerateNetworks(query: Pcwstr, networks: COpaquePointer?, errorrecord: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun hcnFreeGuestNetworkPortReservations(portentries: COpaquePointer?): Unit =
+public actual fun hcnFreeGuestNetworkPortReservations(portentries: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun hcnModifyEndpoint(endpoint: COpaquePointer?, settings: Pcwstr, errorrecord: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

@@ -10,8 +10,9 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public actual fun drtClose(hdrt: COpaquePointer?): Unit =
+public actual fun drtClose(hdrt: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun drtContinueSearch(hsearchcontext: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -34,20 +35,24 @@ public actual fun drtCreateNullSecurityProvider(ppsecurityprovider: COpaquePoint
 public actual fun drtCreatePnrpBootstrapResolver(fpublish: Bool, pwzpeername: Pcwstr, pwzcloudname: Pcwstr, pwzpublishingidentity: Pcwstr, ppresolver: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun drtDeleteDerivedKeySecurityProvider(psecurityprovider: COpaquePointer?): Unit =
+public actual fun drtDeleteDerivedKeySecurityProvider(psecurityprovider: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun drtDeleteDnsBootstrapResolver(presolver: COpaquePointer?): Unit =
+public actual fun drtDeleteDnsBootstrapResolver(presolver: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun drtDeleteIpv6UdpTransport(htransport: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun drtDeleteNullSecurityProvider(psecurityprovider: COpaquePointer?): Unit =
+public actual fun drtDeleteNullSecurityProvider(psecurityprovider: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun drtDeletePnrpBootstrapResolver(presolver: COpaquePointer?): Unit =
+public actual fun drtDeletePnrpBootstrapResolver(presolver: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun drtEndSearch(hsearchcontext: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -85,8 +90,9 @@ public actual fun drtRegisterKey(hdrt: COpaquePointer?, pregistration: COpaquePo
 public actual fun drtStartSearch(hdrt: COpaquePointer?, pkey: COpaquePointer?, pinfo: COpaquePointer?, timeout: UInt, hevent: Handle, pvcontext: COpaquePointer?, hsearchcontext: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun drtUnregisterKey(hkeyregistration: COpaquePointer?): Unit =
+public actual fun drtUnregisterKey(hkeyregistration: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun drtUpdateKey(hkeyregistration: COpaquePointer?, pappdata: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -313,8 +319,9 @@ public actual fun peerEnumGroups(pwzidentity: Pcwstr, phpeerenum: COpaquePointer
 public actual fun peerEnumIdentities(phpeerenum: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun peerFreeData(pvdata: COpaquePointer?): Unit =
+public actual fun peerFreeData(pvdata: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun peerGetItemCount(hpeerenum: COpaquePointer?, pcount: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -358,8 +365,9 @@ public actual fun peerGraphEnumRecords(hgraph: COpaquePointer?, precordtype: COp
 public actual fun peerGraphExportDatabase(hgraph: COpaquePointer?, pwzfilepath: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun peerGraphFreeData(pvdata: COpaquePointer?): Unit =
+public actual fun peerGraphFreeData(pvdata: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun peerGraphGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

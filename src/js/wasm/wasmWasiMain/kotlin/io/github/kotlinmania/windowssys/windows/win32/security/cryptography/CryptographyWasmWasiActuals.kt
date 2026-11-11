@@ -103,8 +103,9 @@ public actual fun bCryptFinalizeKeyPair(hkey: BcryptKeyHandle, dwflags: UInt): N
 public actual fun bCryptFinishHash(hhash: BcryptHashHandle, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun bCryptFreeBuffer(pvbuffer: COpaquePointer?): Unit =
+public actual fun bCryptFreeBuffer(pvbuffer: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun bCryptGenRandom(halgorithm: BcryptAlgHandle, pbbuffer: COpaquePointer?, cbbuffer: UInt, dwflags: BcryptgenrandomFlags): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -226,11 +227,13 @@ public actual fun certAddEncodedCertificateToSystemStoreW(szcertstorename: Pcwst
 public actual fun certAddEnhancedKeyUsageIdentifier(pcertcontext: COpaquePointer?, pszusageidentifier: Pcstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun certAddRefServerOcspResponse(hserverocspresponse: COpaquePointer?): Unit =
+public actual fun certAddRefServerOcspResponse(hserverocspresponse: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?): Unit =
+public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun certAddSerializedElementToStore(hcertstore: Hcertstore, pbelement: COpaquePointer?, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: COpaquePointer?, ppvcontext: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -241,8 +244,9 @@ public actual fun certAddStoreToCollection(hcollectionstore: Hcertstore, hsiblin
 public actual fun certAlgIdToOID(dwalgid: UInt): Pcstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun certCloseServerOcspResponse(hserverocspresponse: COpaquePointer?, dwflags: UInt): Unit =
+public actual fun certCloseServerOcspResponse(hserverocspresponse: COpaquePointer?, dwflags: UInt) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun certCloseStore(hcertstore: Hcertstore, dwflags: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -373,20 +377,24 @@ public actual fun certFreeCRLContext(pcrlcontext: COpaquePointer?): Bool =
 public actual fun certFreeCTLContext(pctlcontext: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun certFreeCertificateChain(pchaincontext: COpaquePointer?): Unit =
+public actual fun certFreeCertificateChain(pchaincontext: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun certFreeCertificateChainEngine(hchainengine: Hcertchainengine): Unit =
+public actual fun certFreeCertificateChainEngine(hchainengine: Hcertchainengine) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun certFreeCertificateChainList(prgpselection: COpaquePointer?): Unit =
+public actual fun certFreeCertificateChainList(prgpselection: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun certFreeCertificateContext(pcertcontext: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?): Unit =
+public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun certGetCRLContextProperty(pcrlcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -481,8 +489,9 @@ public actual fun certRegisterSystemStore(pvsystemstore: COpaquePointer?, dwflag
 public actual fun certRemoveEnhancedKeyUsageIdentifier(pcertcontext: COpaquePointer?, pszusageidentifier: Pcstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun certRemoveStoreFromCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore): Unit =
+public actual fun certRemoveStoreFromCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun certResyncCertificateChainEngine(hchainengine: Hcertchainengine): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -790,8 +799,9 @@ public actual fun cryptInstallOIDFunctionAddress(hmodule: Hmodule, dwencodingtyp
 public actual fun cryptMemAlloc(cbsize: UInt): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun cryptMemFree(pv: COpaquePointer?): Unit =
+public actual fun cryptMemFree(pv: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun cryptMemRealloc(pv: COpaquePointer?, cbsize: UInt): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

@@ -10,8 +10,9 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ApplicationRecoveryCallback
 
-public actual fun applicationRecoveryFinished(bsuccess: Bool): Unit =
+public actual fun applicationRecoveryFinished(bsuccess: Bool) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun applicationRecoveryInProgress(pbcancelled: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

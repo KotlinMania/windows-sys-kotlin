@@ -7,8 +7,9 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devpropstore
 
-public actual fun devCloseObjectQuery(hdevquery: Hdevquery): Unit =
+public actual fun devCloseObjectQuery(hdevquery: Hdevquery) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun devCreateObjectQuery(objecttype: DevObjectType, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cfilterexpressioncount: UInt, pfilter: COpaquePointer?, pcallback: PdevQueryResultCallback, pcontext: COpaquePointer?, phdevquery: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -31,11 +32,13 @@ public actual fun devCreateObjectQueryFromIdsEx(objecttype: DevObjectType, pszzo
 public actual fun devFindProperty(pkey: COpaquePointer?, store: Devpropstore, pszlocalename: Pcwstr, cproperties: UInt, pproperties: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun devFreeObjectProperties(cpropertycount: UInt, pproperties: COpaquePointer?): Unit =
+public actual fun devFreeObjectProperties(cpropertycount: UInt, pproperties: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun devFreeObjects(cobjectcount: UInt, pobjects: COpaquePointer?): Unit =
+public actual fun devFreeObjects(cobjectcount: UInt, pobjects: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun devGetObjectProperties(objecttype: DevObjectType, pszobjectid: Pcwstr, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, pcpropertycount: COpaquePointer?, ppproperties: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

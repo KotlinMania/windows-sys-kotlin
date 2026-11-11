@@ -34,20 +34,24 @@ public actual fun winHttpCreateUrl(lpurlcomponents: COpaquePointer?, dwflags: Wi
 public actual fun winHttpDetectAutoProxyConfigUrl(dwautodetectflags: UInt, ppwstrautoconfigurl: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun winHttpFreeProxyResult(pproxyresult: COpaquePointer?): Unit =
+public actual fun winHttpFreeProxyResult(pproxyresult: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun winHttpFreeProxyResultEx(pproxyresultex: COpaquePointer?): Unit =
+public actual fun winHttpFreeProxyResultEx(pproxyresultex: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun winHttpFreeProxySettings(pwinhttpproxysettings: COpaquePointer?): Unit =
+public actual fun winHttpFreeProxySettings(pwinhttpproxysettings: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun winHttpFreeProxySettingsEx(proxysettingstype: WinhttpProxySettingsType, pproxysettingsex: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun winHttpFreeQueryConnectionGroupResult(presult: COpaquePointer?): Unit =
+public actual fun winHttpFreeQueryConnectionGroupResult(presult: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun winHttpGetDefaultProxyConfiguration(pproxyinfo: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

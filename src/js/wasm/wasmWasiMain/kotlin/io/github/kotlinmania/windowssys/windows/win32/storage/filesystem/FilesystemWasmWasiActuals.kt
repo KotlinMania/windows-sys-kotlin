@@ -72,8 +72,9 @@ public actual fun checkNameLegalDOS8Dot3W(lpname: Pcwstr, lpoemname: Pstr, oemna
 public actual fun closeAndResetLogFile(hlog: Handle): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun closeEncryptedFileRaw(pvcontext: COpaquePointer?): Unit =
+public actual fun closeEncryptedFileRaw(pvcontext: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun closeIoRing(ioring: Hioring): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -381,11 +382,13 @@ public actual fun flushLogBuffers(pvmarshal: COpaquePointer?, poverlapped: COpaq
 public actual fun flushLogToLsn(pvmarshalcontext: COpaquePointer?, plsnflush: COpaquePointer?, plsnlastflushed: COpaquePointer?, poverlapped: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun freeEncryptedFileMetadata(pbmetadata: COpaquePointer?): Unit =
+public actual fun freeEncryptedFileMetadata(pbmetadata: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun freeEncryptionCertificateHashList(pusers: COpaquePointer?): Unit =
+public actual fun freeEncryptionCertificateHashList(pusers: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun freeReservedLog(pvmarshal: COpaquePointer?, creservedrecords: UInt, pcbadjustment: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -657,14 +660,16 @@ public actual fun installLogPolicy(hlog: Handle, ppolicy: COpaquePointer?): Bool
 public actual fun isIoRingOpSupported(ioring: Hioring, op: IoringOpCode): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun lZClose(hfile: Int): Unit =
+public actual fun lZClose(hfile: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun lZCopy(hfsource: Int, hfdest: Int): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun lZDone(): Unit =
+public actual fun lZDone() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun lZInit(hfsource: Int): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1017,11 +1022,13 @@ public actual fun setEndOfLog(hlog: Handle, plsnend: COpaquePointer?, lpoverlapp
 public actual fun setEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun setFileApisToANSI(): Unit =
+public actual fun setFileApisToANSI() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun setFileApisToOEM(): Unit =
+public actual fun setFileApisToOEM() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun setFileAttributesA(lpfilename: Pcstr, dwfileattributes: FileFlagsAndAttributes): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1128,8 +1135,9 @@ public actual fun terminateReadLog(pvcursorcontext: COpaquePointer?): Bool =
 public actual fun truncateLog(pvmarshal: COpaquePointer?, plsnend: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun txfGetThreadMiniVersionForCreate(miniversion: COpaquePointer?): Unit =
+public actual fun txfGetThreadMiniVersionForCreate(miniversion: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun txfLogCreateFileReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, txffileid: COpaquePointer?, txflogcontext: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1152,8 +1160,9 @@ public actual fun txfLogRecordGetGenericType(recordbuffer: COpaquePointer?, reco
 public actual fun txfReadMetadataInfo(filehandle: Handle, txffileid: COpaquePointer?, lastlsn: COpaquePointer?, transactionstate: COpaquePointer?, lockingtransaction: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun txfSetThreadMiniVersionForCreate(miniversion: UShort): Unit =
+public actual fun txfSetThreadMiniVersionForCreate(miniversion: UShort) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun unlockFile(hfile: Handle, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

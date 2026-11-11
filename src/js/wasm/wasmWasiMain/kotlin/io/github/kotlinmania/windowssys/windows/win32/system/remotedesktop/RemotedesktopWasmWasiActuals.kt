@@ -17,8 +17,9 @@ import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Mes
 public actual fun processIdToSessionId(dwprocessid: UInt, psessionid: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wTSCloseServer(hserver: Handle): Unit =
+public actual fun wTSCloseServer(hserver: Handle) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun wTSConnectSessionA(logonid: UInt, targetlogonid: UInt, ppassword: Pcstr, bwait: Bool): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -74,8 +75,9 @@ public actual fun wTSEnumerateSessionsExW(hserver: Handle, plevel: COpaquePointe
 public actual fun wTSEnumerateSessionsW(hserver: Handle, reserved: UInt, version: UInt, ppsessioninfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wTSFreeMemory(pmemory: COpaquePointer?): Unit =
+public actual fun wTSFreeMemory(pmemory: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun wTSFreeMemoryExA(wtstypeclass: WtsTypeClass, pmemory: COpaquePointer?, numberofentries: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

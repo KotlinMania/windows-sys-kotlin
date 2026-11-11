@@ -20,8 +20,9 @@ public actual fun createJobObjectW(lpjobattributes: COpaquePointer?, lpname: Pcw
 public actual fun createJobSet(numjob: UInt, userjobset: COpaquePointer?, flags: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun freeMemoryJobObject(buffer: COpaquePointer?): Unit =
+public actual fun freeMemoryJobObject(buffer: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun isProcessInJob(processhandle: Handle, jobhandle: Handle, result: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

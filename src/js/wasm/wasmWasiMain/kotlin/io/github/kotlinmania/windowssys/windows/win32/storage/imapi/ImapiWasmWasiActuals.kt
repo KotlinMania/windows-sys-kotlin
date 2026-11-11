@@ -8,8 +8,9 @@ import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpalloc
 import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpallocatemore
 import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpfreebuffer
 
-public actual fun closeIMsgSession(lpmsgsess: Lpmsgsess): Unit =
+public actual fun closeIMsgSession(lpmsgsess: Lpmsgsess) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun getAttribIMsgOnIStg(lpobject: COpaquePointer?, lpproptagarray: COpaquePointer?, lpppropattrarray: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

@@ -28,11 +28,13 @@ public actual fun berAllocT(options: Int): COpaquePointer? =
 public actual fun berBvdup(pberval: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun berBvecfree(pberval: COpaquePointer?): Unit =
+public actual fun berBvecfree(pberval: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun berBvfree(bv: COpaquePointer?): Unit =
+public actual fun berBvfree(bv: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun berFirstElement(pberelement: COpaquePointer?, plen: COpaquePointer?, ppopaque: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -40,8 +42,9 @@ public actual fun berFirstElement(pberelement: COpaquePointer?, plen: COpaquePoi
 public actual fun berFlatten(pberelement: COpaquePointer?, pberval: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun berFree(pberelement: COpaquePointer?, fbuf: Int): Unit =
+public actual fun berFree(pberelement: COpaquePointer?, fbuf: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun berInit(pberval: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -409,14 +412,17 @@ public actual fun ldapInitA(hostname: Pcstr, portnumber: UInt): COpaquePointer? 
 public actual fun ldapInitW(hostname: Pcwstr, portnumber: UInt): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ldapMemfree(block: Pcstr): Unit =
+public actual fun ldapMemfree(block: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun ldapMemfreeA(block: Pcstr): Unit =
+public actual fun ldapMemfreeA(block: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun ldapMemfreeW(block: Pcwstr): Unit =
+public actual fun ldapMemfreeW(block: Pcwstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun ldapModify(ld: COpaquePointer?, dn: Pcstr, mods: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -565,8 +571,9 @@ public actual fun ldapParseVlvControlA(externalhandle: COpaquePointer?, control:
 public actual fun ldapParseVlvControlW(externalhandle: COpaquePointer?, control: COpaquePointer?, targetpos: COpaquePointer?, listcount: COpaquePointer?, context: COpaquePointer?, errcode: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ldapPerror(ld: COpaquePointer?, msg: Pcstr): Unit =
+public actual fun ldapPerror(ld: COpaquePointer?, msg: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun ldapRenameExt(ld: COpaquePointer?, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: COpaquePointer?, clientcontrols: COpaquePointer?, messagenumber: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -664,8 +671,9 @@ public actual fun ldapSearchStW(ld: COpaquePointer?, base: Pcwstr, scope: UInt, 
 public actual fun ldapSetDbgFlags(newflags: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ldapSetDbgRoutine(debugprintroutine: Dbgprint): Unit =
+public actual fun ldapSetDbgRoutine(debugprintroutine: Dbgprint) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun ldapSetOption(ld: COpaquePointer?, option: Int, invalue: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

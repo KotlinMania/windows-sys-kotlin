@@ -41,8 +41,9 @@ public actual fun aVIFileCreateStreamW(pfile: COpaquePointer?, ppavi: COpaquePoi
 public actual fun aVIFileEndRecord(pfile: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun aVIFileExit(): Unit =
+public actual fun aVIFileExit() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun aVIFileGetStream(pfile: COpaquePointer?, ppavi: COpaquePointer?, fcctype: UInt, lparam: Int): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -53,8 +54,9 @@ public actual fun aVIFileInfoA(pfile: COpaquePointer?, pfi: COpaquePointer?, lsi
 public actual fun aVIFileInfoW(pfile: COpaquePointer?, pfi: COpaquePointer?, lsize: Int): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun aVIFileInit(): Unit =
+public actual fun aVIFileInit() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun aVIFileOpenA(ppfile: COpaquePointer?, szfile: Pcstr, umode: UInt, lphandler: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -278,8 +280,9 @@ public actual fun iCCompress(hic: Hic, dwflags: UInt, lpbioutput: COpaquePointer
 public actual fun iCCompressorChoose(hwnd: Hwnd, uiflags: UInt, pvin: COpaquePointer?, lpdata: COpaquePointer?, pc: COpaquePointer?, lpsztitle: Pcstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun iCCompressorFree(pc: COpaquePointer?): Unit =
+public actual fun iCCompressorFree(pc: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun iCDecompress(hic: Hic, dwflags: UInt, lpbiformat: COpaquePointer?, lpdata: COpaquePointer?, lpbi: COpaquePointer?, lpbits: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -326,8 +329,9 @@ public actual fun iCSendMessage(hic: Hic, msg: UInt, dw1: ULong, dw2: ULong): Lr
 public actual fun iCSeqCompressFrame(pc: COpaquePointer?, uiflags: UInt, lpbits: COpaquePointer?, pfkey: COpaquePointer?, plsize: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun iCSeqCompressFrameEnd(pc: COpaquePointer?): Unit =
+public actual fun iCSeqCompressFrameEnd(pc: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun iCSeqCompressFrameStart(pc: COpaquePointer?, lpbiin: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -452,8 +456,9 @@ public actual fun mmDrvInstall(hdriver: Hdrvr, wszdrventry: Pcwstr, drvmessage: 
 public actual fun mmGetCurrentTask(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mmTaskBlock(h: UInt): Unit =
+public actual fun mmTaskBlock(h: UInt) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: COpaquePointer?, dwinst: ULong): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -461,8 +466,9 @@ public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: COpaquePointer?, dwins
 public actual fun mmTaskSignal(h: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mmTaskYield(): Unit =
+public actual fun mmTaskYield() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun mmioAdvance(hmmio: Hmmio, pmmioinfo: COpaquePointer?, fuadvance: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

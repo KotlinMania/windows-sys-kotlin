@@ -55,8 +55,9 @@ public actual fun auditEnumeratePerUserPolicy(ppauditsidarray: COpaquePointer?):
 public actual fun auditEnumerateSubCategories(pauditcategoryguid: COpaquePointer?, bretrieveallsubcategories: Boolean, ppauditsubcategoriesarray: COpaquePointer?, pdwcountreturned: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun auditFree(buffer: COpaquePointer?): Unit =
+public actual fun auditFree(buffer: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun auditLookupCategoryGuidFromCategoryId(auditcategoryid: PolicyAuditEventType, pauditcategoryguid: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -514,8 +515,9 @@ public actual fun saslInitializeSecurityContextW(phcredential: COpaquePointer?, 
 public actual fun saslSetContextOption(contexthandle: COpaquePointer?, option: UInt, value: COpaquePointer?, size: UInt): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sendSAS(asuser: Bool): Unit =
+public actual fun sendSAS(asuser: Bool) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun setContextAttributesA(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -541,11 +543,13 @@ public actual fun sslEmptyCacheA(psztargetname: Pcstr, dwflags: UInt): Bool =
 public actual fun sslEmptyCacheW(psztargetname: Pcwstr, dwflags: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sslFreeCertificate(pcertificate: COpaquePointer?): Unit =
+public actual fun sslFreeCertificate(pcertificate: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun sslGenerateRandomBits(prandomdata: COpaquePointer?, crandomdata: Int): Unit =
+public actual fun sslGenerateRandomBits(prandomdata: COpaquePointer?, crandomdata: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun sslGetExtensions(clienthello: COpaquePointer?, clienthellobytesize: UInt, genericextensions: COpaquePointer?, genericextensionscount: UByte, bytestoread: COpaquePointer?, flags: SchGetExtensionsOptions): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -583,8 +587,9 @@ public actual fun sspiEncryptAuthIdentityEx(options: UInt, authdata: COpaquePoin
 public actual fun sspiExcludePackage(authidentity: COpaquePointer?, pszpackagename: Pcwstr, ppnewauthidentity: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sspiFreeAuthIdentity(authdata: COpaquePointer?): Unit =
+public actual fun sspiFreeAuthIdentity(authdata: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun sspiGetTargetHostName(psztargetname: Pcwstr, pszhostname: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -595,8 +600,9 @@ public actual fun sspiIsAuthIdentityEncrypted(encryptedauthdata: COpaquePointer?
 public actual fun sspiIsPromptingNeeded(errororntstatus: UInt): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sspiLocalFree(databuffer: COpaquePointer?): Unit =
+public actual fun sspiLocalFree(databuffer: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun sspiMarshalAuthIdentity(authidentity: COpaquePointer?, authidentitylength: COpaquePointer?, authidentitybytearray: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -622,8 +628,9 @@ public actual fun sspiUnmarshalAuthIdentity(authidentitylength: UInt, authidenti
 public actual fun sspiValidateAuthIdentity(authdata: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sspiZeroAuthIdentity(authdata: COpaquePointer?): Unit =
+public actual fun sspiZeroAuthIdentity(authdata: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun tokenBindingDeleteAllBindings(): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

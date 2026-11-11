@@ -734,11 +734,13 @@ public actual fun diUninstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: Di
 public actual fun diUninstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiuninstalldriverFlags, needreboot: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun installHinfSectionA(window: Hwnd, modulehandle: Hinstance, commandline: Pcstr, showcommand: Int): Unit =
+public actual fun installHinfSectionA(window: Hwnd, modulehandle: Hinstance, commandline: Pcstr, showcommand: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun installHinfSectionW(window: Hwnd, modulehandle: Hinstance, commandline: Pcwstr, showcommand: Int): Unit =
+public actual fun installHinfSectionW(window: Hwnd, modulehandle: Hinstance, commandline: Pcwstr, showcommand: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun setupAddInstallSectionToDiskSpaceListA(diskspace: COpaquePointer?, infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, sectionname: Pcstr, reserved1: COpaquePointer?, reserved2: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -782,11 +784,13 @@ public actual fun setupCancelTemporarySourceList(): Bool =
 public actual fun setupCloseFileQueue(queuehandle: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun setupCloseInfFile(infhandle: COpaquePointer?): Unit =
+public actual fun setupCloseInfFile(infhandle: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun setupCloseLog(): Unit =
+public actual fun setupCloseLog() {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun setupCommitFileQueueA(owner: Hwnd, queuehandle: COpaquePointer?, msghandler: PspFileCallbackA, context: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1703,11 +1707,13 @@ public actual fun setupSetSourceListA(flags: UInt, sourcelist: COpaquePointer?, 
 public actual fun setupSetSourceListW(flags: UInt, sourcelist: COpaquePointer?, sourcecount: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun setupSetThreadLogToken(logtoken: ULong): Unit =
+public actual fun setupSetThreadLogToken(logtoken: ULong) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun setupTermDefaultQueueCallback(context: COpaquePointer?): Unit =
+public actual fun setupTermDefaultQueueCallback(context: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun setupTerminateFileLog(fileloghandle: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1727,14 +1733,17 @@ public actual fun setupVerifyInfFileA(infname: Pcstr, altplatforminfo: COpaquePo
 public actual fun setupVerifyInfFileW(infname: Pcwstr, altplatforminfo: COpaquePointer?, infsignerinfo: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun setupWriteTextLog(logtoken: ULong, category: UInt, flags: UInt, messagestr: Pcstr, vararg variadicArgs: Long): Unit =
+public actual fun setupWriteTextLog(logtoken: ULong, category: UInt, flags: UInt, messagestr: Pcstr, vararg variadicArgs: Long) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun setupWriteTextLogError(logtoken: ULong, category: UInt, logflags: UInt, error: UInt, messagestr: Pcstr, vararg variadicArgs: Long): Unit =
+public actual fun setupWriteTextLogError(logtoken: ULong, category: UInt, logflags: UInt, error: UInt, messagestr: Pcstr, vararg variadicArgs: Long) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun setupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhandle: COpaquePointer?, context: COpaquePointer?): Unit =
+public actual fun setupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhandle: COpaquePointer?, context: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun updateDriverForPlugAndPlayDevicesA(hwndparent: Hwnd, hardwareid: Pcstr, fullinfpath: Pcstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

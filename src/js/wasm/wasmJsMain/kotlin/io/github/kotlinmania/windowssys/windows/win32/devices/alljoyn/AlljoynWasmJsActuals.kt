@@ -2636,8 +2636,9 @@ public actual fun alljoynInterfacedescriptionMemberEql(one: AlljoynInterfacedesc
 public actual fun alljoynInterfacedescriptionMemberGetannotation(member: AlljoynInterfacedescriptionMember, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?): Unit =
+public actual fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI addon is not available")
+}
 
 public actual fun alljoynInterfacedescriptionMemberGetannotationscount(member: AlljoynInterfacedescriptionMember): ULong =
     throw UnsupportedOperationException("Native FFI addon is not available")
@@ -2645,8 +2646,9 @@ public actual fun alljoynInterfacedescriptionMemberGetannotationscount(member: A
 public actual fun alljoynInterfacedescriptionMemberGetargannotation(member: AlljoynInterfacedescriptionMember, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?): Unit =
+public actual fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI addon is not available")
+}
 
 public actual fun alljoynInterfacedescriptionMemberGetargannotationscount(member: AlljoynInterfacedescriptionMember, argname: Pcstr): ULong =
     throw UnsupportedOperationException("Native FFI addon is not available")
@@ -2657,8 +2659,9 @@ public actual fun alljoynInterfacedescriptionPropertyEql(one: AlljoynInterfacede
 public actual fun alljoynInterfacedescriptionPropertyGetannotation(property: AlljoynInterfacedescriptionProperty, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?): Unit =
+public actual fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI addon is not available")
+}
 
 public actual fun alljoynInterfacedescriptionPropertyGetannotationscount(property: AlljoynInterfacedescriptionProperty): ULong =
     throw UnsupportedOperationException("Native FFI addon is not available")

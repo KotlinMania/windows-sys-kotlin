@@ -50,8 +50,9 @@ public actual fun alljoynAboutdataCreatefrommsgarg(data: AlljoynAboutdata, arg: 
 public actual fun alljoynAboutdataCreatefromxml(data: AlljoynAboutdata, aboutdataxml: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAboutdataDestroy(data: AlljoynAboutdata): Unit =
+public actual fun alljoynAboutdataDestroy(data: AlljoynAboutdata) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAboutdataGetaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg, language: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -170,23 +171,28 @@ public actual fun alljoynAboutdataSetsupporturl(data: AlljoynAboutdata, supportu
 public actual fun alljoynAboutdatalistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAboutdatalistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAboutdatalistenerDestroy(listener: AlljoynAboutdatalistener): Unit =
+public actual fun alljoynAboutdatalistenerDestroy(listener: AlljoynAboutdatalistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynAbouticonClear(icon: AlljoynAbouticon): Unit =
+public actual fun alljoynAbouticonClear(icon: AlljoynAbouticon) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAbouticonCreate(): AlljoynAbouticon =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAbouticonDestroy(icon: AlljoynAbouticon): Unit =
+public actual fun alljoynAbouticonDestroy(icon: AlljoynAbouticon) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynAbouticonGetcontent(icon: AlljoynAbouticon, data: COpaquePointer?, size: COpaquePointer?): Unit =
+public actual fun alljoynAbouticonGetcontent(icon: AlljoynAbouticon, data: COpaquePointer?, size: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynAbouticonGeturl(icon: AlljoynAbouticon, type: COpaquePointer?, url: COpaquePointer?): Unit =
+public actual fun alljoynAbouticonGeturl(icon: AlljoynAbouticon, type: COpaquePointer?, url: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAbouticonSetcontent(icon: AlljoynAbouticon, type: Pcstr, data: COpaquePointer?, csize: ULong, ownsdata: UByte): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -200,14 +206,16 @@ public actual fun alljoynAbouticonSeturl(icon: AlljoynAbouticon, type: Pcstr, ur
 public actual fun alljoynAbouticonobjCreate(bus: AlljoynBusattachment, icon: AlljoynAbouticon): AlljoynAbouticonobj =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAbouticonobjDestroy(icon: AlljoynAbouticonobj): Unit =
+public actual fun alljoynAbouticonobjDestroy(icon: AlljoynAbouticonobj) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAbouticonproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAbouticonproxy =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAbouticonproxyDestroy(proxy: AlljoynAbouticonproxy): Unit =
+public actual fun alljoynAbouticonproxyDestroy(proxy: AlljoynAbouticonproxy) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAbouticonproxyGeticon(proxy: AlljoynAbouticonproxy, icon: AlljoynAbouticon): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -218,8 +226,9 @@ public actual fun alljoynAbouticonproxyGetversion(proxy: AlljoynAbouticonproxy, 
 public actual fun alljoynAboutlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynAboutlistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAboutlistenerDestroy(listener: AlljoynAboutlistener): Unit =
+public actual fun alljoynAboutlistenerDestroy(listener: AlljoynAboutlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAboutobjAnnounce(obj: AlljoynAboutobj, sessionport: UShort, aboutdata: AlljoynAboutdata): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -230,14 +239,16 @@ public actual fun alljoynAboutobjAnnounceUsingDatalistener(obj: AlljoynAboutobj,
 public actual fun alljoynAboutobjCreate(bus: AlljoynBusattachment, isannounced: AlljoynAboutAnnounceflag): AlljoynAboutobj =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAboutobjDestroy(obj: AlljoynAboutobj): Unit =
+public actual fun alljoynAboutobjDestroy(obj: AlljoynAboutobj) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAboutobjUnannounce(obj: AlljoynAboutobj): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAboutobjectdescriptionClear(description: AlljoynAboutobjectdescription): Unit =
+public actual fun alljoynAboutobjectdescriptionClear(description: AlljoynAboutobjectdescription) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAboutobjectdescriptionCreate(): AlljoynAboutobjectdescription =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -248,8 +259,9 @@ public actual fun alljoynAboutobjectdescriptionCreateFull(arg: AlljoynMsgarg): A
 public actual fun alljoynAboutobjectdescriptionCreatefrommsgarg(description: AlljoynAboutobjectdescription, arg: AlljoynMsgarg): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAboutobjectdescriptionDestroy(description: AlljoynAboutobjectdescription): Unit =
+public actual fun alljoynAboutobjectdescriptionDestroy(description: AlljoynAboutobjectdescription) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAboutobjectdescriptionGetinterfacepaths(description: AlljoynAboutobjectdescription, interfacename: Pcstr, paths: COpaquePointer?, numpaths: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -275,8 +287,9 @@ public actual fun alljoynAboutobjectdescriptionHaspath(description: AlljoynAbout
 public actual fun alljoynAboutproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAboutproxy =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAboutproxyDestroy(proxy: AlljoynAboutproxy): Unit =
+public actual fun alljoynAboutproxyDestroy(proxy: AlljoynAboutproxy) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAboutproxyGetaboutdata(proxy: AlljoynAboutproxy, language: Pcstr, data: AlljoynMsgarg): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -290,14 +303,16 @@ public actual fun alljoynAboutproxyGetversion(proxy: AlljoynAboutproxy, version:
 public actual fun alljoynApplicationstatelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynApplicationstatelistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynApplicationstatelistenerDestroy(listener: AlljoynApplicationstatelistener): Unit =
+public actual fun alljoynApplicationstatelistenerDestroy(listener: AlljoynApplicationstatelistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAuthlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAuthlistenerDestroy(listener: AlljoynAuthlistener): Unit =
+public actual fun alljoynAuthlistenerDestroy(listener: AlljoynAuthlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAuthlistenerRequestcredentialsresponse(listener: AlljoynAuthlistener, authcontext: COpaquePointer?, accept: Int, credentials: AlljoynCredentials): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -311,32 +326,38 @@ public actual fun alljoynAuthlistenerVerifycredentialsresponse(listener: Alljoyn
 public actual fun alljoynAuthlistenerasyncCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAuthlistenerasyncDestroy(listener: AlljoynAuthlistener): Unit =
+public actual fun alljoynAuthlistenerasyncDestroy(listener: AlljoynAuthlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAutopingerAdddestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAutopingerAddpinggroup(autopinger: AlljoynAutopinger, group: Pcstr, listener: AlljoynPinglistener, pinginterval: UInt): Unit =
+public actual fun alljoynAutopingerAddpinggroup(autopinger: AlljoynAutopinger, group: Pcstr, listener: AlljoynPinglistener, pinginterval: UInt) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAutopingerCreate(bus: AlljoynBusattachment): AlljoynAutopinger =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAutopingerDestroy(autopinger: AlljoynAutopinger): Unit =
+public actual fun alljoynAutopingerDestroy(autopinger: AlljoynAutopinger) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynAutopingerPause(autopinger: AlljoynAutopinger): Unit =
+public actual fun alljoynAutopingerPause(autopinger: AlljoynAutopinger) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAutopingerRemovedestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr, removeall: Int): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynAutopingerRemovepinggroup(autopinger: AlljoynAutopinger, group: Pcstr): Unit =
+public actual fun alljoynAutopingerRemovepinggroup(autopinger: AlljoynAutopinger, group: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynAutopingerResume(autopinger: AlljoynAutopinger): Unit =
+public actual fun alljoynAutopingerResume(autopinger: AlljoynAutopinger) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynAutopingerSetpinginterval(autopinger: AlljoynAutopinger, group: Pcstr, pinginterval: UInt): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -371,8 +392,9 @@ public actual fun alljoynBusattachmentCancelwhoimplementsInterfaces(bus: Alljoyn
 public actual fun alljoynBusattachmentClearkeys(bus: AlljoynBusattachment, guid: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynBusattachmentClearkeystore(bus: AlljoynBusattachment): Unit =
+public actual fun alljoynBusattachmentClearkeystore(bus: AlljoynBusattachment) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynBusattachmentConnect(bus: AlljoynBusattachment, connectspec: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -398,14 +420,16 @@ public actual fun alljoynBusattachmentDeletedefaultkeystore(applicationname: Pcs
 public actual fun alljoynBusattachmentDeleteinterface(bus: AlljoynBusattachment, iface: AlljoynInterfacedescription): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynBusattachmentDestroy(bus: AlljoynBusattachment): Unit =
+public actual fun alljoynBusattachmentDestroy(bus: AlljoynBusattachment) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynBusattachmentDisconnect(bus: AlljoynBusattachment, unused: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynBusattachmentEnableconcurrentcallbacks(bus: AlljoynBusattachment): Unit =
+public actual fun alljoynBusattachmentEnableconcurrentcallbacks(bus: AlljoynBusattachment) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynBusattachmentEnablepeersecurity(bus: AlljoynBusattachment, authmechanisms: Pcstr, listener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -488,14 +512,16 @@ public actual fun alljoynBusattachmentNamehasowner(bus: AlljoynBusattachment, na
 public actual fun alljoynBusattachmentPing(bus: AlljoynBusattachment, name: Pcstr, timeout: UInt): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynBusattachmentRegisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener): Unit =
+public actual fun alljoynBusattachmentRegisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynBusattachmentRegisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynBusattachmentRegisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener): Unit =
+public actual fun alljoynBusattachmentRegisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynBusattachmentRegisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -557,11 +583,13 @@ public actual fun alljoynBusattachmentStop(bus: AlljoynBusattachment): QStatus =
 public actual fun alljoynBusattachmentUnbindsessionport(bus: AlljoynBusattachment, sessionport: UShort): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynBusattachmentUnregisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener): Unit =
+public actual fun alljoynBusattachmentUnregisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynBusattachmentUnregisterallaboutlisteners(bus: AlljoynBusattachment): Unit =
+public actual fun alljoynBusattachmentUnregisterallaboutlisteners(bus: AlljoynBusattachment) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynBusattachmentUnregisterallhandlers(bus: AlljoynBusattachment): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -569,11 +597,13 @@ public actual fun alljoynBusattachmentUnregisterallhandlers(bus: AlljoynBusattac
 public actual fun alljoynBusattachmentUnregisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynBusattachmentUnregisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener): Unit =
+public actual fun alljoynBusattachmentUnregisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynBusattachmentUnregisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject): Unit =
+public actual fun alljoynBusattachmentUnregisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynBusattachmentUnregistersignalhandler(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, srcpath: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -590,8 +620,9 @@ public actual fun alljoynBusattachmentWhoimplementsInterfaces(bus: AlljoynBusatt
 public actual fun alljoynBuslistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynBuslistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynBuslistenerDestroy(listener: AlljoynBuslistener): Unit =
+public actual fun alljoynBuslistenerDestroy(listener: AlljoynBuslistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynBusobjectAddinterface(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -614,14 +645,17 @@ public actual fun alljoynBusobjectCancelsessionlessmessageSerial(bus: AlljoynBus
 public actual fun alljoynBusobjectCreate(path: Pcstr, isplaceholder: Int, callbacksIn: COpaquePointer?, contextIn: COpaquePointer?): AlljoynBusobject =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynBusobjectDestroy(bus: AlljoynBusobject): Unit =
+public actual fun alljoynBusobjectDestroy(bus: AlljoynBusobject) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynBusobjectEmitpropertieschanged(bus: AlljoynBusobject, ifcname: Pcstr, propnames: COpaquePointer?, numprops: ULong, id: UInt): Unit =
+public actual fun alljoynBusobjectEmitpropertieschanged(bus: AlljoynBusobject, ifcname: Pcstr, propnames: COpaquePointer?, numprops: ULong, id: UInt) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynBusobjectEmitpropertychanged(bus: AlljoynBusobject, ifcname: Pcstr, propname: Pcstr, value: AlljoynMsgarg, id: UInt): Unit =
+public actual fun alljoynBusobjectEmitpropertychanged(bus: AlljoynBusobject, ifcname: Pcstr, propname: Pcstr, value: AlljoynMsgarg, id: UInt) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynBusobjectGetannouncedinterfacenames(bus: AlljoynBusobject, interfaces: COpaquePointer?, numinterfaces: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -653,14 +687,16 @@ public actual fun alljoynBusobjectSetannounceflag(bus: AlljoynBusobject, iface: 
 public actual fun alljoynBusobjectSignal(bus: AlljoynBusobject, destination: Pcstr, sessionid: UInt, signal: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, timetolive: UShort, flags: UByte, msg: AlljoynMessage): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynCredentialsClear(cred: AlljoynCredentials): Unit =
+public actual fun alljoynCredentialsClear(cred: AlljoynCredentials) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynCredentialsCreate(): AlljoynCredentials =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynCredentialsDestroy(cred: AlljoynCredentials): Unit =
+public actual fun alljoynCredentialsDestroy(cred: AlljoynCredentials) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynCredentialsGetcertchain(cred: AlljoynCredentials): Pcstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -683,23 +719,29 @@ public actual fun alljoynCredentialsGetusername(cred: AlljoynCredentials): Pcstr
 public actual fun alljoynCredentialsIsset(cred: AlljoynCredentials, creds: UShort): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynCredentialsSetcertchain(cred: AlljoynCredentials, certchain: Pcstr): Unit =
+public actual fun alljoynCredentialsSetcertchain(cred: AlljoynCredentials, certchain: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynCredentialsSetexpiration(cred: AlljoynCredentials, expiration: UInt): Unit =
+public actual fun alljoynCredentialsSetexpiration(cred: AlljoynCredentials, expiration: UInt) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynCredentialsSetlogonentry(cred: AlljoynCredentials, logonentry: Pcstr): Unit =
+public actual fun alljoynCredentialsSetlogonentry(cred: AlljoynCredentials, logonentry: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynCredentialsSetpassword(cred: AlljoynCredentials, pwd: Pcstr): Unit =
+public actual fun alljoynCredentialsSetpassword(cred: AlljoynCredentials, pwd: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynCredentialsSetprivatekey(cred: AlljoynCredentials, pk: Pcstr): Unit =
+public actual fun alljoynCredentialsSetprivatekey(cred: AlljoynCredentials, pk: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynCredentialsSetusername(cred: AlljoynCredentials, username: Pcstr): Unit =
+public actual fun alljoynCredentialsSetusername(cred: AlljoynCredentials, username: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynGetbuildinfo(): Pcstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -713,8 +755,9 @@ public actual fun alljoynGetversion(): Pcstr =
 public actual fun alljoynInit(): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynInterfacedescriptionActivate(iface: AlljoynInterfacedescription): Unit =
+public actual fun alljoynInterfacedescriptionActivate(iface: AlljoynInterfacedescription) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynInterfacedescriptionAddannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -746,8 +789,9 @@ public actual fun alljoynInterfacedescriptionEql(one: AlljoynInterfacedescriptio
 public actual fun alljoynInterfacedescriptionGetannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynInterfacedescriptionGetannotationatindex(iface: AlljoynInterfacedescription, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?): Unit =
+public actual fun alljoynInterfacedescriptionGetannotationatindex(iface: AlljoynInterfacedescription, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynInterfacedescriptionGetannotationscount(iface: AlljoynInterfacedescription): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -830,8 +874,9 @@ public actual fun alljoynInterfacedescriptionMemberEql(one: AlljoynInterfacedesc
 public actual fun alljoynInterfacedescriptionMemberGetannotation(member: AlljoynInterfacedescriptionMember, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?): Unit =
+public actual fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynInterfacedescriptionMemberGetannotationscount(member: AlljoynInterfacedescriptionMember): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -839,8 +884,9 @@ public actual fun alljoynInterfacedescriptionMemberGetannotationscount(member: A
 public actual fun alljoynInterfacedescriptionMemberGetargannotation(member: AlljoynInterfacedescriptionMember, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?): Unit =
+public actual fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynInterfacedescriptionMemberGetargannotationscount(member: AlljoynInterfacedescriptionMember, argname: Pcstr): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -851,8 +897,9 @@ public actual fun alljoynInterfacedescriptionPropertyEql(one: AlljoynInterfacede
 public actual fun alljoynInterfacedescriptionPropertyGetannotation(property: AlljoynInterfacedescriptionProperty, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?): Unit =
+public actual fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynInterfacedescriptionPropertyGetannotationscount(property: AlljoynInterfacedescriptionProperty): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -863,17 +910,20 @@ public actual fun alljoynInterfacedescriptionSetargdescription(iface: AlljoynInt
 public actual fun alljoynInterfacedescriptionSetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynInterfacedescriptionSetdescription(iface: AlljoynInterfacedescription, description: Pcstr): Unit =
+public actual fun alljoynInterfacedescriptionSetdescription(iface: AlljoynInterfacedescription, description: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynInterfacedescriptionSetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, languagetag: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynInterfacedescriptionSetdescriptionlanguage(iface: AlljoynInterfacedescription, language: Pcstr): Unit =
+public actual fun alljoynInterfacedescriptionSetdescriptionlanguage(iface: AlljoynInterfacedescription, language: Pcstr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface: AlljoynInterfacedescription, translationcallback: AlljoynInterfacedescriptionTranslationCallbackPtr): Unit =
+public actual fun alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface: AlljoynInterfacedescription, translationcallback: AlljoynInterfacedescriptionTranslationCallbackPtr) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynInterfacedescriptionSetmemberdescription(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -890,8 +940,9 @@ public actual fun alljoynInterfacedescriptionSetpropertydescriptionforlanguage(i
 public actual fun alljoynKeystorelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynKeystorelistenerDestroy(listener: AlljoynKeystorelistener): Unit =
+public actual fun alljoynKeystorelistenerDestroy(listener: AlljoynKeystorelistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynKeystorelistenerGetkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, sink: Pcstr, sinkSz: COpaquePointer?): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -908,8 +959,9 @@ public actual fun alljoynMessageCreate(bus: AlljoynBusattachment): AlljoynMessag
 public actual fun alljoynMessageDescription(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynMessageDestroy(msg: AlljoynMessage): Unit =
+public actual fun alljoynMessageDestroy(msg: AlljoynMessage) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynMessageEql(one: AlljoynMessage, other: AlljoynMessage): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -917,8 +969,9 @@ public actual fun alljoynMessageEql(one: AlljoynMessage, other: AlljoynMessage):
 public actual fun alljoynMessageGetarg(msg: AlljoynMessage, argn: ULong): AlljoynMsgarg =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynMessageGetargs(msg: AlljoynMessage, numargs: COpaquePointer?, args: COpaquePointer?): Unit =
+public actual fun alljoynMessageGetargs(msg: AlljoynMessage, numargs: COpaquePointer?, args: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynMessageGetauthmechanism(msg: AlljoynMessage): Pcstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -989,8 +1042,9 @@ public actual fun alljoynMessageIsunreliable(msg: AlljoynMessage): Int =
 public actual fun alljoynMessageParseargs(msg: AlljoynMessage, signature: Pcstr, vararg variadicArgs: Long): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynMessageSetendianess(endian: Byte): Unit =
+public actual fun alljoynMessageSetendianess(endian: Byte) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynMessageTostring(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1016,11 +1070,13 @@ public actual fun alljoynMsgargArraySignature(values: AlljoynMsgarg, numvalues: 
 public actual fun alljoynMsgargArrayTostring(args: AlljoynMsgarg, numargs: ULong, str: Pcstr, buf: ULong, indent: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynMsgargClear(arg: AlljoynMsgarg): Unit =
+public actual fun alljoynMsgargClear(arg: AlljoynMsgarg) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynMsgargClone(destination: AlljoynMsgarg, source: AlljoynMsgarg): Unit =
+public actual fun alljoynMsgargClone(destination: AlljoynMsgarg, source: AlljoynMsgarg) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynMsgargCopy(source: AlljoynMsgarg): AlljoynMsgarg =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1031,8 +1087,9 @@ public actual fun alljoynMsgargCreate(): AlljoynMsgarg =
 public actual fun alljoynMsgargCreateAndSet(signature: Pcstr, vararg variadicArgs: Long): AlljoynMsgarg =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynMsgargDestroy(arg: AlljoynMsgarg): Unit =
+public actual fun alljoynMsgargDestroy(arg: AlljoynMsgarg) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynMsgargEqual(lhv: AlljoynMsgarg, rhv: AlljoynMsgarg): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1040,8 +1097,9 @@ public actual fun alljoynMsgargEqual(lhv: AlljoynMsgarg, rhv: AlljoynMsgarg): In
 public actual fun alljoynMsgargGet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynMsgargGetArrayElement(arg: AlljoynMsgarg, index: ULong, element: COpaquePointer?): Unit =
+public actual fun alljoynMsgargGetArrayElement(arg: AlljoynMsgarg, index: ULong, element: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynMsgargGetArrayElementsignature(arg: AlljoynMsgarg, index: ULong): Pcstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1226,8 +1284,9 @@ public actual fun alljoynMsgargSetstruct(arg: AlljoynMsgarg, structMembers: Allj
 public actual fun alljoynMsgargSignature(arg: AlljoynMsgarg, str: Pcstr, buf: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynMsgargStabilize(arg: AlljoynMsgarg): Unit =
+public actual fun alljoynMsgargStabilize(arg: AlljoynMsgarg) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynMsgargTostring(arg: AlljoynMsgarg, str: Pcstr, buf: ULong, indent: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1235,8 +1294,9 @@ public actual fun alljoynMsgargTostring(arg: AlljoynMsgarg, str: Pcstr, buf: ULo
 public actual fun alljoynObserverCreate(bus: AlljoynBusattachment, mandatoryinterfaces: COpaquePointer?, nummandatoryinterfaces: ULong): AlljoynObserver =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynObserverDestroy(observer: AlljoynObserver): Unit =
+public actual fun alljoynObserverDestroy(observer: AlljoynObserver) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynObserverGet(observer: AlljoynObserver, uniquebusname: Pcstr, objectpath: Pcstr): AlljoynProxybusobjectRef =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1247,20 +1307,24 @@ public actual fun alljoynObserverGetfirst(observer: AlljoynObserver): AlljoynPro
 public actual fun alljoynObserverGetnext(observer: AlljoynObserver, proxyref: AlljoynProxybusobjectRef): AlljoynProxybusobjectRef =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynObserverRegisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener, triggeronexisting: Int): Unit =
+public actual fun alljoynObserverRegisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener, triggeronexisting: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynObserverUnregisteralllisteners(observer: AlljoynObserver): Unit =
+public actual fun alljoynObserverUnregisteralllisteners(observer: AlljoynObserver) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynObserverUnregisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener): Unit =
+public actual fun alljoynObserverUnregisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynObserverlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynObserverlistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynObserverlistenerDestroy(listener: AlljoynObserverlistener): Unit =
+public actual fun alljoynObserverlistenerDestroy(listener: AlljoynObserverlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynPasswordmanagerSetcredentials(authmechanism: Pcstr, password: Pcstr): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1268,17 +1332,21 @@ public actual fun alljoynPasswordmanagerSetcredentials(authmechanism: Pcstr, pas
 public actual fun alljoynPermissionconfigurationlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynPermissionconfigurationlistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynPermissionconfigurationlistenerDestroy(listener: AlljoynPermissionconfigurationlistener): Unit =
+public actual fun alljoynPermissionconfigurationlistenerDestroy(listener: AlljoynPermissionconfigurationlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynPermissionconfiguratorCertificatechainDestroy(certificatechain: COpaquePointer?): Unit =
+public actual fun alljoynPermissionconfiguratorCertificatechainDestroy(certificatechain: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynPermissionconfiguratorCertificateidCleanup(certificateid: COpaquePointer?): Unit =
+public actual fun alljoynPermissionconfiguratorCertificateidCleanup(certificateid: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynPermissionconfiguratorCertificateidarrayCleanup(certificateidarray: COpaquePointer?): Unit =
+public actual fun alljoynPermissionconfiguratorCertificateidarrayCleanup(certificateidarray: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynPermissionconfiguratorClaim(configurator: AlljoynPermissionconfigurator, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1328,17 +1396,21 @@ public actual fun alljoynPermissionconfiguratorInstallmanifests(configurator: Al
 public actual fun alljoynPermissionconfiguratorInstallmembership(configurator: AlljoynPermissionconfigurator, membershipcertificatechain: COpaquePointer?): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray: COpaquePointer?): Unit =
+public actual fun alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynPermissionconfiguratorManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?): Unit =
+public actual fun alljoynPermissionconfiguratorManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynPermissionconfiguratorPolicyDestroy(policyxml: COpaquePointer?): Unit =
+public actual fun alljoynPermissionconfiguratorPolicyDestroy(policyxml: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynPermissionconfiguratorPublickeyDestroy(publickey: COpaquePointer?): Unit =
+public actual fun alljoynPermissionconfiguratorPublickeyDestroy(publickey: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynPermissionconfiguratorRemovemembership(configurator: AlljoynPermissionconfigurator, serial: COpaquePointer?, seriallen: ULong, issuerpublickey: COpaquePointer?, issueraki: COpaquePointer?, issuerakilen: ULong): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1373,8 +1445,9 @@ public actual fun alljoynPermissionconfiguratorUpdatepolicy(configurator: Alljoy
 public actual fun alljoynPinglistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynPinglistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynPinglistenerDestroy(listener: AlljoynPinglistener): Unit =
+public actual fun alljoynPinglistenerDestroy(listener: AlljoynPinglistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynProxybusobjectAddchild(proxyobj: AlljoynProxybusobject, child: AlljoynProxybusobject): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1394,11 +1467,13 @@ public actual fun alljoynProxybusobjectCreate(bus: AlljoynBusattachment, service
 public actual fun alljoynProxybusobjectCreateSecure(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynProxybusobjectDestroy(proxyobj: AlljoynProxybusobject): Unit =
+public actual fun alljoynProxybusobjectDestroy(proxyobj: AlljoynProxybusobject) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynProxybusobjectEnablepropertycaching(proxyobj: AlljoynProxybusobject): Unit =
+public actual fun alljoynProxybusobjectEnablepropertycaching(proxyobj: AlljoynProxybusobject) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynProxybusobjectGetallproperties(proxyobj: AlljoynProxybusobject, iface: Pcstr, values: AlljoynMsgarg): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1475,14 +1550,16 @@ public actual fun alljoynProxybusobjectParsexml(proxyobj: AlljoynProxybusobject,
 public actual fun alljoynProxybusobjectRefCreate(proxy: AlljoynProxybusobject): AlljoynProxybusobjectRef =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynProxybusobjectRefDecref(ref: AlljoynProxybusobjectRef): Unit =
+public actual fun alljoynProxybusobjectRefDecref(ref: AlljoynProxybusobjectRef) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynProxybusobjectRefGet(ref: AlljoynProxybusobjectRef): AlljoynProxybusobject =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynProxybusobjectRefIncref(ref: AlljoynProxybusobjectRef): Unit =
+public actual fun alljoynProxybusobjectRefIncref(ref: AlljoynProxybusobjectRef) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, properties: COpaquePointer?, numproperties: ULong, callback: AlljoynProxybusobjectListenerPropertieschangedPtr, context: COpaquePointer?): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1523,14 +1600,17 @@ public actual fun alljoynSecurityapplicationproxyComputemanifestdigest(unsignedm
 public actual fun alljoynSecurityapplicationproxyCreate(bus: AlljoynBusattachment, appbusname: COpaquePointer?, sessionid: UInt): AlljoynSecurityapplicationproxy =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynSecurityapplicationproxyDestroy(proxy: AlljoynSecurityapplicationproxy): Unit =
+public actual fun alljoynSecurityapplicationproxyDestroy(proxy: AlljoynSecurityapplicationproxy) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynSecurityapplicationproxyDigestDestroy(digest: COpaquePointer?): Unit =
+public actual fun alljoynSecurityapplicationproxyDigestDestroy(digest: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublickey: COpaquePointer?): Unit =
+public actual fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublickey: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynSecurityapplicationproxyEndmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1562,14 +1642,17 @@ public actual fun alljoynSecurityapplicationproxyGetpolicy(proxy: AlljoynSecurit
 public actual fun alljoynSecurityapplicationproxyInstallmembership(proxy: AlljoynSecurityapplicationproxy, membershipcertificatechain: COpaquePointer?): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml: COpaquePointer?): Unit =
+public actual fun alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynSecurityapplicationproxyManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?): Unit =
+public actual fun alljoynSecurityapplicationproxyManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: COpaquePointer?): Unit =
+public actual fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: COpaquePointer?) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynSecurityapplicationproxyReset(proxy: AlljoynSecurityapplicationproxy): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1595,8 +1678,9 @@ public actual fun alljoynSecurityapplicationproxyUpdatepolicy(proxy: AlljoynSecu
 public actual fun alljoynSessionlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionlistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynSessionlistenerDestroy(listener: AlljoynSessionlistener): Unit =
+public actual fun alljoynSessionlistenerDestroy(listener: AlljoynSessionlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynSessionoptsCmp(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1604,8 +1688,9 @@ public actual fun alljoynSessionoptsCmp(one: AlljoynSessionopts, other: AlljoynS
 public actual fun alljoynSessionoptsCreate(traffic: UByte, ismultipoint: Int, proximity: UByte, transports: UShort): AlljoynSessionopts =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynSessionoptsDestroy(opts: AlljoynSessionopts): Unit =
+public actual fun alljoynSessionoptsDestroy(opts: AlljoynSessionopts) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynSessionoptsGetMultipoint(opts: AlljoynSessionopts): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1622,23 +1707,28 @@ public actual fun alljoynSessionoptsGetTransports(opts: AlljoynSessionopts): USh
 public actual fun alljoynSessionoptsIscompatible(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynSessionoptsSetMultipoint(opts: AlljoynSessionopts, ismultipoint: Int): Unit =
+public actual fun alljoynSessionoptsSetMultipoint(opts: AlljoynSessionopts, ismultipoint: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynSessionoptsSetProximity(opts: AlljoynSessionopts, proximity: UByte): Unit =
+public actual fun alljoynSessionoptsSetProximity(opts: AlljoynSessionopts, proximity: UByte) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynSessionoptsSetTraffic(opts: AlljoynSessionopts, traffic: UByte): Unit =
+public actual fun alljoynSessionoptsSetTraffic(opts: AlljoynSessionopts, traffic: UByte) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
-public actual fun alljoynSessionoptsSetTransports(opts: AlljoynSessionopts, transports: UShort): Unit =
+public actual fun alljoynSessionoptsSetTransports(opts: AlljoynSessionopts, transports: UShort) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynSessionportlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionportlistener =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynSessionportlistenerDestroy(listener: AlljoynSessionportlistener): Unit =
+public actual fun alljoynSessionportlistenerDestroy(listener: AlljoynSessionportlistener) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
 
 public actual fun alljoynShutdown(): QStatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1646,5 +1736,6 @@ public actual fun alljoynShutdown(): QStatus =
 public actual fun alljoynUnityDeferredCallbacksProcess(): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun alljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly: Int): Unit =
+public actual fun alljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly: Int) {
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+}
