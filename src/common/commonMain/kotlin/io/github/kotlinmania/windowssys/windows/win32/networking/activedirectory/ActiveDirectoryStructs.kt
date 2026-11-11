@@ -56,7 +56,7 @@ public class Adsvalue0(
     public var octetString: AdsOctetString = AdsOctetString(),
     public var uTCTime: Systemtime = Systemtime(),
     public var largeInteger: Long = 0L,
-    public var className: COpaquePointer? = null,
+    public var clsName: COpaquePointer? = null,
     public var providerSpecific: AdsProvSpecific = AdsProvSpecific(),
     public var pCaseIgnoreList: AdsCaseignoreList? = null,
     public var pOctetList: AdsOctetList? = null,

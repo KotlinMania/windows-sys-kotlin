@@ -236,7 +236,7 @@ public data class DhcpAllOptions(
 public data class DhcpAllOptions0(
     public var option: DhcpOption = DhcpOption(),
     public var vendorName: Pwstr = null,
-    public var className: Pwstr = null,
+    public var clsName: Pwstr = null,
 )
 
 public data class DhcpAllOptionValues(
@@ -246,7 +246,7 @@ public data class DhcpAllOptionValues(
 )
 
 public data class DhcpAllOptionValues0(
-    public var className: Pwstr = null,
+    public var clsName: Pwstr = null,
     public var vendorName: Pwstr = null,
     public var isVendor: Bool = 0,
     public var optionsArray: DhcpOptionValueArray? = null,
@@ -322,7 +322,7 @@ public data class DhcpCalloutTable(
 )
 
 public data class DhcpClassInfo(
-    public var className: Pwstr = null,
+    public var clsName: Pwstr = null,
     public var classComment: Pwstr = null,
     public var classDataLength: UInt = 0u,
     public var isVendor: Bool = 0,
@@ -341,7 +341,7 @@ public data class DhcpClassInfoArrayV6(
 )
 
 public data class DhcpClassInfoV6(
-    public var className: Pwstr = null,
+    public var clsName: Pwstr = null,
     public var classComment: Pwstr = null,
     public var classDataLength: UInt = 0u,
     public var isVendor: Bool = 0,

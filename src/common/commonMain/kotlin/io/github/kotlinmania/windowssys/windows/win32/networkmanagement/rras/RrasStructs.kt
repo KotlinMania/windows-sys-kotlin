@@ -2785,7 +2785,7 @@ public data class RtmDestInfo0(
 
 public data class RtmEntityExportMethods(
     public var numMethods: UInt = 0u,
-    public var methods: List<RtmEntityExportMethod> = List(1) { null },
+    public var methods: List<RtmEntityExportMethodFn> = emptyList(),
 )
 
 public data class RtmEntityId(

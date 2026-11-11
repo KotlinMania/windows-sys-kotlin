@@ -9,6 +9,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurren
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurrentThreadId
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
 class ThreadingTest {
@@ -27,6 +28,11 @@ class ThreadingTest {
 
     @Test
     fun testLiveCurrentProcessAndThreadIds() {
+        if (!testSupportsHostFfi()) {
+            assertFailsWith<UnsupportedOperationException> { getCurrentProcessId() }
+            assertFailsWith<UnsupportedOperationException> { getCurrentThreadId() }
+            return
+        }
         val pid = getCurrentProcessId()
         val tid = getCurrentThreadId()
         assertTrue((pid == 0u && tid == 0u) || (pid > 0u && tid > 0u))

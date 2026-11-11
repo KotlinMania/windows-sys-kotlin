@@ -1254,7 +1254,7 @@ public data class NtTib32(
     public var subSystemTib: UInt = 0u,
     public var anonymous: NtTib320 = NtTib320(),
     public var arbitraryUserPointer: UInt = 0u,
-    public var self: UInt = 0u,
+    public var selfRef: UInt = 0u,
 )
 
 public data class NtTib320(

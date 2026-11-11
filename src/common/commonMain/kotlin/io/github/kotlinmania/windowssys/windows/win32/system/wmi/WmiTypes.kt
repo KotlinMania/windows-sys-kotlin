@@ -33,13 +33,13 @@ public fun interface MiMainFunctionFn {
 public typealias MiMainFunction = MiMainFunctionFn?
 
 public fun interface MiMethodDeclInvokeFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, methodname: COpaquePointer?, instancename: COpaquePointer?, parameters: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, methodname: COpaquePointer?, instancename: COpaquePointer?, parameters: COpaquePointer?)
 }
 
 public typealias MiMethodDeclInvoke = MiMethodDeclInvokeFn?
 
 public fun interface MiModuleLoadFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?)
 }
 
 public typealias MiModuleLoad = MiModuleLoadFn?
@@ -47,7 +47,7 @@ public typealias MiModuleLoad = MiModuleLoadFn?
 public typealias MiModuleSelf = Long
 
 public fun interface MiModuleUnloadFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?)
 }
 
 public typealias MiModuleUnload = MiModuleUnloadFn?
@@ -107,85 +107,85 @@ public typealias MiPromptType = Int
 public typealias MiProviderArchitecture = Int
 
 public fun interface MiProviderFtAssociatorInstancesFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?, resultclass: COpaquePointer?, role: COpaquePointer?, resultrole: COpaquePointer?, propertyset: COpaquePointer?, keysonly: UByte, filter: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?, resultclass: COpaquePointer?, role: COpaquePointer?, resultrole: COpaquePointer?, propertyset: COpaquePointer?, keysonly: UByte, filter: COpaquePointer?)
 }
 
 public typealias MiProviderFtAssociatorInstances = MiProviderFtAssociatorInstancesFn?
 
 public fun interface MiProviderFtCreateInstanceFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, newinstance: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, newinstance: COpaquePointer?)
 }
 
 public typealias MiProviderFtCreateInstance = MiProviderFtCreateInstanceFn?
 
 public fun interface MiProviderFtDeleteInstanceFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?)
 }
 
 public typealias MiProviderFtDeleteInstance = MiProviderFtDeleteInstanceFn?
 
 public fun interface MiProviderFtDisableIndicationsFn {
-    public operator fun invoke(self: COpaquePointer?, indicationscontext: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, indicationscontext: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?)
 }
 
 public typealias MiProviderFtDisableIndications = MiProviderFtDisableIndicationsFn?
 
 public fun interface MiProviderFtEnableIndicationsFn {
-    public operator fun invoke(self: COpaquePointer?, indicationscontext: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, indicationscontext: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?)
 }
 
 public typealias MiProviderFtEnableIndications = MiProviderFtEnableIndicationsFn?
 
 public fun interface MiProviderFtEnumerateInstancesFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, propertyset: COpaquePointer?, keysonly: UByte, filter: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, propertyset: COpaquePointer?, keysonly: UByte, filter: COpaquePointer?)
 }
 
 public typealias MiProviderFtEnumerateInstances = MiProviderFtEnumerateInstancesFn?
 
 public fun interface MiProviderFtGetInstanceFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?, propertyset: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?, propertyset: COpaquePointer?)
 }
 
 public typealias MiProviderFtGetInstance = MiProviderFtGetInstanceFn?
 
 public fun interface MiProviderFtInvokeFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, methodname: COpaquePointer?, instancename: COpaquePointer?, inputparameters: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, methodname: COpaquePointer?, instancename: COpaquePointer?, inputparameters: COpaquePointer?)
 }
 
 public typealias MiProviderFtInvoke = MiProviderFtInvokeFn?
 
 public fun interface MiProviderFtLoadFn {
-    public operator fun invoke(self: COpaquePointer?, selfmodule: COpaquePointer?, context: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, selfmodule: COpaquePointer?, context: COpaquePointer?)
 }
 
 public typealias MiProviderFtLoad = MiProviderFtLoadFn?
 
 public fun interface MiProviderFtModifyInstanceFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, modifiedinstance: COpaquePointer?, propertyset: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, modifiedinstance: COpaquePointer?, propertyset: COpaquePointer?)
 }
 
 public typealias MiProviderFtModifyInstance = MiProviderFtModifyInstanceFn?
 
 public fun interface MiProviderFtReferenceInstancesFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?, role: COpaquePointer?, propertyset: COpaquePointer?, keysonly: UByte, filter: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, instancename: COpaquePointer?, role: COpaquePointer?, propertyset: COpaquePointer?, keysonly: UByte, filter: COpaquePointer?)
 }
 
 public typealias MiProviderFtReferenceInstances = MiProviderFtReferenceInstancesFn?
 
 public fun interface MiProviderFtSubscribeFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, filter: COpaquePointer?, bookmark: COpaquePointer?, subscriptionid: ULong, subscriptionself: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, filter: COpaquePointer?, bookmark: COpaquePointer?, subscriptionid: ULong, subscriptionself: COpaquePointer?)
 }
 
 public typealias MiProviderFtSubscribe = MiProviderFtSubscribeFn?
 
 public fun interface MiProviderFtUnloadFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?)
 }
 
 public typealias MiProviderFtUnload = MiProviderFtUnloadFn?
 
 public fun interface MiProviderFtUnsubscribeFn {
-    public operator fun invoke(self: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, subscriptionid: ULong, subscriptionself: COpaquePointer?)
+    public operator fun invoke(selfRef: COpaquePointer?, context: COpaquePointer?, namespace: COpaquePointer?, classname: COpaquePointer?, subscriptionid: ULong, subscriptionself: COpaquePointer?)
 }
 
 public typealias MiProviderFtUnsubscribe = MiProviderFtUnsubscribeFn?

@@ -12,6 +12,7 @@ import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurren
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.getCurrentThreadId
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
@@ -21,6 +22,10 @@ private fun isNodeWindowsHost(): Boolean =
 class WindowsSysJsTest {
     @Test
     fun testCloseHandleAndLastError() {
+        if (!testSupportsHostFfi()) {
+            assertFailsWith<UnsupportedOperationException> { getLastError() }
+            return
+        }
         if (!isNodeWindowsHost()) {
             assertEquals(0u, getLastError())
             return
@@ -32,6 +37,10 @@ class WindowsSysJsTest {
 
     @Test
     fun testThreadingAndEnvironmentFunctions() {
+        if (!testSupportsHostFfi()) {
+            assertFailsWith<UnsupportedOperationException> { getCurrentProcessId() }
+            return
+        }
         if (!isNodeWindowsHost()) {
             assertEquals(0u, getCurrentProcessId())
             return

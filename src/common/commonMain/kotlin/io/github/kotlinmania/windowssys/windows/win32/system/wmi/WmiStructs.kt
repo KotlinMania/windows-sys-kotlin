@@ -755,7 +755,7 @@ public data class MiParameterDecl(
     public var qualifiers: COpaquePointer? = null,
     public var numQualifiers: UInt = 0u,
     public var type: UInt = 0u,
-    public var className: COpaquePointer? = null,
+    public var clsName: COpaquePointer? = null,
     public var subscript: UInt = 0u,
     public var offset: UInt = 0u,
 )
@@ -780,7 +780,7 @@ public data class MiPropertyDecl(
     public var qualifiers: COpaquePointer? = null,
     public var numQualifiers: UInt = 0u,
     public var type: UInt = 0u,
-    public var className: COpaquePointer? = null,
+    public var clsName: COpaquePointer? = null,
     public var subscript: UInt = 0u,
     public var offset: UInt = 0u,
     public var origin: COpaquePointer? = null,

@@ -154,7 +154,7 @@ public data class ComponentSummary(
     public var partitionId: Guid = Guid(),
     public var applicationId: Guid = Guid(),
     public var clsid: Guid = Guid(),
-    public var className: Pwstr = null,
+    public var clsName: Pwstr = null,
     public var applicationName: Pwstr = null,
 )
 

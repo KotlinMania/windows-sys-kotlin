@@ -80,7 +80,7 @@ public data class NtTib(
     public var subSystemTib: COpaquePointer? = null,
     public var anonymous: NtTib0 = NtTib0(),
     public var arbitraryUserPointer: COpaquePointer? = null,
-    public var self: NtTib? = null,
+    public var selfRef: NtTib? = null,
 )
 
 public data class NtTib0(

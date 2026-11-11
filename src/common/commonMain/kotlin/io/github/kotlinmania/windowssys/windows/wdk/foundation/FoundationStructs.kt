@@ -255,7 +255,7 @@ public data class DriverObject(
     public var driverInit: DriverInitialize = null,
     public var driverStartIo: DriverStartio = null,
     public var driverUnload: DriverUnload = null,
-    public var majorFunction: List<DriverDispatch> = List(28) { null },
+    public var majorFunction: List<DriverDispatchFn> = emptyList(),
 )
 
 public data class Eresource(
