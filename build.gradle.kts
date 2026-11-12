@@ -181,6 +181,7 @@ val swiftExportSettings =
         .getOrElse(emptyMap())
 val swiftExportFreeCompilerArgs = csvProperty("project.swiftExport.freeCompilerArgs")
 val swiftExportLinkFreeCompilerArgs = csvProperty("project.swiftExport.linkTask.freeCompilerArgs")
+val nativeReleaseLinkFreeCompilerArgs = csvProperty("project.native.releaseLinkTask.freeCompilerArgs")
 val swiftExportExportApiBundle = boolProperty("project.swiftExport.exportApiBundle", false)
 val swiftExportHiddenDependencies = csvProperty("project.swiftExport.hidden")
 val appleFrameworkStatic = boolProperty("project.apple.framework.static", false)
@@ -596,6 +597,15 @@ kotlin {
             // allWarningsAsErrors = true for all source compilations and all other bridge diagnostics.
             compilerOptions.freeCompilerArgs.add("-Xwarning-level=UNCHECKED_CAST:disabled")
         }
+
+    if (nativeReleaseLinkFreeCompilerArgs.isNotEmpty()) {
+        tasks
+            .withType<org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink>()
+            .matching { it.optimized }
+            .configureEach {
+                toolOptions.freeCompilerArgs.addAll(nativeReleaseLinkFreeCompilerArgs)
+            }
+    }
 
     // Native FFI — Kotlin/Native cinterop + per-target static wrapper library
     if (nativeFfiEnabled) {
